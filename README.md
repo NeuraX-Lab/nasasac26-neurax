@@ -1,8 +1,8 @@
 # NeuraX — NASA Space Apps Challenge 2026
 
-NeuraX's workspace for the NASA Space Apps Challenge 2026.
+NeuraX's product and implementation repository for the NASA Space Apps Challenge 2026.
 
-We are building an open, data-driven solution at the intersection of AI, geospatial analysis, Earth observation, and open science.
+We are building an open, data-driven solution at the intersection of AI, geospatial analysis, Earth observation, environmental science, software engineering, hardware, and open science.
 
 > Project direction is intentionally kept flexible until the team locks the final 2026 challenge and problem statement.
 
@@ -12,6 +12,13 @@ We are building an open, data-driven solution at the intersection of AI, geospat
 - Event: NASA Space Apps Challenge 2026
 - Stage: Challenge selection & problem framing
 - Primary development branch: `dev`
+- Research / decision knowledge base: [`NeuraX-Lab/neurax-docs`](https://github.com/NeuraX-Lab/neurax-docs)
+
+## Repository responsibility
+
+This repository answers **how we build the selected product**: source code, architecture, data/AI/geospatial pipelines, APIs, deployment and demo assets.
+
+Challenge research and selection rationale live in [`neurax-docs`](https://github.com/NeuraX-Lab/neurax-docs/tree/main/nasa-space-apps-2026). See [`docs/research.md`](docs/research.md).
 
 ## Planned architecture
 
@@ -19,21 +26,22 @@ We are building an open, data-driven solution at the intersection of AI, geospat
 frontend/      User-facing web experience and visualization
 backend/       APIs, services, and application logic
 ai/            ML/AI experiments, inference, and evaluation
-data/          Dataset notes, schemas, and small samples
+data/          Dataset schemas and small reproducible samples
 geospatial/    GIS and Earth-observation processing
-docs/          Architecture, methodology, and project documentation
+scripts/       Preprocessing and automation
+docs/          Implementation-specific technical documentation
 demo/          Demo assets and presentation-ready materials
-.github/       GitHub workflows, issue templates, and PR templates
+.github/       GitHub workflows and repository templates
 ```
 
 ## Working model
 
-1. Pick and document the NASA challenge.
+1. Lock the final NASA challenge using the research repository.
 2. Define the target user, problem, and measurable outcome.
-3. Identify NASA/open datasets and validate licensing/access.
+3. Validate NASA/open datasets and access constraints.
 4. Build a thin end-to-end prototype first.
-5. Iterate on AI/geospatial capability only where it improves the user outcome.
-6. Keep the demo reproducible and understandable to judges.
+5. Add AI/geospatial/simulation capability only where it improves the user outcome.
+6. Keep the demo reproducible, scientifically defensible, and easy to understand.
 
 ## Branching
 
@@ -46,9 +54,13 @@ Avoid committing feature work directly to `main`.
 
 ## Team
 
-NeuraX is a multidisciplinary student team working across AI, software engineering, geospatial analysis, and domain research.
+- **Le Nguyen Gia Hung** — AI / Team Owner
+- **Huynh Quoc Viet** — AI
+- **Vo Thi Ngoc Bich** — Environmental Science
+- **Ho Minh Hieu** — Software Engineering
+- **Nguyen Thanh Hang (Tiểu An)** — Hardware
 
-Team ownership and contributor details will be finalized after the challenge is selected.
+Full team capability baseline: [`neurax-docs/team/team-profile.md`](https://github.com/NeuraX-Lab/neurax-docs/blob/main/team/team-profile.md).
 
 ## Getting started
 
