@@ -3,7 +3,20 @@ $ErrorActionPreference = 'Stop'
 $frontendRoot = $PSScriptRoot
 $labRoot = [IO.Path]::GetFullPath((Join-Path $frontendRoot '../../neurax-fieldshift-lab'))
 $pythonExecutable = Join-Path $labRoot '.venv/Scripts/python.exe'
-$nodeExecutable = (Get-Command node -ErrorAction Stop).Source
+$nodeCommand = Get-Command node -CommandType Application -ErrorAction SilentlyContinue
+$nodeExecutable = if ($nodeCommand) { $nodeCommand.Source } else { $null }
+if (!$nodeExecutable) {
+    $candidates = @()
+    if ($env:AGROTWIN_NODE) { $candidates += $env:AGROTWIN_NODE }
+    $candidates += (Join-Path $env:ProgramFiles 'nodejs/node.exe')
+    $candidates += (Join-Path $env:LOCALAPPDATA 'Programs/nodejs/node.exe')
+    $candidates += (Join-Path $env:USERPROFILE '.cache/codex-runtimes/codex-primary-runtime/dependencies/node/bin/node.exe')
+    $runtimePackages = @(Get-AppxPackage -Name 'OpenAI.CodexPrimaryRuntime*' -ErrorAction SilentlyContinue | Sort-Object Version -Descending)
+    foreach ($runtime in $runtimePackages) { $candidates += (Join-Path $runtime.InstallLocation 'dependencies/node/bin/node.exe') }
+    $nodeExecutable = $candidates | Where-Object { Test-Path -LiteralPath $_ -PathType Leaf } | Select-Object -First 1
+}
+if (!$nodeExecutable) { throw 'Node.js was not found. Install Node.js or set AGROTWIN_NODE to the full path of node.exe, then retry.' }
+Write-Output "Using Node: $nodeExecutable"
 if (!(Test-Path -LiteralPath $pythonExecutable) -or !(Test-Path -LiteralPath (Join-Path $frontendRoot 'node_modules/vite/bin/vite.js'))) {
     throw 'Install the sibling lab .venv and frontend dependencies first. See README.md.'
 }

@@ -1,7 +1,8 @@
 $ErrorActionPreference = 'Stop'
 $manifest = Join-Path $PSScriptRoot 'artifacts/local-demo/started-processes.json'
 if (!(Test-Path -LiteralPath $manifest)) { Write-Output 'No launcher-owned process manifest; no services stopped.'; return }
-foreach ($entry in @(Get-Content -LiteralPath $manifest -Raw | ConvertFrom-Json)) {
+$entries = Get-Content -LiteralPath $manifest -Raw | ConvertFrom-Json
+foreach ($entry in $entries) {
     $process = Get-CimInstance Win32_Process -Filter "ProcessId=$([int]$entry.pid)" -ErrorAction SilentlyContinue
     if (!$process) { continue }
     $expected = if ($entry.role -eq 'api') { 'uvicorn neurax.api:app --host 127.0.0.1 --port 8000' } elseif ($entry.role -eq 'frontend') { 'node_modules/vite/bin/vite.js --host 127.0.0.1 --port 5174 --strictPort' } else { throw 'Unknown process role; refusing to stop.' }

@@ -13,3 +13,5 @@ No production deploy/public submission is performed by these commands. See runbo
 After dependencies exist, use `./Start-AgroTwin.ps1` for a one-command local demo (`-NoBrowser` optional). `./Stop-AgroTwin.ps1` stops only recorded launcher-owned processes after checking their identity. The launcher reuses compatible existing services and never terminates them. `node scripts/verify-demo.mjs` captures page errors, source/API responses, Axe findings and desktop/mobile EN/VI screenshots under ignored `artifacts/v4/demo`.
 
 Build assets use an explicit allowlist: preserved local imagery without redistribution permission is not copied to `dist`. The analysis form has its own rendering boundary, so slow/offline optional map/chart chunks cannot hide the saved result or prevent analysis.
+
+Launcher compatibility fix: verified Windows PowerShell 5.1 with Node removed from PATH. Start discovers installed Node or the existing Codex runtime without changing system PATH; AGROTWIN_NODE can specify an explicit executable. Stop handles JSON process arrays in both PowerShell versions.
