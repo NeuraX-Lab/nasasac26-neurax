@@ -1,0 +1,116 @@
+{
+  "verified_at": "2026-11-14T08:34:31.577534+00:00",
+  "status": "PARTIAL_WITH_EXTERNAL_BLOCKERS",
+  "software_P0": "IMPLEMENTED_AND_TESTED",
+  "backend": {
+    "passed": 41,
+    "new_agrotwin_tests": 10,
+    "warning": "Existing Starlette/httpx deprecation"
+  },
+  "frontend_unit": {
+    "passed": 21
+  },
+  "typecheck": "PASS",
+  "lint": "PASS",
+  "build": "PASS",
+  "browser": {
+    "startTime": "2026-11-14T08:22:33.851Z",
+    "duration": 129451.133,
+    "expected": 24,
+    "skipped": 0,
+    "unexpected": 0,
+    "flaky": 0
+  },
+  "acceptance_scenarios": {
+    "1": "PASS",
+    "2": "PASS",
+    "3": "PASS",
+    "4": "PASS",
+    "5": "PASS",
+    "6": "PASS",
+    "7": "PASS",
+    "8": "PASS",
+    "9": "PASS",
+    "10": "PASS"
+  },
+  "browser_qa": {
+    "dev": {
+      "pass": true,
+      "page_errors": [],
+      "console_errors": [],
+      "critical_failures": [],
+      "expected_cancellations_with_matching_200": 8,
+      "axe_findings": [],
+      "mobile_overflow": false
+    },
+    "production": {
+      "pass": true,
+      "page_errors": [],
+      "console_errors": [],
+      "axe_findings": []
+    }
+  },
+  "reproduction": {
+    "curated_fresh_source": true,
+    "fresh_dependency_install": false,
+    "same_OS_existing_dependencies_reused": true,
+    "fresh_backend_agrotwin_passed": 10,
+    "wheel_build": "PASS with isolated temporary build dependencies",
+    "all_four_resource_JSON_in_wheel": true,
+    "run_id": "a1-69fff89f2af0fcc5fe4870cf",
+    "scientific_payload_sha256": "3b84e7ab94dfeda5fede34ecc54341ab9555a77b4255c6674d9bb4672896a76c",
+    "unsafe_image_in_source_or_dist": false
+  },
+  "launcher_start_proxy_offline_stop": "PASS",
+  "own_services_stopped": true,
+  "artifacts": [
+    {
+      "path": "frontend/artifacts/v4/final-acceptance.json",
+      "sha256": "db0481c675c444ffde34c5d47da99862c5afb9b953560363cef1c191706dc787",
+      "bytes": 29127
+    },
+    {
+      "path": "frontend/artifacts/v4/demo/report.json",
+      "sha256": "26021c76ac5a07f5051713875a037699114e18098e0455cd762a6a8528c0d345",
+      "bytes": 2606
+    },
+    {
+      "path": "frontend/artifacts/v4/production-demo/report.json",
+      "sha256": "aa99ad0e74e91be540c0a8892766fdbf916dd622fcd974d2a5cfd2e760666691",
+      "bytes": 1654
+    },
+    {
+      "path": "frontend/artifacts-v4-units.log",
+      "sha256": "c136fe264a4ced98d4412cfa319d240d936da1738ec49342b6393aeb39067e97",
+      "bytes": 272
+    },
+    {
+      "path": "frontend/artifacts-v4-build.log",
+      "sha256": "5c2ca22907d1f81c81c255da00afb9bba657f01e4fcc25b92404cf0453fa5258",
+      "bytes": 3202
+    },
+    {
+      "path": "frontend/artifacts-v4-launcher.log",
+      "sha256": "3a4d54722031967e3a4b9b4b67ea0f01cb5fd1ad8378bb3cb34c9a4a8811beaa",
+      "bytes": 353
+    },
+    {
+      "path": "frontend/public/analysis/my-thanh.saved.json",
+      "sha256": "65c78bcc49e9fd95d99db76000a9c4e7d8233e5416718b65bfc89cd272ed0c09",
+      "bytes": 62051
+    }
+  ],
+  "external_not_tested": [
+    "K1 agronomic/numerical sign-off",
+    "Field soil/current practice validation",
+    "Calibrated physical device",
+    "Actual farmer comprehension study"
+  ],
+  "not_performed": [
+    "push",
+    "production deployment",
+    "purchase",
+    "cloud spend",
+    "external team message"
+  ]
+}
