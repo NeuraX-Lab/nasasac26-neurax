@@ -15,7 +15,7 @@ export default defineConfig(({ command }) => ({
       }
     },
   }],
-  server: { host: "127.0.0.1", watch: { ignored: ["**/artifacts/**", "**/test-results/**", "**/playwright-report/**"] }, proxy: { "/api": { target: "http://127.0.0.1:8000", rewrite: (path: string) => path.replace(/^\/api/, "") } } },
-  preview: { proxy: { "/api": { target: "http://127.0.0.1:8000", rewrite: (path: string) => path.replace(/^\/api/, "") } } },
+  server: { host: "127.0.0.1", watch: { ignored: ["**/artifacts/**", "**/test-results/**", "**/playwright-report/**"] }, proxy: { "/api/v2": {target:"http://127.0.0.1:8183"}, "/api": { target: "http://127.0.0.1:8000", rewrite: (path: string) => path.replace(/^\/api/, "") } } },
+  preview: { proxy: { "/api/v2": {target:"http://127.0.0.1:8183"}, "/api": { target: "http://127.0.0.1:8000", rewrite: (path: string) => path.replace(/^\/api/, "") } } },
   build: { chunkSizeWarningLimit: 1600 },
 }));

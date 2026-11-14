@@ -13,6 +13,7 @@ export function Header() {
       </Link>
       <span className="header-divider" />
       <nav className="product-nav" aria-label="AgroTwin">
+        <Link to="/fieldshift-v2">FieldShift v2</Link>
         <Link to="/">{t("fields")}</Link>
         <Link to="/hardware">{t("hardware")}</Link>
       </nav>

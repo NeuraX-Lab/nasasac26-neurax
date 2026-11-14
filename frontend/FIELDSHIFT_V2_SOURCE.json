@@ -1,0 +1,8 @@
+{
+  "Lab_repository": "NeuraX-Lab/neurax-fieldshift-lab",
+  "Lab_code_commit": "173bbb86896583495a2036bf880e17e8212ae37e",
+  "Lab_handoff_commit": "32cb1bf",
+  "UI_base_commit": "728249bf6f92fa64df213c88f1e7539a25ab48bc",
+  "scope": "presentation import only; no model/data copied; local Lab API",
+  "source_App_sha256": "a9866cb31a423a0178d14fce85615e3cf4498281ae81fd9006047a95f8334957"
+}

@@ -11,6 +11,7 @@ import { Header } from "./layouts/Header";
 import { Entry } from "../features/sample-selection/Entry";
 import { Setup } from "../features/area-setup/Setup";
 import { Workspace } from "./layouts/Workspace";
+const FieldShiftV2 = lazy(() => import('../FieldShiftV2'));
 export default function App() {
   const { t, i18n } = useTranslation();
   const { storageError } = useApp();
@@ -35,6 +36,7 @@ export default function App() {
         }
       >
         <Routes>
+          <Route path="/fieldshift-v2" element={<FieldShiftV2 />} />
           <Route path="/" element={<Entry />} />
           <Route path="/hardware" element={<Hardware />} />
           <Route path="/setup" element={<Setup />} />
