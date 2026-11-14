@@ -1,11 +1,11 @@
 {
   "a1": {
     "schema_version": "0.1-proposal",
-    "run_id": "a1-69fff89f2af0fcc5fe4870cf",
+    "run_id": "a1-96c6dc177d41aa695952a5ec",
     "input_dataset_version": "f9465a1216db780de7389d4694fd008e263eb90f38854fcd87b07da8ab94d117",
     "model_version": "agrotwin-readiness-1.0",
     "model_owner": "NeuraX readiness evaluator",
-    "generated_at": "2026-11-14T08:22:09Z",
+    "generated_at": "2026-11-14T09:42:22Z",
     "data_as_of": "2025-12-31",
     "data_mode": "mixed",
     "result_kind": "analysis",
@@ -1261,7 +1261,7 @@
     {
       "input": "K1_approval",
       "action": "Request agronomic applicability and independent numerical review before treating references as recommendations.",
-      "owner": "Bich_and_Luat"
+      "owner": "accountable_owner_and_domain_review"
     }
   ],
   "geometry": {
@@ -1619,13 +1619,13 @@
     "schema_version": "agrotwin-orchestration-1",
     "input_hash": "9bab51a6385e2866c0e68a3e74413a15aaec1f98a4d7da423801fceed9ac746b",
     "geometry_hash": "55ae9032a5e13c2fd2886cde12b72811a226509d2655730f504586930e15eaa6",
-    "scientific_payload_sha256": "3b84e7ab94dfeda5fede34ecc54341ab9555a77b4255c6674d9bb4672896a76c",
+    "scientific_payload_sha256": "2d1260f3f77abeee1b44d99e2c5fd071a6d5abcab0a33e28eb7b872d11ec45d8",
     "evaluator_version": "agrotwin-readiness-1.0",
-    "implementation_sha256": "a273dd713efe6b738d28adbda9a6f81c131a512455d388fab66e41252600ab33",
+    "implementation_sha256": "de21ad93ce7ce10bc10a3e75c6b5c5993e4c91f9f36c5abdff4c50ef9594e651",
     "K1_version": "2026-11-13.2",
     "K1_sha256": "6c156e14e615309251f157b5e3795d6f30801c38d1141debc16f5c25284006f5",
     "D1_version": "f9465a1216db780de7389d4694fd008e263eb90f38854fcd87b07da8ab94d117",
-    "computed_at": "2026-11-14T08:22:09Z",
+    "computed_at": "2026-11-14T09:42:22Z",
     "observed_period": {
       "start": "2025-01-01",
       "end": "2026-01-01"
@@ -1636,7 +1636,7 @@
     "execution_mode": "cached",
     "cache_hit": true,
     "catalog_supported": true,
-    "served_at": "2026-11-14T08:22:09Z",
+    "served_at": "2026-11-14T09:42:22Z",
     "acquisition_warnings": []
   }
 }

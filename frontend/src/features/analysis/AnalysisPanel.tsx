@@ -1,4 +1,5 @@
-import { useEffect, useState } from "react";
+import { ResearchEvidence } from "./ResearchEvidence";
+import { useEffect, useState, useRef } from "react";
 import { useTranslation } from "react-i18next";
 import type { Geometry } from "../../core/contracts";
 import { useAnalysis } from "./state";
@@ -12,6 +13,9 @@ export function AnalysisPanel({ aoiId, geometry, power = false, sandbox = false 
   const draft = state.drafts[aoiId] || initialDraft, record = state.records[aoiId], run = record?.run;
   const stale = !!record && record.key !== materialKey(geometry, draft), running = state.running === aoiId;
   const [comparison, setComparison] = useState("");
+  const [inputsOpen, setInputsOpen] = useState(false);
+  const inputDetails = useRef<HTMLDetailsElement>(null);
+  useEffect(() => { if (inputDetails.current) inputDetails.current.open = !run || stale; }, [run,stale]);
   const [now, setNow] = useState(Date.now());
   useEffect(() => { const t = setInterval(() => setNow(Date.now()), 1000); return () => clearInterval(t); }, []);
   // Leaving this AOI cancels its outstanding response; records remain shared across modes.
@@ -47,7 +51,7 @@ export function AnalysisPanel({ aoiId, geometry, power = false, sandbox = false 
       <span>{run.a1.data_as_of ? `${msg("Data as of", "Dữ liệu đến")} ${run.a1.data_as_of}` : msg("No climate observations available", "Chưa có dữ liệu khí hậu")}</span>
       <small>{msg("Computed", "Tính lúc")}: {run.sidecar.computed_at}</small>
     </div>}
-    <details className="farm-inputs" open={!run || stale}>
+    <details className="farm-inputs" ref={inputDetails} onToggle={e => setInputsOpen(e.currentTarget.open)}>
       <summary>{msg("Confirm field inputs — unknown is allowed", "Xác nhận điều kiện — có thể chọn chưa biết")}</summary>
       <form onSubmit={e => { e.preventDefault(); void state.execute(aoiId, geometry, draft); }}>
         <div className="farm-grid">
@@ -65,22 +69,23 @@ export function AnalysisPanel({ aoiId, geometry, power = false, sandbox = false 
         {running && <button className="button secondary" type="button" onClick={state.cancel}>{msg("Cancel", "Hủy")}</button>}
       </form>
     </details>
-    {run && !stale && !running && <button className="button secondary" data-testid="analyze-again" onClick={() => void state.execute(aoiId,geometry,draft)}>{msg("Analyze confirmed inputs", "Phân tích đầu vào đã xác nhận")}</button>}
+    {run && !stale && !running && !inputsOpen && <button className="button secondary" data-testid="analyze-again" onClick={() => void state.execute(aoiId,geometry,draft)}>{msg("Analyze confirmed inputs", "Phân tích đầu vào đã xác nhận")}</button>}
     {state.error && <p role="alert" className="form-error">{msg("Analysis request unavailable. A matching saved result may be shown; changed inputs need a new successful evaluation.", "Yêu cầu phân tích chưa thành công. Chỉ có thể dùng lại kết quả lưu khớp đầu vào; dữ liệu đã đổi cần chạy thành công lại.")} {state.error}</p>}
     {run && <>
       <p className="run-proof"><strong>Run</strong> <code data-testid="run-id">{run.a1.run_id}</code> · <span data-testid="run-qa">Q1: {run.q1.status}</span> · {run.a1.status}</p>
       {stale && <p className="notice amber">{msg("The references below belong to the previous inputs. Analyze to refresh; do not use them as a current decision.", "Các kết quả dưới thuộc đầu vào trước. Cần phân tích lại; chưa dùng chúng cho điều kiện vừa sửa.")}</p>}
       {!run.a1.results.length && <p className="notice">{msg("No applicable reference catalog for this geometry. Mỹ Thành results were not reused.", "Chưa có catalog tham chiếu áp dụng cho geometry này. Không dùng lại kết quả Mỹ Thành.")}</p>}
+      <h3>{msg("What to verify next", "Cần xác minh tiếp theo")}</h3>
+      <ul className="next-actions">{actions.slice(0,power ? actions.length : 3).map(action => <li key={action.input}><strong>{actionLabel(action.input)}</strong>: {actionText(action.input,action.action)}</li>)}</ul>
+      {!power && actions.length > 3 && <details><summary>{msg("All evidence gaps", "Toàn bộ thông tin còn thiếu")} ({actions.length})</summary><ul className="next-actions">{actions.slice(3).map(action => <li key={action.input}><strong>{actionLabel(action.input)}</strong>: {actionText(action.input,action.action)}</li>)}</ul></details>}
       <div className="computed-rotations">{run.a1.results.map(result => <article key={result.strategy_id} className="computed-rotation">
         <h3>{result.strategy_id} · {result.seasons.map(s => words[s.crop_id] || s.crop_id).join(" → ")}</h3>
         <strong>{words[result.eligibility]}</strong> · {msg("Score", "Điểm")}: {result.score === null ? msg("unavailable", "chưa có") : result.score}
         <p>{msg("Current rotation unconfirmed. Historical reference; no adopted calendar.", "Chưa xác nhận hiện trạng luân canh. Chuỗi tham chiếu lịch sử; chưa có lịch áp dụng.")}</p>
         <details><summary>{msg("Why / evidence trace", "Lý do / truy vết bằng chứng")}</summary>{result.criteria.map(c => <div key={c.criterion_id} className="criterion-trace"><strong>{c.criterion_id}</strong> · {c.status}<p>{c.reason}</p><p>{msg("Inputs", "Đầu vào")}: <code>{JSON.stringify(c.inputs)}</code></p><p>{msg("Sources", "Nguồn")}: {c.evidence_ids.join(", ")}</p><small>{c.limitation}</small></div>)}</details>
       </article>)}</div>
-      <h3>{msg("What to verify next", "Cần xác minh tiếp theo")}</h3>
-      <ul className="next-actions">{actions.slice(0,power ? actions.length : 3).map(action => <li key={action.input}><strong>{actionLabel(action.input)}</strong>: {actionText(action.input,action.action)}</li>)}</ul>
-      {!power && actions.length > 3 && <details><summary>{msg("All evidence gaps", "Toàn bộ thông tin còn thiếu")} ({actions.length})</summary><ul className="next-actions">{actions.slice(3).map(action => <li key={action.input}><strong>{actionLabel(action.input)}</strong>: {actionText(action.input,action.action)}</li>)}</ul></details>}
       <details><summary>{msg("Sources and warnings", "Nguồn và cảnh báo")}</summary><ul>{[...run.a1.warnings, ...(run.sidecar.acquisition_warnings || [])].map((w,i) => <li key={i}>{w}</li>)}</ul>{run.sources.map(s => <p key={s.id}>{s.id} · {s.evidence_class} {s.url && <a href={s.url} target="_blank" rel="noreferrer">{msg("Source", "Nguồn")}</a>}</p>)}</details>
+      {power && <ResearchEvidence />}
       {power && <section className="power-run"><h3>{msg("Run provenance and comparison", "Nguồn gốc và so sánh run")}</h3><pre tabIndex={0} aria-label="Run provenance JSON">{JSON.stringify(run.sidecar,null,2)}</pre>
         <label>{msg("Compare with recorded run", "So với run đã ghi")}<select aria-label="Compare runs" value={comparison} onChange={e => setComparison(e.target.value)}><option value="">—</option>{state.history.filter(r => r.a1.run_id !== run.a1.run_id).map(r => <option key={r.a1.run_id}>{r.a1.run_id}</option>)}</select></label>
         {other && <div data-testid="run-comparison"><p>{other.a1.run_id} → {run.a1.run_id}</p><pre tabIndex={0} aria-label="Comparison input JSON">{JSON.stringify({ previous: other.inputs, current: run.inputs },null,2)}</pre><p>{msg("Same eligibility can be valid. Compare inputs and criterion traces, not a forced ranking change.", "Cùng eligibility có thể hợp lệ. So đầu vào và criterion trace, không ép đổi hạng.")}</p></div>}

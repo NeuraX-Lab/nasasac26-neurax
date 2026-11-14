@@ -36,7 +36,7 @@ test("terrain, research/sandbox parity, mode switch and drafts", async ({
     page.getByRole("button", { name: "2D", exact: true }),
   ).toHaveAttribute("aria-pressed", "true");
   await page.getByRole("button", { name: "3D terrain", exact: true }).click();
-  await page.locator(".farm-inputs summary").click();
+  if (!(await page.getByLabel("management_plan", {exact: true}).isVisible())) await page.locator(".farm-inputs summary").click();
   await page.getByLabel("management_plan", {exact: true}).fill("Draft field management");
   await page
     .getByLabel("Dataset version", { exact: true })
@@ -49,7 +49,7 @@ test("terrain, research/sandbox parity, mode switch and drafts", async ({
   await expect(page.getByText("fixture-ui-01").first()).toBeVisible();
   await page.getByRole("link", { name: "Farmer", exact: true }).click();
   await page.getByLabel("Dataset version", {exact: true}).selectOption("research");
-  await page.locator(".farm-inputs summary").click();
+  if (!(await page.getByLabel("management_plan", {exact: true}).isVisible())) await page.locator(".farm-inputs summary").click();
   await expect(page.getByLabel("management_plan", {exact: true})).toHaveValue("Draft field management");
   await page.getByRole("button", { name: "English / Tiếng Việt" }).click();
   await expect(page.getByLabel("management_plan", {exact: true})).toHaveValue("Draft field management");

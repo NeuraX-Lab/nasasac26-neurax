@@ -1,3 +1,4 @@
+import { HardwarePipeline } from "./Pipeline";
 import { useEffect, useState } from "react";
 import { useTranslation } from "react-i18next";
 import {
@@ -132,6 +133,7 @@ export function Hardware() {
             {t(h.error)}
           </p>
         )}
+        <HardwarePipeline events={h.events} />
         <div className="hardware-grid">
           <aside className="device-list" aria-label={t("devices")}>
             <h2>{t("devices")}</h2>

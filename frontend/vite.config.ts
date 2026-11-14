@@ -8,7 +8,7 @@ export default defineConfig(({ command }) => ({
   publicDir: command === "build" ? false : "public",
   plugins: [react(), tailwind(), {
     name: "curated-public-assets", apply: "build", async closeBundle() {
-      for (const asset of ["favicon.svg", "analysis", "snapshots", "terrain", "imagery/my-thanh-research.svg"]) {
+      for (const asset of ["favicon.svg", "analysis", "research", "snapshots", "terrain", "imagery/my-thanh-research.svg"]) {
         const destination = resolve("dist",asset);
         await mkdir(resolve(destination,".."),{recursive:true});
         await cp(resolve("public",asset),destination,{recursive:true});
