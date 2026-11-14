@@ -1,4 +1,5 @@
 import { ResearchEvidence } from "./ResearchEvidence";
+import { ModelProgramEvidence } from "./ModelProgramEvidence";
 import { useEffect, useState, useRef } from "react";
 import { useTranslation } from "react-i18next";
 import type { Geometry } from "../../core/contracts";
@@ -86,6 +87,7 @@ export function AnalysisPanel({ aoiId, geometry, power = false, sandbox = false 
       </article>)}</div>
       <details><summary>{msg("Sources and warnings", "Nguồn và cảnh báo")}</summary><ul>{[...run.a1.warnings, ...(run.sidecar.acquisition_warnings || [])].map((w,i) => <li key={i}>{w}</li>)}</ul>{run.sources.map(s => <p key={s.id}>{s.id} · {s.evidence_class} {s.url && <a href={s.url} target="_blank" rel="noreferrer">{msg("Source", "Nguồn")}</a>}</p>)}</details>
       {power && <ResearchEvidence />}
+      {power && <ModelProgramEvidence aoiId={aoiId} supported={run.sidecar.catalog_supported} />}
       {power && <section className="power-run"><h3>{msg("Run provenance and comparison", "Nguồn gốc và so sánh run")}</h3><pre tabIndex={0} aria-label="Run provenance JSON">{JSON.stringify(run.sidecar,null,2)}</pre>
         <label>{msg("Compare with recorded run", "So với run đã ghi")}<select aria-label="Compare runs" value={comparison} onChange={e => setComparison(e.target.value)}><option value="">—</option>{state.history.filter(r => r.a1.run_id !== run.a1.run_id).map(r => <option key={r.a1.run_id}>{r.a1.run_id}</option>)}</select></label>
         {other && <div data-testid="run-comparison"><p>{other.a1.run_id} → {run.a1.run_id}</p><pre tabIndex={0} aria-label="Comparison input JSON">{JSON.stringify({ previous: other.inputs, current: run.inputs },null,2)}</pre><p>{msg("Same eligibility can be valid. Compare inputs and criterion traces, not a forced ranking change.", "Cùng eligibility có thể hợp lệ. So đầu vào và criterion trace, không ép đổi hạng.")}</p></div>}

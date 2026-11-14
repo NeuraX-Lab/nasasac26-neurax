@@ -1,0 +1,162 @@
+{
+  "schema_version": "agrotwin-model-program-1",
+  "aoi_id": "MT-BLOCK-01",
+  "result_kind": "research_evaluation",
+  "production_inference": false,
+  "historical_months": 540,
+  "new_period": "2026-01–2026-09",
+  "report_sha256": "99fd99b4be6d18319610121e384352555c67ded31f77d8c1c7a978144c12ceba",
+  "tasks": [
+    {
+      "task": "temp-1",
+      "method": "extra_trees",
+      "unit": "degC",
+      "known_final": {
+        "n": 24,
+        "mae": 0.5588704824219567,
+        "rmse": 0.7287406041605257,
+        "bias": -0.3976942573556892
+      },
+      "baseline": {
+        "n": 24,
+        "mae": 0.5733554322924942,
+        "rmse": 0.7672847358427631,
+        "bias": -0.31264046813478874
+      },
+      "new_final": {
+        "n": 9,
+        "mae": 0.5650376621977631,
+        "rmse": 0.7607155962310992,
+        "bias": -0.38570144909115966
+      },
+      "new_baseline": {
+        "n": 9,
+        "mae": 0.6374460084985635,
+        "rmse": 0.7596859831962376,
+        "bias": -0.3152237862763414
+      },
+      "status": "RESEARCH_ONLY",
+      "reasons": [
+        "new_final_fewer_than_12_complete_targets",
+        "empirical_interval_undercoverage"
+      ]
+    },
+    {
+      "task": "temp-3",
+      "method": "hgb_15",
+      "unit": "degC",
+      "known_final": {
+        "n": 22,
+        "mae": 0.4304975606349321,
+        "rmse": 0.5655773810137281,
+        "bias": -0.17253672944411652
+      },
+      "baseline": {
+        "n": 22,
+        "mae": 0.43541715209459864,
+        "rmse": 0.6182425246634701,
+        "bias": -0.2911237167078383
+      },
+      "new_final": {
+        "n": 7,
+        "mae": 0.5892336793834053,
+        "rmse": 0.7274869403309541,
+        "bias": -0.45792727691715945
+      },
+      "new_baseline": {
+        "n": 7,
+        "mae": 0.5512933435739856,
+        "rmse": 0.5655354464602155,
+        "bias": -0.4519854163986672
+      },
+      "status": "RESEARCH_ONLY",
+      "reasons": [
+        "inconsistent_outer_fold_improvement",
+        "seasonal_degradation",
+        "new_final_fewer_than_12_complete_targets",
+        "new_final_does_not_beat_baseline",
+        "empirical_interval_undercoverage"
+      ]
+    },
+    {
+      "task": "rain-1",
+      "method": "hgb_log",
+      "unit": "mm",
+      "known_final": {
+        "n": 24,
+        "mae": 41.19686173445662,
+        "rmse": 56.95811774323739,
+        "bias": 8.451991586081892
+      },
+      "baseline": {
+        "n": 24,
+        "mae": 38.185624999999995,
+        "rmse": 54.60154362172373,
+        "bias": 10.755875000000003
+      },
+      "new_final": {
+        "n": 9,
+        "mae": 52.36876286926354,
+        "rmse": 67.93472216195414,
+        "bias": -16.386347925350332
+      },
+      "new_baseline": {
+        "n": 9,
+        "mae": 54.29511111111112,
+        "rmse": 75.10446004510429,
+        "bias": 30.411111111111104
+      },
+      "status": "RESEARCH_ONLY",
+      "reasons": [
+        "seasonal_degradation",
+        "new_final_fewer_than_12_complete_targets",
+        "known_period_does_not_beat_baseline"
+      ]
+    },
+    {
+      "task": "rain-3",
+      "method": "hgb_3",
+      "unit": "mm",
+      "known_final": {
+        "n": 22,
+        "mae": 178.54162099596135,
+        "rmse": 210.53502419956487,
+        "bias": 160.35713589108033
+      },
+      "baseline": {
+        "n": 22,
+        "mae": 68.81545454545456,
+        "rmse": 105.65906100627278,
+        "bias": 29.8836363636364
+      },
+      "new_final": {
+        "n": 7,
+        "mae": 89.0807348543781,
+        "rmse": 111.23095057465221,
+        "bias": 46.724738921300016
+      },
+      "new_baseline": {
+        "n": 7,
+        "mae": 74.75857142857141,
+        "rmse": 118.15141272355324,
+        "bias": -18.16714285714287
+      },
+      "status": "RESEARCH_ONLY",
+      "reasons": [
+        "nested_gain_below_predeclared_gate",
+        "inconsistent_outer_fold_improvement",
+        "seasonal_degradation",
+        "new_final_fewer_than_12_complete_targets",
+        "new_final_does_not_beat_baseline",
+        "empirical_interval_undercoverage",
+        "known_period_does_not_beat_baseline"
+      ]
+    }
+  ],
+  "eo": {
+    "catalog_items": 87,
+    "usable_dates": 14,
+    "longest_gap_days": 90,
+    "status": "RESEARCH_ONLY"
+  }
+}
