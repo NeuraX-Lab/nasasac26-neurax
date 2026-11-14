@@ -5,7 +5,7 @@
   "production_inference": false,
   "historical_months": 540,
   "new_period": "2026-01–2026-09",
-  "report_sha256": "99fd99b4be6d18319610121e384352555c67ded31f77d8c1c7a978144c12ceba",
+  "report_sha256": "aec77dccecc1dbf30b3317663989d331a6e4046375c42ddd6059f3d9dc0fbe40",
   "tasks": [
     {
       "task": "temp-1",
