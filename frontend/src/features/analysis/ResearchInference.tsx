@@ -15,7 +15,7 @@ export const ResearchInferenceSchema=z.object({schema_version:z.literal('agrotwi
   target_period:z.object({start:z.string(),end_exclusive:z.string()}),
   model:z.object({method:z.string(),role:z.enum(['evaluation_2024','evaluation_2026']),sha256:Hash,training_cutoff:z.string(),feature_schema_sha256:Hash}),
   prediction:z.number().finite(),baseline:z.object({method:z.string(),prediction:z.number().finite()}),
-  error_reference:z.object({lower:z.number().finite(),upper:z.number().finite(),kind:z.literal('historical_residual_reference_not_coverage_guarantee')}),
+  error_reference:z.object({lower:z.number().finite(),upper:z.number().finite(),kind:z.literal('historical_residual_reference_not_coverage_guarantee'),calibration_end:z.string(),calibration_policy:z.string()}),
   data:z.object({sha256:Hash,available_through_month:z.string(),features_through_month:z.string(),feature_vector_sha256:Hash,source_kind:z.literal('regional_reanalysis_not_field_measurement')}),
   computed_at:z.string(),execution:z.literal('model.predict executed for this request'),duration_ms:z.number().finite(),warnings:z.array(z.string()),
 });
@@ -79,6 +79,7 @@ export function ResearchInference({aoiId,geometry,supported}:{aoiId:string;geome
       <p>{msg('Strong baseline','Baseline đối chiếu')}: {current.result.baseline.prediction.toFixed(2)} {current.result.unit==='degC'?'°C':'mm'} · {current.result.baseline.method}</p>
       <p>{msg('Target window','Khoảng mục tiêu')}: {current.result.target_period.start} → {current.result.target_period.end_exclusive} ({msg('end exclusive','không gồm ngày cuối')})</p>
       <p>{msg('Historical error reference, no coverage guarantee','Dải sai số lịch sử tham khảo, không bảo đảm coverage')}: {current.result.error_reference.lower.toFixed(2)} – {current.result.error_reference.upper.toFixed(2)}</p>
+      <p>{msg('Error-reference data ends','Dữ liệu tham khảo sai số kết thúc')}: {current.result.error_reference.calibration_end}</p>
       <p>{msg('Uses completed observations through','Dùng quan sát tháng đã hoàn tất đến')}: {current.result.data.features_through_month.slice(0,7)}. {msg('Computed','Tính lúc')}: {current.result.computed_at}</p>
       <p>{msg('Does not change A1 eligibility, score or crop ranking.','Không thay eligibility, điểm hoặc xếp hạng cây của A1.')}</p>
       <details><summary>{msg('Model, source and limitations','Model, nguồn và giới hạn')}</summary>

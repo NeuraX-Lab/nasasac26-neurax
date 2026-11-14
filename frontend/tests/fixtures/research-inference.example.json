@@ -2,7 +2,7 @@
   "example_only": true,
   "response": {
     "schema_version": "agrotwin-research-inference-1",
-    "run_id": "research-f715954d5fca4c508c844b13ac1a124b",
+    "run_id": "research-218b1f75e90a4c6796d7914fb0560cf1",
     "result_kind": "computed_research_prediction",
     "status": "RESEARCH_ONLY",
     "production_approved": false,
@@ -33,7 +33,9 @@
     "error_reference": {
       "lower": 26.022349036292674,
       "upper": 27.720123514195826,
-      "kind": "historical_residual_reference_not_coverage_guarantee"
+      "kind": "historical_residual_reference_not_coverage_guarantee",
+      "calibration_end": "2025-12-01",
+      "calibration_policy": "pre2026_chronological_residual_transfer_to_refit_no_guarantee"
     },
     "data": {
       "sha256": "4a7704fdd593bb98d3fc8fba9609a6438881c0a4dd60812d2ec8e0f71d1987a7",
@@ -42,9 +44,9 @@
       "feature_vector_sha256": "084430d2dd61e1afacc6f6cf588712e2a6b0bcd536ac9f96bc29b346a5dcb532",
       "source_kind": "regional_reanalysis_not_field_measurement"
     },
-    "computed_at": "2026-11-14T17:17:34.430124+00:00",
+    "computed_at": "2026-11-14T17:40:48.515901+00:00",
     "execution": "model.predict executed for this request",
-    "duration_ms": 131.17130001774058,
+    "duration_ms": 126.75899994792417,
     "warnings": [
       "Experimental reference-month simulation, not an operational weather service or crop advice.",
       "Source is retrospective/revised; historical publication vintage and latency are not verified.",
