@@ -1,0 +1,137 @@
+{
+  "verified_at": "2026-11-14T09:57:28.605992+00:00",
+  "domains": {
+    "SOFTWARE": "SYSTEM_SOFTWARE_VERIFIED",
+    "DATA_QUALITY": "TECHNICAL_RECONSTRUCTION_PASS_WITH_SOURCE_WARNING",
+    "ML_E1": "ML_EXPERIMENT_VALIDATED_RESEARCH_ONLY",
+    "AGRONOMIC_SCIENCE": "SCIENTIFIC_APPROVAL_PENDING",
+    "HARDWARE_REAL_USER": "PHYSICAL_DEVICE_NOT_TESTED / USER_STUDY_NOT_DONE"
+  },
+  "tests": {
+    "backend": 47,
+    "frontend_unit": 21,
+    "browser": {
+      "startTime": "2026-11-14T09:48:54.882Z",
+      "duration": 90790.004,
+      "expected": 26,
+      "skipped": 0,
+      "unexpected": 0,
+      "flaky": 0
+    },
+    "original_V4_scenarios": {
+      "all_10": "PASS"
+    },
+    "fresh_staged_source_integration": 15,
+    "production_preview_browser": 2,
+    "typecheck": "PASS",
+    "lint": "PASS",
+    "build": "PASS",
+    "repeat_research_report_and_model_sha": "PASS",
+    "legacy_HTTP_inference_guard": "PASS_409",
+    "raw_normalization": "PASS"
+  },
+  "qa": {
+    "pass": true,
+    "page_errors": [],
+    "console_errors": [],
+    "critical_network_failures": [],
+    "axe": [
+      {
+        "name": "entry-en",
+        "violations": []
+      },
+      {
+        "name": "farmer-en",
+        "violations": []
+      },
+      {
+        "name": "power-en",
+        "violations": []
+      },
+      {
+        "name": "hardware-en",
+        "violations": []
+      }
+    ],
+    "mobile_overflow": false
+  },
+  "model_decision": "RESEARCH_ONLY",
+  "artifact_sha256": "c3f661ad7c7f5159d45a263bb20a7d10def3f58d4b843ea5e541f1fdb2a4b6c1",
+  "normalized_sha256": "ff79f609ff0e7236487520576a78149d3ad984e2f55259844b8d638099d36c38",
+  "source_raw_sha256": "60fd764713fde469a037889ec2459018821abddd842c089899ac01d34e0fdf32",
+  "preserved_preexisting_tracked_WIP": [
+    "nasasac26-neurax/README.md",
+    "nasasac26-neurax/docs/architecture.md",
+    "neurax-fieldshift-lab/AGENTS.md",
+    "neurax-fieldshift-lab/README.md",
+    "neurax-fieldshift-lab/docs/agent-orchestration.md",
+    "neurax-fieldshift-lab/docs/architecture-proposal.md",
+    "neurax-fieldshift-lab/docs/contracts.md",
+    "neurax-fieldshift-lab/docs/implementation-status.md",
+    "neurax-fieldshift-lab/docs/project-context.json",
+    "neurax-docs/README.md",
+    "neurax-docs/nasa-space-apps-2026/README.md",
+    "neurax-docs/nasa-space-apps-2026/decision-log.md",
+    "neurax-docs/nasa-space-apps-2026/final-selection.md",
+    "neurax-docs/nasa-space-apps-2026/planning/START-HERE.md",
+    "neurax-docs/nasa-space-apps-2026/planning/architecture.md",
+    "neurax-docs/nasa-space-apps-2026/planning/team-workstreams.md",
+    "neurax-docs/nasa-space-apps-2026/planning/workflows/field-shift.md",
+    "neurax-docs/team/team-profile.md"
+  ],
+  "repositories_before_documentation_commit": [
+    {
+      "repository": "nasasac26-neurax",
+      "branch": "build/agrotwin-v4.1-single-owner",
+      "commit": "e1ba167d9fca68c3d5c957f9a8d1e6cdbd2b03cc",
+      "status": " M README.md\n M docs/architecture.md\n?? docs/execution/v4.1/\n?? docs/frontend-browser-qa.json\n?? docs/frontend-handoff.md\n?? docs/hardware-and-assistant.md\n?? docs/implementation-plan.md\n?? docs/product-direction.md\n?? docs/repository-audit-and-delta.md\n?? docs/uiux-case-selection.md\n?? docs/uiux-v4-review.md\n?? docs/verification-record.md\n?? frontend/public/imagery/my-thanh.png\n"
+    },
+    {
+      "repository": "neurax-fieldshift-lab",
+      "branch": "build/agrotwin-v4.1-single-owner",
+      "commit": "05e31b602bc3effc82fef4b91637b28301cc7b30",
+      "status": " M AGENTS.md\n M README.md\n M docs/agent-orchestration.md\n M docs/architecture-proposal.md\n M docs/contracts.md\n M docs/implementation-status.md\n M docs/project-context.json\n?? docs/PRODUCT-DIRECTION-2026-11-13.md\n"
+    },
+    {
+      "repository": "neurax-docs",
+      "branch": "build/agrotwin-v4.1-single-owner",
+      "commit": "d2ebf66fd0f6fb22c3062ab017781a39485411d8",
+      "status": " M README.md\n M nasa-space-apps-2026/README.md\n M nasa-space-apps-2026/decision-log.md\n M nasa-space-apps-2026/final-selection.md\n M nasa-space-apps-2026/planning/START-HERE.md\n M nasa-space-apps-2026/planning/architecture.md\n M nasa-space-apps-2026/planning/team-workstreams.md\n M nasa-space-apps-2026/planning/workflows/field-shift.md\n M team/team-profile.md\n?? nasa-space-apps-2026/planning/product-direction-delta-2026-11-13.md\n"
+    }
+  ],
+  "artifacts": {
+    "dataset_inventory.json": {
+      "sha256": "5d3a8d75224a2c6ebfd59d429afc5bdf55baecd8daba91c36ae1514d50526a82",
+      "bytes": 27120
+    },
+    "eda.png": {
+      "sha256": "d0b262adc354f1aed1d31b9f8fd4f76b5f411c0bd2ef013f5694a873ce23df65",
+      "bytes": 94609
+    },
+    "final_predictions.csv": {
+      "sha256": "2100232492bd990f56d134be18f8ec5030b8c63f9b85286218620c941461d92c",
+      "bytes": 1237
+    },
+    "report.json": {
+      "sha256": "06697e04599a6ca6a515aa316699c9758b07b55d01cbf963a011a8efb90daac5",
+      "bytes": 11084
+    },
+    "seasonality.csv": {
+      "sha256": "def51d97fa2d03367228186b4d3b6d26292957f62118faf6ae08ef55da2cd0c0",
+      "bytes": 1369
+    }
+  },
+  "limitations": [
+    "Existing same-OS dependencies reused; no fresh npm ci",
+    "No genuine domain approval, physical device or actual user study",
+    "One source grid, retrospective E1; no crop recommendation model",
+    "Final browser26 suite covers current dashboard paths; final route-only legacy inference guard additionally tested in backend47 suite"
+  ],
+  "not_performed": [
+    "remote push",
+    "production deploy",
+    "cloud spend",
+    "purchases",
+    "external messages"
+  ]
+}

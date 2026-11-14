@@ -1,0 +1,561 @@
+{
+  "schema_version": "dataset-inventory-v41",
+  "files": [
+    {
+      "path": "../neurax-docs/nasa-space-apps-2026/sources/data-audits/duc-lap-2026-11-12/annual.csv",
+      "bytes": 313,
+      "sha256": "e498552fbed220de551972204c424d67c9dfa1cbdccfc7a71bb9731bacbaa0fe"
+    },
+    {
+      "path": "../neurax-docs/nasa-space-apps-2026/sources/data-audits/duc-lap-2026-11-12/daily.csv",
+      "bytes": 138785,
+      "sha256": "255516e485723d6d7dffd674c7578b0fa686cf15fd5b190113166fb53ebfe0cd"
+    },
+    {
+      "path": "../neurax-docs/nasa-space-apps-2026/sources/data-audits/duc-lap-2026-11-12/data_dictionary.json",
+      "bytes": 898,
+      "sha256": "129d931fb53e5a870b9d98e1667632abbc95206e9f103b2cad425a8977a0f82c"
+    },
+    {
+      "path": "../neurax-docs/nasa-space-apps-2026/sources/data-audits/duc-lap-2026-11-12/event-crosscheck/comparison.csv",
+      "bytes": 259,
+      "sha256": "387bbab9379c833f41e0f5653e2134c88309912943c60efa30c04a869b4d7e0b"
+    },
+    {
+      "path": "../neurax-docs/nasa-space-apps-2026/sources/data-audits/duc-lap-2026-11-12/event-crosscheck/era5_open_meteo_raw.json",
+      "bytes": 372,
+      "sha256": "578798f000dfbfe743385ab016db0c65d8d586c7d0c18b9dc86cf25db7e52397"
+    },
+    {
+      "path": "../neurax-docs/nasa-space-apps-2026/sources/data-audits/duc-lap-2026-11-12/event-crosscheck/retrieval.json",
+      "bytes": 577,
+      "sha256": "420e8f79c5ec31f91abdd70d865dcd4fbbd2e25beb1e2932aa92259d0ea8814c"
+    },
+    {
+      "path": "../neurax-docs/nasa-space-apps-2026/sources/data-audits/duc-lap-2026-11-12/event-crosscheck/summary.json",
+      "bytes": 1740,
+      "sha256": "94b107d760f1170d2420bc340e65edf06d13eda9174e447188cfd7e78edae04c"
+    },
+    {
+      "path": "../neurax-docs/nasa-space-apps-2026/sources/data-audits/duc-lap-2026-11-12/manifest.json",
+      "bytes": 3275,
+      "sha256": "d19835f1ba9adde792d14c0d9f1f95dbf0b89203d4c4ba0babd4462870c1b579"
+    },
+    {
+      "path": "../neurax-docs/nasa-space-apps-2026/sources/data-audits/duc-lap-2026-11-12/monthly.csv",
+      "bytes": 5792,
+      "sha256": "c92e691fe106f08c13532bcb9c7d157bde2d6068fdfce41fd682675b23c31e93"
+    },
+    {
+      "path": "../neurax-docs/nasa-space-apps-2026/sources/data-audits/duc-lap-2026-11-12/monthly_reference_2015_2025.csv",
+      "bytes": 668,
+      "sha256": "1c3f64c358ff8fbf4ddb267e12062e68e44a41709669a77be351e34d0206f10d"
+    },
+    {
+      "path": "../neurax-docs/nasa-space-apps-2026/sources/data-audits/duc-lap-2026-11-12/power_daily_2015_2025.json",
+      "bytes": 268042,
+      "sha256": "6c8bbc92a68985ae620e209f36958999db895bdc5a48d1c2dca2c5fc9a36cf5e"
+    },
+    {
+      "path": "../neurax-docs/nasa-space-apps-2026/sources/data-audits/duc-lap-2026-11-12/qa.json",
+      "bytes": 930,
+      "sha256": "b681e78c0fa2836b876f3f6946b299ef8b00f1f244ce48d52498160a105ffae3"
+    },
+    {
+      "path": "../neurax-docs/nasa-space-apps-2026/sources/data-audits/duc-lap-2026-11-12/reference-exposure/exposure.csv",
+      "bytes": 614,
+      "sha256": "c051f527c191fd3dd9f1ddb671c181f794f0b9d686354fb5df0be17ff982ab52"
+    },
+    {
+      "path": "../neurax-docs/nasa-space-apps-2026/sources/data-audits/duc-lap-2026-11-12/reference-exposure/summary.json",
+      "bytes": 1360,
+      "sha256": "a5382d439ff7535988a3101f053c75a73c1ce9572b3ed71c2aaa8f16bc710aeb"
+    },
+    {
+      "path": "../neurax-docs/nasa-space-apps-2026/sources/data-audits/duc-lap-2026-11-12/retrieval.json",
+      "bytes": 378,
+      "sha256": "776c4a0e309da1beb419f2f185b2eb2389997dbf14285f0cab73ea18cf6ef54b"
+    },
+    {
+      "path": "../neurax-docs/nasa-space-apps-2026/sources/data-audits/duc-lap-2026-11-12/rotation-window-screen/summary.json",
+      "bytes": 3069,
+      "sha256": "8643dcd107c9342c169a2f3f3f4cb6000ca8902bbd9dab4cb74d4bd8baca5bde"
+    },
+    {
+      "path": "../neurax-docs/nasa-space-apps-2026/sources/data-audits/duc-lap-2026-11-12/rotation-window-screen/windows.csv",
+      "bytes": 5408,
+      "sha256": "978d53da365d818c63660582e6d550257120a0f44abcdf174e8d7817b4b9a2b8"
+    },
+    {
+      "path": "../neurax-docs/nasa-space-apps-2026/sources/data-audits/duc-lap-2026-11-12/soilgrids-context/clay_0-5cm_mean.tif",
+      "bytes": 1334,
+      "sha256": "726699fcaefa8422adab8c9911b6c90f67ead4677faabb049a997be496a595f5"
+    },
+    {
+      "path": "../neurax-docs/nasa-space-apps-2026/sources/data-audits/duc-lap-2026-11-12/soilgrids-context/clay_0-5cm_Q0.05.tif",
+      "bytes": 1081,
+      "sha256": "2018a748dae50dc86a016a5d1b4dd16f032c2dacf4274e400118ba1326e53c25"
+    },
+    {
+      "path": "../neurax-docs/nasa-space-apps-2026/sources/data-audits/duc-lap-2026-11-12/soilgrids-context/clay_0-5cm_Q0.95.tif",
+      "bytes": 1271,
+      "sha256": "b3f32940ab7c082f6e38ba2ed8e33c3264e1cf8d98b42a96518db11909ddb256"
+    },
+    {
+      "path": "../neurax-docs/nasa-space-apps-2026/sources/data-audits/duc-lap-2026-11-12/soilgrids-context/clay_5-15cm_mean.tif",
+      "bytes": 1322,
+      "sha256": "332d3d0c5bab56bcaac7813ff95adca3cce2568952492d5f00e96c6478d24fcd"
+    },
+    {
+      "path": "../neurax-docs/nasa-space-apps-2026/sources/data-audits/duc-lap-2026-11-12/soilgrids-context/clay_5-15cm_Q0.05.tif",
+      "bytes": 1062,
+      "sha256": "b22bf8134f9a91db98db9105cbc4f5778b8708f9809a55f8c60573473301c796"
+    },
+    {
+      "path": "../neurax-docs/nasa-space-apps-2026/sources/data-audits/duc-lap-2026-11-12/soilgrids-context/clay_5-15cm_Q0.95.tif",
+      "bytes": 1256,
+      "sha256": "ab6c4df374878cea936fed63f275a0ffe60538b01adaab38ee104e37ff48d39a"
+    },
+    {
+      "path": "../neurax-docs/nasa-space-apps-2026/sources/data-audits/duc-lap-2026-11-12/soilgrids-context/phh2o_0-5cm_mean.tif",
+      "bytes": 963,
+      "sha256": "c59148f3f97fc7ffeb6527598e758288b0baf4771ec0f726d5d626b5dc7c62c7"
+    },
+    {
+      "path": "../neurax-docs/nasa-space-apps-2026/sources/data-audits/duc-lap-2026-11-12/soilgrids-context/phh2o_0-5cm_Q0.05.tif",
+      "bytes": 948,
+      "sha256": "0ef1c8e7ff4ce056e7486019dc9f1390a0af285ca757325bacd6358d515fe79d"
+    },
+    {
+      "path": "../neurax-docs/nasa-space-apps-2026/sources/data-audits/duc-lap-2026-11-12/soilgrids-context/phh2o_0-5cm_Q0.95.tif",
+      "bytes": 975,
+      "sha256": "4c3ad5f14f885d737a592f58c2c8f8cfaad2dfe696cdfdf3b75a952c51bc3aae"
+    },
+    {
+      "path": "../neurax-docs/nasa-space-apps-2026/sources/data-audits/duc-lap-2026-11-12/soilgrids-context/phh2o_5-15cm_mean.tif",
+      "bytes": 978,
+      "sha256": "f17ca89122b5324cd61459b71b2db42e54483127ed84c69a73d1006419277265"
+    },
+    {
+      "path": "../neurax-docs/nasa-space-apps-2026/sources/data-audits/duc-lap-2026-11-12/soilgrids-context/phh2o_5-15cm_Q0.05.tif",
+      "bytes": 948,
+      "sha256": "8818f9c04e82ee2608516b1de6472c4edfdd56eec054592cc8de37c20741aa9b"
+    },
+    {
+      "path": "../neurax-docs/nasa-space-apps-2026/sources/data-audits/duc-lap-2026-11-12/soilgrids-context/phh2o_5-15cm_Q0.95.tif",
+      "bytes": 977,
+      "sha256": "ece3a25fda4fc88b998b4ea63d77394b042e84c86847b4747e3cd55e03125952"
+    },
+    {
+      "path": "../neurax-docs/nasa-space-apps-2026/sources/data-audits/duc-lap-2026-11-12/soilgrids-context/reference-values.csv",
+      "bytes": 1559,
+      "sha256": "1d6506680db35c788d7aa756063d37e6daca74119c2a2fb79999d7e4d5b3ba20"
+    },
+    {
+      "path": "../neurax-docs/nasa-space-apps-2026/sources/data-audits/duc-lap-2026-11-12/soilgrids-context/retrieval.json",
+      "bytes": 13082,
+      "sha256": "dadeb34340e78885431e84a2de8b0fb565bfab246d626b4f73089f3e21ad7555"
+    },
+    {
+      "path": "../neurax-docs/nasa-space-apps-2026/sources/data-audits/duc-lap-2026-11-12/soilgrids-context/sand_0-5cm_mean.tif",
+      "bytes": 1293,
+      "sha256": "a7889e35dbe5590947837f3af56efd7c5bc37df483cad085cd12af36c6e040ee"
+    },
+    {
+      "path": "../neurax-docs/nasa-space-apps-2026/sources/data-audits/duc-lap-2026-11-12/soilgrids-context/sand_0-5cm_Q0.05.tif",
+      "bytes": 1060,
+      "sha256": "86da2ace150839865a5c8a3954d50b8897c622bd418aa2bbb1295a2e96c01a07"
+    },
+    {
+      "path": "../neurax-docs/nasa-space-apps-2026/sources/data-audits/duc-lap-2026-11-12/soilgrids-context/sand_0-5cm_Q0.95.tif",
+      "bytes": 1366,
+      "sha256": "1f414fef098241a691943c973f7bc14e995bf43b45c29d7de06f96d5b5a3041e"
+    },
+    {
+      "path": "../neurax-docs/nasa-space-apps-2026/sources/data-audits/duc-lap-2026-11-12/soilgrids-context/sand_5-15cm_mean.tif",
+      "bytes": 1295,
+      "sha256": "efed0f4b9eecd26b3afb71a5709970ee545c570f3a489939c86b566739ebba8e"
+    },
+    {
+      "path": "../neurax-docs/nasa-space-apps-2026/sources/data-audits/duc-lap-2026-11-12/soilgrids-context/sand_5-15cm_Q0.05.tif",
+      "bytes": 1049,
+      "sha256": "e2180885718ec381fc6b7c0405c425ae6c587f9e30a8146a28ed07f443d03936"
+    },
+    {
+      "path": "../neurax-docs/nasa-space-apps-2026/sources/data-audits/duc-lap-2026-11-12/soilgrids-context/sand_5-15cm_Q0.95.tif",
+      "bytes": 1454,
+      "sha256": "10d9fa44e389b26f0a9dd14ea598af122837f7613fe41323d2cc03ab04c1988a"
+    },
+    {
+      "path": "../neurax-docs/nasa-space-apps-2026/sources/data-audits/duc-lap-2026-11-12/soilgrids-context/summary.json",
+      "bytes": 7940,
+      "sha256": "2de665c7b7a2ab1d63a733129879f729fe578a496304e9e9bf3c77cfdc3f089e"
+    },
+    {
+      "path": "../neurax-docs/nasa-space-apps-2026/sources/data-audits/duc-lap-2026-11-12/summary.json",
+      "bytes": 2453,
+      "sha256": "ac7ff149bdbc76429f2d06c4ba7401817519edc6f1b38caa8dfbfdb2e1b31505"
+    },
+    {
+      "path": "../neurax-docs/nasa-space-apps-2026/sources/data-audits/long-khanh-cai-lay-2026-11-12/daily.csv",
+      "bytes": 139043,
+      "sha256": "0da8c233aff92c41d49ed8de39131055c808bdf9738fdb15a22e8b8133d4f061"
+    },
+    {
+      "path": "../neurax-docs/nasa-space-apps-2026/sources/data-audits/long-khanh-cai-lay-2026-11-12/manifest.json",
+      "bytes": 2571,
+      "sha256": "5c35294ffc46ea93d37f02b9876eadcf7097e2de71f6eb726bc602da3a39c96e"
+    },
+    {
+      "path": "../neurax-docs/nasa-space-apps-2026/sources/data-audits/long-khanh-cai-lay-2026-11-12/power_daily_2015_2025.json",
+      "bytes": 268296,
+      "sha256": "f94ea0351c9495195e2bed33a4ee856234b18ca9cc101e9799b8a573732f72ea"
+    },
+    {
+      "path": "../neurax-docs/nasa-space-apps-2026/sources/data-audits/my-thanh-cai-lay-2026-11-12/daily.csv",
+      "bytes": 139043,
+      "sha256": "0da8c233aff92c41d49ed8de39131055c808bdf9738fdb15a22e8b8133d4f061"
+    },
+    {
+      "path": "../neurax-docs/nasa-space-apps-2026/sources/data-audits/my-thanh-cai-lay-2026-11-12/imagery/admin-map-export.json",
+      "bytes": 462,
+      "sha256": "1631ad0f93f39228e4d57bd7e6514cde2282a5f75d46105649489b24e4e093d4"
+    },
+    {
+      "path": "../neurax-docs/nasa-space-apps-2026/sources/data-audits/my-thanh-cai-lay-2026-11-12/imagery/aoi-imagery-citation.json",
+      "bytes": 2630,
+      "sha256": "b5cf63031eb066d1850da11d2e44119c071fccbecc821969ed52949012817314"
+    },
+    {
+      "path": "../neurax-docs/nasa-space-apps-2026/sources/data-audits/my-thanh-cai-lay-2026-11-12/imagery/esri-world-imagery-service.json",
+      "bytes": 11142,
+      "sha256": "3c41ca79d7ddc2267fa1ac60c43263acbfed04915e3b2433e6b8e5d30378e2dc"
+    },
+    {
+      "path": "../neurax-docs/nasa-space-apps-2026/sources/data-audits/my-thanh-cai-lay-2026-11-12/imagery/my-thanh-boundary.geojson",
+      "bytes": 54340,
+      "sha256": "2ac4f02ebfa1afed235a7e4d583319f571fe7840999b52ae9567125da6cee301"
+    },
+    {
+      "path": "../neurax-docs/nasa-space-apps-2026/sources/data-audits/my-thanh-cai-lay-2026-11-12/imagery/my-thanh-close-export.json",
+      "bytes": 462,
+      "sha256": "4d0cafa6348e1a1b8799fb4d85d7e0a118fa3d6a4e26ef1c9a81dfb42e5545cf"
+    },
+    {
+      "path": "../neurax-docs/nasa-space-apps-2026/sources/data-audits/my-thanh-cai-lay-2026-11-12/imagery/my-thanh-detail-export.json",
+      "bytes": 461,
+      "sha256": "066232eb557eac03e0034dd3168f621543a7f228a8ebc586140b443bf55b1575"
+    },
+    {
+      "path": "../neurax-docs/nasa-space-apps-2026/sources/data-audits/my-thanh-cai-lay-2026-11-12/imagery/official-my-thanh-geometry.json",
+      "bytes": 14675,
+      "sha256": "bb602d3a4dcc03a30951177af67c8f297dd41ebe976689833faac8d0e5466ca5"
+    },
+    {
+      "path": "../neurax-docs/nasa-space-apps-2026/sources/data-audits/my-thanh-cai-lay-2026-11-12/imagery/pc-scenes.json",
+      "bytes": 46372,
+      "sha256": "a5e0a531b5ca81ea96dcdfc3efcd709b6abcc3c3dd912d7b7081098280f358d0"
+    },
+    {
+      "path": "../neurax-docs/nasa-space-apps-2026/sources/data-audits/my-thanh-cai-lay-2026-11-12/imagery/render-2026-03-25.json",
+      "bytes": 696,
+      "sha256": "aa16bd7ed7cc1a9c844274ef4f214880a5b556e18e22217f01ce381cb0888d34"
+    },
+    {
+      "path": "../neurax-docs/nasa-space-apps-2026/sources/data-audits/my-thanh-cai-lay-2026-11-12/imagery/render-2026-11-05.json",
+      "bytes": 696,
+      "sha256": "b545f65dbd522923a36273e65c3ba78a25d34d1309d13780eb89a7aad3307222"
+    },
+    {
+      "path": "../neurax-docs/nasa-space-apps-2026/sources/data-audits/my-thanh-cai-lay-2026-11-12/imagery/scl-2026-03-25.tif",
+      "bytes": 24396,
+      "sha256": "785db21a17e0974ccdaf29b20b3c3d1550963316791eaf77f4919d0d83c2bee4"
+    },
+    {
+      "path": "../neurax-docs/nasa-space-apps-2026/sources/data-audits/my-thanh-cai-lay-2026-11-12/imagery/scl-2026-11-05.tif",
+      "bytes": 24396,
+      "sha256": "21fa6ac841caa49e78fa0581d279a7e5f269dc8b533a3101bb9fdec513c7e4d3"
+    },
+    {
+      "path": "../neurax-docs/nasa-space-apps-2026/sources/data-audits/my-thanh-cai-lay-2026-11-12/power_daily_2015_2025.json",
+      "bytes": 268296,
+      "sha256": "60fd764713fde469a037889ec2459018821abddd842c089899ac01d34e0fdf32"
+    },
+    {
+      "path": "../neurax-docs/nasa-space-apps-2026/sources/data-audits/my-thanh-cai-lay-2026-11-12/retrieval.json",
+      "bytes": 10913,
+      "sha256": "c51359b0a96150fd33a762dbba44a4380430eac630a516a007fbb90c0de6847c"
+    },
+    {
+      "path": "../neurax-docs/nasa-space-apps-2026/sources/data-audits/my-thanh-cai-lay-2026-11-12/soilgrids/clay_0-5cm_mean.tif",
+      "bytes": 744,
+      "sha256": "8c0356517d8358768cfbe5f6c8a8d18100cc49e266a25d05c759a40cb2d5ef0f"
+    },
+    {
+      "path": "../neurax-docs/nasa-space-apps-2026/sources/data-audits/my-thanh-cai-lay-2026-11-12/soilgrids/clay_0-5cm_Q0.05.tif",
+      "bytes": 635,
+      "sha256": "1a1426605967c1432967e3de6077ef752ccc786fb462ea5857b8a6b99f855f48"
+    },
+    {
+      "path": "../neurax-docs/nasa-space-apps-2026/sources/data-audits/my-thanh-cai-lay-2026-11-12/soilgrids/clay_0-5cm_Q0.95.tif",
+      "bytes": 742,
+      "sha256": "770a16d8c7138c8755c0ffdd92467b2b9760b37dc73bbaa7f586220a92e337e7"
+    },
+    {
+      "path": "../neurax-docs/nasa-space-apps-2026/sources/data-audits/my-thanh-cai-lay-2026-11-12/soilgrids/phh2o_0-5cm_mean.tif",
+      "bytes": 679,
+      "sha256": "3bc6e149e1596cea26345f42f84dc87bbb4c8d4a5f993ffc570dd10606c939a6"
+    },
+    {
+      "path": "../neurax-docs/nasa-space-apps-2026/sources/data-audits/my-thanh-cai-lay-2026-11-12/soilgrids/phh2o_0-5cm_Q0.05.tif",
+      "bytes": 682,
+      "sha256": "476c799be7fb3c8714bfc6b5077d7ceb40a37a68b088b361c2f515445dc99e84"
+    },
+    {
+      "path": "../neurax-docs/nasa-space-apps-2026/sources/data-audits/my-thanh-cai-lay-2026-11-12/soilgrids/phh2o_0-5cm_Q0.95.tif",
+      "bytes": 674,
+      "sha256": "7bf1cb7a3d423b76dbbff9586fb507ef9e20de9947e81449cdf54ba8d9d6f20e"
+    },
+    {
+      "path": "../neurax-docs/nasa-space-apps-2026/sources/data-audits/my-thanh-cai-lay-2026-11-12/soilgrids/phh2o_15-30cm_mean.tif",
+      "bytes": 676,
+      "sha256": "5d00608fad8a189797f5a34757445adfa80a47185ac6a5ff798a076ec3da6bff"
+    },
+    {
+      "path": "../neurax-docs/nasa-space-apps-2026/sources/data-audits/my-thanh-cai-lay-2026-11-12/soilgrids/phh2o_15-30cm_Q0.05.tif",
+      "bytes": 673,
+      "sha256": "ab890ea55f2301e85629fa3dfbd3988ce0596855c391841a2096aa46d97a0266"
+    },
+    {
+      "path": "../neurax-docs/nasa-space-apps-2026/sources/data-audits/my-thanh-cai-lay-2026-11-12/soilgrids/phh2o_15-30cm_Q0.95.tif",
+      "bytes": 678,
+      "sha256": "8f5b6371c22b067619b3b61d3c5505110e017757d69b3afdb698a4a52c229e9d"
+    },
+    {
+      "path": "../neurax-docs/nasa-space-apps-2026/sources/data-audits/my-thanh-cai-lay-2026-11-12/soilgrids/phh2o_5-15cm_mean.tif",
+      "bytes": 675,
+      "sha256": "9d7175dac6e922c69f9e2c93bb3db7204bf0aaff4332fbf662df87e9ac136e82"
+    },
+    {
+      "path": "../neurax-docs/nasa-space-apps-2026/sources/data-audits/my-thanh-cai-lay-2026-11-12/soilgrids/phh2o_5-15cm_Q0.05.tif",
+      "bytes": 671,
+      "sha256": "454bebaace86ff3d257fa62fb009dcb28e9d93ac0215c43e8e792f458ce801d8"
+    },
+    {
+      "path": "../neurax-docs/nasa-space-apps-2026/sources/data-audits/my-thanh-cai-lay-2026-11-12/soilgrids/phh2o_5-15cm_Q0.95.tif",
+      "bytes": 671,
+      "sha256": "b7fe383fd46bbae30eba7044543eda773be344229efd1da485558f47948d0313"
+    },
+    {
+      "path": "../neurax-docs/nasa-space-apps-2026/sources/data-audits/my-thanh-cai-lay-2026-11-12/soilgrids/sand_0-5cm_mean.tif",
+      "bytes": 727,
+      "sha256": "3026e379ed950db5f87078a733a6073aee07bee9309f98241cdb0a94c6a1f8f9"
+    },
+    {
+      "path": "../neurax-docs/nasa-space-apps-2026/sources/data-audits/my-thanh-cai-lay-2026-11-12/soilgrids/sand_0-5cm_Q0.05.tif",
+      "bytes": 671,
+      "sha256": "1846fdc319a121e99fcf4b32056f10f60421e0820772d6441416691d27bdfd4d"
+    },
+    {
+      "path": "../neurax-docs/nasa-space-apps-2026/sources/data-audits/my-thanh-cai-lay-2026-11-12/soilgrids/sand_0-5cm_Q0.95.tif",
+      "bytes": 732,
+      "sha256": "e4f5a0933eb8ef39ebf88db3962d32baa5319c695e9458f2c042394103c15fea"
+    },
+    {
+      "path": "../neurax-docs/nasa-space-apps-2026/sources/data-audits/my-thanh-cai-lay-2026-11-12/summary.json",
+      "bytes": 8751,
+      "sha256": "486abfaa6c1d620fc25592a2ce79fd7124c57caa9640f1667e7139c3db5c3d89"
+    },
+    {
+      "path": "neurax/resources/agrotwin/case.json",
+      "bytes": 4311,
+      "sha256": "9a0a5a224268dbc11a59b040e1603f00beca13e618343f933c0f39e10c3a4a71"
+    },
+    {
+      "path": "neurax/resources/agrotwin/catalog.json",
+      "bytes": 17027,
+      "sha256": "df5d0ff09ef52782505b1cad575be8cc87c73d0baa7a0cec2876fc461c1eb111"
+    },
+    {
+      "path": "neurax/resources/agrotwin/climate.json",
+      "bytes": 19104,
+      "sha256": "1684a13ddd7b6ee9e23cf5bad486a4c6ac44a95d508c53a8d7c0411de61ced5c"
+    },
+    {
+      "path": "neurax/resources/agrotwin/sources.json",
+      "bytes": 6700,
+      "sha256": "0e2481f70cc8a64685b8620ace6a94a9d93478b4b99af0becc2164b4e3a26c49"
+    }
+  ],
+  "raw_to_normalized": {
+    "raw_available": true,
+    "raw_sha256": "60fd764713fde469a037889ec2459018821abddd842c089899ac01d34e0fdf32",
+    "expected_sha256": "60fd764713fde469a037889ec2459018821abddd842c089899ac01d34e0fdf32",
+    "n_reconstructed": 132,
+    "max_absolute_residual": {
+      "temp": 4.838709699583887e-07,
+      "rain": 5.684341886080802e-14
+    },
+    "passed": true,
+    "note": "Monthly numerical values reconstructed; retained manual source flags are Q1 sidecar, not corrections."
+  },
+  "source_registry": {
+    "version": "agrotwin-sources-1",
+    "sources": [
+      {
+        "id": "NASA-POWER-CACHE",
+        "provider": "NASA POWER",
+        "url": "https://power.larc.nasa.gov/api/temporal/daily/point?parameters=T2M%2CT2M_MAX%2CT2M_MIN%2CPRECTOTCORR&community=AG&longitude=106.02154675&latitude=10.4770865&start=20150101&end=20251231&format=JSON&time-standard=UTC",
+        "kind": "gridded_weather_estimate",
+        "retrievedAt": "2026-11-12T02:12:21.632567+00:00",
+        "sourceSha256": "60fd764713fde469a037889ec2459018821abddd842c089899ac01d34e0fdf32",
+        "featuresSha256": "9912d774974bd5bc1f71bc900811ee0e1fd33b9f3a4fbbbec625523ea15b1a92",
+        "flags": [
+          {
+            "date": "2020-06-14",
+            "parameter": "PRECTOTCORR",
+            "value": 488.17,
+            "unit": "mm/day",
+            "status": "needs_independent_review",
+            "action": "kept_raw_not_corrected"
+          }
+        ],
+        "units": {
+          "rain": "mm/month",
+          "temp": "°C"
+        },
+        "nativeResolution": "Original POWER grid; not field measurements",
+        "validation": "Technical integrity checked; not domain approved",
+        "NASA": true,
+        "evidence_class": "DERIVED_MODEL",
+        "license": "NASA data: retain source/product attribution; no endorsement implied",
+        "access_status": "real cache available; live acquisition tested separately"
+      },
+      {
+        "id": "SOILGRIDS",
+        "provider": "ISRIC",
+        "product": "SoilGrids model, 250 m, depth-specific predictions",
+        "NASA": false,
+        "url": "https://docs.isric.org/globaldata/soilgrids/SoilGrids_faqs_01.html",
+        "license": "CC-BY-4.0; attribution required",
+        "evidence_class": "DERIVED_MODEL",
+        "variables": "pH water (dimensionless), clay/sand (%), prediction quantiles",
+        "uncertainty": "Centroid cell; not field measurement; resampling method unverified"
+      },
+      {
+        "id": "SOIL-01",
+        "provider": "Can Tho University",
+        "product": "WRB-FAO regional soil classification, revised 2009, published 2011",
+        "NASA": false,
+        "url": "https://ctujsvn.ctu.edu.vn/index.php/ctujsvn/article/view/1006",
+        "license": "Citation/link only; full paper not redistributed in runnable package",
+        "evidence_class": "REGIONAL_HISTORICAL",
+        "locator": "journal pp11,12,16,17; map 1:250,000; 276 augerings",
+        "sha256": "4a436d9560106f74f2a1ae233f5ced45992de5ac38223d9c38855bfda17c1b0a"
+      },
+      {
+        "id": "S4",
+        "url": "https://ctujsvn.ctu.edu.vn/index.php/ctujsvn/article/download/605/3214/3214",
+        "scope": "Long Khanh and Vinh My historical experiments",
+        "locator": "PDF p2 methods; p4-5 discussion/Table4",
+        "reading_status": "read_in_prior_feasibility_pass",
+        "NASA": false,
+        "provider": "Source publisher",
+        "license": "Citation/link; full text not redistributed",
+        "evidence_class": "REGIONAL_HISTORICAL"
+      },
+      {
+        "id": "S5",
+        "url": "https://ctujsvn.ctu.edu.vn/index.php/ctujsvn/article/download/597/3222/3222",
+        "scope": "Diked Cai Lay experimental field; 2005 measurements on experiment continuing from 2001",
+        "locator": "PDF p2-3 methods/Table1",
+        "reading_status": "read_in_prior_feasibility_pass",
+        "NASA": false,
+        "provider": "Source publisher",
+        "license": "Citation/link; full text not redistributed",
+        "evidence_class": "REGIONAL_HISTORICAL"
+      },
+      {
+        "id": "EXT-MUNG-2018",
+        "url": "https://khuyennongvn.gov.vn/hoat-dong-khuyen-nong/chuyen-giao-tbkt/quang-tri-hieu-qua-mo-hinh-chuyen-doi-cay-dau-xanh-tren-dat-lua-thieu-nuoc-17502.html",
+        "scope": "Cam Lo, Quang Tri; DX208 demonstration",
+        "locator": "Drainage and irrigation discussion",
+        "reading_status": "read_in_prior_feasibility_pass",
+        "NASA": false,
+        "provider": "Source publisher",
+        "license": "Citation/link; full text not redistributed",
+        "evidence_class": "REGIONAL_HISTORICAL"
+      },
+      {
+        "id": "AGRO-BABY-2008",
+        "url": "https://agro.gov.vn/vn/tID11656_Ky-thuat-trong-ngo-bao-tu.html",
+        "scope": "Archived cultivation guidance with spring/winter calendar; not a My Thanh study",
+        "locator": "Sections 1, 3 and 6",
+        "reading_status": "page_read_2026-11-13",
+        "evidence_limit": "Archived guidance, not a locally validated response function",
+        "NASA": false,
+        "provider": "Source publisher",
+        "license": "Citation/link; full text not redistributed",
+        "evidence_class": "REGIONAL_HISTORICAL"
+      },
+      {
+        "id": "VAAS-MUNG-2014",
+        "url": "https://tapchi.vaas.vn/sites/tapchi.vaas.vn/files/tapchi/2021-09/tc14_14.pdf",
+        "scope": "Huong Son, Ha Tinh; summer trials 2010 and 2011",
+        "locator": "PDF p2 methods; p3 Table2; p4 conclusion",
+        "reading_status": "PDF_read_2026-11-13",
+        "evidence_limit": "Source abstract text has OCR/inconsistency issues; Table2 and methods were used for the specific duration observation",
+        "NASA": false,
+        "provider": "Source publisher",
+        "license": "Citation/link; full text not redistributed",
+        "evidence_class": "REGIONAL_HISTORICAL"
+      },
+      {
+        "id": "ESA-S2",
+        "provider": "ESA Copernicus",
+        "NASA": false,
+        "product": "Sentinel-2 L2A reflectance and SCL, 2025 sample coverage",
+        "license": "Copernicus attribution; no raster included here",
+        "evidence_class": "REMOTE_SENSING",
+        "url": "https://dataspace.copernicus.eu/",
+        "integration": "research QA only; not a runtime crop classifier"
+      },
+      {
+        "id": "OSM",
+        "provider": "OpenStreetMap contributors",
+        "NASA": false,
+        "url": "https://www.openstreetmap.org/copyright",
+        "license": "ODbL; retain map attribution; online standard tiles subject to usage policy",
+        "integration": "navigation only; offline geometry fallback",
+        "evidence_class": "UNKNOWN"
+      },
+      {
+        "id": "GEOMETRY",
+        "provider": "Team analyst",
+        "NASA": false,
+        "product": "Image-digitised research block, not cadastral/surveyed",
+        "license": "Team-authored geometry; original Esri image excluded from distributable assets",
+        "evidence_class": "PROPOSED"
+      },
+      {
+        "id": "IMPLEMENTATION-POLICY",
+        "provider": "NeuraX",
+        "product": "Input completeness checks, agrotwin-readiness-1.0",
+        "NASA": false,
+        "evidence_class": "PROPOSED",
+        "url": null,
+        "license": "Team-authored implementation policy",
+        "scope": "Presence of user inputs; not crop suitability or agronomic approval"
+      }
+    ]
+  },
+  "restrictions": "Provider terms retained in source registry; imagery permission is not inferred from local availability.",
+  "availability": {
+    "POWER": "raw daily + curated monthly if paths present",
+    "SoilGrids": "case model context; source sampling does not verify field soil",
+    "Sentinel2": "local research imagery/SCL/metadata listed; not crop labels or current pipeline features",
+    "SOIL01_S4_S5": "published historical evidence, not supervised outcome table",
+    "HLS_MODIS_IMERG": "no configured runtime dataset; not claimed acquired",
+    "H1": "synthetic runtime tests; no authenticated physical log supplied"
+  }
+}

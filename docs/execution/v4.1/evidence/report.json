@@ -1,0 +1,359 @@
+{
+  "schema_version": "agrotwin-research-1",
+  "source": {
+    "id": "NASA-POWER-CACHE",
+    "provider": "NASA POWER",
+    "product": "Daily API v2.10.3 / MERRA2 -> monthly D1",
+    "url": "https://power.larc.nasa.gov/api/temporal/daily/point?parameters=T2M%2CT2M_MAX%2CT2M_MIN%2CPRECTOTCORR&community=AG&longitude=106.02154675&latitude=10.4770865&start=20150101&end=20251231&format=JSON&time-standard=UTC",
+    "sha256": "60fd764713fde469a037889ec2459018821abddd842c089899ac01d34e0fdf32",
+    "features_sha256": "9912d774974bd5bc1f71bc900811ee0e1fd33b9f3a4fbbbec625523ea15b1a92",
+    "retrieved_at": "2026-11-12T02:12:21.632567+00:00",
+    "evidence_class": "DERIVED_MODEL",
+    "native_resolution": "Meteorology coarse native grid (~0.5 x 0.625 degrees); not field measurements",
+    "query_point_lon_lat": [
+      106.02154675,
+      10.4770865
+    ],
+    "flags": [
+      {
+        "date": "2020-06-14",
+        "parameter": "PRECTOTCORR",
+        "value": 488.17,
+        "unit": "mm/day",
+        "status": "needs_independent_review",
+        "action": "kept_raw_not_corrected"
+      }
+    ],
+    "units": {
+      "rain": "mm/month",
+      "temp": "°C"
+    },
+    "observed_period": {
+      "start": "2015-01-01",
+      "end": "2025-12-31"
+    },
+    "attribution": "NASA POWER, NASA Langley; cite source URL and source hashes. Technical QA is not field validation."
+  },
+  "normalized_sha256": "ff79f609ff0e7236487520576a78149d3ad984e2f55259844b8d638099d36c38",
+  "source_payload_sha256": "c4e858cbf20fbcb092d86a74ecd9f2e19c576542cd920f5878d4a465a660bdd1",
+  "implementation_sha256": "049e8598dcabf662547577f472b82c121f134c538cf2a169ac7f117e855d0858",
+  "n_months": 132,
+  "period": [
+    "2015-01-01",
+    "2025-12-01"
+  ],
+  "missing": {
+    "rain": 0,
+    "temp": 0
+  },
+  "duplicates": 0,
+  "zero_rain_months": 1,
+  "qa_counts": {
+    "pass": 131,
+    "warn": 1
+  },
+  "retained_flags": [
+    {
+      "date": "2020-06-14",
+      "parameter": "PRECTOTCORR",
+      "value": 488.17,
+      "unit": "mm/day",
+      "status": "needs_independent_review",
+      "action": "kept_raw_not_corrected"
+    }
+  ],
+  "descriptive_statistics": {
+    "rain": {
+      "count": 132.0,
+      "mean": 147.9756818181818,
+      "std": 141.09644586925694,
+      "min": 0.0,
+      "25%": 26.7275,
+      "50%": 138.59,
+      "75%": 224.3425,
+      "max": 966.72
+    },
+    "temp": {
+      "count": 132.0,
+      "mean": 27.810761037878788,
+      "std": 1.6009012116370622,
+      "min": 24.831613,
+      "25%": 26.80653225,
+      "50%": 27.3409385,
+      "75%": 28.939283,
+      "max": 32.678
+    }
+  },
+  "feasibility": {
+    "climate_temperature": "RESEARCH_ONLY:132 monthly targets,120 lagged samples",
+    "crop_suitability": "NOT_TRAINABLE_WITH_AVAILABLE_LABELS",
+    "sensor_anomalies": "NOT_TRAINABLE_WITH_AVAILABLE_LABELS: no verified real log"
+  },
+  "raw_reconstruction": "Curated monthly payload reproducible. Original raw daily source bytes not asserted reacquired.",
+  "experiment": {
+    "protocol": {
+      "version": "v41-temperature-1",
+      "target": "T2M monthly mean",
+      "unit": "degC",
+      "horizon_months": 1,
+      "validation_years": [
+        2021,
+        2022,
+        2023
+      ],
+      "final_years": [
+        2024,
+        2025
+      ],
+      "features": [
+        "lag1",
+        "lag12",
+        "previous3mean",
+        "month_sin",
+        "month_cos"
+      ],
+      "candidate_leaf_counts": [
+        3,
+        7
+      ],
+      "seed": 42,
+      "production_gate": "disabled: no reviewed K1 consumer and limited regional evaluation",
+      "research_comparison_gate": "selected on validation only; report final without reselection"
+    },
+    "folds": [
+      {
+        "candidate": 3,
+        "year": 2021,
+        "train_n": 60,
+        "max_training_target": "2020-12-01",
+        "candidate_metrics": {
+          "n": 12,
+          "mae_degC": 0.6767059436618714,
+          "rmse_degC": 0.8483678297925835,
+          "bias_degC": 0.5567378034189696
+        },
+        "baseline_metrics": {
+          "n": 12,
+          "mae_degC": 0.8607302500000005,
+          "rmse_degC": 1.3093596627461013,
+          "bias_degC": 0.7928807499999998
+        }
+      },
+      {
+        "candidate": 3,
+        "year": 2022,
+        "train_n": 72,
+        "max_training_target": "2021-12-01",
+        "candidate_metrics": {
+          "n": 12,
+          "mae_degC": 0.6105864574529974,
+          "rmse_degC": 0.9265430451785123,
+          "bias_degC": 0.20356267044040846
+        },
+        "baseline_metrics": {
+          "n": 12,
+          "mae_degC": 0.5360452500000005,
+          "rmse_degC": 0.7074978705284206,
+          "bias_degC": -0.0185272499999997
+        }
+      },
+      {
+        "candidate": 3,
+        "year": 2023,
+        "train_n": 84,
+        "max_training_target": "2022-12-01",
+        "candidate_metrics": {
+          "n": 12,
+          "mae_degC": 0.647015580652868,
+          "rmse_degC": 0.9538993063661902,
+          "bias_degC": -0.34651986422471
+        },
+        "baseline_metrics": {
+          "n": 12,
+          "mae_degC": 1.0430589999999997,
+          "rmse_degC": 1.3501573714199022,
+          "bias_degC": -0.720726
+        }
+      },
+      {
+        "candidate": 7,
+        "year": 2021,
+        "train_n": 60,
+        "max_training_target": "2020-12-01",
+        "candidate_metrics": {
+          "n": 12,
+          "mae_degC": 0.6171145202862078,
+          "rmse_degC": 0.7903782920572288,
+          "bias_degC": 0.5057610668490439
+        },
+        "baseline_metrics": {
+          "n": 12,
+          "mae_degC": 0.8607302500000005,
+          "rmse_degC": 1.3093596627461013,
+          "bias_degC": 0.7928807499999998
+        }
+      },
+      {
+        "candidate": 7,
+        "year": 2022,
+        "train_n": 72,
+        "max_training_target": "2021-12-01",
+        "candidate_metrics": {
+          "n": 12,
+          "mae_degC": 0.6084768569618358,
+          "rmse_degC": 0.9170582707423295,
+          "bias_degC": 0.1345410725674284
+        },
+        "baseline_metrics": {
+          "n": 12,
+          "mae_degC": 0.5360452500000005,
+          "rmse_degC": 0.7074978705284206,
+          "bias_degC": -0.0185272499999997
+        }
+      },
+      {
+        "candidate": 7,
+        "year": 2023,
+        "train_n": 84,
+        "max_training_target": "2022-12-01",
+        "candidate_metrics": {
+          "n": 12,
+          "mae_degC": 0.6352006495082062,
+          "rmse_degC": 0.898733630187252,
+          "bias_degC": -0.38726997676795144
+        },
+        "baseline_metrics": {
+          "n": 12,
+          "mae_degC": 1.0430589999999997,
+          "rmse_degC": 1.3501573714199022,
+          "bias_degC": -0.720726
+        }
+      }
+    ],
+    "selection": {
+      "candidate": "hgb_7",
+      "validation_mae": {
+        "3": 0.6447693272559123,
+        "7": 0.62026400891875
+      },
+      "baseline_validation_mae": 0.813278166666667,
+      "gate_relative_improvement": 0.05,
+      "final_holdout_used_for_selection": false
+    },
+    "final_e1": {
+      "candidate": {
+        "n": 24,
+        "mae_degC": 0.4928593359456673,
+        "rmse_degC": 0.6212932302963811,
+        "bias_degC": -0.2642767060241897
+      },
+      "baseline": {
+        "n": 24,
+        "mae_degC": 0.8317863749999996,
+        "rmse_degC": 1.089273104666574,
+        "bias_degC": 0.08632862499999971
+      },
+      "selected_method": "hgb_7",
+      "selected_metrics": {
+        "n": 24,
+        "mae_degC": 0.4928593359456673,
+        "rmse_degC": 0.6212932302963811,
+        "bias_degC": -0.2642767060241897
+      },
+      "by_season": {
+        "DJF": {
+          "candidate": {
+            "n": 6,
+            "mae_degC": 0.6381298980250811,
+            "rmse_degC": 0.6808918939199476,
+            "bias_degC": -0.20540986358777502
+          },
+          "baseline": {
+            "n": 6,
+            "mae_degC": 1.390306833333333,
+            "rmse_degC": 1.5479913521259845,
+            "bias_degC": 0.005741166666666094
+          }
+        },
+        "MAM": {
+          "candidate": {
+            "n": 6,
+            "mae_degC": 0.6834204901935225,
+            "rmse_degC": 0.8475081066702624,
+            "bias_degC": -0.5422726646507842
+          },
+          "baseline": {
+            "n": 6,
+            "mae_degC": 1.1999068333333316,
+            "rmse_degC": 1.3703553958582526,
+            "bias_degC": 0.05898216666666597
+          }
+        },
+        "JJA": {
+          "candidate": {
+            "n": 6,
+            "mae_degC": 0.46136695054593585,
+            "rmse_degC": 0.5274605572609655,
+            "bias_degC": -0.39215943048594326
+          },
+          "baseline": {
+            "n": 6,
+            "mae_degC": 0.354489166666666,
+            "rmse_degC": 0.4214575524274852,
+            "bias_degC": 0.042704166666666765
+          }
+        },
+        "SON": {
+          "candidate": {
+            "n": 6,
+            "mae_degC": 0.1885200050181298,
+            "rmse_degC": 0.28969416719135593,
+            "bias_degC": 0.08273513462774378
+          },
+          "baseline": {
+            "n": 6,
+            "mae_degC": 0.3824426666666678,
+            "rmse_degC": 0.5424813180995269,
+            "bias_degC": 0.23788700000000004
+          }
+        }
+      },
+      "high_temperature_months": {
+        "threshold_train_only_degC": 30.1258065,
+        "n": 5,
+        "candidate": {
+          "n": 5,
+          "mae_degC": 0.7810161480973008,
+          "rmse_degC": 0.9242750988127221,
+          "bias_degC": -0.6898156377158671
+        },
+        "note": "Descriptive slice, not heat-wave detection or crop stress threshold"
+      }
+    },
+    "environment": {
+      "python": "3.12.14",
+      "numpy": "2.5.4",
+      "pandas": "2.3.3",
+      "sklearn": "1.9.1",
+      "joblib": "1.6.0"
+    },
+    "final_holdout_dates": [
+      "2024-01-01",
+      "2025-12-01"
+    ],
+    "latest_fit_target": "2023-12-01",
+    "train_final_n": 96,
+    "final_holdout_n": 24,
+    "decision": "RESEARCH_ONLY",
+    "inference_consumer": "Power research evidence only; no production prediction or A1 join",
+    "artifact_sha256": "c3f661ad7c7f5159d45a263bb20a7d10def3f58d4b843ea5e541f1fdb2a4b6c1",
+    "production_approved": false,
+    "interpretation": "Internal temporal E1, not independent external scientific validation; no crop outcome labels.",
+    "limitations": [
+      "One regional grid, 11 years; autocorrelated monthly records.",
+      "Rolling one-step uses previous observed test months, not a 24-month forecast.",
+      "Validation and final test are different dates; protocol was designed after historic source availability, not a prospective trial.",
+      "Final metrics cannot justify retrospective model reselection or crop suitability."
+    ]
+  }
+}
