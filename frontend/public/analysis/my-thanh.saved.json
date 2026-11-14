@@ -1,0 +1,1642 @@
+{
+  "a1": {
+    "schema_version": "0.1-proposal",
+    "run_id": "a1-69fff89f2af0fcc5fe4870cf",
+    "input_dataset_version": "f9465a1216db780de7389d4694fd008e263eb90f38854fcd87b07da8ab94d117",
+    "model_version": "agrotwin-readiness-1.0",
+    "model_owner": "NeuraX readiness evaluator",
+    "generated_at": "2026-11-14T08:22:09Z",
+    "data_as_of": "2025-12-31",
+    "data_mode": "mixed",
+    "result_kind": "analysis",
+    "status": "partial",
+    "evidence_ids": [
+      "AGRO-BABY-2008",
+      "EXT-MUNG-2018",
+      "IMPLEMENTATION-POLICY",
+      "S4",
+      "VAAS-MUNG-2014"
+    ],
+    "warnings": [
+      "Readiness/evidence-gap analysis, not validated crop advice.",
+      "Regional NASA weather is not a measurement at this field.",
+      "SOIL-01 is regional historical context; SoilGrids is a model; bench sensors are excluded from this evaluator."
+    ],
+    "results": [
+      {
+        "strategy_id": "R0",
+        "is_current": null,
+        "reference_kind": "historical_reference",
+        "seasons": [
+          {
+            "season_index": 1,
+            "crop_id": "rice",
+            "calendar_window": null
+          },
+          {
+            "season_index": 2,
+            "crop_id": "rice",
+            "calendar_window": null
+          },
+          {
+            "season_index": 3,
+            "crop_id": "rice",
+            "calendar_window": null
+          }
+        ],
+        "eligibility": "needs_review",
+        "score": null,
+        "criteria": [
+          {
+            "criterion_id": "INPUT-COMPLETENESS",
+            "kind": "input_completeness_not_crop_suitability",
+            "status": "needs_review",
+            "inputs": {
+              "current_crop": null,
+              "previous_crop": null,
+              "season": null,
+              "irrigation_access": null,
+              "drainage_condition": null
+            },
+            "missing_inputs": [
+              "current_crop",
+              "previous_crop",
+              "season",
+              "irrigation_access",
+              "drainage_condition"
+            ],
+            "evidence_ids": [
+              "IMPLEMENTATION-POLICY"
+            ],
+            "reason": "Checks whether user context is supplied, not whether the crop is suitable.",
+            "limitation": "Self-reported inputs are not independently verified field observations."
+          },
+          {
+            "criterion_id": "K1-DRAFT-IRRIGATION",
+            "kind": "qualitative_constraint_candidate",
+            "status": "needs_review",
+            "approval_state": "draft",
+            "inputs": {
+              "irrigation_access": null,
+              "supply_calendar": null,
+              "water_quality": null,
+              "crop_stage_requirements": null
+            },
+            "missing_inputs": [
+              "irrigation_access",
+              "supply_calendar",
+              "water_quality",
+              "crop_stage_requirements"
+            ],
+            "evidence_ids": [
+              "EXT-MUNG-2018",
+              "AGRO-BABY-2008"
+            ],
+            "reason": "Rule applicability is not approved; draft thresholds were not executed.",
+            "statement": "Rainfall alone does not establish available water; review irrigation supply and crop-stage demand",
+            "scope": [
+              "MT-BLOCK-01"
+            ],
+            "season": "not_approved_for_current_field",
+            "unit_method": "See cited source; no adopted numeric threshold",
+            "reviewer": null,
+            "source_refs": [
+              {
+                "id": "EXT-MUNG-2018",
+                "url": "https://khuyennongvn.gov.vn/hoat-dong-khuyen-nong/chuyen-giao-tbkt/quang-tri-hieu-qua-mo-hinh-chuyen-doi-cay-dau-xanh-tren-dat-lua-thieu-nuoc-17502.html",
+                "year": null,
+                "year_status": "source-specific; not adopted as a pooled rule year",
+                "region_scope": "Cam Lo, Quang Tri; DX208 demonstration",
+                "page_locator": "Drainage and irrigation discussion"
+              },
+              {
+                "id": "AGRO-BABY-2008",
+                "url": "https://agro.gov.vn/vn/tID11656_Ky-thuat-trong-ngo-bao-tu.html",
+                "year": null,
+                "year_status": "source-specific; not adopted as a pooled rule year",
+                "region_scope": "Archived cultivation guidance with spring/winter calendar; not a My Thanh study",
+                "page_locator": "Sections 1, 3 and 6"
+              }
+            ],
+            "crop_variety": {
+              "crop_ids": [
+                "baby_corn",
+                "mung_bean",
+                "rice"
+              ],
+              "variety": null,
+              "local_applicability": "unknown"
+            },
+            "condition": "Rainfall alone does not establish available water; review irrigation supply and crop-stage demand",
+            "numeric_reviewer": null,
+            "limitation": "Historical observations and model values do not certify this field."
+          },
+          {
+            "criterion_id": "K1-DRAFT-SOIL-STRUCTURE",
+            "kind": "outcome_interpretation_constraint",
+            "status": "needs_review",
+            "approval_state": "draft",
+            "inputs": {
+              "chosen_outcome": null,
+              "applicable_soil_evidence": null,
+              "reviewed_comparison_method": null
+            },
+            "missing_inputs": [
+              "chosen_outcome",
+              "applicable_soil_evidence",
+              "reviewed_comparison_method"
+            ],
+            "evidence_ids": [
+              "S4"
+            ],
+            "reason": "Rule applicability is not approved; draft thresholds were not executed.",
+            "statement": "Do not infer a superior rotation from the reported nonsignificant Long Khanh aggregate-stability comparisons at the reported depths; this does not generalize to every physical soil property.",
+            "scope": [
+              "MT-BLOCK-01"
+            ],
+            "season": "not_approved_for_current_field",
+            "unit_method": "See cited source; no adopted numeric threshold",
+            "reviewer": null,
+            "source_refs": [
+              {
+                "id": "S4",
+                "url": "https://ctujsvn.ctu.edu.vn/index.php/ctujsvn/article/download/605/3214/3214",
+                "year": null,
+                "year_status": "source-specific; not adopted as a pooled rule year",
+                "region_scope": "Long Khanh and Vinh My historical experiments",
+                "page_locator": "PDF p2 methods; p4-5 discussion/Table4"
+              }
+            ],
+            "crop_variety": {
+              "crop_ids": [
+                "baby_corn",
+                "mung_bean",
+                "rice"
+              ],
+              "variety": null,
+              "local_applicability": "unknown"
+            },
+            "condition": "Do not infer a superior rotation from the reported nonsignificant Long Khanh aggregate-stability comparisons at the reported depths; this does not generalize to every physical soil property.",
+            "numeric_reviewer": null,
+            "limitation": "Historical observations and model values do not certify this field."
+          },
+          {
+            "criterion_id": "K1-DRAFT-CLIMATE-RESPONSE",
+            "kind": "missing_method",
+            "status": "needs_review",
+            "approval_state": "draft",
+            "inputs": {
+              "crop_specific_response_rule": null,
+              "appropriate_feature_units": null,
+              "temporal_alignment": null,
+              "water_management_inputs": null,
+              "review_approval": null
+            },
+            "missing_inputs": [
+              "crop_specific_response_rule",
+              "appropriate_feature_units",
+              "temporal_alignment",
+              "water_management_inputs",
+              "review_approval"
+            ],
+            "evidence_ids": [],
+            "reason": "Rule applicability is not approved; draft thresholds were not executed.",
+            "statement": "Climate features may contextualize the references; no reviewed numeric feature-to-crop response function is available yet",
+            "scope": [
+              "MT-BLOCK-01"
+            ],
+            "season": "not_approved_for_current_field",
+            "unit_method": "See cited source; no adopted numeric threshold",
+            "reviewer": null,
+            "source_refs": [],
+            "crop_variety": {
+              "crop_ids": [
+                "baby_corn",
+                "mung_bean",
+                "rice"
+              ],
+              "variety": null,
+              "local_applicability": "unknown"
+            },
+            "condition": "Climate features may contextualize the references; no reviewed numeric feature-to-crop response function is available yet",
+            "numeric_reviewer": null,
+            "limitation": "Historical observations and model values do not certify this field."
+          }
+        ],
+        "weights": null,
+        "reasons": [
+          "Additional evidence/applicability review is required."
+        ],
+        "evidence_ids": [
+          "AGRO-BABY-2008",
+          "EXT-MUNG-2018",
+          "IMPLEMENTATION-POLICY",
+          "S4"
+        ],
+        "risks": [
+          "Unverified field soil, cultivar, calendar and water management; no yield or water-saving estimate."
+        ],
+        "missing_inputs": [
+          "applicable_soil_evidence",
+          "appropriate_feature_units",
+          "chosen_outcome",
+          "crop_specific_response_rule",
+          "crop_stage_requirements",
+          "current_crop",
+          "drainage_condition",
+          "irrigation_access",
+          "previous_crop",
+          "review_approval",
+          "reviewed_comparison_method",
+          "season",
+          "supply_calendar",
+          "temporal_alignment",
+          "water_management_inputs",
+          "water_quality"
+        ],
+        "unreviewed_rules": [
+          "K1-DRAFT-IRRIGATION",
+          "K1-DRAFT-SOIL-STRUCTURE",
+          "K1-DRAFT-CLIMATE-RESPONSE"
+        ],
+        "scenario_id": null
+      },
+      {
+        "strategy_id": "R1",
+        "is_current": null,
+        "reference_kind": "historical_reference",
+        "seasons": [
+          {
+            "season_index": 1,
+            "crop_id": "rice",
+            "calendar_window": null
+          },
+          {
+            "season_index": 2,
+            "crop_id": "baby_corn",
+            "calendar_window": null
+          },
+          {
+            "season_index": 3,
+            "crop_id": "rice",
+            "calendar_window": null
+          }
+        ],
+        "eligibility": "needs_review",
+        "score": null,
+        "criteria": [
+          {
+            "criterion_id": "INPUT-COMPLETENESS",
+            "kind": "input_completeness_not_crop_suitability",
+            "status": "needs_review",
+            "inputs": {
+              "current_crop": null,
+              "previous_crop": null,
+              "season": null,
+              "irrigation_access": null,
+              "drainage_condition": null
+            },
+            "missing_inputs": [
+              "current_crop",
+              "previous_crop",
+              "season",
+              "irrigation_access",
+              "drainage_condition"
+            ],
+            "evidence_ids": [
+              "IMPLEMENTATION-POLICY"
+            ],
+            "reason": "Checks whether user context is supplied, not whether the crop is suitable.",
+            "limitation": "Self-reported inputs are not independently verified field observations."
+          },
+          {
+            "criterion_id": "K1-DRAFT-DRAINAGE",
+            "kind": "qualitative_constraint_candidate",
+            "status": "needs_review",
+            "approval_state": "draft",
+            "inputs": {
+              "drainage_condition": null,
+              "waterlogging_history": null,
+              "management_plan": null
+            },
+            "missing_inputs": [
+              "drainage_condition",
+              "waterlogging_history",
+              "management_plan"
+            ],
+            "evidence_ids": [
+              "S4",
+              "EXT-MUNG-2018",
+              "AGRO-BABY-2008"
+            ],
+            "reason": "Rule applicability is not approved; draft thresholds were not executed.",
+            "statement": "Review drainage and waterlogging conditions before introducing an upland crop into the paddy sequence",
+            "scope": [
+              "MT-BLOCK-01"
+            ],
+            "season": "not_approved_for_current_field",
+            "unit_method": "See cited source; no adopted numeric threshold",
+            "reviewer": null,
+            "source_refs": [
+              {
+                "id": "S4",
+                "url": "https://ctujsvn.ctu.edu.vn/index.php/ctujsvn/article/download/605/3214/3214",
+                "year": null,
+                "year_status": "source-specific; not adopted as a pooled rule year",
+                "region_scope": "Long Khanh and Vinh My historical experiments",
+                "page_locator": "PDF p2 methods; p4-5 discussion/Table4"
+              },
+              {
+                "id": "EXT-MUNG-2018",
+                "url": "https://khuyennongvn.gov.vn/hoat-dong-khuyen-nong/chuyen-giao-tbkt/quang-tri-hieu-qua-mo-hinh-chuyen-doi-cay-dau-xanh-tren-dat-lua-thieu-nuoc-17502.html",
+                "year": null,
+                "year_status": "source-specific; not adopted as a pooled rule year",
+                "region_scope": "Cam Lo, Quang Tri; DX208 demonstration",
+                "page_locator": "Drainage and irrigation discussion"
+              },
+              {
+                "id": "AGRO-BABY-2008",
+                "url": "https://agro.gov.vn/vn/tID11656_Ky-thuat-trong-ngo-bao-tu.html",
+                "year": null,
+                "year_status": "source-specific; not adopted as a pooled rule year",
+                "region_scope": "Archived cultivation guidance with spring/winter calendar; not a My Thanh study",
+                "page_locator": "Sections 1, 3 and 6"
+              }
+            ],
+            "crop_variety": {
+              "crop_ids": [
+                "baby_corn",
+                "mung_bean",
+                "rice"
+              ],
+              "variety": null,
+              "local_applicability": "unknown"
+            },
+            "condition": "Review drainage and waterlogging conditions before introducing an upland crop into the paddy sequence",
+            "numeric_reviewer": null,
+            "limitation": "Historical observations and model values do not certify this field."
+          },
+          {
+            "criterion_id": "K1-DRAFT-IRRIGATION",
+            "kind": "qualitative_constraint_candidate",
+            "status": "needs_review",
+            "approval_state": "draft",
+            "inputs": {
+              "irrigation_access": null,
+              "supply_calendar": null,
+              "water_quality": null,
+              "crop_stage_requirements": null
+            },
+            "missing_inputs": [
+              "irrigation_access",
+              "supply_calendar",
+              "water_quality",
+              "crop_stage_requirements"
+            ],
+            "evidence_ids": [
+              "EXT-MUNG-2018",
+              "AGRO-BABY-2008"
+            ],
+            "reason": "Rule applicability is not approved; draft thresholds were not executed.",
+            "statement": "Rainfall alone does not establish available water; review irrigation supply and crop-stage demand",
+            "scope": [
+              "MT-BLOCK-01"
+            ],
+            "season": "not_approved_for_current_field",
+            "unit_method": "See cited source; no adopted numeric threshold",
+            "reviewer": null,
+            "source_refs": [
+              {
+                "id": "EXT-MUNG-2018",
+                "url": "https://khuyennongvn.gov.vn/hoat-dong-khuyen-nong/chuyen-giao-tbkt/quang-tri-hieu-qua-mo-hinh-chuyen-doi-cay-dau-xanh-tren-dat-lua-thieu-nuoc-17502.html",
+                "year": null,
+                "year_status": "source-specific; not adopted as a pooled rule year",
+                "region_scope": "Cam Lo, Quang Tri; DX208 demonstration",
+                "page_locator": "Drainage and irrigation discussion"
+              },
+              {
+                "id": "AGRO-BABY-2008",
+                "url": "https://agro.gov.vn/vn/tID11656_Ky-thuat-trong-ngo-bao-tu.html",
+                "year": null,
+                "year_status": "source-specific; not adopted as a pooled rule year",
+                "region_scope": "Archived cultivation guidance with spring/winter calendar; not a My Thanh study",
+                "page_locator": "Sections 1, 3 and 6"
+              }
+            ],
+            "crop_variety": {
+              "crop_ids": [
+                "baby_corn",
+                "mung_bean",
+                "rice"
+              ],
+              "variety": null,
+              "local_applicability": "unknown"
+            },
+            "condition": "Rainfall alone does not establish available water; review irrigation supply and crop-stage demand",
+            "numeric_reviewer": null,
+            "limitation": "Historical observations and model values do not certify this field."
+          },
+          {
+            "criterion_id": "K1-DRAFT-BABY-TIMING",
+            "kind": "timing_evidence_candidate",
+            "status": "needs_review",
+            "approval_state": "draft",
+            "inputs": {
+              "baby_corn_cultivar": null,
+              "sowing_date": null,
+              "harvest_completion_date": null,
+              "transition_days": null,
+              "next_rice_sowing_date": null,
+              "applicable_duration_evidence": null
+            },
+            "missing_inputs": [
+              "baby_corn_cultivar",
+              "sowing_date",
+              "harvest_completion_date",
+              "transition_days",
+              "next_rice_sowing_date",
+              "applicable_duration_evidence"
+            ],
+            "evidence_ids": [
+              "AGRO-BABY-2008"
+            ],
+            "reason": "Rule applicability is not approved; draft thresholds were not executed.",
+            "statement": "Published baby-corn guidance reports an approximate crop cycle; transferability and cultivar must be reviewed before testing a planting window",
+            "scope": [
+              "MT-BLOCK-01"
+            ],
+            "season": "not_approved_for_current_field",
+            "unit_method": "See cited source; no adopted numeric threshold",
+            "reviewer": null,
+            "source_refs": [
+              {
+                "id": "AGRO-BABY-2008",
+                "url": "https://agro.gov.vn/vn/tID11656_Ky-thuat-trong-ngo-bao-tu.html",
+                "year": null,
+                "year_status": "source-specific; not adopted as a pooled rule year",
+                "region_scope": "Archived cultivation guidance with spring/winter calendar; not a My Thanh study",
+                "page_locator": "Sections 1, 3 and 6"
+              }
+            ],
+            "crop_variety": {
+              "crop_ids": [
+                "baby_corn",
+                "rice"
+              ],
+              "variety": null,
+              "local_applicability": "unknown"
+            },
+            "condition": "Published baby-corn guidance reports an approximate crop cycle; transferability and cultivar must be reviewed before testing a planting window",
+            "numeric_reviewer": null,
+            "limitation": "Historical observations and model values do not certify this field."
+          },
+          {
+            "criterion_id": "K1-DRAFT-SOIL-STRUCTURE",
+            "kind": "outcome_interpretation_constraint",
+            "status": "needs_review",
+            "approval_state": "draft",
+            "inputs": {
+              "chosen_outcome": null,
+              "applicable_soil_evidence": null,
+              "reviewed_comparison_method": null
+            },
+            "missing_inputs": [
+              "chosen_outcome",
+              "applicable_soil_evidence",
+              "reviewed_comparison_method"
+            ],
+            "evidence_ids": [
+              "S4"
+            ],
+            "reason": "Rule applicability is not approved; draft thresholds were not executed.",
+            "statement": "Do not infer a superior rotation from the reported nonsignificant Long Khanh aggregate-stability comparisons at the reported depths; this does not generalize to every physical soil property.",
+            "scope": [
+              "MT-BLOCK-01"
+            ],
+            "season": "not_approved_for_current_field",
+            "unit_method": "See cited source; no adopted numeric threshold",
+            "reviewer": null,
+            "source_refs": [
+              {
+                "id": "S4",
+                "url": "https://ctujsvn.ctu.edu.vn/index.php/ctujsvn/article/download/605/3214/3214",
+                "year": null,
+                "year_status": "source-specific; not adopted as a pooled rule year",
+                "region_scope": "Long Khanh and Vinh My historical experiments",
+                "page_locator": "PDF p2 methods; p4-5 discussion/Table4"
+              }
+            ],
+            "crop_variety": {
+              "crop_ids": [
+                "baby_corn",
+                "mung_bean",
+                "rice"
+              ],
+              "variety": null,
+              "local_applicability": "unknown"
+            },
+            "condition": "Do not infer a superior rotation from the reported nonsignificant Long Khanh aggregate-stability comparisons at the reported depths; this does not generalize to every physical soil property.",
+            "numeric_reviewer": null,
+            "limitation": "Historical observations and model values do not certify this field."
+          },
+          {
+            "criterion_id": "K1-DRAFT-CLIMATE-RESPONSE",
+            "kind": "missing_method",
+            "status": "needs_review",
+            "approval_state": "draft",
+            "inputs": {
+              "crop_specific_response_rule": null,
+              "appropriate_feature_units": null,
+              "temporal_alignment": null,
+              "water_management_inputs": null,
+              "review_approval": null
+            },
+            "missing_inputs": [
+              "crop_specific_response_rule",
+              "appropriate_feature_units",
+              "temporal_alignment",
+              "water_management_inputs",
+              "review_approval"
+            ],
+            "evidence_ids": [],
+            "reason": "Rule applicability is not approved; draft thresholds were not executed.",
+            "statement": "Climate features may contextualize the references; no reviewed numeric feature-to-crop response function is available yet",
+            "scope": [
+              "MT-BLOCK-01"
+            ],
+            "season": "not_approved_for_current_field",
+            "unit_method": "See cited source; no adopted numeric threshold",
+            "reviewer": null,
+            "source_refs": [],
+            "crop_variety": {
+              "crop_ids": [
+                "baby_corn",
+                "mung_bean",
+                "rice"
+              ],
+              "variety": null,
+              "local_applicability": "unknown"
+            },
+            "condition": "Climate features may contextualize the references; no reviewed numeric feature-to-crop response function is available yet",
+            "numeric_reviewer": null,
+            "limitation": "Historical observations and model values do not certify this field."
+          }
+        ],
+        "weights": null,
+        "reasons": [
+          "Additional evidence/applicability review is required."
+        ],
+        "evidence_ids": [
+          "AGRO-BABY-2008",
+          "EXT-MUNG-2018",
+          "IMPLEMENTATION-POLICY",
+          "S4"
+        ],
+        "risks": [
+          "Unverified field soil, cultivar, calendar and water management; no yield or water-saving estimate."
+        ],
+        "missing_inputs": [
+          "applicable_duration_evidence",
+          "applicable_soil_evidence",
+          "appropriate_feature_units",
+          "baby_corn_cultivar",
+          "chosen_outcome",
+          "crop_specific_response_rule",
+          "crop_stage_requirements",
+          "current_crop",
+          "drainage_condition",
+          "harvest_completion_date",
+          "irrigation_access",
+          "management_plan",
+          "next_rice_sowing_date",
+          "previous_crop",
+          "review_approval",
+          "reviewed_comparison_method",
+          "season",
+          "sowing_date",
+          "supply_calendar",
+          "temporal_alignment",
+          "transition_days",
+          "water_management_inputs",
+          "water_quality",
+          "waterlogging_history"
+        ],
+        "unreviewed_rules": [
+          "K1-DRAFT-DRAINAGE",
+          "K1-DRAFT-IRRIGATION",
+          "K1-DRAFT-BABY-TIMING",
+          "K1-DRAFT-SOIL-STRUCTURE",
+          "K1-DRAFT-CLIMATE-RESPONSE"
+        ],
+        "scenario_id": null
+      },
+      {
+        "strategy_id": "R2",
+        "is_current": null,
+        "reference_kind": "historical_reference",
+        "seasons": [
+          {
+            "season_index": 1,
+            "crop_id": "rice",
+            "calendar_window": null
+          },
+          {
+            "season_index": 2,
+            "crop_id": "mung_bean",
+            "calendar_window": null
+          },
+          {
+            "season_index": 3,
+            "crop_id": "rice",
+            "calendar_window": null
+          }
+        ],
+        "eligibility": "needs_review",
+        "score": null,
+        "criteria": [
+          {
+            "criterion_id": "INPUT-COMPLETENESS",
+            "kind": "input_completeness_not_crop_suitability",
+            "status": "needs_review",
+            "inputs": {
+              "current_crop": null,
+              "previous_crop": null,
+              "season": null,
+              "irrigation_access": null,
+              "drainage_condition": null
+            },
+            "missing_inputs": [
+              "current_crop",
+              "previous_crop",
+              "season",
+              "irrigation_access",
+              "drainage_condition"
+            ],
+            "evidence_ids": [
+              "IMPLEMENTATION-POLICY"
+            ],
+            "reason": "Checks whether user context is supplied, not whether the crop is suitable.",
+            "limitation": "Self-reported inputs are not independently verified field observations."
+          },
+          {
+            "criterion_id": "K1-DRAFT-DRAINAGE",
+            "kind": "qualitative_constraint_candidate",
+            "status": "needs_review",
+            "approval_state": "draft",
+            "inputs": {
+              "drainage_condition": null,
+              "waterlogging_history": null,
+              "management_plan": null
+            },
+            "missing_inputs": [
+              "drainage_condition",
+              "waterlogging_history",
+              "management_plan"
+            ],
+            "evidence_ids": [
+              "S4",
+              "EXT-MUNG-2018",
+              "AGRO-BABY-2008"
+            ],
+            "reason": "Rule applicability is not approved; draft thresholds were not executed.",
+            "statement": "Review drainage and waterlogging conditions before introducing an upland crop into the paddy sequence",
+            "scope": [
+              "MT-BLOCK-01"
+            ],
+            "season": "not_approved_for_current_field",
+            "unit_method": "See cited source; no adopted numeric threshold",
+            "reviewer": null,
+            "source_refs": [
+              {
+                "id": "S4",
+                "url": "https://ctujsvn.ctu.edu.vn/index.php/ctujsvn/article/download/605/3214/3214",
+                "year": null,
+                "year_status": "source-specific; not adopted as a pooled rule year",
+                "region_scope": "Long Khanh and Vinh My historical experiments",
+                "page_locator": "PDF p2 methods; p4-5 discussion/Table4"
+              },
+              {
+                "id": "EXT-MUNG-2018",
+                "url": "https://khuyennongvn.gov.vn/hoat-dong-khuyen-nong/chuyen-giao-tbkt/quang-tri-hieu-qua-mo-hinh-chuyen-doi-cay-dau-xanh-tren-dat-lua-thieu-nuoc-17502.html",
+                "year": null,
+                "year_status": "source-specific; not adopted as a pooled rule year",
+                "region_scope": "Cam Lo, Quang Tri; DX208 demonstration",
+                "page_locator": "Drainage and irrigation discussion"
+              },
+              {
+                "id": "AGRO-BABY-2008",
+                "url": "https://agro.gov.vn/vn/tID11656_Ky-thuat-trong-ngo-bao-tu.html",
+                "year": null,
+                "year_status": "source-specific; not adopted as a pooled rule year",
+                "region_scope": "Archived cultivation guidance with spring/winter calendar; not a My Thanh study",
+                "page_locator": "Sections 1, 3 and 6"
+              }
+            ],
+            "crop_variety": {
+              "crop_ids": [
+                "baby_corn",
+                "mung_bean",
+                "rice"
+              ],
+              "variety": null,
+              "local_applicability": "unknown"
+            },
+            "condition": "Review drainage and waterlogging conditions before introducing an upland crop into the paddy sequence",
+            "numeric_reviewer": null,
+            "limitation": "Historical observations and model values do not certify this field."
+          },
+          {
+            "criterion_id": "K1-DRAFT-IRRIGATION",
+            "kind": "qualitative_constraint_candidate",
+            "status": "needs_review",
+            "approval_state": "draft",
+            "inputs": {
+              "irrigation_access": null,
+              "supply_calendar": null,
+              "water_quality": null,
+              "crop_stage_requirements": null
+            },
+            "missing_inputs": [
+              "irrigation_access",
+              "supply_calendar",
+              "water_quality",
+              "crop_stage_requirements"
+            ],
+            "evidence_ids": [
+              "EXT-MUNG-2018",
+              "AGRO-BABY-2008"
+            ],
+            "reason": "Rule applicability is not approved; draft thresholds were not executed.",
+            "statement": "Rainfall alone does not establish available water; review irrigation supply and crop-stage demand",
+            "scope": [
+              "MT-BLOCK-01"
+            ],
+            "season": "not_approved_for_current_field",
+            "unit_method": "See cited source; no adopted numeric threshold",
+            "reviewer": null,
+            "source_refs": [
+              {
+                "id": "EXT-MUNG-2018",
+                "url": "https://khuyennongvn.gov.vn/hoat-dong-khuyen-nong/chuyen-giao-tbkt/quang-tri-hieu-qua-mo-hinh-chuyen-doi-cay-dau-xanh-tren-dat-lua-thieu-nuoc-17502.html",
+                "year": null,
+                "year_status": "source-specific; not adopted as a pooled rule year",
+                "region_scope": "Cam Lo, Quang Tri; DX208 demonstration",
+                "page_locator": "Drainage and irrigation discussion"
+              },
+              {
+                "id": "AGRO-BABY-2008",
+                "url": "https://agro.gov.vn/vn/tID11656_Ky-thuat-trong-ngo-bao-tu.html",
+                "year": null,
+                "year_status": "source-specific; not adopted as a pooled rule year",
+                "region_scope": "Archived cultivation guidance with spring/winter calendar; not a My Thanh study",
+                "page_locator": "Sections 1, 3 and 6"
+              }
+            ],
+            "crop_variety": {
+              "crop_ids": [
+                "baby_corn",
+                "mung_bean",
+                "rice"
+              ],
+              "variety": null,
+              "local_applicability": "unknown"
+            },
+            "condition": "Rainfall alone does not establish available water; review irrigation supply and crop-stage demand",
+            "numeric_reviewer": null,
+            "limitation": "Historical observations and model values do not certify this field."
+          },
+          {
+            "criterion_id": "K1-DRAFT-MUNG-TIMING",
+            "kind": "cultivar_specific_timing_evidence",
+            "status": "needs_review",
+            "approval_state": "draft",
+            "inputs": {
+              "mung_bean_cultivar": null,
+              "applicable_duration_evidence": null,
+              "sowing_date": null,
+              "harvest_completion_date": null,
+              "transition_days": null,
+              "next_rice_sowing_date": null
+            },
+            "missing_inputs": [
+              "mung_bean_cultivar",
+              "applicable_duration_evidence",
+              "sowing_date",
+              "harvest_completion_date",
+              "transition_days",
+              "next_rice_sowing_date"
+            ],
+            "evidence_ids": [
+              "VAAS-MUNG-2014"
+            ],
+            "reason": "Rule applicability is not approved; draft thresholds were not executed.",
+            "statement": "DX208 duration was reported in a specific Ha Tinh trial; it is not a generic mung-bean duration or evidence that this cultivar is used at My Thanh",
+            "scope": [
+              "MT-BLOCK-01"
+            ],
+            "season": "not_approved_for_current_field",
+            "unit_method": "See cited source; no adopted numeric threshold",
+            "reviewer": null,
+            "source_refs": [
+              {
+                "id": "VAAS-MUNG-2014",
+                "url": "https://tapchi.vaas.vn/sites/tapchi.vaas.vn/files/tapchi/2021-09/tc14_14.pdf",
+                "year": null,
+                "year_status": "source-specific; not adopted as a pooled rule year",
+                "region_scope": "Huong Son, Ha Tinh; summer trials 2010 and 2011",
+                "page_locator": "PDF p2 methods; p3 Table2; p4 conclusion"
+              }
+            ],
+            "crop_variety": {
+              "crop_ids": [
+                "mung_bean",
+                "rice"
+              ],
+              "variety": null,
+              "local_applicability": "unknown"
+            },
+            "condition": "DX208 duration was reported in a specific Ha Tinh trial; it is not a generic mung-bean duration or evidence that this cultivar is used at My Thanh",
+            "numeric_reviewer": null,
+            "limitation": "Historical observations and model values do not certify this field."
+          },
+          {
+            "criterion_id": "K1-DRAFT-SOIL-STRUCTURE",
+            "kind": "outcome_interpretation_constraint",
+            "status": "needs_review",
+            "approval_state": "draft",
+            "inputs": {
+              "chosen_outcome": null,
+              "applicable_soil_evidence": null,
+              "reviewed_comparison_method": null
+            },
+            "missing_inputs": [
+              "chosen_outcome",
+              "applicable_soil_evidence",
+              "reviewed_comparison_method"
+            ],
+            "evidence_ids": [
+              "S4"
+            ],
+            "reason": "Rule applicability is not approved; draft thresholds were not executed.",
+            "statement": "Do not infer a superior rotation from the reported nonsignificant Long Khanh aggregate-stability comparisons at the reported depths; this does not generalize to every physical soil property.",
+            "scope": [
+              "MT-BLOCK-01"
+            ],
+            "season": "not_approved_for_current_field",
+            "unit_method": "See cited source; no adopted numeric threshold",
+            "reviewer": null,
+            "source_refs": [
+              {
+                "id": "S4",
+                "url": "https://ctujsvn.ctu.edu.vn/index.php/ctujsvn/article/download/605/3214/3214",
+                "year": null,
+                "year_status": "source-specific; not adopted as a pooled rule year",
+                "region_scope": "Long Khanh and Vinh My historical experiments",
+                "page_locator": "PDF p2 methods; p4-5 discussion/Table4"
+              }
+            ],
+            "crop_variety": {
+              "crop_ids": [
+                "baby_corn",
+                "mung_bean",
+                "rice"
+              ],
+              "variety": null,
+              "local_applicability": "unknown"
+            },
+            "condition": "Do not infer a superior rotation from the reported nonsignificant Long Khanh aggregate-stability comparisons at the reported depths; this does not generalize to every physical soil property.",
+            "numeric_reviewer": null,
+            "limitation": "Historical observations and model values do not certify this field."
+          },
+          {
+            "criterion_id": "K1-DRAFT-CLIMATE-RESPONSE",
+            "kind": "missing_method",
+            "status": "needs_review",
+            "approval_state": "draft",
+            "inputs": {
+              "crop_specific_response_rule": null,
+              "appropriate_feature_units": null,
+              "temporal_alignment": null,
+              "water_management_inputs": null,
+              "review_approval": null
+            },
+            "missing_inputs": [
+              "crop_specific_response_rule",
+              "appropriate_feature_units",
+              "temporal_alignment",
+              "water_management_inputs",
+              "review_approval"
+            ],
+            "evidence_ids": [],
+            "reason": "Rule applicability is not approved; draft thresholds were not executed.",
+            "statement": "Climate features may contextualize the references; no reviewed numeric feature-to-crop response function is available yet",
+            "scope": [
+              "MT-BLOCK-01"
+            ],
+            "season": "not_approved_for_current_field",
+            "unit_method": "See cited source; no adopted numeric threshold",
+            "reviewer": null,
+            "source_refs": [],
+            "crop_variety": {
+              "crop_ids": [
+                "baby_corn",
+                "mung_bean",
+                "rice"
+              ],
+              "variety": null,
+              "local_applicability": "unknown"
+            },
+            "condition": "Climate features may contextualize the references; no reviewed numeric feature-to-crop response function is available yet",
+            "numeric_reviewer": null,
+            "limitation": "Historical observations and model values do not certify this field."
+          }
+        ],
+        "weights": null,
+        "reasons": [
+          "Additional evidence/applicability review is required."
+        ],
+        "evidence_ids": [
+          "AGRO-BABY-2008",
+          "EXT-MUNG-2018",
+          "IMPLEMENTATION-POLICY",
+          "S4",
+          "VAAS-MUNG-2014"
+        ],
+        "risks": [
+          "Unverified field soil, cultivar, calendar and water management; no yield or water-saving estimate."
+        ],
+        "missing_inputs": [
+          "applicable_duration_evidence",
+          "applicable_soil_evidence",
+          "appropriate_feature_units",
+          "chosen_outcome",
+          "crop_specific_response_rule",
+          "crop_stage_requirements",
+          "current_crop",
+          "drainage_condition",
+          "harvest_completion_date",
+          "irrigation_access",
+          "management_plan",
+          "mung_bean_cultivar",
+          "next_rice_sowing_date",
+          "previous_crop",
+          "review_approval",
+          "reviewed_comparison_method",
+          "season",
+          "sowing_date",
+          "supply_calendar",
+          "temporal_alignment",
+          "transition_days",
+          "water_management_inputs",
+          "water_quality",
+          "waterlogging_history"
+        ],
+        "unreviewed_rules": [
+          "K1-DRAFT-DRAINAGE",
+          "K1-DRAFT-IRRIGATION",
+          "K1-DRAFT-MUNG-TIMING",
+          "K1-DRAFT-SOIL-STRUCTURE",
+          "K1-DRAFT-CLIMATE-RESPONSE"
+        ],
+        "scenario_id": null
+      }
+    ],
+    "evaluation_ref": null,
+    "forecast": null
+  },
+  "climate": [
+    {
+      "date": "2025-01-01",
+      "rain": 2.7,
+      "temp": 25.732581,
+      "coverage": 1,
+      "qa": "pass",
+      "flags": [],
+      "rain_coverage": 1,
+      "temp_coverage": 1
+    },
+    {
+      "date": "2025-02-01",
+      "rain": 6.5,
+      "temp": 28.762857,
+      "coverage": 1,
+      "qa": "pass",
+      "flags": [],
+      "rain_coverage": 1,
+      "temp_coverage": 1
+    },
+    {
+      "date": "2025-03-01",
+      "rain": 23.27,
+      "temp": 30.278065,
+      "coverage": 1,
+      "qa": "pass",
+      "flags": [],
+      "rain_coverage": 1,
+      "temp_coverage": 1
+    },
+    {
+      "date": "2025-04-01",
+      "rain": 36.97,
+      "temp": 30.291333,
+      "coverage": 1,
+      "qa": "pass",
+      "flags": [],
+      "rain_coverage": 1,
+      "temp_coverage": 1
+    },
+    {
+      "date": "2025-05-01",
+      "rain": 166.71,
+      "temp": 29.599677,
+      "coverage": 1,
+      "qa": "pass",
+      "flags": [],
+      "rain_coverage": 1,
+      "temp_coverage": 1
+    },
+    {
+      "date": "2025-06-01",
+      "rain": 240.58,
+      "temp": 27.586333,
+      "coverage": 1,
+      "qa": "pass",
+      "flags": [],
+      "rain_coverage": 1,
+      "temp_coverage": 1
+    },
+    {
+      "date": "2025-07-01",
+      "rain": 119.09,
+      "temp": 27.540323,
+      "coverage": 1,
+      "qa": "pass",
+      "flags": [],
+      "rain_coverage": 1,
+      "temp_coverage": 1
+    },
+    {
+      "date": "2025-08-01",
+      "rain": 167.74,
+      "temp": 27.197097,
+      "coverage": 1,
+      "qa": "pass",
+      "flags": [],
+      "rain_coverage": 1,
+      "temp_coverage": 1
+    },
+    {
+      "date": "2025-09-01",
+      "rain": 194.97,
+      "temp": 26.927,
+      "coverage": 1,
+      "qa": "pass",
+      "flags": [],
+      "rain_coverage": 1,
+      "temp_coverage": 1
+    },
+    {
+      "date": "2025-10-01",
+      "rain": 367.58,
+      "temp": 26.984516,
+      "coverage": 1,
+      "qa": "pass",
+      "flags": [],
+      "rain_coverage": 1,
+      "temp_coverage": 1
+    },
+    {
+      "date": "2025-11-01",
+      "rain": 150.99,
+      "temp": 25.905667,
+      "coverage": 1,
+      "qa": "pass",
+      "flags": [],
+      "rain_coverage": 1,
+      "temp_coverage": 1
+    },
+    {
+      "date": "2025-12-01",
+      "rain": 47.35,
+      "temp": 26.086129,
+      "coverage": 1,
+      "qa": "pass",
+      "flags": [],
+      "rain_coverage": 1,
+      "temp_coverage": 1
+    }
+  ],
+  "q1": {
+    "status": "pass",
+    "independent_approval": false,
+    "version": "Q1-readiness-1",
+    "scope": "coverage, missingness, units and retained source flags; not independent field validation"
+  },
+  "next_actions": [
+    {
+      "input": "current_crop",
+      "action": "Confirm the current crop; a historical reference is not the current practice.",
+      "owner": "farmer_and_agronomic_reviewer"
+    },
+    {
+      "input": "previous_crop",
+      "action": "Provide the preceding crop and its source/date.",
+      "owner": "farmer_and_agronomic_reviewer"
+    },
+    {
+      "input": "season",
+      "action": "Confirm the intended sowing/harvest window.",
+      "owner": "farmer_and_agronomic_reviewer"
+    },
+    {
+      "input": "irrigation_access",
+      "action": "Confirm irrigation availability and its seasonal reliability.",
+      "owner": "farmer_and_agronomic_reviewer"
+    },
+    {
+      "input": "drainage_condition",
+      "action": "Check drainage and waterlogging with local expertise.",
+      "owner": "farmer_and_agronomic_reviewer"
+    },
+    {
+      "input": "applicable_duration_evidence",
+      "action": "Provide applicable evidence for applicable duration evidence, including source/date/method.",
+      "owner": "farmer_and_agronomic_reviewer"
+    },
+    {
+      "input": "applicable_soil_evidence",
+      "action": "Provide applicable evidence for applicable soil evidence, including source/date/method.",
+      "owner": "farmer_and_agronomic_reviewer"
+    },
+    {
+      "input": "appropriate_feature_units",
+      "action": "Provide applicable evidence for appropriate feature units, including source/date/method.",
+      "owner": "farmer_and_agronomic_reviewer"
+    },
+    {
+      "input": "baby_corn_cultivar",
+      "action": "Provide applicable evidence for baby corn cultivar, including source/date/method.",
+      "owner": "farmer_and_agronomic_reviewer"
+    },
+    {
+      "input": "chosen_outcome",
+      "action": "Provide applicable evidence for chosen outcome, including source/date/method.",
+      "owner": "farmer_and_agronomic_reviewer"
+    },
+    {
+      "input": "crop_specific_response_rule",
+      "action": "Provide applicable evidence for crop specific response rule, including source/date/method.",
+      "owner": "farmer_and_agronomic_reviewer"
+    },
+    {
+      "input": "crop_stage_requirements",
+      "action": "Provide applicable evidence for crop stage requirements, including source/date/method.",
+      "owner": "farmer_and_agronomic_reviewer"
+    },
+    {
+      "input": "harvest_completion_date",
+      "action": "Provide applicable evidence for harvest completion date, including source/date/method.",
+      "owner": "farmer_and_agronomic_reviewer"
+    },
+    {
+      "input": "management_plan",
+      "action": "Provide applicable evidence for management plan, including source/date/method.",
+      "owner": "farmer_and_agronomic_reviewer"
+    },
+    {
+      "input": "mung_bean_cultivar",
+      "action": "Provide applicable evidence for mung bean cultivar, including source/date/method.",
+      "owner": "farmer_and_agronomic_reviewer"
+    },
+    {
+      "input": "next_rice_sowing_date",
+      "action": "Provide applicable evidence for next rice sowing date, including source/date/method.",
+      "owner": "farmer_and_agronomic_reviewer"
+    },
+    {
+      "input": "review_approval",
+      "action": "Provide applicable evidence for review approval, including source/date/method.",
+      "owner": "farmer_and_agronomic_reviewer"
+    },
+    {
+      "input": "reviewed_comparison_method",
+      "action": "Provide applicable evidence for reviewed comparison method, including source/date/method.",
+      "owner": "farmer_and_agronomic_reviewer"
+    },
+    {
+      "input": "sowing_date",
+      "action": "Provide applicable evidence for sowing date, including source/date/method.",
+      "owner": "farmer_and_agronomic_reviewer"
+    },
+    {
+      "input": "supply_calendar",
+      "action": "Provide applicable evidence for supply calendar, including source/date/method.",
+      "owner": "farmer_and_agronomic_reviewer"
+    },
+    {
+      "input": "temporal_alignment",
+      "action": "Provide applicable evidence for temporal alignment, including source/date/method.",
+      "owner": "farmer_and_agronomic_reviewer"
+    },
+    {
+      "input": "transition_days",
+      "action": "Provide applicable evidence for transition days, including source/date/method.",
+      "owner": "farmer_and_agronomic_reviewer"
+    },
+    {
+      "input": "water_management_inputs",
+      "action": "Provide applicable evidence for water management inputs, including source/date/method.",
+      "owner": "farmer_and_agronomic_reviewer"
+    },
+    {
+      "input": "water_quality",
+      "action": "Provide applicable evidence for water quality, including source/date/method.",
+      "owner": "farmer_and_agronomic_reviewer"
+    },
+    {
+      "input": "waterlogging_history",
+      "action": "Provide applicable evidence for waterlogging history, including source/date/method.",
+      "owner": "farmer_and_agronomic_reviewer"
+    },
+    {
+      "input": "K1_approval",
+      "action": "Request agronomic applicability and independent numerical review before treating references as recommendations.",
+      "owner": "Bich_and_Luat"
+    }
+  ],
+  "geometry": {
+    "geometry_hash": "55ae9032a5e13c2fd2886cde12b72811a226509d2655730f504586930e15eaa6",
+    "area_ha": 1.996447,
+    "centroid": [
+      106.0214325,
+      10.479079749999999
+    ],
+    "scope": "research_polygon_not_surveyed_field",
+    "area_method": "spherical_geodesic_approximation"
+  },
+  "source": {
+    "id": "NASA-POWER-CACHE",
+    "provider": "NASA POWER",
+    "product": "Daily API v2.10.3 / MERRA2 -> monthly D1",
+    "url": "https://power.larc.nasa.gov/api/temporal/daily/point?parameters=T2M%2CT2M_MAX%2CT2M_MIN%2CPRECTOTCORR&community=AG&longitude=106.02154675&latitude=10.4770865&start=20150101&end=20251231&format=JSON&time-standard=UTC",
+    "sha256": "60fd764713fde469a037889ec2459018821abddd842c089899ac01d34e0fdf32",
+    "features_sha256": "9912d774974bd5bc1f71bc900811ee0e1fd33b9f3a4fbbbec625523ea15b1a92",
+    "retrieved_at": "2026-11-12T02:12:21.632567+00:00",
+    "evidence_class": "DERIVED_MODEL",
+    "native_resolution": "Meteorology coarse native grid (~0.5 x 0.625 degrees); not field measurements",
+    "query_point_lon_lat": [
+      106.02154675,
+      10.4770865
+    ],
+    "flags": [
+      {
+        "date": "2020-06-14",
+        "parameter": "PRECTOTCORR",
+        "value": 488.17,
+        "unit": "mm/day",
+        "status": "needs_independent_review",
+        "action": "kept_raw_not_corrected"
+      }
+    ],
+    "units": {
+      "rain": "mm/month",
+      "temp": "�C"
+    },
+    "observed_period": {
+      "start": "2015-01-01",
+      "end": "2025-12-31"
+    },
+    "attribution": "NASA POWER, NASA Langley; cite source URL and source hashes. Technical QA is not field validation.",
+    "acquisition": "versioned_cache"
+  },
+  "inputs": {
+    "aoi_id": "MT-BLOCK-01",
+    "geometry": {
+      "type": "FeatureCollection",
+      "features": [
+        {
+          "type": "Feature",
+          "properties": {
+            "id": "MT-BLOCK-01",
+            "status": "analyst_digitised_visible_cultivation_block_not_verified_farm",
+            "area_ha_approx": 1.996,
+            "center_lon_lat": [
+              106.0216210397036,
+              10.479098076600966
+            ],
+            "crs": "EPSG:4326",
+            "homogeneous_soil_verified": false,
+            "current_crop_verified": false,
+            "rotation_verified": false,
+            "may_contain_multiple_subplots": true,
+            "legal_boundary": false,
+            "source_image_date_metadata": "2025-08-07",
+            "date_scope": "source citation footprint; not current 2026 field survey",
+            "edge_interpretation": "visible outer cultivation edges next to tree strips and bunds; no land title or farm ownership inferred"
+          },
+          "geometry": {
+            "type": "Polygon",
+            "coordinates": [
+              [
+                [
+                  106.02119400000001,
+                  10.479885999999999
+                ],
+                [
+                  106.02108000000001,
+                  10.479603999999998
+                ],
+                [
+                  106.02096000000002,
+                  10.479279999999997
+                ],
+                [
+                  106.02082800000001,
+                  10.478943999999998
+                ],
+                [
+                  106.020756,
+                  10.478763999999998
+                ],
+                [
+                  106.02206400000001,
+                  10.478313999999997
+                ],
+                [
+                  106.02210000000001,
+                  10.478415999999998
+                ],
+                [
+                  106.022478,
+                  10.479429999999997
+                ],
+                [
+                  106.02119400000001,
+                  10.479885999999999
+                ]
+              ]
+            ]
+          }
+        }
+      ]
+    },
+    "period": {
+      "start": "2025-01-01",
+      "end": "2026-01-01"
+    },
+    "farm": {
+      "previous_crop": null,
+      "current_crop": null,
+      "season": null,
+      "irrigation_access": null,
+      "drainage_condition": null,
+      "waterlogging_history": null,
+      "management_plan": null,
+      "goal": "explore"
+    },
+    "source_mode": "offline"
+  },
+  "sources": [
+    {
+      "id": "NASA-POWER-CACHE",
+      "provider": "NASA POWER",
+      "url": "https://power.larc.nasa.gov/api/temporal/daily/point?parameters=T2M%2CT2M_MAX%2CT2M_MIN%2CPRECTOTCORR&community=AG&longitude=106.02154675&latitude=10.4770865&start=20150101&end=20251231&format=JSON&time-standard=UTC",
+      "kind": "gridded_weather_estimate",
+      "retrievedAt": "2026-11-12T02:12:21.632567+00:00",
+      "sourceSha256": "60fd764713fde469a037889ec2459018821abddd842c089899ac01d34e0fdf32",
+      "featuresSha256": "9912d774974bd5bc1f71bc900811ee0e1fd33b9f3a4fbbbec625523ea15b1a92",
+      "flags": [
+        {
+          "date": "2020-06-14",
+          "parameter": "PRECTOTCORR",
+          "value": 488.17,
+          "unit": "mm/day",
+          "status": "needs_independent_review",
+          "action": "kept_raw_not_corrected"
+        }
+      ],
+      "units": {
+        "rain": "mm/month",
+        "temp": "�C"
+      },
+      "nativeResolution": "Original POWER grid; not field measurements",
+      "validation": "Technical integrity checked; not domain approved",
+      "NASA": true,
+      "evidence_class": "DERIVED_MODEL",
+      "license": "NASA data: retain source/product attribution; no endorsement implied",
+      "access_status": "real cache available; live acquisition tested separately"
+    },
+    {
+      "id": "SOILGRIDS",
+      "provider": "ISRIC",
+      "product": "SoilGrids model, 250 m, depth-specific predictions",
+      "NASA": false,
+      "url": "https://docs.isric.org/globaldata/soilgrids/SoilGrids_faqs_01.html",
+      "license": "CC-BY-4.0; attribution required",
+      "evidence_class": "DERIVED_MODEL",
+      "variables": "pH water (dimensionless), clay/sand (%), prediction quantiles",
+      "uncertainty": "Centroid cell; not field measurement; resampling method unverified"
+    },
+    {
+      "id": "SOIL-01",
+      "provider": "Can Tho University",
+      "product": "WRB-FAO regional soil classification, revised 2009, published 2011",
+      "NASA": false,
+      "url": "https://ctujsvn.ctu.edu.vn/index.php/ctujsvn/article/view/1006",
+      "license": "Citation/link only; full paper not redistributed in runnable package",
+      "evidence_class": "REGIONAL_HISTORICAL",
+      "locator": "journal pp11,12,16,17; map 1:250,000; 276 augerings",
+      "sha256": "4a436d9560106f74f2a1ae233f5ced45992de5ac38223d9c38855bfda17c1b0a"
+    },
+    {
+      "id": "S4",
+      "url": "https://ctujsvn.ctu.edu.vn/index.php/ctujsvn/article/download/605/3214/3214",
+      "scope": "Long Khanh and Vinh My historical experiments",
+      "locator": "PDF p2 methods; p4-5 discussion/Table4",
+      "reading_status": "read_in_prior_feasibility_pass",
+      "NASA": false,
+      "provider": "Source publisher",
+      "license": "Citation/link; full text not redistributed",
+      "evidence_class": "REGIONAL_HISTORICAL"
+    },
+    {
+      "id": "S5",
+      "url": "https://ctujsvn.ctu.edu.vn/index.php/ctujsvn/article/download/597/3222/3222",
+      "scope": "Diked Cai Lay experimental field; 2005 measurements on experiment continuing from 2001",
+      "locator": "PDF p2-3 methods/Table1",
+      "reading_status": "read_in_prior_feasibility_pass",
+      "NASA": false,
+      "provider": "Source publisher",
+      "license": "Citation/link; full text not redistributed",
+      "evidence_class": "REGIONAL_HISTORICAL"
+    },
+    {
+      "id": "EXT-MUNG-2018",
+      "url": "https://khuyennongvn.gov.vn/hoat-dong-khuyen-nong/chuyen-giao-tbkt/quang-tri-hieu-qua-mo-hinh-chuyen-doi-cay-dau-xanh-tren-dat-lua-thieu-nuoc-17502.html",
+      "scope": "Cam Lo, Quang Tri; DX208 demonstration",
+      "locator": "Drainage and irrigation discussion",
+      "reading_status": "read_in_prior_feasibility_pass",
+      "NASA": false,
+      "provider": "Source publisher",
+      "license": "Citation/link; full text not redistributed",
+      "evidence_class": "REGIONAL_HISTORICAL"
+    },
+    {
+      "id": "AGRO-BABY-2008",
+      "url": "https://agro.gov.vn/vn/tID11656_Ky-thuat-trong-ngo-bao-tu.html",
+      "scope": "Archived cultivation guidance with spring/winter calendar; not a My Thanh study",
+      "locator": "Sections 1, 3 and 6",
+      "reading_status": "page_read_2026-11-13",
+      "evidence_limit": "Archived guidance, not a locally validated response function",
+      "NASA": false,
+      "provider": "Source publisher",
+      "license": "Citation/link; full text not redistributed",
+      "evidence_class": "REGIONAL_HISTORICAL"
+    },
+    {
+      "id": "VAAS-MUNG-2014",
+      "url": "https://tapchi.vaas.vn/sites/tapchi.vaas.vn/files/tapchi/2021-09/tc14_14.pdf",
+      "scope": "Huong Son, Ha Tinh; summer trials 2010 and 2011",
+      "locator": "PDF p2 methods; p3 Table2; p4 conclusion",
+      "reading_status": "PDF_read_2026-11-13",
+      "evidence_limit": "Source abstract text has OCR/inconsistency issues; Table2 and methods were used for the specific duration observation",
+      "NASA": false,
+      "provider": "Source publisher",
+      "license": "Citation/link; full text not redistributed",
+      "evidence_class": "REGIONAL_HISTORICAL"
+    },
+    {
+      "id": "ESA-S2",
+      "provider": "ESA Copernicus",
+      "NASA": false,
+      "product": "Sentinel-2 L2A reflectance and SCL, 2025 sample coverage",
+      "license": "Copernicus attribution; no raster included here",
+      "evidence_class": "REMOTE_SENSING",
+      "url": "https://dataspace.copernicus.eu/",
+      "integration": "research QA only; not a runtime crop classifier"
+    },
+    {
+      "id": "OSM",
+      "provider": "OpenStreetMap contributors",
+      "NASA": false,
+      "url": "https://www.openstreetmap.org/copyright",
+      "license": "ODbL; retain map attribution; online standard tiles subject to usage policy",
+      "integration": "navigation only; offline geometry fallback",
+      "evidence_class": "UNKNOWN"
+    },
+    {
+      "id": "GEOMETRY",
+      "provider": "Team analyst",
+      "NASA": false,
+      "product": "Image-digitised research block, not cadastral/surveyed",
+      "license": "Team-authored geometry; original Esri image excluded from distributable assets",
+      "evidence_class": "PROPOSED"
+    },
+    {
+      "id": "IMPLEMENTATION-POLICY",
+      "provider": "NeuraX",
+      "product": "Input completeness checks, agrotwin-readiness-1.0",
+      "NASA": false,
+      "evidence_class": "PROPOSED",
+      "url": null,
+      "license": "Team-authored implementation policy",
+      "scope": "Presence of user inputs; not crop suitability or agronomic approval"
+    }
+  ],
+  "case_context": {
+    "id": "MT-BLOCK-01",
+    "status": "analyst_digitised_visible_cultivation_block_not_verified_farm",
+    "area_ha_approx": 1.996,
+    "center_lon_lat": [
+      106.0216210397036,
+      10.479098076600966
+    ],
+    "crs": "EPSG:4326",
+    "homogeneous_soil_verified": false,
+    "current_crop_verified": false,
+    "rotation_verified": false,
+    "may_contain_multiple_subplots": true,
+    "legal_boundary": false,
+    "source_image_date_metadata": "2025-08-07",
+    "date_scope": "source citation footprint; not current 2026 field survey",
+    "edge_interpretation": "visible outer cultivation edges next to tree strips and bunds; no land title or farm ownership inferred"
+  },
+  "soil_context": {
+    "checked_rasters": 15,
+    "point_lon_lat": [
+      106.0216210397036,
+      10.479098076600966
+    ],
+    "values": [
+      {
+        "property": "clay",
+        "depth": "0-5cm",
+        "mean": 35.3,
+        "Q0.05": 0.4,
+        "Q0.95": 93.2
+      },
+      {
+        "property": "phh2o",
+        "depth": "0-5cm",
+        "mean": 6.3,
+        "Q0.05": 4.5,
+        "Q0.95": 8.3
+      },
+      {
+        "property": "phh2o",
+        "depth": "15-30cm",
+        "mean": 6.3,
+        "Q0.05": 4.5,
+        "Q0.95": 8.3
+      },
+      {
+        "property": "phh2o",
+        "depth": "5-15cm",
+        "mean": 6.3,
+        "Q0.05": 4.5,
+        "Q0.95": 8.3
+      },
+      {
+        "property": "sand",
+        "depth": "0-5cm",
+        "mean": 21.1,
+        "Q0.05": 1.2,
+        "Q0.95": 72.5
+      }
+    ],
+    "matches_existing_centroid_model": true,
+    "native_support_m": 250,
+    "resampling_algorithm_verified": false,
+    "field_measurement": false,
+    "limits": [
+      "Centroid model cell, not a block average or measured sample.",
+      "Q05/Q95 are marginal prediction quantiles, not replicate field measurements.",
+      "Sand and clay quantiles cannot be combined into a valid joint texture class.",
+      "No EC, irrigation, drainage, compaction or current crop verified."
+    ]
+  },
+  "sidecar": {
+    "schema_version": "agrotwin-orchestration-1",
+    "input_hash": "9bab51a6385e2866c0e68a3e74413a15aaec1f98a4d7da423801fceed9ac746b",
+    "geometry_hash": "55ae9032a5e13c2fd2886cde12b72811a226509d2655730f504586930e15eaa6",
+    "scientific_payload_sha256": "3b84e7ab94dfeda5fede34ecc54341ab9555a77b4255c6674d9bb4672896a76c",
+    "evaluator_version": "agrotwin-readiness-1.0",
+    "implementation_sha256": "a273dd713efe6b738d28adbda9a6f81c131a512455d388fab66e41252600ab33",
+    "K1_version": "2026-11-13.2",
+    "K1_sha256": "6c156e14e615309251f157b5e3795d6f30801c38d1141debc16f5c25284006f5",
+    "D1_version": "f9465a1216db780de7389d4694fd008e263eb90f38854fcd87b07da8ab94d117",
+    "computed_at": "2026-11-14T08:22:09Z",
+    "observed_period": {
+      "start": "2025-01-01",
+      "end": "2026-01-01"
+    },
+    "retrieved_at": "2026-11-12T02:12:21.632567+00:00",
+    "source_sha256": "60fd764713fde469a037889ec2459018821abddd842c089899ac01d34e0fdf32",
+    "source_acquisition": "versioned_cache",
+    "execution_mode": "cached",
+    "cache_hit": true,
+    "catalog_supported": true,
+    "served_at": "2026-11-14T08:22:09Z",
+    "acquisition_warnings": []
+  }
+}

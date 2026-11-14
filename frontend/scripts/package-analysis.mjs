@@ -1,0 +1,11 @@
+import { spawnSync } from 'node:child_process';
+import { writeFile,mkdir } from 'node:fs/promises';
+import path from 'node:path';
+const lab=path.resolve(import.meta.dirname,'../../../neurax-fieldshift-lab');
+const python=process.env.AGROTWIN_PYTHON||path.join(lab,'.venv',process.platform==='win32'?'Scripts/python.exe':'bin/python');
+const result=spawnSync(python,['-m','neurax','agrotwin','--out','runs/agrotwin'],{cwd:lab,encoding:'utf8'});
+if(result.status!==0)throw Error(result.stderr||result.error?.message||'A1 producer failed');
+const run=JSON.parse(result.stdout);run.sidecar.execution_mode='cached';run.sidecar.cache_hit=true;
+const out=path.resolve(import.meta.dirname,'../public/analysis');await mkdir(out,{recursive:true});
+await writeFile(path.join(out,'my-thanh.saved.json'),JSON.stringify(run,null,2)+'\n');
+console.log(`Saved real readiness run ${run.a1.run_id}; ${run.a1.status}; no agronomic approvals invented.`);

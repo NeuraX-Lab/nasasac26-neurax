@@ -1,0 +1,188 @@
+{
+  "version": 1,
+  "id": "my-thanh",
+  "dataMode": "synthetic",
+  "datasetVersion": "fixture-ui-01",
+  "runId": "fixture-ui-01",
+  "months": [
+    {
+      "date": "2025-01-01",
+      "rain": 20,
+      "temp": 26,
+      "coverage": 1,
+      "qa": "pass"
+    },
+    {
+      "date": "2025-02-01",
+      "rain": 18,
+      "temp": 26.1,
+      "coverage": 1,
+      "qa": "pass"
+    },
+    {
+      "date": "2025-03-01",
+      "rain": 35,
+      "temp": 26.2,
+      "coverage": 1,
+      "qa": "pass"
+    },
+    {
+      "date": "2025-04-01",
+      "rain": 60,
+      "temp": 26.3,
+      "coverage": 1,
+      "qa": "pass"
+    },
+    {
+      "date": "2025-05-01",
+      "rain": 100,
+      "temp": 26.4,
+      "coverage": 1,
+      "qa": "pass"
+    },
+    {
+      "date": "2025-06-01",
+      "rain": null,
+      "temp": 26.5,
+      "coverage": 0.8,
+      "qa": "warn"
+    },
+    {
+      "date": "2025-07-01",
+      "rain": 210,
+      "temp": 26.6,
+      "coverage": 1,
+      "qa": "pass"
+    },
+    {
+      "date": "2025-08-01",
+      "rain": 260,
+      "temp": 26.7,
+      "coverage": 1,
+      "qa": "pass"
+    },
+    {
+      "date": "2025-09-01",
+      "rain": 300,
+      "temp": 26.8,
+      "coverage": 1,
+      "qa": "pass"
+    },
+    {
+      "date": "2025-10-01",
+      "rain": 280,
+      "temp": 26.9,
+      "coverage": 1,
+      "qa": "warn"
+    },
+    {
+      "date": "2025-11-01",
+      "rain": 180,
+      "temp": 27,
+      "coverage": 1,
+      "qa": "pass"
+    },
+    {
+      "date": "2025-12-01",
+      "rain": 75,
+      "temp": 27.1,
+      "coverage": 1,
+      "qa": "pass"
+    }
+  ],
+  "geometry": {
+    "type": "FeatureCollection",
+    "features": [
+      {
+        "type": "Feature",
+        "properties": {
+          "id": "MT-BLOCK-01",
+          "status": "analyst_digitised_visible_cultivation_block_not_verified_farm",
+          "area_ha_approx": 1.996,
+          "center_lon_lat": [
+            106.0216210397036,
+            10.479098076600966
+          ],
+          "crs": "EPSG:4326",
+          "homogeneous_soil_verified": false,
+          "current_crop_verified": false,
+          "rotation_verified": false,
+          "may_contain_multiple_subplots": true,
+          "legal_boundary": false,
+          "source_image_date_metadata": "2025-08-07",
+          "date_scope": "source citation footprint; not current 2026 field survey",
+          "edge_interpretation": "visible outer cultivation edges next to tree strips and bunds; no land title or farm ownership inferred"
+        },
+        "geometry": {
+          "type": "Polygon",
+          "coordinates": [
+            [
+              [
+                106.02119400000001,
+                10.479885999999999
+              ],
+              [
+                106.02108000000001,
+                10.479603999999998
+              ],
+              [
+                106.02096000000002,
+                10.479279999999997
+              ],
+              [
+                106.02082800000001,
+                10.478943999999998
+              ],
+              [
+                106.020756,
+                10.478763999999998
+              ],
+              [
+                106.02206400000001,
+                10.478313999999997
+              ],
+              [
+                106.02210000000001,
+                10.478415999999998
+              ],
+              [
+                106.022478,
+                10.479429999999997
+              ],
+              [
+                106.02119400000001,
+                10.479885999999999
+              ]
+            ]
+          ]
+        }
+      }
+    ]
+  },
+  "imagery": {
+    "extent": {
+      "xmin": 106.020756,
+      "xmax": 106.022478,
+      "ymin": 10.478313999999997,
+      "ymax": 10.479885999999999
+    }
+  },
+  "source": {
+    "provider": "UI fixture",
+    "url": null,
+    "kind": "gridded_weather_estimate",
+    "retrievedAt": "2026-11-12T02:12:21.632567+00:00",
+    "sourceSha256": null,
+    "featuresSha256": null,
+    "flags": [],
+    "units": {
+      "rain": "mm/month",
+      "temp": "°C"
+    },
+    "nativeResolution": "Meteorology coarse native grid (~0.5 x 0.625 degrees); not field measurements",
+    "validation": "SYNTHETIC UI only; excluded from evaluator"
+  },
+  "a1": null,
+  "e1": null,
+  "h1": null
+}

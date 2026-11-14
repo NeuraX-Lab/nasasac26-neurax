@@ -1,0 +1,1037 @@
+{
+  "version": 1,
+  "id": "my-thanh",
+  "dataMode": "observed",
+  "datasetVersion": "60fd764713fde469",
+  "runId": "curated-D1-2026-11-14",
+  "months": [
+    {
+      "date": "2015-01-01",
+      "rain": 4.44,
+      "temp": 27.230323,
+      "coverage": 1,
+      "qa": "pass"
+    },
+    {
+      "date": "2015-02-01",
+      "rain": 0.32,
+      "temp": 27.74,
+      "coverage": 1,
+      "qa": "pass"
+    },
+    {
+      "date": "2015-03-01",
+      "rain": 0.2,
+      "temp": 29.756774,
+      "coverage": 1,
+      "qa": "pass"
+    },
+    {
+      "date": "2015-04-01",
+      "rain": 11.89,
+      "temp": 31.377333,
+      "coverage": 1,
+      "qa": "pass"
+    },
+    {
+      "date": "2015-05-01",
+      "rain": 55.93,
+      "temp": 31.470323,
+      "coverage": 1,
+      "qa": "pass"
+    },
+    {
+      "date": "2015-06-01",
+      "rain": 199.04,
+      "temp": 28.62,
+      "coverage": 1,
+      "qa": "pass"
+    },
+    {
+      "date": "2015-07-01",
+      "rain": 140.28,
+      "temp": 27.596774,
+      "coverage": 1,
+      "qa": "pass"
+    },
+    {
+      "date": "2015-08-01",
+      "rain": 136.22,
+      "temp": 27.355806,
+      "coverage": 1,
+      "qa": "pass"
+    },
+    {
+      "date": "2015-09-01",
+      "rain": 182.21,
+      "temp": 27.358,
+      "coverage": 1,
+      "qa": "pass"
+    },
+    {
+      "date": "2015-10-01",
+      "rain": 158.02,
+      "temp": 27.38,
+      "coverage": 1,
+      "qa": "pass"
+    },
+    {
+      "date": "2015-11-01",
+      "rain": 79.11,
+      "temp": 27.383333,
+      "coverage": 1,
+      "qa": "pass"
+    },
+    {
+      "date": "2015-12-01",
+      "rain": 44.75,
+      "temp": 27.619032,
+      "coverage": 1,
+      "qa": "pass"
+    },
+    {
+      "date": "2016-01-01",
+      "rain": 1.24,
+      "temp": 28.627742,
+      "coverage": 1,
+      "qa": "pass"
+    },
+    {
+      "date": "2016-02-01",
+      "rain": 0.82,
+      "temp": 29.095172,
+      "coverage": 1,
+      "qa": "pass"
+    },
+    {
+      "date": "2016-03-01",
+      "rain": 0,
+      "temp": 29.94,
+      "coverage": 1,
+      "qa": "pass"
+    },
+    {
+      "date": "2016-04-01",
+      "rain": 1.02,
+      "temp": 32.313667,
+      "coverage": 1,
+      "qa": "pass"
+    },
+    {
+      "date": "2016-05-01",
+      "rain": 221.61,
+      "temp": 30.698387,
+      "coverage": 1,
+      "qa": "pass"
+    },
+    {
+      "date": "2016-06-01",
+      "rain": 135.62,
+      "temp": 27.437,
+      "coverage": 1,
+      "qa": "pass"
+    },
+    {
+      "date": "2016-07-01",
+      "rain": 143.79,
+      "temp": 27.18129,
+      "coverage": 1,
+      "qa": "pass"
+    },
+    {
+      "date": "2016-08-01",
+      "rain": 90.27,
+      "temp": 27.282903,
+      "coverage": 1,
+      "qa": "pass"
+    },
+    {
+      "date": "2016-09-01",
+      "rain": 151.29,
+      "temp": 27.370333,
+      "coverage": 1,
+      "qa": "pass"
+    },
+    {
+      "date": "2016-10-01",
+      "rain": 265.59,
+      "temp": 26.616452,
+      "coverage": 1,
+      "qa": "pass"
+    },
+    {
+      "date": "2016-11-01",
+      "rain": 154.31,
+      "temp": 26.811333,
+      "coverage": 1,
+      "qa": "pass"
+    },
+    {
+      "date": "2016-12-01",
+      "rain": 86.49,
+      "temp": 25.801935,
+      "coverage": 1,
+      "qa": "pass"
+    },
+    {
+      "date": "2017-01-01",
+      "rain": 37.15,
+      "temp": 26.380645,
+      "coverage": 1,
+      "qa": "pass"
+    },
+    {
+      "date": "2017-02-01",
+      "rain": 21.58,
+      "temp": 27.326071,
+      "coverage": 1,
+      "qa": "pass"
+    },
+    {
+      "date": "2017-03-01",
+      "rain": 20.27,
+      "temp": 29.126129,
+      "coverage": 1,
+      "qa": "pass"
+    },
+    {
+      "date": "2017-04-01",
+      "rain": 52.65,
+      "temp": 30.198667,
+      "coverage": 1,
+      "qa": "pass"
+    },
+    {
+      "date": "2017-05-01",
+      "rain": 171.6,
+      "temp": 29.106774,
+      "coverage": 1,
+      "qa": "pass"
+    },
+    {
+      "date": "2017-06-01",
+      "rain": 118.19,
+      "temp": 27.677667,
+      "coverage": 1,
+      "qa": "pass"
+    },
+    {
+      "date": "2017-07-01",
+      "rain": 173.22,
+      "temp": 26.98871,
+      "coverage": 1,
+      "qa": "pass"
+    },
+    {
+      "date": "2017-08-01",
+      "rain": 182.51,
+      "temp": 27.023226,
+      "coverage": 1,
+      "qa": "pass"
+    },
+    {
+      "date": "2017-09-01",
+      "rain": 161.76,
+      "temp": 27.409667,
+      "coverage": 1,
+      "qa": "pass"
+    },
+    {
+      "date": "2017-10-01",
+      "rain": 283.23,
+      "temp": 26.815161,
+      "coverage": 1,
+      "qa": "pass"
+    },
+    {
+      "date": "2017-11-01",
+      "rain": 121.24,
+      "temp": 26.614667,
+      "coverage": 1,
+      "qa": "pass"
+    },
+    {
+      "date": "2017-12-01",
+      "rain": 76.44,
+      "temp": 25.300645,
+      "coverage": 1,
+      "qa": "pass"
+    },
+    {
+      "date": "2018-01-01",
+      "rain": 67.41,
+      "temp": 26.53871,
+      "coverage": 1,
+      "qa": "pass"
+    },
+    {
+      "date": "2018-02-01",
+      "rain": 2.4,
+      "temp": 26.893214,
+      "coverage": 1,
+      "qa": "pass"
+    },
+    {
+      "date": "2018-03-01",
+      "rain": 24.15,
+      "temp": 29.477097,
+      "coverage": 1,
+      "qa": "pass"
+    },
+    {
+      "date": "2018-04-01",
+      "rain": 32.83,
+      "temp": 30.780333,
+      "coverage": 1,
+      "qa": "pass"
+    },
+    {
+      "date": "2018-05-01",
+      "rain": 195.4,
+      "temp": 29.275161,
+      "coverage": 1,
+      "qa": "pass"
+    },
+    {
+      "date": "2018-06-01",
+      "rain": 335.4,
+      "temp": 26.981667,
+      "coverage": 1,
+      "qa": "pass"
+    },
+    {
+      "date": "2018-07-01",
+      "rain": 335.09,
+      "temp": 26.578387,
+      "coverage": 1,
+      "qa": "pass"
+    },
+    {
+      "date": "2018-08-01",
+      "rain": 194.98,
+      "temp": 26.457742,
+      "coverage": 1,
+      "qa": "pass"
+    },
+    {
+      "date": "2018-09-01",
+      "rain": 226.33,
+      "temp": 26.684667,
+      "coverage": 1,
+      "qa": "pass"
+    },
+    {
+      "date": "2018-10-01",
+      "rain": 176.43,
+      "temp": 26.944839,
+      "coverage": 1,
+      "qa": "pass"
+    },
+    {
+      "date": "2018-11-01",
+      "rain": 73.29,
+      "temp": 26.912333,
+      "coverage": 1,
+      "qa": "pass"
+    },
+    {
+      "date": "2018-12-01",
+      "rain": 64.85,
+      "temp": 27.024194,
+      "coverage": 1,
+      "qa": "pass"
+    },
+    {
+      "date": "2019-01-01",
+      "rain": 37.4,
+      "temp": 26.361935,
+      "coverage": 1,
+      "qa": "pass"
+    },
+    {
+      "date": "2019-02-01",
+      "rain": 3.11,
+      "temp": 28.384643,
+      "coverage": 1,
+      "qa": "pass"
+    },
+    {
+      "date": "2019-03-01",
+      "rain": 27.7,
+      "temp": 29.942258,
+      "coverage": 1,
+      "qa": "pass"
+    },
+    {
+      "date": "2019-04-01",
+      "rain": 33.09,
+      "temp": 31.041,
+      "coverage": 1,
+      "qa": "pass"
+    },
+    {
+      "date": "2019-05-01",
+      "rain": 247.51,
+      "temp": 29.006774,
+      "coverage": 1,
+      "qa": "pass"
+    },
+    {
+      "date": "2019-06-01",
+      "rain": 444.08,
+      "temp": 27.504667,
+      "coverage": 1,
+      "qa": "pass"
+    },
+    {
+      "date": "2019-07-01",
+      "rain": 249.6,
+      "temp": 26.81,
+      "coverage": 1,
+      "qa": "pass"
+    },
+    {
+      "date": "2019-08-01",
+      "rain": 276,
+      "temp": 26.796129,
+      "coverage": 1,
+      "qa": "pass"
+    },
+    {
+      "date": "2019-09-01",
+      "rain": 244.67,
+      "temp": 26.795,
+      "coverage": 1,
+      "qa": "pass"
+    },
+    {
+      "date": "2019-10-01",
+      "rain": 114.65,
+      "temp": 27.276452,
+      "coverage": 1,
+      "qa": "pass"
+    },
+    {
+      "date": "2019-11-01",
+      "rain": 96,
+      "temp": 26.437333,
+      "coverage": 1,
+      "qa": "pass"
+    },
+    {
+      "date": "2019-12-01",
+      "rain": 0.04,
+      "temp": 26.317419,
+      "coverage": 1,
+      "qa": "pass"
+    },
+    {
+      "date": "2020-01-01",
+      "rain": 1.71,
+      "temp": 28.296774,
+      "coverage": 1,
+      "qa": "pass"
+    },
+    {
+      "date": "2020-02-01",
+      "rain": 0.91,
+      "temp": 29.032069,
+      "coverage": 1,
+      "qa": "pass"
+    },
+    {
+      "date": "2020-03-01",
+      "rain": 14.89,
+      "temp": 30.195161,
+      "coverage": 1,
+      "qa": "pass"
+    },
+    {
+      "date": "2020-04-01",
+      "rain": 56.01,
+      "temp": 30.383667,
+      "coverage": 1,
+      "qa": "pass"
+    },
+    {
+      "date": "2020-05-01",
+      "rain": 136.9,
+      "temp": 30.770323,
+      "coverage": 1,
+      "qa": "pass"
+    },
+    {
+      "date": "2020-06-01",
+      "rain": 966.72,
+      "temp": 27.441667,
+      "coverage": 1,
+      "qa": "warn"
+    },
+    {
+      "date": "2020-07-01",
+      "rain": 271.68,
+      "temp": 27.134516,
+      "coverage": 1,
+      "qa": "pass"
+    },
+    {
+      "date": "2020-08-01",
+      "rain": 208.09,
+      "temp": 26.961613,
+      "coverage": 1,
+      "qa": "pass"
+    },
+    {
+      "date": "2020-09-01",
+      "rain": 398.77,
+      "temp": 27.048667,
+      "coverage": 1,
+      "qa": "pass"
+    },
+    {
+      "date": "2020-10-01",
+      "rain": 506.1,
+      "temp": 26.279677,
+      "coverage": 1,
+      "qa": "pass"
+    },
+    {
+      "date": "2020-11-01",
+      "rain": 98.96,
+      "temp": 26.698667,
+      "coverage": 1,
+      "qa": "pass"
+    },
+    {
+      "date": "2020-12-01",
+      "rain": 65.54,
+      "temp": 25.364194,
+      "coverage": 1,
+      "qa": "pass"
+    },
+    {
+      "date": "2021-01-01",
+      "rain": 17.15,
+      "temp": 25.252903,
+      "coverage": 1,
+      "qa": "pass"
+    },
+    {
+      "date": "2021-02-01",
+      "rain": 6.92,
+      "temp": 27.566071,
+      "coverage": 1,
+      "qa": "pass"
+    },
+    {
+      "date": "2021-03-01",
+      "rain": 1.08,
+      "temp": 30.227419,
+      "coverage": 1,
+      "qa": "pass"
+    },
+    {
+      "date": "2021-04-01",
+      "rain": 151.55,
+      "temp": 29.310333,
+      "coverage": 1,
+      "qa": "pass"
+    },
+    {
+      "date": "2021-05-01",
+      "rain": 334.03,
+      "temp": 28.095484,
+      "coverage": 1,
+      "qa": "pass"
+    },
+    {
+      "date": "2021-06-01",
+      "rain": 214.3,
+      "temp": 27.060667,
+      "coverage": 1,
+      "qa": "pass"
+    },
+    {
+      "date": "2021-07-01",
+      "rain": 397.39,
+      "temp": 26.82871,
+      "coverage": 1,
+      "qa": "pass"
+    },
+    {
+      "date": "2021-08-01",
+      "rain": 299.03,
+      "temp": 27.005161,
+      "coverage": 1,
+      "qa": "pass"
+    },
+    {
+      "date": "2021-09-01",
+      "rain": 332.7,
+      "temp": 26.429667,
+      "coverage": 1,
+      "qa": "pass"
+    },
+    {
+      "date": "2021-10-01",
+      "rain": 300.17,
+      "temp": 26.610968,
+      "coverage": 1,
+      "qa": "pass"
+    },
+    {
+      "date": "2021-11-01",
+      "rain": 201.6,
+      "temp": 26.356333,
+      "coverage": 1,
+      "qa": "pass"
+    },
+    {
+      "date": "2021-12-01",
+      "rain": 12.29,
+      "temp": 25.34871,
+      "coverage": 1,
+      "qa": "pass"
+    },
+    {
+      "date": "2022-01-01",
+      "rain": 1.69,
+      "temp": 26.613871,
+      "coverage": 1,
+      "qa": "pass"
+    },
+    {
+      "date": "2022-02-01",
+      "rain": 12.32,
+      "temp": 28.916786,
+      "coverage": 1,
+      "qa": "pass"
+    },
+    {
+      "date": "2022-03-01",
+      "rain": 152.57,
+      "temp": 29.413548,
+      "coverage": 1,
+      "qa": "pass"
+    },
+    {
+      "date": "2022-04-01",
+      "rain": 143.54,
+      "temp": 28.332,
+      "coverage": 1,
+      "qa": "pass"
+    },
+    {
+      "date": "2022-05-01",
+      "rain": 314,
+      "temp": 27.640645,
+      "coverage": 1,
+      "qa": "pass"
+    },
+    {
+      "date": "2022-06-01",
+      "rain": 230.5,
+      "temp": 27.407333,
+      "coverage": 1,
+      "qa": "pass"
+    },
+    {
+      "date": "2022-07-01",
+      "rain": 425.85,
+      "temp": 26.886129,
+      "coverage": 1,
+      "qa": "pass"
+    },
+    {
+      "date": "2022-08-01",
+      "rain": 271.9,
+      "temp": 26.729677,
+      "coverage": 1,
+      "qa": "pass"
+    },
+    {
+      "date": "2022-09-01",
+      "rain": 255.77,
+      "temp": 26.606667,
+      "coverage": 1,
+      "qa": "pass"
+    },
+    {
+      "date": "2022-10-01",
+      "rain": 235.17,
+      "temp": 26.545484,
+      "coverage": 1,
+      "qa": "pass"
+    },
+    {
+      "date": "2022-11-01",
+      "rain": 192.75,
+      "temp": 26.391,
+      "coverage": 1,
+      "qa": "pass"
+    },
+    {
+      "date": "2022-12-01",
+      "rain": 61.7,
+      "temp": 24.831613,
+      "coverage": 1,
+      "qa": "pass"
+    },
+    {
+      "date": "2023-01-01",
+      "rain": 26.42,
+      "temp": 25.683548,
+      "coverage": 1,
+      "qa": "pass"
+    },
+    {
+      "date": "2023-02-01",
+      "rain": 2.86,
+      "temp": 28.112143,
+      "coverage": 1,
+      "qa": "pass"
+    },
+    {
+      "date": "2023-03-01",
+      "rain": 0.01,
+      "temp": 29.214516,
+      "coverage": 1,
+      "qa": "pass"
+    },
+    {
+      "date": "2023-04-01",
+      "rain": 26.83,
+      "temp": 31.252,
+      "coverage": 1,
+      "qa": "pass"
+    },
+    {
+      "date": "2023-05-01",
+      "rain": 164.12,
+      "temp": 30.056452,
+      "coverage": 1,
+      "qa": "pass"
+    },
+    {
+      "date": "2023-06-01",
+      "rain": 223.68,
+      "temp": 27.729333,
+      "coverage": 1,
+      "qa": "pass"
+    },
+    {
+      "date": "2023-07-01",
+      "rain": 394.67,
+      "temp": 27.315806,
+      "coverage": 1,
+      "qa": "pass"
+    },
+    {
+      "date": "2023-08-01",
+      "rain": 150.6,
+      "temp": 27.534839,
+      "coverage": 1,
+      "qa": "pass"
+    },
+    {
+      "date": "2023-09-01",
+      "rain": 334.99,
+      "temp": 27.057333,
+      "coverage": 1,
+      "qa": "pass"
+    },
+    {
+      "date": "2023-10-01",
+      "rain": 289.6,
+      "temp": 27.374839,
+      "coverage": 1,
+      "qa": "pass"
+    },
+    {
+      "date": "2023-11-01",
+      "rain": 142.87,
+      "temp": 26.812333,
+      "coverage": 1,
+      "qa": "pass"
+    },
+    {
+      "date": "2023-12-01",
+      "rain": 32.29,
+      "temp": 26.820323,
+      "coverage": 1,
+      "qa": "pass"
+    },
+    {
+      "date": "2024-01-01",
+      "rain": 0.3,
+      "temp": 27.933871,
+      "coverage": 1,
+      "qa": "pass"
+    },
+    {
+      "date": "2024-02-01",
+      "rain": 0.01,
+      "temp": 29.635517,
+      "coverage": 1,
+      "qa": "pass"
+    },
+    {
+      "date": "2024-03-01",
+      "rain": 0.5,
+      "temp": 30.587097,
+      "coverage": 1,
+      "qa": "pass"
+    },
+    {
+      "date": "2024-04-01",
+      "rain": 4.5,
+      "temp": 32.678,
+      "coverage": 1,
+      "qa": "pass"
+    },
+    {
+      "date": "2024-05-01",
+      "rain": 204.08,
+      "temp": 30.680645,
+      "coverage": 1,
+      "qa": "pass"
+    },
+    {
+      "date": "2024-06-01",
+      "rain": 219.49,
+      "temp": 28.255333,
+      "coverage": 1,
+      "qa": "pass"
+    },
+    {
+      "date": "2024-07-01",
+      "rain": 340.66,
+      "temp": 27.297742,
+      "coverage": 1,
+      "qa": "pass"
+    },
+    {
+      "date": "2024-08-01",
+      "rain": 194.6,
+      "temp": 27.701613,
+      "coverage": 1,
+      "qa": "pass"
+    },
+    {
+      "date": "2024-09-01",
+      "rain": 258.14,
+      "temp": 27.17,
+      "coverage": 1,
+      "qa": "pass"
+    },
+    {
+      "date": "2024-10-01",
+      "rain": 291.9,
+      "temp": 27.118065,
+      "coverage": 1,
+      "qa": "pass"
+    },
+    {
+      "date": "2024-11-01",
+      "rain": 125.89,
+      "temp": 27.133333,
+      "coverage": 1,
+      "qa": "pass"
+    },
+    {
+      "date": "2024-12-01",
+      "rain": 100.37,
+      "temp": 25.706129,
+      "coverage": 1,
+      "qa": "pass"
+    },
+    {
+      "date": "2025-01-01",
+      "rain": 2.7,
+      "temp": 25.732581,
+      "coverage": 1,
+      "qa": "pass"
+    },
+    {
+      "date": "2025-02-01",
+      "rain": 6.5,
+      "temp": 28.762857,
+      "coverage": 1,
+      "qa": "pass"
+    },
+    {
+      "date": "2025-03-01",
+      "rain": 23.27,
+      "temp": 30.278065,
+      "coverage": 1,
+      "qa": "pass"
+    },
+    {
+      "date": "2025-04-01",
+      "rain": 36.97,
+      "temp": 30.291333,
+      "coverage": 1,
+      "qa": "pass"
+    },
+    {
+      "date": "2025-05-01",
+      "rain": 166.71,
+      "temp": 29.599677,
+      "coverage": 1,
+      "qa": "pass"
+    },
+    {
+      "date": "2025-06-01",
+      "rain": 240.58,
+      "temp": 27.586333,
+      "coverage": 1,
+      "qa": "pass"
+    },
+    {
+      "date": "2025-07-01",
+      "rain": 119.09,
+      "temp": 27.540323,
+      "coverage": 1,
+      "qa": "pass"
+    },
+    {
+      "date": "2025-08-01",
+      "rain": 167.74,
+      "temp": 27.197097,
+      "coverage": 1,
+      "qa": "pass"
+    },
+    {
+      "date": "2025-09-01",
+      "rain": 194.97,
+      "temp": 26.927,
+      "coverage": 1,
+      "qa": "pass"
+    },
+    {
+      "date": "2025-10-01",
+      "rain": 367.58,
+      "temp": 26.984516,
+      "coverage": 1,
+      "qa": "pass"
+    },
+    {
+      "date": "2025-11-01",
+      "rain": 150.99,
+      "temp": 25.905667,
+      "coverage": 1,
+      "qa": "pass"
+    },
+    {
+      "date": "2025-12-01",
+      "rain": 47.35,
+      "temp": 26.086129,
+      "coverage": 1,
+      "qa": "pass"
+    }
+  ],
+  "geometry": {
+    "type": "FeatureCollection",
+    "features": [
+      {
+        "type": "Feature",
+        "properties": {
+          "id": "MT-BLOCK-01",
+          "status": "analyst_digitised_visible_cultivation_block_not_verified_farm",
+          "area_ha_approx": 1.996,
+          "center_lon_lat": [
+            106.0216210397036,
+            10.479098076600966
+          ],
+          "crs": "EPSG:4326",
+          "homogeneous_soil_verified": false,
+          "current_crop_verified": false,
+          "rotation_verified": false,
+          "may_contain_multiple_subplots": true,
+          "legal_boundary": false,
+          "source_image_date_metadata": "2025-08-07",
+          "date_scope": "source citation footprint; not current 2026 field survey",
+          "edge_interpretation": "visible outer cultivation edges next to tree strips and bunds; no land title or farm ownership inferred"
+        },
+        "geometry": {
+          "type": "Polygon",
+          "coordinates": [
+            [
+              [
+                106.02119400000001,
+                10.479885999999999
+              ],
+              [
+                106.02108000000001,
+                10.479603999999998
+              ],
+              [
+                106.02096000000002,
+                10.479279999999997
+              ],
+              [
+                106.02082800000001,
+                10.478943999999998
+              ],
+              [
+                106.020756,
+                10.478763999999998
+              ],
+              [
+                106.02206400000001,
+                10.478313999999997
+              ],
+              [
+                106.02210000000001,
+                10.478415999999998
+              ],
+              [
+                106.022478,
+                10.479429999999997
+              ],
+              [
+                106.02119400000001,
+                10.479885999999999
+              ]
+            ]
+          ]
+        }
+      }
+    ]
+  },
+  "imagery": {
+    "extent": {
+      "xmin": 106.020756,
+      "xmax": 106.022478,
+      "ymin": 10.478313999999997,
+      "ymax": 10.479885999999999
+    }
+  },
+  "source": {
+    "provider": "NASA POWER",
+    "url": "https://power.larc.nasa.gov/api/temporal/daily/point?parameters=T2M%2CT2M_MAX%2CT2M_MIN%2CPRECTOTCORR&community=AG&longitude=106.02154675&latitude=10.4770865&start=20150101&end=20251231&format=JSON&time-standard=UTC",
+    "kind": "gridded_weather_estimate",
+    "retrievedAt": "2026-11-12T02:12:21.632567+00:00",
+    "sourceSha256": "60fd764713fde469a037889ec2459018821abddd842c089899ac01d34e0fdf32",
+    "featuresSha256": "9912d774974bd5bc1f71bc900811ee0e1fd33b9f3a4fbbbec625523ea15b1a92",
+    "flags": [
+      {
+        "date": "2020-06-14",
+        "parameter": "PRECTOTCORR",
+        "value": 488.17,
+        "unit": "mm/day",
+        "status": "needs_independent_review",
+        "action": "kept_raw_not_corrected"
+      }
+    ],
+    "units": {
+      "rain": "mm/month",
+      "temp": "°C"
+    },
+    "nativeResolution": "Meteorology coarse native grid (~0.5 x 0.625 degrees); not field measurements",
+    "validation": "Curated real monthly cache; original raw hash retained, not independent field approval. Source flags mapped into monthly QA."
+  },
+  "a1": null,
+  "e1": null,
+  "h1": null
+}
