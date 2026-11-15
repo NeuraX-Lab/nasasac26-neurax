@@ -5,7 +5,10 @@ export function ForecastPlot({
   forecasts,
   vi,
 }: {
-  forecasts: Overview["forecasts"];
+  forecasts: Pick<
+    Overview["forecasts"][number],
+    "target" | "target_month" | "value" | "lower" | "upper"
+  >[];
   vi: boolean;
 }) {
   const format = (n: number) =>
@@ -70,8 +73,8 @@ export function ForecastPlot({
                     <g key={f.target_month}>
                       <title>
                         {f.target_month}: {format(f.value)} {unit};{" "}
-                        {format(f.lower)}–{format(f.upper)}; coverage{" "}
-                        {format(f.backtest_coverage * 100)}%
+                        {format(f.lower)}–{format(f.upper)}; research interval,
+                        coverage not guaranteed
                       </title>
                       <text x="2" y={y + 3} fontSize="13" fill="#314d3d">
                         {f.target_month.slice(5, 7)}/

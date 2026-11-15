@@ -20,6 +20,23 @@ for (const size of [
     await page
       .getByRole("button", { name: "Kết quả model", exact: true })
       .click();
+    // V4 does not render a V2 snapshot before a user-requested inference.
+    await expect(page.locator(".forecast-plots figure")).toHaveCount(0);
+    await expect(page.locator(".climate-context")).toContainText(
+      "Chưa có kết quả V4 khớp",
+    );
+    await page.getByRole("button", { name: "Điều kiện", exact: true }).click();
+    await page.getByLabel("Từ tháng", { exact: true }).fill("2026-12");
+    await page.getByLabel("Đến tháng", { exact: true }).fill("2027-02");
+    await page
+      .locator(".conditions-form")
+      .getByRole("button", { name: "Xem so sánh", exact: true })
+      .click();
+    await expect(page.getByTestId("v4-run")).toBeVisible();
+    await page.getByRole("button", { name: "Quan sát", exact: true }).click();
+    await page
+      .getByRole("button", { name: "Kết quả model", exact: true })
+      .click();
     await expect(page.locator(".forecast-plots figure")).toHaveCount(3);
     await page
       .getByRole("button", { name: "So luân canh", exact: true })
@@ -45,7 +62,7 @@ for (const size of [
       ),
     ).toBe(true);
     await page.screenshot({
-      path: `artifacts/remake/sprint1-${size.width}-decision.png`,
+      path: `artifacts/v4-integration/regression/sprint1-${size.width}-decision.png`,
       fullPage: true,
     });
     await page.getByRole("button", { name: "Quan sát", exact: true }).click();
@@ -53,7 +70,7 @@ for (const size of [
       .poll(async () => (await map.boundingBox())!.width)
       .toBeGreaterThan(wide * 0.95);
     await page.screenshot({
-      path: `artifacts/remake/sprint1-${size.width}-explore.png`,
+      path: `artifacts/v4-integration/regression/sprint1-${size.width}-explore.png`,
       fullPage: true,
     });
   });

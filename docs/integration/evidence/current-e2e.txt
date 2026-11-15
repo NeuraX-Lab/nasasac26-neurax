@@ -1,0 +1,85 @@
+Running 39 tests using 1 worker
+
+
+
+  ok  1 tests\e2e\dashboard-model.spec.ts:6:1 › current dashboard executes selected V4 and saves its model provenance (9.9s)
+
+  ok  2 tests\e2e\dashboard-model.spec.ts:58:1 › mobile V4 edits, API outage and wrong region do not substitute snapshots (5.5s)
+
+  ok  3 tests\e2e\dashboard.spec.ts:41:1 › prepared profile has sourced natural imagery, no fabricated sensors and no automatic inference (12.9s)
+
+  ok  4 tests\e2e\dashboard.spec.ts:87:1 › A + D: real input → API → select → persist → reload → reopen; edits become stale (22.2s)
+
+  ok  5 tests\e2e\dashboard.spec.ts:152:1 › B: a distinct polygon sends its geometry and never borrows pilot catalog or model (15.7s)
+
+  ok  6 tests\e2e\dashboard.spec.ts:197:1 › API errors and wrong-scope responses keep edited inputs stale; delayed results cannot overwrite edits (15.4s)
+
+  ok  7 tests\e2e\dashboard.spec.ts:246:1 › malformed V4 and unsupported months do not become a fresh forecast (23.1s)
+
+  ok  8 tests\e2e\dashboard.spec.ts:277:1 › C: serial harness supplies three correctly labelled readings; disconnect preserves stale values and A/B links (18.7s)
+
+  ok  9 tests\e2e\dashboard.spec.ts:366:1 › mobile keyboard, real API, save and serious accessibility regression (15.3s)
+
+  ok 10 tests\e2e\dashboard.spec.ts:419:1 › map imagery failure retains a truthful fallback, and legacy planner routes use the dashboard (26.8s)
+
+  ok 11 tests\e2e\dashboard.spec.ts:431:1 › storage failure never reports a saved draft (3.7s)
+
+  ok 12 tests\e2e\dashboard.spec.ts:455:1 › draw, undo, confirm, edit and cancel keep the existing boundary workflow (18.3s)
+
+  ok 13 tests\e2e\dashboard.spec.ts:492:1 › map expansion traps keyboard focus and Escape restores the trigger; desktop has no serious axe issues (14.4s)
+
+  ok 14 tests\e2e\dashboard.spec.ts:522:1 › unavailable saved A1 still permits a real analysis; no WebGL leaves the outline and decisions usable (10.3s)
+
+  ok 15 tests\e2e\desktop-hardening.spec.ts:17:1 › live tiles: browser offline → explicit retry offline → online recovery preserves map/AOI/probes (10.3s)
+
+  ok 16 tests\e2e\desktop-hardening.spec.ts:72:1 › pending tile timeout keeps geometry and explicit retry streams real tiles successfully (19.8s)
+
+  ok 17 tests\e2e\desktop-hardening.spec.ts:128:3 › demo regression 1440: NASA → V4 → compare → save/reopen → compact map (14.3s)
+
+  ok 18 tests\e2e\desktop-hardening.spec.ts:128:3 › demo regression 1920: NASA → V4 → compare → save/reopen → compact map (15.9s)
+
+  ok 19 tests\e2e\desktop-sprint1.spec.ts:6:3 › desktop workspace 1440: modes preserve map and probes (9.4s)
+
+  ok 20 tests\e2e\desktop-sprint1.spec.ts:6:3 › desktop workspace 1920: modes preserve map and probes (11.1s)
+
+  ok 21 tests\e2e\farmer-sprint2.spec.ts:6:3 › farmer journey 1440 retains inputs and saved plan across modes (11.5s)
+
+  ok 22 tests\e2e\farmer-sprint2.spec.ts:6:3 › farmer journey 1920 retains inputs and saved plan across modes (12.8s)
+
+  ok 23 tests\e2e\farmer-sprint21.spec.ts:2:1 › pending satellite tiles are labelled loading even after AOI and probes mount (4.5s)
+
+  ok 24 tests\e2e\farmer-sprint21.spec.ts:43:3 › compare-first 1440: blocked draft, save state and mini-map (9.2s)
+
+  ok 25 tests\e2e\farmer-sprint21.spec.ts:43:3 › compare-first 1920: blocked draft, save state and mini-map (12.2s)
+
+  ok 26 tests\e2e\farmer-sprint21.spec.ts:131:1 › tile failure retains AOI, probes and source instead of an unlabelled blank map (4.7s)
+
+  ok 27 tests\e2e\live-provider.spec.ts:28:1 › actual V4 request → changed decisions → RAG → save → reload/reopen preserves both versioned providers (12.6s)
+
+  ok 28 tests\e2e\live-provider.spec.ts:82:1 › V4 outage or wrong echoed farm cannot be saved as fresh; income is not sent (8.5s)
+
+  ok 29 tests\e2e\live-provider.spec.ts:137:1 › mobile V4 decisions, focus and accessibility (5.4s)
+
+  ok 30 tests\e2e\live-provider.spec.ts:157:1 › editing inputs while V4 is pending discards the old response (5.5s)
+
+  ok 31 tests\e2e\live-v4.spec.ts:39:1 › real NASA → fresh V4 → intervals → gated RAG → rotations → save/reopen original run (12.4s)
+
+  ok 32 tests\e2e\live-v4.spec.ts:158:1 › V4 outage and wrong echoed farm are explicit, block saving and never fall back to V2 (7.7s)
+
+  ok 33 tests\e2e\live-v4.spec.ts:200:1 › evidence gate abstains without fabricated citations and income is not remapped (8.3s)
+
+  ok 34 tests\e2e\live-v4.spec.ts:229:1 › input edits discard delayed V4 responses and keep the form open (5.6s)
+
+  ok 35 tests\e2e\live-v4.spec.ts:261:1 › mobile and English/Power entry preserve shared V4 dashboard and accessibility (6.5s)
+
+  ok 36 tests\e2e\sprint3a.spec.ts:4:1 › SIMULATED_ONLY: dashboard USB wait, text channels, QA, stale, loss and reconnect (8.2s)
+
+  ok 37 tests\e2e\sprint3a.spec.ts:90:3 › actual UI 1440: real map, empty probe provenance, historical comparison (10.1s)
+
+  ok 38 tests\e2e\sprint3a.spec.ts:90:3 › actual UI 1920: real map, empty probe provenance, historical comparison (10.4s)
+
+  ok 39 tests\e2e\sprint3a.spec.ts:157:1 › SIMULATED_ONLY: port-open failure and reload require an explicit new chooser (4.4s)
+
+
+
+  39 passed (8.0m)

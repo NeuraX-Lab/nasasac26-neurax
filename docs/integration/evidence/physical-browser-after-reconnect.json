@@ -1,0 +1,15 @@
+{
+  "captured_at": "2026-11-15T04:58:26.369Z",
+  "status": "ESP32-S3Đang nhận USB",
+  "readings": [
+    "Nhiệt độ không khíB25,8°CSố đo tại điểm · 11:58:22",
+    "Độ ẩm không khíB44,1%RHSố đo tại điểm · 11:58:22",
+    "Đầu dò đất · ADCA3.077ADCSố đo tại điểm · 11:58:22"
+  ],
+  "authorized_ports": [
+    {
+      "usbProductId": 21971,
+      "usbVendorId": 6790
+    }
+  ]
+}

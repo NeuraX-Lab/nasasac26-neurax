@@ -34,6 +34,8 @@ async function execute(page: Page) {
   await expect(page.getByTestId("result-state")).not.toContainText(
     "cần cập nhật",
   );
+  if (page.url().includes("/w/my-thanh/"))
+    await expect(page.getByTestId("v4-run")).toBeVisible();
   return run;
 }
 test("prepared profile has sourced natural imagery, no fabricated sensors and no automatic inference", async ({
@@ -71,17 +73,16 @@ test("prepared profile has sourced natural imagery, no fabricated sensors and no
   expect(JSON.stringify(map.sources)).toContain("World_Imagery");
   expect(calls).toBe(0);
   await page.screenshot({
-    path: "artifacts/remake/after-desktop.png",
+    path: "artifacts/v4-integration/regression/after-desktop.png",
     fullPage: true,
   });
   await page
     .getByRole("button", { name: "Kết quả model", exact: true })
     .click();
-  await expect(page.locator(".forecast-table tbody tr")).toHaveCount(2);
+  await expect(page.locator(".forecast-table")).toHaveCount(0);
   await expect(page.locator(".climate-context")).toContainText(
-    "Bản kết quả đã lưu",
+    "Chưa có kết quả V4 khớp",
   );
-  await expect(page.locator(".forecast-table")).toContainText("2027");
 });
 test("A + D: real input → API → select → persist → reload → reopen; edits become stale", async ({
   page,
@@ -115,7 +116,8 @@ test("A + D: real input → API → select → persist → reload → reopen; ed
   );
   expect(saved.run.a1.run_id).toBe(run.a1.run_id);
   expect(saved.chosen).toBe("R1");
-  expect(saved.climateSnapshot.schema_version).toBe("fieldshift-2");
+  expect(saved.climateSnapshot).toBeNull();
+  expect(saved.v4.response.selected_system).toBe("v4");
   await page.reload();
   await page.getByRole("button", { name: "Mở bản đã lưu" }).click();
   await expect(page.getByTestId("result-state")).toContainText(
@@ -137,7 +139,7 @@ test("A + D: real input → API → select → persist → reload → reopen; ed
     page.getByRole("button", { name: "Lưu bản dự kiến", exact: true }),
   ).toBeDisabled();
   await expect(page.locator(".climate-context")).toContainText(
-    "Đầu vào đã đổi",
+    "Chưa có kết quả V4 khớp",
   );
   expect(
     await page.evaluate(
@@ -241,31 +243,37 @@ test("API errors and wrong-scope responses keep edited inputs stale; delayed res
     page.getByRole("button", { name: "Lưu bản dự kiến", exact: true }),
   ).toBeDisabled();
 });
-test("v2 malformed payload and unsupported target months do not become a fresh forecast", async ({
+test("malformed V4 and unsupported months do not become a fresh forecast", async ({
   page,
 }) => {
-  await page.route("**/snapshots/v2/overview.json", (r) =>
+  await open(page);
+  await page.route("**/api/v4/analyze", (r) =>
     r.fulfill({ json: { schema_version: "0.1-proposal" } }),
   );
-  await open(page);
+  await conditions(page);
+  await page
+    .locator(".conditions-form")
+    .getByRole("button", { name: "Xem so sánh", exact: true })
+    .click();
+  await expect(page.locator(".v4-live-status [role=alert]")).toContainText(
+    "schema",
+  );
+  await expect(page.locator(".forecast-table")).toHaveCount(0);
+  await page.unroute("**/api/v4/analyze");
+  await conditions(page);
+  await page.getByLabel("Từ tháng", { exact: true }).fill("2027-05");
+  await page.getByLabel("Đến tháng", { exact: true }).fill("2027-08");
+  await execute(page);
+  await page.getByRole("button", { name: "Quan sát", exact: true }).click();
   await page
     .getByRole("button", { name: "Kết quả model", exact: true })
     .click();
   await expect(page.locator(".climate-context")).toContainText(
-    "Không tải được bản lưu model",
-  );
-  await expect(page.locator(".forecast-table")).toHaveCount(0);
-  await page.unroute("**/snapshots/v2/overview.json");
-  await page.getByRole("button", { name: "Thử tải lại bản lưu" }).click();
-  await expect(page.locator(".forecast-table tbody tr")).toHaveCount(2);
-  await conditions(page);
-  await page.getByLabel("Từ tháng", { exact: true }).fill("2027-05");
-  await page.getByLabel("Đến tháng", { exact: true }).fill("2027-08");
-  await expect(page.locator(".climate-context")).toContainText(
-    "không có tháng nằm trong vụ",
+    "Không có tháng đích trong khoảng vụ",
   );
   await expect(page.locator(".forecast-table")).toHaveCount(0);
 });
+
 test("C: serial harness supplies three correctly labelled readings; disconnect preserves stale values and A/B links", async ({
   page,
 }) => {
@@ -385,7 +393,7 @@ test("mobile keyboard, real API, save and serious accessibility regression", asy
     ),
   ).toEqual([]);
   await page.screenshot({
-    path: "artifacts/remake/after-mobile.png",
+    path: "artifacts/v4-integration/regression/after-mobile.png",
     fullPage: true,
   });
   await page.getByRole("button", { name: "Xem bản đồ", exact: true }).click();
@@ -396,7 +404,7 @@ test("mobile keyboard, real API, save and serious accessibility regression", asy
     }),
   ).toBeVisible();
   await page.screenshot({
-    path: "artifacts/remake/after-mobile-map.png",
+    path: "artifacts/v4-integration/regression/after-mobile-map.png",
     fullPage: true,
   });
   await page

@@ -2,41 +2,26 @@ import { useState } from "react";
 import { Climate } from "../../shared/charts";
 import { OptionalVisual } from "../../shared/OptionalVisual";
 import type { AnalysisRun } from "../analysis/contracts";
-import { seasonMonths, withinSeason, type Overview } from "./model";
-import {
-  ResearchInference,
-  type ResearchInferenceSchema,
-} from "../analysis/ResearchInference";
-import type { z } from "zod";
-import type { V2Result } from "./v2";
+import { seasonMonths, withinSeason } from "./model";
+import type { V4Result } from "./v4";
 import { ForecastPlot } from "./ForecastPlot";
 
 export function ClimateContext({
   run,
-  snapshot,
   season,
   vi,
   stale,
-  snapshotError,
-  retry,
-  onResearchResult,
-  liveV2,
-  restoredV2,
+  liveV4,
+  restoredV4,
   workspaceMode,
 }: {
-  workspaceMode: "explore" | "conditions" | "decision";
   run: AnalysisRun | null;
-  liveV2: V2Result | null;
-  restoredV2: boolean;
-  snapshot: Overview | null;
   season: string | null;
   vi: boolean;
   stale: boolean;
-  snapshotError: string;
-  retry: () => void;
-  onResearchResult: (
-    result: z.infer<typeof ResearchInferenceSchema> | null,
-  ) => void;
+  liveV4: V4Result | null;
+  restoredV4: boolean;
+  workspaceMode: "explore" | "conditions" | "decision";
 }) {
   const [viewChoice, setViewChoice] = useState<
     Partial<Record<typeof workspaceMode, "history" | "model">>
@@ -46,7 +31,6 @@ export function ClimateContext({
     : workspaceMode === "explore"
       ? "history"
       : "model";
-  const [provider, setProvider] = useState<"v2-saved" | "research">("v2-saved");
   const m = (vn: string, en: string) => (vi ? vn : en);
   const months = seasonMonths(season),
     historical =
@@ -61,10 +45,9 @@ export function ClimateContext({
     new Intl.NumberFormat(vi ? "vi" : "en", {
       maximumFractionDigits: 1,
     }).format(n);
-  const forecasts =
-    (liveV2?.response.forecasts || snapshot?.forecasts)?.filter(
-      (f) => !season || withinSeason(f.target_month, season),
-    ) || [];
+  const forecasts = (liveV4?.response.forecasts || []).filter(
+    (f) => !season || withinSeason(f.target_month, season),
+  );
   const targets = [...new Set(forecasts.map((f) => f.target_month))];
   return (
     <section
@@ -79,15 +62,10 @@ export function ClimateContext({
                 "NASA POWER · Lịch sử khí hậu vùng",
                 "NASA POWER · Regional climate history",
               )
-            : provider === "v2-saved"
-              ? m(
-                  "FieldShift V2 · Ước tính khí hậu",
-                  "FieldShift V2 · Climate estimates",
-                )
-              : m(
-                  "Điều kiện cho vụ đang cân nhắc",
-                  "Conditions for your next season",
-                )}
+            : m(
+                "FieldShift V4 · Ước tính khí hậu",
+                "FieldShift V4 · Climate estimates",
+              )}
         </h2>
         <div
           className="segmented"
@@ -174,252 +152,163 @@ export function ClimateContext({
             )}
           </p>
         </>
-      ) : (
+      ) : liveV4 ? (
         <>
-          {run?.sidecar.catalog_supported && (
-            <div
-              className="model-provider-choice"
-              aria-label={m("Chế độ model", "Model mode")}
-            >
-              <button
-                aria-pressed={provider === "v2-saved"}
-                onClick={() => setProvider("v2-saved")}
-              >
-                {liveV2 ? m("API v2", "V2 API") : m("Bản lưu v2", "Saved v2")}
-              </button>
-              <button
-                aria-pressed={provider === "research"}
-                onClick={() => setProvider("research")}
-              >
-                {m("Chạy model trên máy", "Run local model")}
-              </button>
-            </div>
-          )}
-          {provider === "research" && run?.sidecar.catalog_supported ? (
-            <>
-              <p className="context-footnote">
-                {m(
-                  "Model nghiên cứu cũ, tách biệt Engine v2. Dùng tháng bắt đầu và cửa sổ 1/3 tháng; chưa chuyển khí hậu thành đánh giá cây. Đổi khai báo ruộng không tự thay forecast.",
-                  "Earlier research model, separate from Engine v2. Uses a start month and a 1/3-month window; it does not infer crop suitability. Farm declarations do not automatically change the forecast.",
-                )}
-              </p>
-              {stale ? (
-                <p role="status">
-                  {m(
-                    "Cập nhật so sánh để xác nhận phạm vi trước khi chạy model.",
-                    "Update the comparison to confirm scope before running the model.",
-                  )}
-                </p>
-              ) : (
-                <ResearchInference
-                  key={run.a1.run_id}
-                  aoiId="my-thanh"
-                  geometry={run.inputs.geometry}
-                  geometryHash={run.sidecar.geometry_hash}
-                  supported
-                  onResult={onResearchResult}
-                />
+          <p className="forecast-scope" role="status">
+            {m(
+              "Ước tính nghiên cứu cho từng tháng đích, không phải tổng ba tháng hoặc dự báo vận hành đã kiểm chứng.",
+              "Research estimates for individual target months, not a three-month total or validated operational forecast.",
+            )}
+          </p>
+          <details className="climate-provenance">
+            <summary>
+              {m(
+                "Nguồn, thời điểm & chế độ kết quả",
+                "Source, timing & result mode",
               )}
-            </>
-          ) : snapshot || liveV2 ? (
-            <>
-              <p className="forecast-scope" role="status">
-                {!season
-                  ? m(
-                      "Chưa chọn khoảng vụ. Đây là ước tính có sẵn cho tháng 12/2026 và 02/2027 tại Mỹ Thành, chưa phải kết quả riêng cho vụ của bạn.",
-                      "No season selected. These are existing estimates for Dec 2026 and Feb 2027 in Mỹ Thành, not a result tailored to your season.",
-                    )
-                  : m(
-                      "Ước tính nghiên cứu theo từng tháng đích trong khoảng bạn chọn; không xác định ngày gieo hoặc nhu cầu tưới.",
-                      "Research estimates for individual target months within your window, not sowing dates or irrigation needs.",
-                    )}
-              </p>
-              <details className="climate-provenance">
-                <summary>
-                  {m(
-                    "Nguồn, thời điểm & chế độ kết quả",
-                    "Source, timing & result mode",
-                  )}
-                </summary>
-                <p className="snapshot-label">
-                  {liveV2 && restoredV2
-                    ? m("Bản đã lưu từ API v2", "Saved v2 API result")
-                    : liveV2
-                      ? m(
-                          "API v2 · forecast tính sẵn",
-                          "V2 API · precomputed forecasts",
-                        )
-                      : m("Bản kết quả đã lưu", "Saved result")}{" "}
-                  · {m("dữ liệu đến", "data through")}{" "}
-                  {(
-                    liveV2?.response.forecasts[0].data_through ||
-                    snapshot?.data_through ||
-                    "—"
-                  ).slice(0, 7)}{" "}
-                  · {m("Mỹ Thành, khí hậu vùng", "Mỹ Thành regional climate")}
-                </p>
-              </details>
-              {stale && (
-                <p className="inline-warning">
-                  {m(
-                    "Đầu vào đã đổi; bản lưu khí hậu này chưa được tính lại theo thay đổi.",
-                    "Inputs changed; this saved climate result has not been recalculated.",
-                  )}
-                </p>
+            </summary>
+            <p className="snapshot-label">
+              {restoredV4
+                ? m("Bản đã lưu từ API V4", "Saved V4 API result")
+                : m("API V4 · inference mới", "V4 API · fresh inference")}
+              {" · "}
+              {m("dữ liệu đến", "data through")}{" "}
+              {liveV4.response.forecasts[0].data_through.slice(0, 7)}
+              {" · "}
+              {liveV4.response.run_id}
+            </p>
+            <p>
+              {liveV4.response.inference.model_version} ·{" "}
+              {liveV4.response.generated_at_utc}
+            </p>
+            <p>
+              {m(
+                "Dữ liệu NASA đã lưu có checksum; không phải lần tải NASA trực tiếp.",
+                "Checksum-pinned NASA data cache; not a new NASA acquisition.",
               )}
-              {targets.length ? (
-                <div className="forecast-table-wrap">
-                  <ForecastPlot forecasts={forecasts} vi={vi} />
-                  <div className="desktop-forecast-months">
-                    {targets.map((date) => (
-                      <article key={date}>
-                        <h3>
-                          {date.slice(5, 7)}/{date.slice(0, 4)}
-                        </h3>
-                        <dl>
-                          {(["rain", "temp", "rh"] as const).map((target) => {
-                            const value = forecasts.find(
-                              (f) =>
-                                f.target_month === date &&
-                                f.target ===
-                                  (
-                                    {
-                                      rain: "precip_sum_mm",
-                                      temp: "air_temp_mean_c",
-                                      rh: "air_rh_mean_pct",
-                                    } as const
-                                  )[target],
-                            );
-                            return (
-                              <div key={target}>
-                                <dt>
-                                  {target === "rain"
-                                    ? m("Mưa", "Rain")
-                                    : target === "temp"
-                                      ? m("Nhiệt độ", "Temperature")
-                                      : "RH"}
-                                </dt>
-                                <dd>
-                                  {value ? number(value.value) : "—"}{" "}
-                                  <small>
-                                    {target === "rain"
-                                      ? m("mm/tháng", "mm/month")
-                                      : target === "temp"
-                                        ? "°C"
-                                        : "%"}
-                                  </small>
-                                </dd>
-                              </div>
-                            );
-                          })}
-                        </dl>
-                      </article>
-                    ))}
-                  </div>
-                  <table className="forecast-table">
-                    <caption>
-                      {m(
-                        "Ước tính từng tháng đích · nghiên cứu",
-                        "Estimates for individual target months · research",
-                      )}
-                    </caption>
-                    <thead>
-                      <tr>
-                        <th>{m("Tháng đích", "Target month")}</th>
-                        <th>
-                          {m("Mưa", "Rain")}
-                          <small>mm/{m("tháng", "month")}</small>
-                        </th>
-                        <th>
-                          {m("Nhiệt độ", "Temperature")}
-                          <small>°C</small>
-                        </th>
-                        <th>
-                          RH<small>%</small>
-                        </th>
-                      </tr>
-                    </thead>
-                    <tbody>
-                      {targets.map((date) => (
-                        <tr key={date}>
-                          <th>
-                            {new Intl.DateTimeFormat(vi ? "vi" : "en", {
-                              month: "2-digit",
-                              year: "numeric",
-                              timeZone: "UTC",
-                            }).format(new Date(date))}
-                          </th>
-                          {[
-                            "precip_sum_mm",
-                            "air_temp_mean_c",
-                            "air_rh_mean_pct",
-                          ].map((target) => (
-                            <td key={target}>
-                              {number(
-                                forecasts.find(
-                                  (f) =>
-                                    f.target_month === date &&
-                                    f.target === target,
-                                )!.value,
-                              )}
-                            </td>
-                          ))}
-                        </tr>
-                      ))}
-                    </tbody>
-                  </table>
-                </div>
-              ) : (
-                <p>
-                  {m(
-                    "Bản lưu chỉ có tháng đích 12/2026 và 02/2027; không có tháng nằm trong vụ bạn chọn. Hãy dùng lịch sử để chuẩn bị trao đổi hoặc chờ kết quả model đúng thời gian.",
-                    "The saved targets are Dec 2026 and Feb 2027; none falls within your selected season. Use history for discussion or obtain model output for the right period.",
-                  )}
-                </p>
-              )}
-              <p className="context-footnote">
-                {m(
-                  "Mỗi hàng là một tháng, không phải tổng ba tháng. RH kém baseline; mưa 12/2026 và nhiệt 02/2027 dùng nền khí hậu. Chưa dùng để chọn ngày gieo hoặc tưới.",
-                  "Each row is one month, not a three-month total. RH underperforms baseline; Dec rain and Feb temperature use climatology. Not for sowing dates or daily irrigation.",
-                )}
-              </p>
-              <details>
-                <summary>
-                  {m(
-                    "Dải tham khảo & phương pháp",
-                    "Reference ranges & methods",
-                  )}
-                </summary>
-                <p>
-                  {m(
-                    "Dải chưa hiệu chuẩn đủ: độ phủ kiểm thử khoảng 63,9–72,2%, thấp hơn mức danh nghĩa 80%. Chưa xác minh theo vintage vận hành.",
-                    "Ranges are undercalibrated: test coverage is about 63.9–72.2%, below nominal 80%. Operational vintage has not been verified.",
-                  )}
-                </p>
-                {forecasts.map((f) => (
-                  <p key={`${f.target}/${f.horizon_months}`}>
-                    {f.target} · {f.target_month.slice(0, 7)}: {number(f.lower)}
-                    –{number(f.upper)} {f.unit} · {f.method} · cutoff{" "}
-                    {f.feature_data_cutoff.slice(0, 7)}
-                  </p>
+            </p>
+          </details>
+          {targets.length ? (
+            <div className="forecast-table-wrap">
+              <ForecastPlot forecasts={forecasts} vi={vi} />
+              <div className="desktop-forecast-months">
+                {targets.map((date) => (
+                  <article key={date}>
+                    <h3>
+                      {date.slice(5, 7)}/{date.slice(0, 4)}
+                    </h3>
+                    <dl>
+                      {forecasts
+                        .filter((f) => f.target_month === date)
+                        .map((f) => (
+                          <div key={f.target}>
+                            <dt>
+                              {f.target === "precip_sum_mm"
+                                ? m("Mưa", "Rain")
+                                : f.target === "air_temp_mean_c"
+                                  ? m("Nhiệt độ", "Temperature")
+                                  : "RH"}
+                            </dt>
+                            <dd>
+                              {number(f.value)}{" "}
+                              <small>
+                                {f.unit === "degC"
+                                  ? "°C"
+                                  : f.unit === "percent"
+                                    ? "%RH"
+                                    : m("mm/tháng", "mm/month")}
+                              </small>
+                            </dd>
+                          </div>
+                        ))}
+                    </dl>
+                  </article>
                 ))}
-              </details>
-            </>
+              </div>
+              <table className="forecast-table">
+                <caption>
+                  {m(
+                    "Ước tính từng tháng đích · nghiên cứu",
+                    "Individual target-month estimates · research",
+                  )}
+                </caption>
+                <thead>
+                  <tr>
+                    <th>{m("Tháng đích", "Target month")}</th>
+                    <th>
+                      {m("Mưa", "Rain")} mm/{m("tháng", "month")}
+                    </th>
+                    <th>{m("Nhiệt độ", "Temperature")} °C</th>
+                    <th>RH %</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  {targets.map((date) => (
+                    <tr key={date}>
+                      <th>
+                        {date.slice(5, 7)}/{date.slice(0, 4)}
+                      </th>
+                      {[
+                        "precip_sum_mm",
+                        "air_temp_mean_c",
+                        "air_rh_mean_pct",
+                      ].map((t) => (
+                        <td key={t}>
+                          {number(
+                            forecasts.find(
+                              (f) => f.target_month === date && f.target === t,
+                            )!.value,
+                          )}
+                        </td>
+                      ))}
+                    </tr>
+                  ))}
+                </tbody>
+              </table>
+            </div>
           ) : (
-            <p role="status">
-              {snapshotError ||
-                m(
-                  "Model này chưa hỗ trợ ranh hiện tại. Lịch sử vẫn dùng được khi nguồn có dữ liệu.",
-                  "This model does not support this boundary. History remains available where the source supports it.",
-                )}
-              {snapshotError && (
-                <button onClick={retry}>
-                  {m("Thử tải lại bản lưu", "Retry saved result")}
-                </button>
+            <p>
+              {m(
+                "Không có tháng đích trong khoảng vụ đã chọn; không nội suy thêm forecast.",
+                "No target months within your season; no additional forecast is interpolated.",
               )}
             </p>
           )}
+          <details>
+            <summary>
+              {m("Dải tham khảo & phương pháp", "Reference ranges & methods")}
+            </summary>
+            <p>
+              {m(
+                "ML v3 climatology · pooled intervals, mức danh nghĩa 80% không bảo đảm độ phủ. Chưa xác minh vintage vận hành; không dùng để xếp hạng cây hoặc lập lịch tưới.",
+                "ML v3 climatology · pooled intervals; nominal 80% does not guarantee coverage. Operational vintage unverified; not for crop ranking or irrigation scheduling.",
+              )}
+            </p>
+            {forecasts.map((f) => (
+              <p key={`${f.target}/${f.horizon_months}`}>
+                {f.target} · {f.target_month} · h{f.horizon_months} ·{" "}
+                {number(f.lower)}–{number(f.upper)} {f.unit} · {f.method} ·
+                origin {f.origin_month} · cutoff {f.data_through}
+              </p>
+            ))}
+            <ul>
+              {liveV4.response.warnings.map((w) => (
+                <li key={w}>{w}</li>
+              ))}
+            </ul>
+          </details>
         </>
+      ) : (
+        <p role="status">
+          {m(
+            run && !run.sidecar.catalog_supported
+              ? "Model V4 chưa hỗ trợ ranh hiện tại. Lịch sử vẫn dùng riêng theo ranh khi nguồn có dữ liệu."
+              : "Chọn điều kiện và Xem so sánh để chạy AI V4. Chưa có kết quả V4 khớp; lịch sử vẫn xem độc lập.",
+            run && !run.sidecar.catalog_supported
+              ? "V4 does not support this boundary. History remains available for its own geometry where supported."
+              : "Choose conditions and View comparison to run V4. No matching V4 result; history remains available independently.",
+          )}
+        </p>
       )}
     </section>
   );

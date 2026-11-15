@@ -1,0 +1,19 @@
+{
+  "url": "http://127.0.0.1:5174/w/my-thanh/farmer",
+  "captured_at": "2026-11-15T04:56:08.448Z",
+  "secure": true,
+  "serial_supported": true,
+  "authorized_ports": [
+    {
+      "usbProductId": 21971,
+      "usbVendorId": 6790
+    }
+  ],
+  "status": "ESP32-S3Đang nhận USB",
+  "readings": [
+    "Nhiệt độ không khíB25,6°CSố đo tại điểm · 11:56:08",
+    "Độ ẩm không khíB44,4%RHSố đo tại điểm · 11:56:08",
+    "Đầu dò đất · ADCA3.078ADCSố đo tại điểm · 11:56:08"
+  ],
+  "fonts": true
+}

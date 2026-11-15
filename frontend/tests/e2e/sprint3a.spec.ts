@@ -72,12 +72,18 @@ test("SIMULATED_ONLY: dashboard USB wait, text channels, QA, stale, loss and rec
     .click();
   await expect(page.locator(".telemetry-heading")).toContainText("chờ số đo");
   await expect(page.locator(".sensor-number").nth(2)).toContainText("—");
-  await page.evaluate(() => (window as any).__emitUSB("Do am dat: 38.0% (Raw ADC: 3086)"));
+  await page.evaluate(() =>
+    (window as any).__emitUSB("Do am dat: 38.0% (Raw ADC: 3086)"),
+  );
   await expect(page.locator(".sensor-number").nth(2)).toContainText("3.086");
   await page.getByRole("link", { name: "Thiết bị", exact: true }).click();
-  const pipeline=page.getByRole("region",{name:"H1 data pipeline"});
-  await pipeline.getByRole("button",{name:"Đồng bộ event vào pipeline",exact:true}).click();
-  await expect(pipeline.getByRole("alert")).toContainText("giờ thiết bị chưa được xác minh");
+  const pipeline = page.getByRole("region", { name: "H1 data pipeline" });
+  await pipeline
+    .getByRole("button", { name: "Đồng bộ event vào pipeline", exact: true })
+    .click();
+  await expect(pipeline.getByRole("alert")).toContainText(
+    "giờ thiết bị chưa được xác minh",
+  );
 });
 
 for (const width of [1440, 1920])
@@ -101,7 +107,7 @@ for (const width of [1440, 1920])
     await expect(page.locator(".telemetry-heading")).toContainText(
       "Chưa kết nối",
     );
-    await page.screenshot({ path: `artifacts/sprint3a/observe-${width}.png` });
+    await page.screenshot({ path: `artifacts/v4-integration/regression/observe-${width}.png` });
     const mapHeight = (await page.locator(".spatial-map").boundingBox())!
       .height;
     await page.locator(".probe-marker").filter({ hasText: "A" }).click();
@@ -112,7 +118,7 @@ for (const width of [1440, 1920])
       "Vị trí minh họa trong AOI Mỹ Thành",
     );
     await page.locator(".sensor-detail").scrollIntoViewIfNeeded();
-    await page.screenshot({ path: `artifacts/sprint3a/probe-A-${width}.png` });
+    await page.screenshot({ path: `artifacts/v4-integration/regression/probe-A-${width}.png` });
     await page.locator(".probe-marker").filter({ hasText: "B" }).click();
     await expect(page.locator(".sensor-detail .probe-channel")).toHaveCount(2);
     await expect
@@ -121,7 +127,7 @@ for (const width of [1440, 1920])
       )
       .toBeLessThanOrEqual(mapHeight + 2);
     await page.locator(".sensor-detail").scrollIntoViewIfNeeded();
-    await page.screenshot({ path: `artifacts/sprint3a/probe-B-${width}.png` });
+    await page.screenshot({ path: `artifacts/v4-integration/regression/probe-B-${width}.png` });
     await page.getByRole("button", { name: "Đóng chi tiết đầu đo" }).click();
     await expect(page.locator('.probe-marker[data-probe="B"]')).toBeFocused();
     await page.keyboard.press("Enter");
@@ -137,7 +143,7 @@ for (const width of [1440, 1920])
       .locator(".conditions-form")
       .getByRole("button", { name: "Xem so sánh", exact: true })
       .click();
-    await expect(page.getByTestId("v2-R1")).toBeVisible();
+    await expect(page.getByTestId("v4-R1")).toBeVisible();
     await page.getByRole("button", { name: "Quan sát", exact: true }).click();
     await expect(page.locator(".climate-card h2")).toContainText(
       "không phải timeline vụ",
@@ -145,7 +151,7 @@ for (const width of [1440, 1920])
     await expect(page.locator(".climate-card .recharts-line")).toHaveCount(0);
     await page
       .locator(".climate-context")
-      .screenshot({ path: `artifacts/sprint3a/calendar-history-${width}.png` });
+      .screenshot({ path: `artifacts/v4-integration/regression/calendar-history-${width}.png` });
   });
 
 test("SIMULATED_ONLY: port-open failure and reload require an explicit new chooser", async ({

@@ -1688,6 +1688,17 @@
 }
 /* Probe evidence floats within the existing right column; selection does not enlarge the map. */
 @media (min-width: 1100px) {
+  /* Live USB boot diagnostics and rejected-packet notices need their own row. */
+  .farm-dashboard
+    .field-support:has(
+      .sensor-strip .usb-diagnostics,
+      .sensor-strip > .inline-warning,
+      .sensor-strip > [role="alert"]
+    ) {
+    grid-template-rows: 330px auto;
+  }
+}
+@media (min-width: 1100px) {
   .sensor-strip {
     position: relative;
   }

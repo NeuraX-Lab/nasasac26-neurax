@@ -17,7 +17,6 @@ import { ClimateContext } from "./ClimateContext";
 import { RotationComparison } from "./RotationComparison";
 import { SensorStrip } from "./SensorStrip";
 import {
-  OverviewSchema,
   PIN,
   PlanSchema,
   readPlan,
@@ -27,7 +26,7 @@ import {
 } from "./model";
 import "./dashboard.css";
 import "./desktop.css";
-import { useV2 } from "./v2";
+import { useV4 } from "./v4";
 
 const storageKey = (id: string) => `agrotwin-draft-2:${id}`;
 export function Dashboard({ id }: { id: string }) {
@@ -57,10 +56,10 @@ export function Dashboard({ id }: { id: string }) {
       !runMatches(record.run, id, geometry, draft));
   const current = !!run && !stale;
   const choice = state.choices[id] || "";
-  const v2 = useV2();
-  const [v2Attempted, setV2Attempted] = useState(false),
+  const v4 = useV4();
+  const [v4Attempted, setV4Attempted] = useState(false),
     [question, setQuestion] = useState("");
-  const v2Current = !!v2.record && v2.record.key === key && !stale;
+  const v4Current = !!v4.record && v4.record.key === key && !v4.error;
   const [selectedSensor, setSelectedSensor] = useState("");
   const [mobileMapOpen, setMobileMapOpen] = useState(false);
   const [desktopMode, setDesktopMode] = useState<
@@ -69,9 +68,7 @@ export function Dashboard({ id }: { id: string }) {
   const [researchResult, setResearchResult] = useState<z.infer<
     typeof ResearchInferenceSchema
   > | null>(null);
-  const [snapshot, setSnapshot] = useState<Overview | null>(null),
-    [snapshotError, setSnapshotError] = useState(""),
-    [attempt, setAttempt] = useState(0);
+  const [snapshot, setSnapshot] = useState<Overview | null>(null);
   const [savedPlan, setSavedPlan] = useState<Plan | null>(() => {
     try {
       return readPlan(localStorage.getItem(storageKey(id)));
@@ -88,15 +85,16 @@ export function Dashboard({ id }: { id: string }) {
   const name = sample
     ? m("Ruộng của tôi · Mỹ Thành", "My field · Mỹ Thành")
     : area?.name || id;
-  const busy = state.running === id || v2.busy;
-  const chosenStatus = v2Current
-    ? v2.record?.response.decision.options.find((o) => o.id === choice)?.status
+  const busy = state.running === id || v4.busy;
+  const chosenStatus = v4Current
+    ? v4.record?.response.decision.options.find((o) => o.id === choice)?.status
     : undefined;
   const savedSelection =
     !!savedPlan &&
     savedPlan.key === key &&
     savedPlan.chosen === choice &&
-    savedPlan.run.a1.run_id === run?.a1.run_id;
+    savedPlan.run.a1.run_id === run?.a1.run_id &&
+    savedPlan.v4?.response.run_id === v4.record?.response.run_id;
   function changeMode(mode: "explore" | "conditions" | "decision") {
     setDesktopMode(mode);
     if (form.current) form.current.open = mode === "conditions";
@@ -112,40 +110,17 @@ export function Dashboard({ id }: { id: string }) {
       }
     });
   }
-  useEffect(() => {
-    const ctrl = new AbortController();
-    if (sample)
-      fetch("/snapshots/v2/overview.json", { signal: ctrl.signal })
-        .then((r) => {
-          if (!r.ok) throw Error();
-          return r.json();
-        })
-        .then((v) => {
-          setSnapshot(OverviewSchema.parse(v));
-          setSnapshotError("");
-        })
-        .catch(() => {
-          if (!ctrl.signal.aborted)
-            setSnapshotError(
-              m(
-                "Không tải được bản lưu model. Thử lại; lịch sử không bị thay thế.",
-                "Could not load the saved model result. Retry; history is not substituted.",
-              ),
-            );
-        });
-    return () => ctrl.abort();
-  }, [sample, attempt]);
   useEffect(
     () => () => {
       analysisRevision.current++;
       state.cancel();
-      v2.cancel();
+      v4.cancel();
     },
     [id],
   );
   function edit(next: Draft) {
     analysisRevision.current++;
-    v2.cancel();
+    v4.cancel();
     setResearchResult(null);
     state.setDraft(id, next);
     setNotice("");
@@ -158,15 +133,14 @@ export function Dashboard({ id }: { id: string }) {
     setOpenedSaved(false);
     setResearchResult(null);
     setNotice("");
-    const ok = await state.execute(id, geometry, draft);
+    const shouldV4 = sample && draft.farm.goal !== "income";
+    setV4Attempted(shouldV4);
+    const [ok] = await Promise.all([
+      state.execute(id, geometry, draft),
+      shouldV4 ? v4.execute(geometry, draft) : Promise.resolve(false),
+    ]);
     if (revision !== analysisRevision.current) return;
-    if (ok && sample && draft.farm.goal !== "income") {
-      setV2Attempted(true);
-      await v2.execute(geometry, draft);
-    } else if (ok) {
-      setV2Attempted(false);
-      v2.restore(null);
-    }
+    if (!shouldV4) v4.restore(null);
     if (ok && revision === analysisRevision.current) {
       if (form.current) form.current.open = false;
       setDesktopMode("decision");
@@ -205,7 +179,7 @@ export function Dashboard({ id }: { id: string }) {
   ];
   function save() {
     if (!geometry || !current || !run || !choice) return;
-    if (v2Attempted && !v2Current) return;
+    if (v4Attempted && !v4Current) return;
     try {
       const plan = PlanSchema.parse({
         version: "agrotwin-draft-2",
@@ -219,7 +193,8 @@ export function Dashboard({ id }: { id: string }) {
         run,
         climateSnapshot: snapshot,
         researchResult,
-        v2: v2Current ? v2.record : null,
+        v2: null,
+        v4: v4Current ? v4.record : null,
         climateSourcePin: PIN,
         tasks,
       });
@@ -261,9 +236,9 @@ export function Dashboard({ id }: { id: string }) {
     state.choose(id, savedPlan.chosen);
     setSnapshot(savedPlan.climateSnapshot);
     setResearchResult(savedPlan.researchResult || null);
-    v2.restore(savedPlan.v2 || null);
-    setQuestion(savedPlan.v2?.request.question || "");
-    setV2Attempted(!!savedPlan.v2);
+    v4.restore(savedPlan.v4 || null);
+    setQuestion(savedPlan.v4?.request.question || "");
+    setV4Attempted(!!savedPlan.v4);
     setOpenedSaved(true);
     setNotice(
       m(
@@ -403,7 +378,7 @@ export function Dashboard({ id }: { id: string }) {
             <p>
               {desktopMode === "explore"
                 ? m(
-                    "NASA POWER: lịch sử khí hậu vùng · ESP32-S3: số đo tại điểm · FieldShift V2: ước tính nghiên cứu. Chúng chưa tự xác định cây phù hợp.",
+                    "NASA POWER: lịch sử khí hậu vùng · ESP32-S3: số đo tại điểm · FieldShift V4: ước tính nghiên cứu. Chúng chưa tự xác định cây phù hợp.",
                     "Regional climate, point measurements and research estimates are separate sources. They do not determine crop suitability.",
                   )
                 : desktopMode === "conditions"
@@ -543,12 +518,8 @@ export function Dashboard({ id }: { id: string }) {
           <ClimateContext
             workspaceMode={desktopMode}
             run={run}
-            snapshot={sample ? snapshot : null}
-            snapshotError={snapshotError}
-            retry={() => setAttempt((v) => v + 1)}
-            onResearchResult={setResearchResult}
-            liveV2={v2Current ? v2.record : null}
-            restoredV2={openedSaved}
+            liveV4={v4Current ? v4.record : null}
+            restoredV4={openedSaved}
             season={draft.farm.season}
             stale={stale}
             vi={vi}
@@ -569,7 +540,7 @@ export function Dashboard({ id }: { id: string }) {
                   )
                 : openedSaved
                   ? m("Bản dự kiến đã lưu", "Saved draft")
-                  : v2Current || run?.sidecar.execution_mode === "computed"
+                  : v4Current || run?.sidecar.execution_mode === "computed"
                     ? m("Đã đối chiếu điều kiện", "Conditions checked")
                     : run
                       ? m("Bản phân tích đã lưu", "Saved analysis")
@@ -589,7 +560,7 @@ export function Dashboard({ id }: { id: string }) {
           </div>
           <button
             className={stale || !run ? "primary-action" : ""}
-            hidden={desktopMode === "decision" && current && v2Current && !busy}
+            hidden={desktopMode === "decision" && current && v4Current && !busy}
             disabled={!geometry || busy}
             onClick={() => {
               if (form.current && !draft.farm.season) {
@@ -624,7 +595,7 @@ export function Dashboard({ id }: { id: string }) {
           </p>
         )}
         <RotationComparison
-          v2={v2Current ? v2.record : null}
+          v4={v4Current ? v4.record : null}
           run={run}
           stale={stale}
           choice={choice}
@@ -635,58 +606,71 @@ export function Dashboard({ id }: { id: string }) {
           vi={vi}
         />
         {sample && (
-          <section className="v2-live-status" aria-label="FieldShift v2">
+          <section
+            className="v2-live-status v4-live-status"
+            aria-label="FieldShift v4"
+          >
             <p role="status">
               {draft.farm.goal === "income"
                 ? m(
-                    "V2 chưa hỗ trợ thu nhập; chỉ đối chiếu A1, không gửi thành mục tiêu năng suất.",
-                    "V2 does not support income; A1 only, with no conversion to yield.",
+                    "V4 chưa hỗ trợ thu nhập; chỉ đối chiếu A1, không gửi thành mục tiêu năng suất.",
+                    "V4 does not support income; A1 only, with no conversion to yield.",
                   )
-                : v2Current
+                : v4Current
                   ? m(
                       openedSaved
-                        ? "Bản dự kiến đã lưu từ API FieldShift v2; mở lại không chạy phân tích mới."
-                        : "API FieldShift v2 · đã đối chiếu điều kiện mới. Forecast được backend tính sẵn, không suy luận lại khí hậu mỗi lần đổi khai báo.",
+                        ? "Bản dự kiến đã lưu từ API FieldShift v4; mở lại không chạy phân tích mới."
+                        : "API FieldShift V4 · sáu prediction vừa thực thi bằng ML v3 climatology, RAG V4 và pooled intervals; chỉ dùng nghiên cứu.",
                       openedSaved
-                        ? "Saved FieldShift v2 API result; reopening does not execute a new analysis."
-                        : "FieldShift v2 API · conditions updated. Forecasts are precomputed by the backend, not rerun for each farm edit.",
+                        ? "Saved FieldShift v4 API result; reopening does not execute a new analysis."
+                        : "FieldShift v4 API · conditions updated. Six fresh predictions using ML v3 climatology, RAG V4 and pooled intervals; research only.",
                     )
-                  : v2Attempted
+                  : v4Attempted
                     ? m(
-                        "V2 cần cập nhật theo điều kiện hiện tại.",
-                        "V2 needs updating for current inputs.",
+                        "V4 cần cập nhật theo điều kiện hiện tại.",
+                        "V4 needs updating for current inputs.",
                       )
                     : m(
-                        "Chọn vụ và Xem so sánh để phân tích bằng API v2.",
-                        "Choose a season and View comparison to analyze with the v2 API.",
+                        "Chọn vụ và Xem so sánh để phân tích bằng API v4.",
+                        "Choose a season and View comparison to analyze with the v4 API.",
                       )}
             </p>
             <small>
               {m(
-                "Cây vụ trước, ghi chú và độ sâu chưa có trường tương đương trong v2; giữ trong nháp, không gửi ngầm.",
-                "Previous crop, notes and depth have no equivalent v2 fields; kept in the draft, not silently sent.",
+                "Cây vụ trước, ghi chú và độ sâu chưa có trường tương đương trong v4; giữ trong nháp, không gửi ngầm.",
+                "Previous crop, notes and depth have no equivalent v4 fields; kept in the draft, not silently sent.",
               )}
             </small>
-            {v2.error && (
+            {v4.error && (
               <p role="alert">
                 {m(
-                  "Chưa cập nhật được v2; thử lại. Không lấy snapshot thay kết quả mới.",
-                  "V2 update failed; retry. Saved snapshots do not substitute for new results.",
+                  "Chưa cập nhật được v4; thử lại. Không lấy snapshot thay kết quả mới.",
+                  "V4 update failed; retry. Saved snapshots do not substitute for new results.",
                 )}{" "}
-                {v2.error}
+                {v4.error}
               </p>
             )}
-            {v2Current && (
+            {v4Current && v4.record && (
+              <p data-testid="v4-run">
+                {v4.record.response.run_id} ·{" "}
+                {v4.record.response.inference.model_version} ·{" "}
+                {openedSaved
+                  ? m("bản đã lưu", "saved result")
+                  : m("inference mới", "fresh inference")}
+              </p>
+            )}
+            {v4Current && (
               <form
                 onSubmit={(e) => {
                   e.preventDefault();
-                  if (geometry) void v2.execute(geometry, draft, question);
+                  setOpenedSaved(false);
+                  if (geometry) void v4.execute(geometry, draft, question);
                 }}
               >
                 <label>
                   {m("Hỏi tài liệu liên quan", "Ask about source documents")}
                   <input
-                    name="v2-question"
+                    name="v4-question"
                     maxLength={800}
                     value={question}
                     onChange={(e) => setQuestion(e.target.value)}
@@ -695,25 +679,26 @@ export function Dashboard({ id }: { id: string }) {
                 <button disabled={busy || !question.trim()}>
                   {m("Tra tài liệu", "Search documents")}
                 </button>
-                {v2.record?.response.rag && (
-                  <div data-testid="v2-rag-answer">
-                    <p>
-                      {vi
-                        ? v2.record.response.rag.answer
-                        : v2.record.response.rag.answer_en}
-                    </p>
-                    {v2.record.response.rag.citations.map((c) => (
-                      <a
-                        key={c.card_id}
-                        href={c.url}
-                        target="_blank"
-                        rel="noreferrer"
-                      >
-                        {c.source_id} · {c.locator}{" "}
-                      </a>
-                    ))}
-                  </div>
-                )}
+                {v4.record?.response.rag &&
+                  question.trim() === v4.record.request.question && (
+                    <div data-testid="v4-rag-answer">
+                      <p>
+                        {vi
+                          ? v4.record.response.rag.answer
+                          : v4.record.response.rag.answer_en}
+                      </p>
+                      {v4.record.response.rag.citations.map((c) => (
+                        <a
+                          key={c.card_id}
+                          href={c.url}
+                          target="_blank"
+                          rel="noreferrer"
+                        >
+                          {c.source_id} · {c.locator}{" "}
+                        </a>
+                      ))}
+                    </div>
+                  )}
               </form>
             )}
           </section>
@@ -777,7 +762,7 @@ export function Dashboard({ id }: { id: string }) {
                 !choice ||
                 !run?.sidecar.catalog_supported ||
                 busy ||
-                (v2Attempted && (!v2Current || !!v2.error))
+                (v4Attempted && (!v4Current || !!v4.error))
               }
               onClick={save}
             >
@@ -836,8 +821,8 @@ export function Dashboard({ id }: { id: string }) {
                 {researchResult.prediction.toFixed(2)} {researchResult.unit} ·
                 RESEARCH_ONLY.{" "}
                 {m(
-                  "Không phải forecast v2; mở bản lưu không chạy lại model.",
-                  "Separate from v2; reopening a draft does not rerun the model.",
+                  "Không phải forecast v4; mở bản lưu không chạy lại model.",
+                  "Separate from v4; reopening a draft does not rerun the model.",
                 )}
               </p>
             )}
@@ -855,30 +840,29 @@ export function Dashboard({ id }: { id: string }) {
             </p>
             <p>
               {m("Nguồn model khí hậu", "Climate model source")}:{" "}
-              {sample && snapshot
-                ? `fieldshift-2 · bản lưu / saved · ${snapshot.run_id} · ${PIN}`
-                : m("chưa hỗ trợ ranh này", "not supported for this boundary")}
-              .{" "}
-              {m(
-                "Runtime v2 đã được kiểm trên máy. API dùng forecast đã tính sẵn, phân tích lại quy tắc/RAG theo input được adapter hỗ trợ.",
-                "V2 runtime verified locally. The API uses precomputed forecasts and reevaluates rules/retrieval for adapter-supported inputs.",
-              )}
+              {v4Current && v4.record
+                ? `${v4.record.response.inference.model_version} · ${v4.record.response.run_id}`
+                : m(
+                    "Chưa có inference V4 khớp input",
+                    "No matching V4 inference",
+                  )}
             </p>
-            {v2.record && (
+            {v4.record && (
               <details>
                 <summary>
                   {m(
-                    "Request, nguồn và kết quả v2",
-                    "V2 request, provenance and result",
+                    "Request, nguồn và kết quả v4",
+                    "V4 request, provenance and result",
                   )}
                 </summary>
                 <p>
-                  {v2.record.provider} · {v2.record.response.run_id} ·{" "}
-                  {v2.record.response.generated_at_utc} · runtime cc674716 ·{" "}
-                  {v2Current ? "matching input" : "stale"} ·{" "}
+                  {v4.record.provider} · {v4.record.response.run_id} ·{" "}
+                  {v4.record.response.generated_at_utc} ·{" "}
+                  {v4.record.response.inference.model_version} ·{" "}
+                  {v4Current ? "matching input" : "stale"} ·{" "}
                   {openedSaved ? "saved draft" : "API response"}
                 </p>
-                <pre>{JSON.stringify(v2.record, null, 2)}</pre>
+                <pre>{JSON.stringify(v4.record, null, 2)}</pre>
               </details>
             )}
             <p>

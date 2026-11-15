@@ -1,0 +1,5 @@
+{
+  "captured_at": "2026-11-15T04:58:43.641Z",
+  "detail": "×Đầu đo BVị trí minh họa trong AOI Mỹ Thành, không phải vị trí cảm biến ngoài ruộng đã được xác minh. A/B là nhóm kênh đo, không chứng minh hai thiết bị độc lập. ADC chưa hiệu chuẩn không là % nước hay chỉ thị tưới.Nhiệt độ không khí25.73 °C · USB-UART-unidentified / air_temperatureREAL_USB · QA: unverified · freshMáy nhận: 2026-11-15T04:58:38.489ZThiết bị không cung cấp giờ đo hoặc ID; ID trên do máy gán.Hiệu chuẩn: Chưa xác minh · Bench text v1; host-assigned device ID; measurement time and field location unknownXem lịch sử thiết bịĐộ ẩm không khí44.68 %RH · USB-UART-unidentified / air_humidityREAL_USB · QA: unverified · freshMáy nhận: 2026-11-15T04:58:38.489ZThiết bị không cung cấp giờ đo hoặc ID; ID trên do máy gán.Hiệu chuẩn: Chưa xác minh · Bench text v1; host-assigned device ID; measurement time and field location unknownXem lịch sử thiết bịXem số đo & nguồn thiết bị",
+  "status": "ESP32-S3Đang nhận USB"
+}

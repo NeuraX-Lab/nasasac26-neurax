@@ -1,0 +1,20 @@
+﻿H?ZHPH
+ESP-ROM:esp32s3-20210327
+Build:Mar 27 2021
+rst:0x1 (POWERON),boot:0x8 (SPI_FAST_FLASH_BOOT)
+SPIWP:0xee
+mode:DIO, clock div:1
+load:0x3fce2820,len:0x10cc
+load:0x403c8700,len:0xc2c
+load:0x403cb700,len:0x30c0
+entry 0x403c88b8
+
+=== KHOI DONG TRAM FIELD SHIFT (ESP32-S3) ===
+[OK] Da ket noi cam bien GY-21 thanh cong.
+----------------------------------------
+Do am dat: 39.0% (Raw ADC: 3076)
+Nhiet do KK: 25.72 C | Do am KK: 44.27 %
+----------------------------------------
+Do am dat: 39.0% (Raw ADC: 3073)
+Nhiet do KK: 25.68 C | Do am KK: 44.74 %
+
