@@ -13,6 +13,7 @@ export const PIN = "02e3de3f0ac2883f29e19183524c4c767de7c5b8";
 export { OverviewSchema, type Overview } from "./climate-contracts";
 import { OverviewSchema } from "./climate-contracts";
 import { V2Record, farmV2, validateV2 } from "./v2";
+import { V4Record, farmV4, validateV4 } from "./v4";
 export const DraftSchema = z.object({
   year: z.number().int().min(1981).max(2100),
   source_mode: z.enum(["prefer_cache", "live", "offline"]),
@@ -30,6 +31,7 @@ export const DraftSchema = z.object({
   }),
 });
 export const PlanSchema = z.object({
+  v4: V4Record.nullable().optional(),
   v2: V2Record.nullable().optional(),
   researchResult: ResearchInferenceSchema.nullable().optional(),
   version: z.literal("agrotwin-draft-2"),
@@ -86,6 +88,15 @@ export function readPlan(raw: string | null): Plan | null {
     )
       return null;
     if (p.v2) validateV2(p.v2.response, p.v2.request, p.key);
+    if (p.v4) {
+      if (
+        p.id !== "my-thanh" ||
+        p.v4.key !== p.key ||
+        JSON.stringify(p.v4.request.farm) !== JSON.stringify(farmV4(p.draft))
+      )
+        return null;
+      validateV4(p.v4.response, p.v4.request, p.key);
+    }
     if (
       p.researchResult &&
       (p.id !== "my-thanh" ||

@@ -1,0 +1,3 @@
+# Keep byte-exact receipts stable across Windows/Linux checkouts.
+docs/integration/evidence/*.json -text whitespace=cr-at-eol
+docs/integration/evidence/physical-com3-115200.txt -text -whitespace

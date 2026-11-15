@@ -1,0 +1,7 @@
+RUN  v5.1.0 C:/INDIVIDUALS/NeuraX/work/agrotwin-v4-integration/frontend
+
+
+ Test Files  11 passed (11)
+      Tests  51 passed (51)
+   Start at  12:27:09
+   Duration  4.17s (environment 56%, import 36%, tests 5%, transform 2%, worker 1%)

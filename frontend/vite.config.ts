@@ -3,12 +3,28 @@ import react from "@vitejs/plugin-react";
 import tailwind from "@tailwindcss/vite";
 import { cp, mkdir } from "node:fs/promises";
 import { resolve } from "node:path";
+import { realpathSync } from "node:fs";
 export default defineConfig(({ command }) => ({
   // Preserve the original local photograph, but never distribute unlicensed imagery.
   publicDir: command === "build" ? false : "public",
   plugins: [
     react(),
     tailwind(),
+    {
+      name: "agrotwin-demo-identity",
+      configureServer(server) {
+        server.middlewares.use("/__agrotwin_demo", (_request, response) => {
+          response.setHeader("Content-Type", "application/json");
+          response.end(
+            JSON.stringify({
+              app: "AgroTwin",
+              selected_system: "v4",
+              root: resolve("."),
+            }),
+          );
+        });
+      },
+    },
     {
       name: "curated-public-assets",
       apply: "build",
@@ -31,6 +47,8 @@ export default defineConfig(({ command }) => ({
   ],
   server: {
     host: "127.0.0.1",
+    // Native Windows worktrees can reuse a trusted dependency junction.
+    fs: { allow: [resolve("."), realpathSync("node_modules")] },
     watch: {
       ignored: [
         "**/artifacts/**",
@@ -39,6 +57,9 @@ export default defineConfig(({ command }) => ({
       ],
     },
     proxy: {
+      "/api/v4": {
+        target: "http://127.0.0.1:8184",
+      },
       "/api/v2": {
         target: "http://127.0.0.1:8182",
         headers: { origin: "http://127.0.0.1:8182" },
@@ -51,6 +72,9 @@ export default defineConfig(({ command }) => ({
   },
   preview: {
     proxy: {
+      "/api/v4": {
+        target: "http://127.0.0.1:8184",
+      },
       "/api/v2": {
         target: "http://127.0.0.1:8182",
         headers: { origin: "http://127.0.0.1:8182" },

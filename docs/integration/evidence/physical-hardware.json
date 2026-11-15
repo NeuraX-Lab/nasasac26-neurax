@@ -1,0 +1,50 @@
+{
+  "verification": "PHYSICAL_HARDWARE_VERIFIED",
+  "captured_at_utc": "2026-11-15T04:58:43.641Z",
+  "user_granted_web_serial": true,
+  "live_updates_observed": true,
+  "reconnect_owner_confirmed": true,
+  "reconnect_agent_observed_live_afterwards": true,
+  "unplug_transition_agent_observed": false,
+  "native_port": "COM3",
+  "baud": 115200,
+  "usb_vendor_id": "1A86",
+  "usb_product_id": "55D3",
+  "channels": [
+    "air_temperature / degC",
+    "air_humidity / %RH",
+    "raw_adc / ADC"
+  ],
+  "firmware_format": "bench text v1",
+  "calibration_verified": false,
+  "field_location_verified": false,
+  "measurement_clock_verified": false,
+  "timestamp_basis": "host_received",
+  "note": "Native serial capture + actual user-granted browser USB, no injected measurement. Owner confirmed unplug/reconnect; agent observed live values again afterwards. Does not validate a field deployment or agronomic applicability.",
+  "files": [
+    {
+      "path": "physical-browser-1.json",
+      "sha256": "708eb234ab12cf3ca8faff4280f41b809cf8dace3384037f08c289574c642d15"
+    },
+    {
+      "path": "physical-browser-2.json",
+      "sha256": "d1184a11d7428f4b35bd8f13ad3282685b6dc446f100c4519993f8c0f094bbe3"
+    },
+    {
+      "path": "physical-browser-after-reconnect.json",
+      "sha256": "083e6d457f86145672e26fe98b811ac04297cced5537fd211d490d09edf99594"
+    },
+    {
+      "path": "physical-sensor-provenance.json",
+      "sha256": "b9340cd6beb32b7f3d54299e6e96617d3047cb51e06eab83f05dce1c0b8e283d"
+    },
+    {
+      "path": "physical-com3-115200.txt",
+      "sha256": "0bf0441b10edada5234d5fefdd2605d9da5c55d558fa84f78dba501dfa0f87a7"
+    },
+    {
+      "path": "physical-v4-final.png",
+      "sha256": "f9a8a97ff9f5c80b893290e706a4f22e8d73469b9dae801f2c9edf8ed1d0f6de"
+    }
+  ]
+}

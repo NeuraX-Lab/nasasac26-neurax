@@ -1,0 +1,271 @@
+{
+  "api_schema_version": "fieldshift-dashboard-1",
+  "selected_system": "v4",
+  "schema_version": "fieldshift-2",
+  "research_schema_version": "fieldshift-research-1",
+  "run_id": "v4-4730560edf0d4a9780b88348ec98b3a3",
+  "region_id": "MT-BLOCK-01",
+  "status": "research_only",
+  "generated_at_utc": "2026-11-15T04:53:22.493368Z",
+  "domain_approved": false,
+  "input_origin": "self_reported_unverified",
+  "forecasts": [
+    {
+      "target": "precip_sum_mm",
+      "horizon_months": 1,
+      "region_id": "MT-BLOCK-01",
+      "unit": "mm/month",
+      "target_month": "2026-12-01",
+      "data_through": "2026-10-01",
+      "origin_month": "2026-11-01",
+      "value": 33.67952380952381,
+      "lower": 0.0,
+      "upper": 93.26921130952377,
+      "nominal_coverage": 0.8,
+      "coverage_guaranteed": false,
+      "method": "clim-mean",
+      "historical_vintage_verified": false,
+      "uncertainty_method": "v3 pooled empirical bands"
+    },
+    {
+      "target": "precip_sum_mm",
+      "horizon_months": 3,
+      "region_id": "MT-BLOCK-01",
+      "unit": "mm/month",
+      "target_month": "2027-02-01",
+      "data_through": "2026-10-01",
+      "origin_month": "2026-11-01",
+      "value": 7.0167441860465125,
+      "lower": 0.0,
+      "upper": 66.60643168604648,
+      "nominal_coverage": 0.8,
+      "coverage_guaranteed": false,
+      "method": "clim-mean",
+      "historical_vintage_verified": false,
+      "uncertainty_method": "v3 pooled empirical bands"
+    },
+    {
+      "target": "air_temp_mean_c",
+      "horizon_months": 1,
+      "region_id": "MT-BLOCK-01",
+      "unit": "degC",
+      "target_month": "2026-12-01",
+      "data_through": "2026-10-01",
+      "origin_month": "2026-11-01",
+      "value": 26.032250384024582,
+      "lower": 24.96417511520738,
+      "upper": 27.100325652841786,
+      "nominal_coverage": 0.8,
+      "coverage_guaranteed": false,
+      "method": "clim-mean",
+      "historical_vintage_verified": false,
+      "uncertainty_method": "v3 pooled empirical bands"
+    },
+    {
+      "target": "air_temp_mean_c",
+      "horizon_months": 3,
+      "region_id": "MT-BLOCK-01",
+      "unit": "degC",
+      "target_month": "2027-02-01",
+      "data_through": "2026-10-01",
+      "origin_month": "2026-11-01",
+      "value": 28.380205636384463,
+      "lower": 27.31213036756726,
+      "upper": 29.448280905201667,
+      "nominal_coverage": 0.8,
+      "coverage_guaranteed": false,
+      "method": "clim-mean",
+      "historical_vintage_verified": false,
+      "uncertainty_method": "v3 pooled empirical bands"
+    },
+    {
+      "target": "air_rh_mean_pct",
+      "horizon_months": 1,
+      "region_id": "MT-BLOCK-01",
+      "unit": "percent",
+      "target_month": "2026-12-01",
+      "data_through": "2026-10-01",
+      "origin_month": "2026-11-01",
+      "value": 78.04268817204301,
+      "lower": 71.9081329423265,
+      "upper": 84.17724340175953,
+      "nominal_coverage": 0.8,
+      "coverage_guaranteed": false,
+      "method": "clim-mean",
+      "historical_vintage_verified": false,
+      "uncertainty_method": "v3 pooled empirical bands"
+    },
+    {
+      "target": "air_rh_mean_pct",
+      "horizon_months": 3,
+      "region_id": "MT-BLOCK-01",
+      "unit": "percent",
+      "target_month": "2027-02-01",
+      "data_through": "2026-10-01",
+      "origin_month": "2026-11-01",
+      "value": 62.49958471760798,
+      "lower": 56.36502948789147,
+      "upper": 68.63413994732448,
+      "nominal_coverage": 0.8,
+      "coverage_guaranteed": false,
+      "method": "clim-mean",
+      "historical_vintage_verified": false,
+      "uncertainty_method": "v3 pooled empirical bands"
+    }
+  ],
+  "decision": {
+    "options": [
+      {
+        "id": "R0",
+        "crop": "rice",
+        "label": "Lúa → lúa → lúa",
+        "status": "needs_information",
+        "rank": null,
+        "score": null,
+        "probability_of_success": null,
+        "reasons": [
+          "Chuỗi có trong tài liệu tham khảo; chưa xác nhận hiệu quả hoặc suitability tại ruộng"
+        ],
+        "missing_inputs": [
+          "Xác nhận cây/vụ trước là lúa để áp dụng chuỗi tham khảo",
+          "Khoảng ngày có thể trồng và lịch giống",
+          "Nguồn tưới",
+          "Khả năng thoát nước",
+          "Số đo pH cùng phương pháp, độ sâu và ngày đo"
+        ],
+        "evidence_ids": [
+          "rice-awd-2024",
+          "rotation-historic"
+        ],
+        "calendar": "Cần đối chiếu cửa sổ mùa vụ và thời gian thu cuối; không tự phát hành lịch gieo cụ thể",
+        "tradeoff": "Cây cạn đòi hỏi tưới–tiêu khác lúa; chưa có ước lượng lợi nhuận/năng suất được kiểm chứng",
+        "domain_approved": false
+      },
+      {
+        "id": "R1",
+        "crop": "baby_corn",
+        "label": "Lúa → bắp non → lúa",
+        "status": "needs_information",
+        "rank": null,
+        "score": null,
+        "probability_of_success": null,
+        "reasons": [
+          "Chuỗi có trong tài liệu tham khảo; chưa xác nhận hiệu quả hoặc suitability tại ruộng"
+        ],
+        "missing_inputs": [
+          "Xác nhận cây/vụ trước là lúa để áp dụng chuỗi tham khảo",
+          "Khoảng ngày có thể trồng và lịch giống",
+          "Nguồn tưới",
+          "Khả năng thoát nước",
+          "Số đo pH cùng phương pháp, độ sâu và ngày đo"
+        ],
+        "evidence_ids": [
+          "babycorn-water",
+          "babycorn-duration",
+          "rotation-historic"
+        ],
+        "calendar": "Cần đối chiếu cửa sổ mùa vụ và thời gian thu cuối; không tự phát hành lịch gieo cụ thể",
+        "tradeoff": "Cây cạn đòi hỏi tưới–tiêu khác lúa; chưa có ước lượng lợi nhuận/năng suất được kiểm chứng",
+        "domain_approved": false
+      },
+      {
+        "id": "R2",
+        "crop": "mungbean",
+        "label": "Lúa → đậu xanh → lúa",
+        "status": "needs_information",
+        "rank": null,
+        "score": null,
+        "probability_of_success": null,
+        "reasons": [
+          "Chuỗi có trong tài liệu tham khảo; chưa xác nhận hiệu quả hoặc suitability tại ruộng"
+        ],
+        "missing_inputs": [
+          "Xác nhận cây/vụ trước là lúa để áp dụng chuỗi tham khảo",
+          "Khoảng ngày có thể trồng và lịch giống",
+          "Nguồn tưới",
+          "Khả năng thoát nước",
+          "Kiểm đất/nước mặn và phèn; không suy từ ảnh NDVI",
+          "Số đo pH cùng phương pháp, độ sâu và ngày đo"
+        ],
+        "evidence_ids": [
+          "mungbean-water",
+          "mungbean-calendar",
+          "rotation-historic"
+        ],
+        "calendar": "Cần đối chiếu cửa sổ mùa vụ và thời gian thu cuối; không tự phát hành lịch gieo cụ thể",
+        "tradeoff": "Cây cạn đòi hỏi tưới–tiêu khác lúa; chưa có ước lượng lợi nhuận/năng suất được kiểm chứng",
+        "domain_approved": false
+      }
+    ],
+    "input_origin": "self_reported",
+    "farm": {
+      "current_crop": "unknown",
+      "goal": "explore",
+      "irrigation": "unknown",
+      "drainage": "unknown",
+      "crop_interests": [],
+      "conflicts": []
+    },
+    "conflicts": [],
+    "climate_context": {
+      "target_month": "2026-12-01",
+      "rain_mm": 33.67952380952381,
+      "range_mm": [
+        0.0,
+        93.26921130952377
+      ],
+      "interpretation": "Dải ước tính mưa vùng cho một tháng, chưa biết ngày mưa và khả năng tiêu nước; dùng để chuẩn bị kiểm tra tưới–tiêu, không tự xác nhận cây phù hợp"
+    },
+    "ranking_basis": "explicit crop interests then reference order; no agronomic benefit ranking",
+    "goal": "explore",
+    "goal_next_action": "Bổ sung cây hiện tại, lịch vụ và nước trước khi áp dụng"
+  },
+  "rag": null,
+  "warnings": [
+    "Empirical nominal 80% intervals have no coverage guarantee under temporal shift; research use only"
+  ],
+  "inference": {
+    "execution_mode": "fresh_model_inference",
+    "model_version": "v3-climatology-rag-v4-pooled",
+    "selection_id": "research-c94396cf86be",
+    "request_sha256": "27395a92d20a0bdf233e371a3aa9de28f1415ccfa1e3d4133e94f35dc318937d",
+    "dataset_sha256": "db9223b74a14fdef76fc50a0e580d92f72b45c8e9e091f53f42084b4ca10eef2",
+    "corpus_sha256": "61b4e29b86150d10f65f83c48165eb56eb65ce82b22906e4c2e654bcadf66390",
+    "ml_selection_sha256": "c94396cf86beb0746d29ae7b45a56bd00cce3b0151f564ba5b08d4975bbe502b",
+    "rag_selection_sha256": "6422b57aabaeabb097023c9111e8c5cd2548d70b9facd14d382f4e7454c058fc",
+    "models": [
+      {
+        "task": "precip_sum_mm-h1",
+        "sha256": "5eab71f5f627e2f707099984570d6f74b3b2a78c5adce69a45090997d5d68fba"
+      },
+      {
+        "task": "precip_sum_mm-h3",
+        "sha256": "147cd378239cd7e9d60eb66eba0ffc7051ea33c64dea84308f7769a043f8f534"
+      },
+      {
+        "task": "air_temp_mean_c-h1",
+        "sha256": "f5955ba0581e4087a83e94f890e6c816f6d17a9ed32b5203b57f0b01afd4f3a2"
+      },
+      {
+        "task": "air_temp_mean_c-h3",
+        "sha256": "6e002b1bfc290daf21de44f2284f4927dd0b7a43d08d76048daaddf2ebc3a27f"
+      },
+      {
+        "task": "air_rh_mean_pct-h1",
+        "sha256": "da626447d1e120ab03369b18abbd61119152697ba6bce6b1ec34ead1d3dc6086"
+      },
+      {
+        "task": "air_rh_mean_pct-h3",
+        "sha256": "b2ea9a1b53cfb5058d4c31cc4faa4d544d7709c7d64b3be54cd90f633eb7388b"
+      }
+    ],
+    "prediction_count": 6,
+    "cached": false
+  },
+  "blocks": {
+    "ML": "v3 frozen climatology",
+    "RAG": "v4 refined evidence gate",
+    "uncertainty": "pooled"
+  },
+  "latency_ms": 80.54570000240346
+}

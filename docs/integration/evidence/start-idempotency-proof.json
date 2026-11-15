@@ -1,0 +1,22 @@
+{
+    "owned_count":  3,
+    "roles":  [
+                  "a1",
+                  "v4",
+                  "frontend"
+              ],
+    "listeners":  [
+                      {
+                          "LocalPort":  8184,
+                          "OwningProcess":  2096
+                      },
+                      {
+                          "LocalPort":  8000,
+                          "OwningProcess":  36952
+                      },
+                      {
+                          "LocalPort":  5174,
+                          "OwningProcess":  36668
+                      }
+                  ]
+}

@@ -1,0 +1,20 @@
+{
+    "before":  [
+                   {
+                       "LocalPort":  8184,
+                       "OwningProcess":  2096
+                   },
+                   {
+                       "LocalPort":  8000,
+                       "OwningProcess":  36952
+                   },
+                   {
+                       "LocalPort":  5174,
+                       "OwningProcess":  36668
+                   }
+               ],
+    "after":  [
+
+              ],
+    "all_owned_ports_released":  true
+}

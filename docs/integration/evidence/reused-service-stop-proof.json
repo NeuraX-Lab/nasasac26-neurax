@@ -1,0 +1,23 @@
+{
+    "before":  [
+                   {
+                       "LocalPort":  8000,
+                       "OwningProcess":  33564
+                   },
+                   {
+                       "LocalPort":  5174,
+                       "OwningProcess":  16016
+                   }
+               ],
+    "after":  [
+                  {
+                      "LocalPort":  8000,
+                      "OwningProcess":  33564
+                  },
+                  {
+                      "LocalPort":  5174,
+                      "OwningProcess":  16016
+                  }
+              ],
+    "v4_still_listening":  false
+}

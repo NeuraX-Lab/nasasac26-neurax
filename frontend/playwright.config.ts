@@ -1,4 +1,10 @@
 import { defineConfig } from "@playwright/test";
+import { existsSync } from "node:fs";
+const channel =
+  process.env.PLAYWRIGHT_CHANNEL ||
+  (existsSync("C:/Program Files (x86)/Microsoft/Edge/Application/msedge.exe")
+    ? "msedge"
+    : undefined);
 export default defineConfig({
   testDir: "tests/e2e",
   fullyParallel: false,
@@ -10,7 +16,7 @@ export default defineConfig({
     viewport: { width: 1440, height: 1000 },
     trace: "retain-on-failure",
     launchOptions: {
-      channel: process.env.PLAYWRIGHT_CHANNEL,
+      channel,
       args: [
         "--enable-webgl",
         "--use-angle=swiftshader",

@@ -24,7 +24,7 @@ test("pending satellite tiles are labelled loading even after AOI and probes mou
       ),
     ).toBe(true);
     await page.screenshot({
-      path: "artifacts/remake/sprint21-tiles-pending.png",
+      path: "artifacts/v4-integration/regression/sprint21-tiles-pending.png",
     });
   } finally {
     release();
@@ -32,6 +32,7 @@ test("pending satellite tiles are labelled loading even after AOI and probes mou
   await expect(page.locator(".spatial-map")).toHaveAttribute(
     "data-basemap-state",
     "error",
+    { timeout: 20000 }, // Tile loading has an explicit 12-second deadline.
   );
   await expect(page.locator(".imagery-warning")).toBeVisible();
 });
@@ -57,7 +58,7 @@ for (const size of [
       .locator(".conditions-form")
       .getByRole("button", { name: "Xem so sánh", exact: true })
       .click();
-    await expect(page.getByTestId("v2-R1")).toContainText("Đang vướng");
+    await expect(page.getByTestId("v4-R1")).toContainText("Đang vướng");
     await page
       .getByRole("button", { name: "So luân canh", exact: true })
       .click();
@@ -104,7 +105,7 @@ for (const size of [
       .getByRole("button", { name: "So luân canh", exact: true })
       .click();
     await page.screenshot({
-      path: `artifacts/remake/sprint21-${size.width}-compare.png`,
+      path: `artifacts/v4-integration/regression/sprint21-${size.width}-compare.png`,
     });
     await page.locator(".field-support").scrollIntoViewIfNeeded();
     await expect(map).toHaveAttribute("data-basemap-state", /ready|error/, {
@@ -117,7 +118,7 @@ for (const size of [
         ),
     );
     await page.screenshot({
-      path: `artifacts/remake/sprint21-${size.width}-context.png`,
+      path: `artifacts/v4-integration/regression/sprint21-${size.width}-context.png`,
     });
     await page
       .getByRole("button", { name: "Mở rộng bản đồ", exact: true })
@@ -140,6 +141,7 @@ test("tile failure retains AOI, probes and source instead of an unlabelled blank
   await expect(page.locator(".spatial-map")).toHaveAttribute(
     "data-basemap-state",
     "error",
+    { timeout: 20000 }, // Tile loading has an explicit 12-second deadline.
   );
   await expect(page.locator(".imagery-warning")).toBeVisible();
   await expect(page.locator(".probe-marker")).toHaveCount(2);
@@ -150,6 +152,6 @@ test("tile failure retains AOI, probes and source instead of an unlabelled blank
     ),
   ).toBe(true);
   await page.screenshot({
-    path: "artifacts/remake/sprint21-tile-fallback.png",
+    path: "artifacts/v4-integration/regression/sprint21-tile-fallback.png",
   });
 });

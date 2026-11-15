@@ -1,0 +1,23 @@
+{
+  "generated_at_utc": "2026-11-15T05:25:10.4043155Z",
+  "readiness": "READY",
+  "software": "SOFTWARE_VERIFIED",
+  "physical_hardware": "PHYSICAL_HARDWARE_VERIFIED (referenced manual Web Serial receipt)",
+  "physical_receipt": "../docs/integration/evidence/physical-hardware.json",
+  "serial_ports": [
+    "COM3"
+  ],
+  "verified": [
+    "Service identities",
+    "Six selected artifacts and evidence bytes",
+    "Overview/forecasts/metrics/evidence HTTP contracts",
+    "Fresh V4 inference",
+    "Research forecasts/pooled intervals",
+    "Verified RAG citations",
+    "Rotation constraints",
+    "Dashboard end-to-end, persistence, mobile, EN/VI, Web Serial capability"
+  ],
+  "failures": [],
+  "run_id": "v4-817c7126371d4729a677a44b7981cd4d",
+  "remaining": "Research demo only; calibration, field location and agronomic validity remain unverified"
+}

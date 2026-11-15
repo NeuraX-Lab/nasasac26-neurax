@@ -1,6 +1,6 @@
 import type { AnalysisRun } from "../analysis/contracts";
 import { useRef } from "react";
-import type { V2Result } from "./v2";
+import type { V4Result } from "./v4";
 
 export function RotationComparison({
   run,
@@ -8,14 +8,14 @@ export function RotationComparison({
   choice,
   choose,
   vi,
-  v2,
+  v4,
 }: {
   run: AnalysisRun | null;
   stale: boolean;
   choice: string;
   choose: (id: string) => void;
   vi: boolean;
-  v2: V2Result | null;
+  v4: V4Result | null;
 }) {
   const m = (vn: string, en: string) => (vi ? vn : en);
   const crop = (id: string) =>
@@ -25,7 +25,7 @@ export function RotationComparison({
       mung_bean: m("Đậu xanh", "Mung bean"),
     })[id] || id;
   const supported = run?.sidecar.catalog_supported;
-  const options = v2?.response.decision.options || [];
+  const options = v4?.response.decision.options || [];
   const sharedMissing =
     options[0]?.missing_inputs.filter((item) =>
       options.every((option) => option.missing_inputs.includes(item)),
@@ -134,7 +134,7 @@ export function RotationComparison({
           )}
           <div className={`rotation-options ${stale ? "is-stale" : ""}`}>
             {run.a1.results.map((result, index) => {
-              const live = v2?.response.decision.options.find(
+              const live = v4?.response.decision.options.find(
                 (o) => o.id === result.strategy_id,
               );
               const drainage = result.criteria.find(
@@ -174,7 +174,7 @@ export function RotationComparison({
                   {live && (
                     <div
                       className={`v2-option-status ${live.status}`}
-                      data-testid={`v2-${live.id}`}
+                      data-testid={`v4-${live.id}`}
                     >
                       <strong>
                         {
@@ -196,7 +196,7 @@ export function RotationComparison({
                       </strong>
                       {live.status === "blocked" && (
                         <p className="option-brief">
-                          {v2?.request.farm.drainage === "poor"
+                          {v4?.request.farm.drainage === "poor"
                             ? m(
                                 "Thoát nước kém theo khai báo; cần kiểm biện pháp khắc phục.",
                                 "Reported poor drainage; check mitigation locally.",
@@ -230,7 +230,7 @@ export function RotationComparison({
                         <p>
                           {vi
                             ? live.reasons.join(" ")
-                            : v2?.request.farm.drainage === "poor"
+                            : v4?.request.farm.drainage === "poor"
                               ? "You reported poor drainage. This upland-crop reference is blocked pending local review."
                               : live.reasons.join(" ")}
                         </p>

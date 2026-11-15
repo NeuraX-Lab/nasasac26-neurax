@@ -1,0 +1,329 @@
+{
+  "generated_at_utc": "2026-11-15T05:31:12.742296+00:00",
+  "dashboard_base": "208055edfba45dbc292b44c1f8324b07dec2b360",
+  "backend_base": "03ca31a0affaef8f365a687bcf41e780de57f8be",
+  "backend_implementation": "c01519e6257a0788c453964f8dfe12c754c7cfed",
+  "a1_runtime_pin": "54bce495514fb3235fe7bd2d0df4ab001f74cca0",
+  "software": "SOFTWARE_VERIFIED",
+  "backend_tests": {
+    "passed": 86,
+    "failed": 0,
+    "warning": "existing Starlette/httpx deprecation"
+  },
+  "a1_targeted_tests": {
+    "passed": 16,
+    "failed": 0
+  },
+  "frontend_unit_tests": {
+    "passed": 51,
+    "failed": 0
+  },
+  "frontend_checks": [
+    {
+      "check": "typecheck",
+      "exit_code": 0,
+      "status": "PASS"
+    },
+    {
+      "check": "lint",
+      "exit_code": 0,
+      "status": "PASS"
+    },
+    {
+      "check": "unit",
+      "exit_code": 0,
+      "status": "PASS"
+    },
+    {
+      "check": "build",
+      "exit_code": 0,
+      "status": "PASS"
+    }
+  ],
+  "current_e2e": {
+    "startTime": "2026-11-15T05:15:26.641Z",
+    "duration": 477148.29799999995,
+    "expected": 39,
+    "skipped": 0,
+    "unexpected": 0,
+    "flaky": 0
+  },
+  "e2e_cases": [
+    {
+      "file": "dashboard-model.spec.ts",
+      "title": "current dashboard executes selected V4 and saves its model provenance",
+      "status": "expected",
+      "duration_ms": 9919
+    },
+    {
+      "file": "dashboard-model.spec.ts",
+      "title": "mobile V4 edits, API outage and wrong region do not substitute snapshots",
+      "status": "expected",
+      "duration_ms": 5528
+    },
+    {
+      "file": "dashboard.spec.ts",
+      "title": "prepared profile has sourced natural imagery, no fabricated sensors and no automatic inference",
+      "status": "expected",
+      "duration_ms": 12856
+    },
+    {
+      "file": "dashboard.spec.ts",
+      "title": "A + D: real input → API → select → persist → reload → reopen; edits become stale",
+      "status": "expected",
+      "duration_ms": 22174
+    },
+    {
+      "file": "dashboard.spec.ts",
+      "title": "B: a distinct polygon sends its geometry and never borrows pilot catalog or model",
+      "status": "expected",
+      "duration_ms": 15660
+    },
+    {
+      "file": "dashboard.spec.ts",
+      "title": "API errors and wrong-scope responses keep edited inputs stale; delayed results cannot overwrite edits",
+      "status": "expected",
+      "duration_ms": 15414
+    },
+    {
+      "file": "dashboard.spec.ts",
+      "title": "malformed V4 and unsupported months do not become a fresh forecast",
+      "status": "expected",
+      "duration_ms": 23106
+    },
+    {
+      "file": "dashboard.spec.ts",
+      "title": "C: serial harness supplies three correctly labelled readings; disconnect preserves stale values and A/B links",
+      "status": "expected",
+      "duration_ms": 18666
+    },
+    {
+      "file": "dashboard.spec.ts",
+      "title": "mobile keyboard, real API, save and serious accessibility regression",
+      "status": "expected",
+      "duration_ms": 15342
+    },
+    {
+      "file": "dashboard.spec.ts",
+      "title": "map imagery failure retains a truthful fallback, and legacy planner routes use the dashboard",
+      "status": "expected",
+      "duration_ms": 26755
+    },
+    {
+      "file": "dashboard.spec.ts",
+      "title": "storage failure never reports a saved draft",
+      "status": "expected",
+      "duration_ms": 3683
+    },
+    {
+      "file": "dashboard.spec.ts",
+      "title": "draw, undo, confirm, edit and cancel keep the existing boundary workflow",
+      "status": "expected",
+      "duration_ms": 18281
+    },
+    {
+      "file": "dashboard.spec.ts",
+      "title": "map expansion traps keyboard focus and Escape restores the trigger; desktop has no serious axe issues",
+      "status": "expected",
+      "duration_ms": 14361
+    },
+    {
+      "file": "dashboard.spec.ts",
+      "title": "unavailable saved A1 still permits a real analysis; no WebGL leaves the outline and decisions usable",
+      "status": "expected",
+      "duration_ms": 10311
+    },
+    {
+      "file": "desktop-hardening.spec.ts",
+      "title": "live tiles: browser offline → explicit retry offline → online recovery preserves map/AOI/probes",
+      "status": "expected",
+      "duration_ms": 10329
+    },
+    {
+      "file": "desktop-hardening.spec.ts",
+      "title": "pending tile timeout keeps geometry and explicit retry streams real tiles successfully",
+      "status": "expected",
+      "duration_ms": 19803
+    },
+    {
+      "file": "desktop-hardening.spec.ts",
+      "title": "demo regression 1440: NASA → V4 → compare → save/reopen → compact map",
+      "status": "expected",
+      "duration_ms": 14295
+    },
+    {
+      "file": "desktop-hardening.spec.ts",
+      "title": "demo regression 1920: NASA → V4 → compare → save/reopen → compact map",
+      "status": "expected",
+      "duration_ms": 15877
+    },
+    {
+      "file": "desktop-sprint1.spec.ts",
+      "title": "desktop workspace 1440: modes preserve map and probes",
+      "status": "expected",
+      "duration_ms": 9404
+    },
+    {
+      "file": "desktop-sprint1.spec.ts",
+      "title": "desktop workspace 1920: modes preserve map and probes",
+      "status": "expected",
+      "duration_ms": 11106
+    },
+    {
+      "file": "farmer-sprint2.spec.ts",
+      "title": "farmer journey 1440 retains inputs and saved plan across modes",
+      "status": "expected",
+      "duration_ms": 11474
+    },
+    {
+      "file": "farmer-sprint2.spec.ts",
+      "title": "farmer journey 1920 retains inputs and saved plan across modes",
+      "status": "expected",
+      "duration_ms": 12761
+    },
+    {
+      "file": "farmer-sprint21.spec.ts",
+      "title": "pending satellite tiles are labelled loading even after AOI and probes mount",
+      "status": "expected",
+      "duration_ms": 4478
+    },
+    {
+      "file": "farmer-sprint21.spec.ts",
+      "title": "compare-first 1440: blocked draft, save state and mini-map",
+      "status": "expected",
+      "duration_ms": 9195
+    },
+    {
+      "file": "farmer-sprint21.spec.ts",
+      "title": "compare-first 1920: blocked draft, save state and mini-map",
+      "status": "expected",
+      "duration_ms": 12153
+    },
+    {
+      "file": "farmer-sprint21.spec.ts",
+      "title": "tile failure retains AOI, probes and source instead of an unlabelled blank map",
+      "status": "expected",
+      "duration_ms": 4676
+    },
+    {
+      "file": "live-provider.spec.ts",
+      "title": "actual V4 request → changed decisions → RAG → save → reload/reopen preserves both versioned providers",
+      "status": "expected",
+      "duration_ms": 12606
+    },
+    {
+      "file": "live-provider.spec.ts",
+      "title": "V4 outage or wrong echoed farm cannot be saved as fresh; income is not sent",
+      "status": "expected",
+      "duration_ms": 8489
+    },
+    {
+      "file": "live-provider.spec.ts",
+      "title": "mobile V4 decisions, focus and accessibility",
+      "status": "expected",
+      "duration_ms": 5431
+    },
+    {
+      "file": "live-provider.spec.ts",
+      "title": "editing inputs while V4 is pending discards the old response",
+      "status": "expected",
+      "duration_ms": 5543
+    },
+    {
+      "file": "live-v4.spec.ts",
+      "title": "real NASA → fresh V4 → intervals → gated RAG → rotations → save/reopen original run",
+      "status": "expected",
+      "duration_ms": 12429
+    },
+    {
+      "file": "live-v4.spec.ts",
+      "title": "V4 outage and wrong echoed farm are explicit, block saving and never fall back to V2",
+      "status": "expected",
+      "duration_ms": 7653
+    },
+    {
+      "file": "live-v4.spec.ts",
+      "title": "evidence gate abstains without fabricated citations and income is not remapped",
+      "status": "expected",
+      "duration_ms": 8321
+    },
+    {
+      "file": "live-v4.spec.ts",
+      "title": "input edits discard delayed V4 responses and keep the form open",
+      "status": "expected",
+      "duration_ms": 5607
+    },
+    {
+      "file": "live-v4.spec.ts",
+      "title": "mobile and English/Power entry preserve shared V4 dashboard and accessibility",
+      "status": "expected",
+      "duration_ms": 6455
+    },
+    {
+      "file": "sprint3a.spec.ts",
+      "title": "SIMULATED_ONLY: dashboard USB wait, text channels, QA, stale, loss and reconnect",
+      "status": "expected",
+      "duration_ms": 8176
+    },
+    {
+      "file": "sprint3a.spec.ts",
+      "title": "actual UI 1440: real map, empty probe provenance, historical comparison",
+      "status": "expected",
+      "duration_ms": 10142
+    },
+    {
+      "file": "sprint3a.spec.ts",
+      "title": "actual UI 1920: real map, empty probe provenance, historical comparison",
+      "status": "expected",
+      "duration_ms": 10404
+    },
+    {
+      "file": "sprint3a.spec.ts",
+      "title": "SIMULATED_ONLY: port-open failure and reload require an explicit new chooser",
+      "status": "expected",
+      "duration_ms": 4363
+    }
+  ],
+  "legacy_inventory": {
+    "total": 76,
+    "current_executed": 39,
+    "other_not_tested": 37,
+    "full_legacy_suite_pass_claim": false
+  },
+  "physical_receipt": "physical-hardware.json",
+  "readiness": {
+    "generated_at_utc": "2026-11-15T05:25:10.4043155Z",
+    "readiness": "READY",
+    "software": "SOFTWARE_VERIFIED",
+    "physical_hardware": "PHYSICAL_HARDWARE_VERIFIED (referenced manual Web Serial receipt)",
+    "physical_receipt": "../docs/integration/evidence/physical-hardware.json",
+    "serial_ports": [
+      "COM3"
+    ],
+    "verified": [
+      "Service identities",
+      "Six selected artifacts and evidence bytes",
+      "Overview/forecasts/metrics/evidence HTTP contracts",
+      "Fresh V4 inference",
+      "Research forecasts/pooled intervals",
+      "Verified RAG citations",
+      "Rotation constraints",
+      "Dashboard end-to-end, persistence, mobile, EN/VI, Web Serial capability"
+    ],
+    "failures": [],
+    "run_id": "v4-817c7126371d4729a677a44b7981cd4d",
+    "remaining": "Research demo only; calibration, field location and agronomic validity remain unverified"
+  },
+  "source_sha256": {
+    "frontend/src/features/dashboard/v4.ts": "7065b238b1c56dff5f59190b18105c795ce8c63829fd9e3acbc101ceefed15e2",
+    "frontend/src/features/dashboard/Dashboard.tsx": "278591cee44f478936ef457ad49424a5abe04834873521fad01af820fab6d291",
+    "frontend/src/features/dashboard/ClimateContext.tsx": "82b1bdff782486d238ea3bad1b722fc3872a577e07b39210a090327587e94a66",
+    "frontend/src/features/dashboard/model.ts": "47c11b10c5ff315d5f48418879a89456d6dd0f7476656e763e9e0baaa2795603",
+    "frontend/src/features/dashboard/desktop.css": "e2543ace59932c56be6f8afa14ac9957557f1c28b3e3edc1956dccac1faacc38",
+    "frontend/AgroTwinV4.Common.ps1": "5d62d1a08552065c1670817ec2c14d347bef63e9812450f41906fb4f9eeaaa1e",
+    "frontend/Preflight-AgroTwinV4.ps1": "d1274152cb7fc2a3d6f92f63c3c808ff08bf0057b91faf275ef0952ce5872eb0",
+    "frontend/Start-AgroTwinV4.ps1": "e3d9feaeca81bb8b29d8cf88b17762653a4214eb7169f53d395aa3d2206b7c9a",
+    "frontend/Stop-AgroTwinV4.ps1": "aad83ce55fb4c7d1feabe0f58ad6b99bc692c61fba2d156c1cbcf18205b57663",
+    "frontend/Test-AgroTwinV4.ps1": "53709d6f375c0c37af2cd85db42bdaf83e693430e17d76558730d99eae1cba19"
+  }
+}

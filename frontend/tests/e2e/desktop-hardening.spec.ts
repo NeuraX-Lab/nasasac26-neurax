@@ -47,7 +47,7 @@ test("live tiles: browser offline → explicit retry offline → online recovery
       "data-basemap-state",
       "error",
     );
-    await page.screenshot({ path: "artifacts/remake/hardening-offline.png" });
+    await page.screenshot({ path: "artifacts/v4-integration/regression/hardening-offline.png" });
     const before = responses;
     await context.setOffline(false);
     await mapReady(page);
@@ -63,7 +63,7 @@ test("live tiles: browser offline → explicit retry offline → online recovery
     ).toBe(true);
     await expect(page.locator(".probe-marker")).toHaveCount(2);
     await expect(page.locator(".imagery-warning")).toHaveCount(0);
-    await page.screenshot({ path: "artifacts/remake/hardening-recovered.png" });
+    await page.screenshot({ path: "artifacts/v4-integration/regression/hardening-recovered.png" });
   } finally {
     await context.setOffline(false);
   }
@@ -104,7 +104,7 @@ test("pending tile timeout keeps geometry and explicit retry streams real tiles 
         () => !!(window as any).__agrotwinMap?.getSource("aoi"),
       ),
     ).toBe(true);
-    await page.screenshot({ path: "artifacts/remake/hardening-timeout.png" });
+    await page.screenshot({ path: "artifacts/v4-integration/regression/hardening-timeout.png" });
     pause = false;
     release();
     await page.unrouteAll({ behavior: "wait" });
@@ -114,7 +114,7 @@ test("pending tile timeout keeps geometry and explicit retry streams real tiles 
       .click();
     await mapReady(page);
     await page.screenshot({
-      path: "artifacts/remake/hardening-retry-success.png",
+      path: "artifacts/v4-integration/regression/hardening-retry-success.png",
     });
   } finally {
     release();
@@ -125,7 +125,7 @@ for (const viewport of [
   { width: 1440, height: 900 },
   { width: 1920, height: 1080 },
 ]) {
-  test(`demo regression ${viewport.width}: NASA → V2 → compare → save/reopen → compact map`, async ({
+  test(`demo regression ${viewport.width}: NASA → V4 → compare → save/reopen → compact map`, async ({
     page,
   }) => {
     test.setTimeout(120000);
@@ -144,7 +144,7 @@ for (const viewport of [
       .locator(".conditions-form")
       .getByRole("button", { name: "Xem so sánh", exact: true })
       .click();
-    await expect(page.getByTestId("v2-R1")).toContainText("Đang vướng");
+    await expect(page.getByTestId("v4-R1")).toContainText("Đang vướng");
     await page
       .getByRole("button", { name: "So luân canh", exact: true })
       .click();
@@ -174,7 +174,7 @@ for (const viewport of [
       .getByRole("button", { name: "So luân canh", exact: true })
       .click();
     await page.screenshot({
-      path: `artifacts/remake/hardening-${viewport.width}-compare.png`,
+      path: `artifacts/v4-integration/regression/hardening-${viewport.width}-compare.png`,
     });
     const panel = page.locator(".field-support");
     expect((await panel.boundingBox())!.width).toBeLessThanOrEqual(660);
@@ -182,7 +182,7 @@ for (const viewport of [
     await panel.scrollIntoViewIfNeeded();
     await mapReady(page);
     await page.screenshot({
-      path: `artifacts/remake/hardening-${viewport.width}-context.png`,
+      path: `artifacts/v4-integration/regression/hardening-${viewport.width}-context.png`,
     });
     await page
       .getByRole("button", { name: "Mở rộng bản đồ", exact: true })
@@ -203,7 +203,7 @@ for (const viewport of [
     );
     await mapReady(page);
     await page.screenshot({
-      path: `artifacts/remake/hardening-${viewport.width}-observe.png`,
+      path: `artifacts/v4-integration/regression/hardening-${viewport.width}-observe.png`,
     });
   });
 }

@@ -16,7 +16,7 @@ for (const viewport of [
       "Chưa kết nối",
     );
     await page.screenshot({
-      path: `artifacts/remake/sprint2-${viewport.width}-observe.png`,
+      path: `artifacts/v4-integration/regression/sprint2-${viewport.width}-observe.png`,
     });
     await page
       .getByRole("button", { name: "Xác nhận điều kiện →", exact: true })
@@ -24,18 +24,18 @@ for (const viewport of [
     await expect(
       page.getByRole("button", { name: "Điều kiện", exact: true }),
     ).toHaveAttribute("aria-pressed", "true");
-    await expect(page.locator(".forecast-scope")).toContainText(
-      "Chưa chọn khoảng vụ",
+    await expect(page.locator(".climate-context")).toContainText(
+      "Chưa có kết quả V4 khớp",
     );
     await page.getByLabel("Từ tháng", { exact: true }).fill("2026-12");
     await page.getByLabel("Đến tháng", { exact: true }).fill("2027-02");
     await page.getByLabel("Thoát nước", { exact: true }).selectOption("poor");
     await page.screenshot({
-      path: `artifacts/remake/sprint2-${viewport.width}-conditions.png`,
+      path: `artifacts/v4-integration/regression/sprint2-${viewport.width}-conditions.png`,
     });
     let calls = 0;
     page.on("request", (r) => {
-      if (r.url().endsWith("/api/v2/analyze")) calls++;
+      if (r.url().endsWith("/api/v4/analyze")) calls++;
     });
     await page.getByRole("button", { name: "Quan sát", exact: true }).click();
     await page.getByRole("button", { name: "Điều kiện", exact: true }).click();
@@ -47,12 +47,12 @@ for (const viewport of [
       .locator(".conditions-form")
       .getByRole("button", { name: "Xem so sánh", exact: true })
       .click();
-    await expect(page.getByTestId("v2-R1")).toContainText("Đang vướng");
+    await expect(page.getByTestId("v4-R1")).toContainText("Đang vướng");
     await page
       .getByRole("button", { name: "So luân canh", exact: true })
       .click();
     await page.screenshot({
-      path: `artifacts/remake/sprint2-${viewport.width}-compare.png`,
+      path: `artifacts/v4-integration/regression/sprint2-${viewport.width}-compare.png`,
     });
     await page
       .locator(".rotation-option")
@@ -79,6 +79,6 @@ for (const viewport of [
     await page
       .getByRole("button", { name: "Mở bản đã lưu", exact: true })
       .click();
-    await expect(page.getByTestId("v2-R1")).toContainText("Đang vướng");
+    await expect(page.getByTestId("v4-R1")).toContainText("Đang vướng");
   });
 }
