@@ -42,6 +42,7 @@ test("actual v2 request → changed decisions → RAG → save → reload/reopen
   await expect(
     page.getByTestId("v2-rag-answer").locator("a").first(),
   ).toBeVisible();
+  await page.getByRole("button", { name: "Quan sát", exact: true }).click();
   await page
     .getByRole("button", { name: "Kết quả model", exact: true })
     .click();
@@ -155,11 +156,32 @@ test("mobile v2 decisions, focus and accessibility", async ({ page }) => {
     fullPage: true,
   });
 });
-test('editing inputs while v2 is pending discards the old response',async({page})=>{
- await setup(page);let release:()=>void=()=>{};let received=false;const gate=new Promise<void>(resolve=>release=resolve);
- await page.route('**/api/v2/analyze',async route=>{const response=await route.fetch();received=true;await gate;await route.fulfill({response}).catch(()=>{});});
- await page.locator('.conditions-form').getByRole('button',{name:'Xem so sánh',exact:true}).click();await expect.poll(()=>received).toBe(true);
- await page.getByLabel('Thoát nước',{exact:true}).selectOption('good');release();
- await expect(page.getByTestId('result-state')).toContainText('cần cập nhật');await expect(page.getByTestId('v2-R1')).toHaveCount(0);await expect(page.getByRole('button',{name:'Lưu bản dự kiến',exact:true})).toBeDisabled();
- await page.unroute('**/api/v2/analyze');await analyze(page);await expect(page.getByTestId('v2-R1')).toContainText('Cần bổ sung');
+test("editing inputs while v2 is pending discards the old response", async ({
+  page,
+}) => {
+  await setup(page);
+  let release: () => void = () => {};
+  let received = false;
+  const gate = new Promise<void>((resolve) => (release = resolve));
+  await page.route("**/api/v2/analyze", async (route) => {
+    const response = await route.fetch();
+    received = true;
+    await gate;
+    await route.fulfill({ response }).catch(() => {});
+  });
+  await page
+    .locator(".conditions-form")
+    .getByRole("button", { name: "Xem so sánh", exact: true })
+    .click();
+  await expect.poll(() => received).toBe(true);
+  await page.getByLabel("Thoát nước", { exact: true }).selectOption("good");
+  release();
+  await expect(page.getByTestId("result-state")).toContainText("cần cập nhật");
+  await expect(page.getByTestId("v2-R1")).toHaveCount(0);
+  await expect(
+    page.getByRole("button", { name: "Lưu bản dự kiến", exact: true }),
+  ).toBeDisabled();
+  await page.unroute("**/api/v2/analyze");
+  await analyze(page);
+  await expect(page.getByTestId("v2-R1")).toContainText("Cần bổ sung");
 });

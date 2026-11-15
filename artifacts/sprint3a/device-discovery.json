@@ -1,0 +1,15 @@
+{
+  "captured_at": "2026-11-15T03:15:45.1140648Z",
+  "device": {
+    "FriendlyName": "USB-Enhanced-SERIAL CH343 (COM5)",
+    "InstanceId": "USB\\VID_1A86&PID_55D3\\5B3D072735",
+    "Status": "OK",
+    "Class": "Ports"
+  },
+  "driver": {
+    "DeviceName": "USB-Enhanced-SERIAL CH343",
+    "DriverVersion": "2.1.2025.7",
+    "DriverProviderName": "wch.cn",
+    "InfName": "oem98.inf"
+  }
+}

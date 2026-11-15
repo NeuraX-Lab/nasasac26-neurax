@@ -18,7 +18,13 @@ import {
 } from "./model";
 type Port = {
   readable: ReadableStream<Uint8Array> | null;
-  open: (options: { baudRate: number }) => Promise<void>;
+  open: (options: {
+    baudRate: number;
+    dataBits: 8;
+    stopBits: 1;
+    parity: "none";
+    flowControl: "none";
+  }) => Promise<void>;
   close: () => Promise<void>;
 };
 type Serial = { requestPort: () => Promise<Port> };
@@ -27,6 +33,7 @@ type State = {
   status: "disconnected" | "connecting" | "connected" | "replay" | "synthetic";
   error: string;
   rejected: number;
+  diagnostics: string[];
   recording: boolean;
   recorded: number;
   sessions: Session[];
@@ -47,6 +54,7 @@ export function HardwareProvider({ children }: { children: ReactNode }) {
     [status, setStatus] = useState<State["status"]>("disconnected"),
     [error, setError] = useState(""),
     [rejected, setRejected] = useState(0),
+    [diagnostics, setDiagnostics] = useState<string[]>([]),
     [recording, setRecording] = useState(false),
     [recorded, setRecorded] = useState(0),
     [sessions, setSessions] = useState<Session[]>(() => {
@@ -77,9 +85,13 @@ export function HardwareProvider({ children }: { children: ReactNode }) {
     seen = useRef(new Set<string>());
   function accept(e: SensorEvent) {
     const identity = eventIdentity(e);
-    if (seen.current.has(identity)) { setRejected(n => n + 1); return; }
+    if (seen.current.has(identity)) {
+      setRejected((n) => n + 1);
+      return;
+    }
     seen.current.add(identity);
-    if (seen.current.size > 10000) seen.current.delete(seen.current.values().next().value!);
+    if (seen.current.size > 10000)
+      seen.current.delete(seen.current.values().next().value!);
     setEvents((old) => [...old, e].slice(-600));
     if (recordingRef.current) {
       if (buffer.current.length >= 10000) {
@@ -122,6 +134,10 @@ export function HardwareProvider({ children }: { children: ReactNode }) {
   async function connect(baud: number) {
     await disconnect();
     setError("");
+    if (!Number.isInteger(baud) || baud <= 0) {
+      setError("invalidBaud");
+      return;
+    }
     const api = (navigator as Navigator & { serial?: Serial }).serial;
     if (!api) {
       setError("serialUnsupported");
@@ -133,19 +149,27 @@ export function HardwareProvider({ children }: { children: ReactNode }) {
     try {
       p = await api.requestPort();
       if (token !== generation.current) return;
-      await p.open({ baudRate: baud });
+      await p.open({
+        baudRate: baud,
+        dataBits: 8,
+        stopBits: 1,
+        parity: "none",
+        flowControl: "none",
+      });
       if (token !== generation.current) {
         await p.close();
         return;
       }
       port.current = p;
       setEvents([]);
+      setRejected(0);
+      setDiagnostics([]);
       setStatus("connected");
       if (!p.readable) throw Error("No stream");
       const r = p.readable.getReader();
       reader.current = r;
       const decoder = new TextDecoder(),
-        lines = new LineDecoder();
+        lines = new LineDecoder(true);
       try {
         while (token === generation.current) {
           const { done, value } = await r.read();
@@ -154,8 +178,28 @@ export function HardwareProvider({ children }: { children: ReactNode }) {
             for (const item of lines.push(
               decoder.decode(value, { stream: true }),
             )) {
-              if (item.event) accept(item.event);
-              else setRejected((n) => n + 1);
+              if (item.event)
+                accept({
+                  ...item.event,
+                  source_transport:
+                    item.event.data_mode === "observed"
+                      ? "REAL_USB"
+                      : item.event.data_mode === "simulated"
+                        ? "SYNTHETIC"
+                        : "REPLAY",
+                  received_at: new Date().toISOString(),
+                  timestamp_basis:
+                    item.event.timestamp_basis === "host_received"
+                      ? "host_received"
+                      : "device_unverified",
+                  delivery_mode: "live",
+                });
+              else if (item.diagnostic)
+                setDiagnostics((old) => [...old, item.diagnostic!].slice(-12));
+              else {
+                setRejected((n) => n + 1);
+                setError("invalidEvent");
+              }
             }
           } catch {
             setRejected((n) => n + 1);
@@ -171,7 +215,10 @@ export function HardwareProvider({ children }: { children: ReactNode }) {
           /* removed */
         }
       }
-      if (token === generation.current) setStatus("disconnected");
+      if (token === generation.current) {
+        setStatus("disconnected");
+        setError("connectionLost");
+      }
     } catch {
       if (token === generation.current) {
         setError("connectionFailed");
@@ -200,6 +247,7 @@ export function HardwareProvider({ children }: { children: ReactNode }) {
         quality: "synthetic",
         data_mode: "simulated",
         source_context: "Synthetic UI demonstration; not a field measurement",
+        source_transport: "SYNTHETIC",
       });
     };
     tick();
@@ -218,7 +266,11 @@ export function HardwareProvider({ children }: { children: ReactNode }) {
         setStatus("disconnected");
         return;
       }
-      accept({ ...s.events[n++], delivery_mode: "replay" });
+      accept({
+        ...s.events[n++],
+        delivery_mode: "replay",
+        source_transport: "REPLAY",
+      });
     }, 500);
   }
   function persist(next: Session[]) {
@@ -260,6 +312,7 @@ export function HardwareProvider({ children }: { children: ReactNode }) {
         status,
         error,
         rejected,
+        diagnostics,
         recording,
         recorded,
         sessions,

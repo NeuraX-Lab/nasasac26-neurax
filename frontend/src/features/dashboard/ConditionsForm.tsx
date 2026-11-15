@@ -67,22 +67,38 @@ export function ConditionsForm({
           {m("Từ tháng", "From month")}
           <input
             name="seasonStart"
+            aria-label={m("Từ tháng", "From month")}
             type="month"
+            lang={vi ? "vi" : "en"}
             value={start}
             onChange={(e) => windowValue(e.target.value, end)}
             aria-describedby={error ? "window-error" : undefined}
           />
+          {start && (
+            <small className="month-preview">
+              {m("Tháng ", "Month ")}
+              {start.slice(5, 7)}/{start.slice(0, 4)}
+            </small>
+          )}
         </label>
         <label>
           {m("Đến tháng", "Through month")}
           <input
             name="seasonEnd"
+            aria-label={m("Đến tháng", "Through month")}
             type="month"
+            lang={vi ? "vi" : "en"}
             value={end}
             onChange={(e) => windowValue(start, e.target.value)}
             aria-invalid={!!error}
             aria-describedby={error ? "window-error" : undefined}
           />
+          {end && (
+            <small className="month-preview">
+              {m("Tháng ", "Month ")}
+              {end.slice(5, 7)}/{end.slice(0, 4)}
+            </small>
+          )}
         </label>
         <label>
           {m("Cây hiện tại", "Current crop")}

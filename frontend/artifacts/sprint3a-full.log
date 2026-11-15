@@ -1,0 +1,1350 @@
+
+Running 70 tests using 1 worker
+
+(node:44760) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  x   1 tests\e2e\analysis.spec.ts:16:1 › AC-1 saved preload does not issue a scientific computation (6.1s)
+(node:59232) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  x   2 tests\e2e\analysis.spec.ts:23:1 › AC-2 meaningful input runs API, marks stale and records new trace (6.1s)
+(node:72568) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  x   3 tests\e2e\analysis.spec.ts:35:1 › AC-3 a second AOI never borrows the My Thanh cache/catalog (1.0m)
+(node:70140) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  x   4 tests\e2e\analysis.spec.ts:46:1 › AC-4 delayed B response cannot overwrite A; cancel/retry remains usable (6.2s)
+(node:47960) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  x   5 tests\e2e\analysis.spec.ts:66:1 › AC-5 unknown form inputs remain null and measured zero survives validation (6.0s)
+(node:11208) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  x   6 tests\e2e\analysis.spec.ts:75:1 › AC-6 SYNTHETIC numeric QA failure never renders as green pass (5.8s)
+(node:70732) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  x   7 tests\e2e\analysis.spec.ts:84:1 › AC-7 unknown K1 remains needs_review with no score and source trace (5.9s)
+(node:51040) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  x   8 tests\e2e\analysis.spec.ts:94:1 › AC-8 repeated identical inputs reuse scientific payload and cosmetic edits do not compute (5.9s)
+(node:59276) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  x   9 tests\e2e\analysis.spec.ts:106:1 › AC-9 Farmer and Power share run, trace, comparison and export (5.9s)
+(node:69944) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  x  10 tests\e2e\analysis.spec.ts:121:1 › AC-10 offline saved fallback and bench/synthetic honesty do not block analysis (5.7s)
+(node:66424) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  x  11 tests\e2e\app.spec.ts:4:1 › entry, EN/VI and source drawer are functional (5.7s)
+(node:26316) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  x  12 tests\e2e\app.spec.ts:23:1 › terrain, research/sandbox parity, mode switch and drafts (5.9s)
+(node:66932) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  x  13 tests\e2e\app.spec.ts:58:1 › custom AOI via keyboard saves without borrowing research data (1.0m)
+(node:54916) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  x  14 tests\e2e\app.spec.ts:81:1 › malformed snapshot is not silently replaced with sandbox (6.1s)
+(node:72048) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  x  15 tests\e2e\app.spec.ts:93:1 › entry has no serious accessibility findings and no mobile overflow (7.5s)
+(node:43996) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  x  16 tests\e2e\app.spec.ts:118:1 › WebGL unavailable keeps outline and analysis available (6.0s)
+(node:69260) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  x  17 tests\e2e\app.spec.ts:139:1 › DEM failure preserves 2D and decisions (21.1s)
+(node:71032) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  x  18 tests\e2e\app.spec.ts:152:1 › drawing creates a polygon and saved areas can be edited (5.9s)
+(node:70696) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  x  19 tests\e2e\app.spec.ts:181:1 › reduced motion and language preserve camera; context loss keeps analysis (6.1s)
+(node:39776) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ok 20 tests\e2e\dashboard-model.spec.ts:2:1 › current dashboard actually executes the installed research model and saves its separate provenance (8.3s)
+  ok 21 tests\e2e\dashboard-model.spec.ts:61:1 › mobile model execution, stale/error clearing and schema scope validation do not substitute v2 snapshots (2.7s)
+  ok 22 tests\e2e\dashboard.spec.ts:39:1 › prepared profile has sourced natural imagery, no fabricated sensors and no automatic inference (3.8s)
+  ok 23 tests\e2e\dashboard.spec.ts:86:1 › A + D: real input → API → select → persist → reload → reopen; edits become stale (7.7s)
+  ok 24 tests\e2e\dashboard.spec.ts:150:1 › B: a distinct polygon sends its geometry and never borrows pilot catalog or model (5.6s)
+  ok 25 tests\e2e\dashboard.spec.ts:195:1 › API errors and wrong-scope responses keep edited inputs stale; delayed results cannot overwrite edits (4.4s)
+  ok 26 tests\e2e\dashboard.spec.ts:244:1 › v2 malformed payload and unsupported target months do not become a fresh forecast (4.3s)
+  ok 27 tests\e2e\dashboard.spec.ts:269:1 › C: serial harness supplies three correctly labelled readings; disconnect preserves stale values and A/B links (5.4s)
+  ok 28 tests\e2e\dashboard.spec.ts:358:1 › mobile keyboard, real API, save and serious accessibility regression (3.8s)
+  ok 29 tests\e2e\dashboard.spec.ts:411:1 › map imagery failure retains a truthful fallback, and legacy planner routes use the dashboard (4.7s)
+  ok 30 tests\e2e\dashboard.spec.ts:423:1 › storage failure never reports a saved draft (4.8s)
+  ok 31 tests\e2e\dashboard.spec.ts:447:1 › draw, undo, confirm, edit and cancel keep the existing boundary workflow (3.9s)
+  ok 32 tests\e2e\dashboard.spec.ts:484:1 › map expansion traps keyboard focus and Escape restores the trigger; desktop has no serious axe issues (4.7s)
+  ok 33 tests\e2e\dashboard.spec.ts:514:1 › unavailable saved A1 still permits a real analysis; no WebGL leaves the outline and decisions usable (2.8s)
+  ok 34 tests\e2e\desktop-hardening.spec.ts:17:1 › live tiles: browser offline → explicit retry offline → online recovery preserves map/AOI/probes (4.5s)
+  ok 35 tests\e2e\desktop-hardening.spec.ts:72:1 › pending tile timeout keeps geometry and explicit retry streams real tiles successfully (16.1s)
+  ok 36 tests\e2e\desktop-hardening.spec.ts:128:3 › demo regression 1440: NASA → V2 → compare → save/reopen → compact map (18.3s)
+  ok 37 tests\e2e\desktop-hardening.spec.ts:128:3 › demo regression 1920: NASA → V2 → compare → save/reopen → compact map (20.0s)
+  ok 38 tests\e2e\desktop-sprint1.spec.ts:6:3 › desktop workspace 1440: modes preserve map and probes (6.4s)
+  ok 39 tests\e2e\desktop-sprint1.spec.ts:6:3 › desktop workspace 1920: modes preserve map and probes (13.5s)
+  ok 40 tests\e2e\farmer-sprint2.spec.ts:6:3 › farmer journey 1440 retains inputs and saved plan across modes (17.7s)
+  ok 41 tests\e2e\farmer-sprint2.spec.ts:6:3 › farmer journey 1920 retains inputs and saved plan across modes (23.7s)
+  ok 42 tests\e2e\farmer-sprint21.spec.ts:2:1 › pending satellite tiles are labelled loading even after AOI and probes mount (4.2s)
+  ok 43 tests\e2e\farmer-sprint21.spec.ts:42:3 › compare-first 1440: blocked draft, save state and mini-map (9.0s)
+  ok 44 tests\e2e\farmer-sprint21.spec.ts:42:3 › compare-first 1920: blocked draft, save state and mini-map (18.3s)
+  ok 45 tests\e2e\farmer-sprint21.spec.ts:130:1 › tile failure retains AOI, probes and source instead of an unlabelled blank map (4.8s)
+  x  46 tests\e2e\hardware.spec.ts:4:1 › hardware synthetic recording, persistent session, replay and map placement (1.0m)
+(node:64812) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  x  47 tests\e2e\hardware.spec.ts:37:1 › USB transport decodes split frames, rejects bad input and disconnects (1.0m)
+(node:32416) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  x  48 tests\e2e\hardware.spec.ts:82:1 › monthly inspector and grounded assistant follow context (1.0m)
+(node:48448) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  x  49 tests\e2e\hardware.spec.ts:101:1 › hardware language, accessibility and mobile layout (7.5s)
+(node:69892) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  x  50 tests\e2e\hardware.spec.ts:125:1 › field groups persist and comparison keeps scores unavailable (1.0m)
+(node:72384) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ok 51 tests\e2e\live-v2.spec.ts:28:1 › actual v2 request → changed decisions → RAG → save → reload/reopen preserves both versioned providers (25.4s)
+  ok 52 tests\e2e\live-v2.spec.ts:84:1 › v2 outage or wrong echoed farm cannot be saved as fresh; income is not sent (6.5s)
+  ok 53 tests\e2e\live-v2.spec.ts:139:1 › mobile v2 decisions, focus and accessibility (2.6s)
+  ok 54 tests\e2e\live-v2.spec.ts:159:1 › editing inputs while v2 is pending discards the old response (3.9s)
+  x  55 tests\e2e\model-program.spec.ts:4:1 › actual API report reaches Power while forecast and crop promotion stay closed (1.0m)
+(node:68268) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  x  56 tests\e2e\model-program.spec.ts:19:1 › research API unavailable cannot masquerade as a prediction (1.0m)
+(node:7880) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  x  57 tests\e2e\model-program.spec.ts:26:1 › mobile Power can inspect report and retain honest scientific state (1.0m)
+(node:62408) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  x  58 tests\e2e\planner.spec.ts:7:1 › planner real API -> choose -> save -> reload -> readable export retains the same run (5.9s)
+(node:40280) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  x  59 tests\e2e\planner.spec.ts:15:1 › model actually predicts for supported geometry and never promotes crop advice (6.0s)
+(node:7240) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  x  60 tests\e2e\planner.spec.ts:16:1 › changing fields uses actual custom geometry and never borrows the sample catalog (1.0m)
+(node:28980) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  x  61 tests\e2e\planner.spec.ts:23:1 › API outage, malformed scope and model failure do not generate fallback output (6.3s)
+(node:30008) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  x  62 tests\e2e\planner.spec.ts:24:1 › mobile Vietnamese task, keyboard and serious accessibility checks (5.9s)
+(node:68672) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  x  63 tests\e2e\research-inference.spec.ts:4:1 › real model requests reach Power with distinct runs and unchanged A1 (5.8s)
+(node:53732) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  x  64 tests\e2e\research-inference.spec.ts:21:1 › failed inference does not show stale or invented output (1.0m)
+(node:40160) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  x  65 tests\e2e\research-inference.spec.ts:28:1 › mobile can execute research model without page overflow (1.0m)
+(node:60840) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ok 66 tests\e2e\sprint3a.spec.ts:4:1 › SIMULATED_ONLY: dashboard USB wait, text channels, QA, stale, loss and reconnect (5.8s)
+  ok 67 tests\e2e\sprint3a.spec.ts:45:33 › actual UI 1440: real map, empty probe provenance, historical comparison (8.5s)
+  ok 68 tests\e2e\sprint3a.spec.ts:45:33 › actual UI 1920: real map, empty probe provenance, historical comparison (11.8s)
+  x  69 tests\e2e\v41.spec.ts:3:1 › Power shows actual research-only E1 without crop promotion (1.0m)
+(node:25856) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  x  70 tests\e2e\v41.spec.ts:9:1 › synthetic H1 reaches server history and features but stays excluded (1.0m)
+
+
+  1) tests\e2e\analysis.spec.ts:16:1 › AC-1 saved preload does not issue a scientific computation ──
+
+    Error: expect(locator).toBeVisible() failed
+
+    Locator: getByTestId('run-id')
+    Expected: visible
+    Timeout: 5000ms
+    Error: element(s) not found
+
+    Call log:
+      - Expect "toBeVisible" getByTestId('run-id') with timeout 5000ms
+      - waiting for getByTestId('run-id')
+
+
+       7 | });
+       8 | async function sample(page: any) {
+    >  9 |   await page.goto("/w/my-thanh/farmer"); await expect(page.getByTestId("run-id")).toBeVisible();
+         |                                                                                   ^
+      10 | }
+      11 | async function form(page: any) {
+      12 |   if (!(await page.getByLabel("drainage_condition", { exact: true }).isVisible()))
+        at sample (C:\Users\ghcoo\.codex\project-memory\agrotwin-v5\remote-reproduction\nasasac26-neurax\frontend\tests\e2e\analysis.spec.ts:9:83)
+        at C:\Users\ghcoo\.codex\project-memory\agrotwin-v5\remote-reproduction\nasasac26-neurax\frontend\tests\e2e\analysis.spec.ts:18:3
+
+    Error Context: artifacts\sprint3a-full-results\analysis-AC-1-saved-preloa-8454c-ue-a-scientific-computation\error-context.md
+
+    attachment #2: trace (application/zip) ─────────────────────────────────────────────────────────
+    artifacts\sprint3a-full-results\analysis-AC-1-saved-preloa-8454c-ue-a-scientific-computation\trace.zip
+    Usage:
+
+        npx playwright show-trace artifacts\sprint3a-full-results\analysis-AC-1-saved-preloa-8454c-ue-a-scientific-computation\trace.zip
+
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+  2) tests\e2e\analysis.spec.ts:23:1 › AC-2 meaningful input runs API, marks stale and records new trace 
+
+    Error: expect(locator).toBeVisible() failed
+
+    Locator: getByTestId('run-id')
+    Expected: visible
+    Timeout: 5000ms
+    Error: element(s) not found
+
+    Call log:
+      - Expect "toBeVisible" getByTestId('run-id') with timeout 5000ms
+      - waiting for getByTestId('run-id')
+
+
+       7 | });
+       8 | async function sample(page: any) {
+    >  9 |   await page.goto("/w/my-thanh/farmer"); await expect(page.getByTestId("run-id")).toBeVisible();
+         |                                                                                   ^
+      10 | }
+      11 | async function form(page: any) {
+      12 |   if (!(await page.getByLabel("drainage_condition", { exact: true }).isVisible()))
+        at sample (C:\Users\ghcoo\.codex\project-memory\agrotwin-v5\remote-reproduction\nasasac26-neurax\frontend\tests\e2e\analysis.spec.ts:9:83)
+        at C:\Users\ghcoo\.codex\project-memory\agrotwin-v5\remote-reproduction\nasasac26-neurax\frontend\tests\e2e\analysis.spec.ts:24:3
+
+    Error Context: artifacts\sprint3a-full-results\analysis-AC-2-meaningful-i-62d24-stale-and-records-new-trace\error-context.md
+
+    attachment #2: trace (application/zip) ─────────────────────────────────────────────────────────
+    artifacts\sprint3a-full-results\analysis-AC-2-meaningful-i-62d24-stale-and-records-new-trace\trace.zip
+    Usage:
+
+        npx playwright show-trace artifacts\sprint3a-full-results\analysis-AC-2-meaningful-i-62d24-stale-and-records-new-trace\trace.zip
+
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+  3) tests\e2e\analysis.spec.ts:35:1 › AC-3 a second AOI never borrows the My Thanh cache/catalog ──
+
+    Test timeout of 60000ms exceeded.
+
+    Error: locator.fill: Test timeout of 60000ms exceeded.
+    Call log:
+      - waiting for getByLabel('Area name', { exact: true })
+
+
+      34 |
+      35 | test("AC-3 a second AOI never borrows the My Thanh cache/catalog", async ({ page }) => {
+    > 36 |   await page.goto("/setup"); await page.getByLabel("Area name", { exact: true }).fill("V4 AOI B");
+         |                                                                                  ^
+      37 |   await page.getByLabel("Coordinates (longitude, latitude)", { exact: true }).fill("106.03,10.48\n106.031,10.48\n106.031,10.481\n106.03,10.481");
+      38 |   await page.getByRole("button", { name: "Save & open area" }).click();
+      39 |   await page.getByLabel("source_mode", { exact: true }).selectOption("offline");
+        at C:\Users\ghcoo\.codex\project-memory\agrotwin-v5\remote-reproduction\nasasac26-neurax\frontend\tests\e2e\analysis.spec.ts:36:82
+
+    Error Context: artifacts\sprint3a-full-results\analysis-AC-3-a-second-AOI-51d98--the-My-Thanh-cache-catalog\error-context.md
+
+    attachment #2: trace (application/zip) ─────────────────────────────────────────────────────────
+    artifacts\sprint3a-full-results\analysis-AC-3-a-second-AOI-51d98--the-My-Thanh-cache-catalog\trace.zip
+    Usage:
+
+        npx playwright show-trace artifacts\sprint3a-full-results\analysis-AC-3-a-second-AOI-51d98--the-My-Thanh-cache-catalog\trace.zip
+
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+  4) tests\e2e\analysis.spec.ts:46:1 › AC-4 delayed B response cannot overwrite A; cancel/retry remains usable 
+
+    Error: expect(locator).toBeVisible() failed
+
+    Locator: getByTestId('run-id')
+    Expected: visible
+    Timeout: 5000ms
+    Error: element(s) not found
+
+    Call log:
+      - Expect "toBeVisible" getByTestId('run-id') with timeout 5000ms
+      - waiting for getByTestId('run-id')
+
+
+       7 | });
+       8 | async function sample(page: any) {
+    >  9 |   await page.goto("/w/my-thanh/farmer"); await expect(page.getByTestId("run-id")).toBeVisible();
+         |                                                                                   ^
+      10 | }
+      11 | async function form(page: any) {
+      12 |   if (!(await page.getByLabel("drainage_condition", { exact: true }).isVisible()))
+        at sample (C:\Users\ghcoo\.codex\project-memory\agrotwin-v5\remote-reproduction\nasasac26-neurax\frontend\tests\e2e\analysis.spec.ts:9:83)
+        at C:\Users\ghcoo\.codex\project-memory\agrotwin-v5\remote-reproduction\nasasac26-neurax\frontend\tests\e2e\analysis.spec.ts:47:3
+
+    Error Context: artifacts\sprint3a-full-results\analysis-AC-4-delayed-B-re-bbbbf-cancel-retry-remains-usable\error-context.md
+
+    attachment #2: trace (application/zip) ─────────────────────────────────────────────────────────
+    artifacts\sprint3a-full-results\analysis-AC-4-delayed-B-re-bbbbf-cancel-retry-remains-usable\trace.zip
+    Usage:
+
+        npx playwright show-trace artifacts\sprint3a-full-results\analysis-AC-4-delayed-B-re-bbbbf-cancel-retry-remains-usable\trace.zip
+
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+  5) tests\e2e\analysis.spec.ts:66:1 › AC-5 unknown form inputs remain null and measured zero survives validation 
+
+    Error: expect(locator).toBeVisible() failed
+
+    Locator: getByTestId('run-id')
+    Expected: visible
+    Timeout: 5000ms
+    Error: element(s) not found
+
+    Call log:
+      - Expect "toBeVisible" getByTestId('run-id') with timeout 5000ms
+      - waiting for getByTestId('run-id')
+
+
+       7 | });
+       8 | async function sample(page: any) {
+    >  9 |   await page.goto("/w/my-thanh/farmer"); await expect(page.getByTestId("run-id")).toBeVisible();
+         |                                                                                   ^
+      10 | }
+      11 | async function form(page: any) {
+      12 |   if (!(await page.getByLabel("drainage_condition", { exact: true }).isVisible()))
+        at sample (C:\Users\ghcoo\.codex\project-memory\agrotwin-v5\remote-reproduction\nasasac26-neurax\frontend\tests\e2e\analysis.spec.ts:9:83)
+        at C:\Users\ghcoo\.codex\project-memory\agrotwin-v5\remote-reproduction\nasasac26-neurax\frontend\tests\e2e\analysis.spec.ts:67:3
+
+    Error Context: artifacts\sprint3a-full-results\analysis-AC-5-unknown-form-2b86a-ed-zero-survives-validation\error-context.md
+
+    attachment #2: trace (application/zip) ─────────────────────────────────────────────────────────
+    artifacts\sprint3a-full-results\analysis-AC-5-unknown-form-2b86a-ed-zero-survives-validation\trace.zip
+    Usage:
+
+        npx playwright show-trace artifacts\sprint3a-full-results\analysis-AC-5-unknown-form-2b86a-ed-zero-survives-validation\trace.zip
+
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+  6) tests\e2e\analysis.spec.ts:75:1 › AC-6 SYNTHETIC numeric QA failure never renders as green pass 
+
+    Error: expect(locator).toHaveText(expected) failed
+
+    Locator: locator('.qa-cell.fail').first()
+    Expected: "FAIL"
+    Timeout: 5000ms
+    Error: element(s) not found
+
+    Call log:
+      - Expect "toHaveText" locator('.qa-cell.fail').first() with timeout 5000ms
+      - waiting for locator('.qa-cell.fail').first()
+
+
+      79 |     await route.fulfill({ json: raw });
+      80 |   });
+    > 81 |   await page.goto("/w/my-thanh/power"); await expect(page.locator(".qa-cell.fail").first()).toHaveText("FAIL");
+         |                                                                                             ^
+      82 | });
+      83 |
+      84 | test("AC-7 unknown K1 remains needs_review with no score and source trace", async ({ page }) => {
+        at C:\Users\ghcoo\.codex\project-memory\agrotwin-v5\remote-reproduction\nasasac26-neurax\frontend\tests\e2e\analysis.spec.ts:81:93
+
+    Error Context: artifacts\sprint3a-full-results\analysis-AC-6-SYNTHETIC-nu-96d34-never-renders-as-green-pass\error-context.md
+
+    attachment #2: trace (application/zip) ─────────────────────────────────────────────────────────
+    artifacts\sprint3a-full-results\analysis-AC-6-SYNTHETIC-nu-96d34-never-renders-as-green-pass\trace.zip
+    Usage:
+
+        npx playwright show-trace artifacts\sprint3a-full-results\analysis-AC-6-SYNTHETIC-nu-96d34-never-renders-as-green-pass\trace.zip
+
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+  7) tests\e2e\analysis.spec.ts:84:1 › AC-7 unknown K1 remains needs_review with no score and source trace 
+
+    Error: expect(locator).toBeVisible() failed
+
+    Locator: getByTestId('run-id')
+    Expected: visible
+    Timeout: 5000ms
+    Error: element(s) not found
+
+    Call log:
+      - Expect "toBeVisible" getByTestId('run-id') with timeout 5000ms
+      - waiting for getByTestId('run-id')
+
+
+       7 | });
+       8 | async function sample(page: any) {
+    >  9 |   await page.goto("/w/my-thanh/farmer"); await expect(page.getByTestId("run-id")).toBeVisible();
+         |                                                                                   ^
+      10 | }
+      11 | async function form(page: any) {
+      12 |   if (!(await page.getByLabel("drainage_condition", { exact: true }).isVisible()))
+        at sample (C:\Users\ghcoo\.codex\project-memory\agrotwin-v5\remote-reproduction\nasasac26-neurax\frontend\tests\e2e\analysis.spec.ts:9:83)
+        at C:\Users\ghcoo\.codex\project-memory\agrotwin-v5\remote-reproduction\nasasac26-neurax\frontend\tests\e2e\analysis.spec.ts:85:3
+
+    Error Context: artifacts\sprint3a-full-results\analysis-AC-7-unknown-K1-r-3a961-h-no-score-and-source-trace\error-context.md
+
+    attachment #2: trace (application/zip) ─────────────────────────────────────────────────────────
+    artifacts\sprint3a-full-results\analysis-AC-7-unknown-K1-r-3a961-h-no-score-and-source-trace\trace.zip
+    Usage:
+
+        npx playwright show-trace artifacts\sprint3a-full-results\analysis-AC-7-unknown-K1-r-3a961-h-no-score-and-source-trace\trace.zip
+
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+  8) tests\e2e\analysis.spec.ts:94:1 › AC-8 repeated identical inputs reuse scientific payload and cosmetic edits do not compute 
+
+    Error: expect(locator).toBeVisible() failed
+
+    Locator: getByTestId('run-id')
+    Expected: visible
+    Timeout: 5000ms
+    Error: element(s) not found
+
+    Call log:
+      - Expect "toBeVisible" getByTestId('run-id') with timeout 5000ms
+      - waiting for getByTestId('run-id')
+
+
+       7 | });
+       8 | async function sample(page: any) {
+    >  9 |   await page.goto("/w/my-thanh/farmer"); await expect(page.getByTestId("run-id")).toBeVisible();
+         |                                                                                   ^
+      10 | }
+      11 | async function form(page: any) {
+      12 |   if (!(await page.getByLabel("drainage_condition", { exact: true }).isVisible()))
+        at sample (C:\Users\ghcoo\.codex\project-memory\agrotwin-v5\remote-reproduction\nasasac26-neurax\frontend\tests\e2e\analysis.spec.ts:9:83)
+        at C:\Users\ghcoo\.codex\project-memory\agrotwin-v5\remote-reproduction\nasasac26-neurax\frontend\tests\e2e\analysis.spec.ts:95:3
+
+    Error Context: artifacts\sprint3a-full-results\analysis-AC-8-repeated-ide-a3902-smetic-edits-do-not-compute\error-context.md
+
+    attachment #2: trace (application/zip) ─────────────────────────────────────────────────────────
+    artifacts\sprint3a-full-results\analysis-AC-8-repeated-ide-a3902-smetic-edits-do-not-compute\trace.zip
+    Usage:
+
+        npx playwright show-trace artifacts\sprint3a-full-results\analysis-AC-8-repeated-ide-a3902-smetic-edits-do-not-compute\trace.zip
+
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+  9) tests\e2e\analysis.spec.ts:106:1 › AC-9 Farmer and Power share run, trace, comparison and export 
+
+    Error: expect(locator).toBeVisible() failed
+
+    Locator: getByTestId('run-id')
+    Expected: visible
+    Timeout: 5000ms
+    Error: element(s) not found
+
+    Call log:
+      - Expect "toBeVisible" getByTestId('run-id') with timeout 5000ms
+      - waiting for getByTestId('run-id')
+
+
+       7 | });
+       8 | async function sample(page: any) {
+    >  9 |   await page.goto("/w/my-thanh/farmer"); await expect(page.getByTestId("run-id")).toBeVisible();
+         |                                                                                   ^
+      10 | }
+      11 | async function form(page: any) {
+      12 |   if (!(await page.getByLabel("drainage_condition", { exact: true }).isVisible()))
+        at sample (C:\Users\ghcoo\.codex\project-memory\agrotwin-v5\remote-reproduction\nasasac26-neurax\frontend\tests\e2e\analysis.spec.ts:9:83)
+        at C:\Users\ghcoo\.codex\project-memory\agrotwin-v5\remote-reproduction\nasasac26-neurax\frontend\tests\e2e\analysis.spec.ts:107:3
+
+    Error Context: artifacts\sprint3a-full-results\analysis-AC-9-Farmer-and-P-6b294-trace-comparison-and-export\error-context.md
+
+    attachment #2: trace (application/zip) ─────────────────────────────────────────────────────────
+    artifacts\sprint3a-full-results\analysis-AC-9-Farmer-and-P-6b294-trace-comparison-and-export\trace.zip
+    Usage:
+
+        npx playwright show-trace artifacts\sprint3a-full-results\analysis-AC-9-Farmer-and-P-6b294-trace-comparison-and-export\trace.zip
+
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+  10) tests\e2e\analysis.spec.ts:121:1 › AC-10 offline saved fallback and bench/synthetic honesty do not block analysis 
+
+    Error: expect(locator).toBeVisible() failed
+
+    Locator: getByText('No readings received.')
+    Expected: visible
+    Timeout: 5000ms
+    Error: element(s) not found
+
+    Call log:
+      - Expect "toBeVisible" getByText('No readings received.') with timeout 5000ms
+      - waiting for getByText('No readings received.')
+
+
+      122 |   // A missing optional chart chunk must not hide the evaluator during navigation.
+      123 |   await page.route("**/shared/charts/Climate.tsx*", route => route.abort());
+    > 124 |   await page.goto("/hardware"); await expect(page.getByText("No readings received.", { exact: false })).toBeVisible();
+          |                                                                                                         ^
+      125 |   await page.getByRole("button", { name: "Start synthetic stream" }).click();
+      126 |   await page.locator('a[href="/"]').first().click(); await page.locator("a.sample-card.ready").click();
+      127 |   await expect(page.getByLabel("Home sensor summary")).toContainText("SYNTHETIC");
+        at C:\Users\ghcoo\.codex\project-memory\agrotwin-v5\remote-reproduction\nasasac26-neurax\frontend\tests\e2e\analysis.spec.ts:124:105
+
+    Error Context: artifacts\sprint3a-full-results\analysis-AC-10-offline-sav-4512e-nesty-do-not-block-analysis\error-context.md
+
+    attachment #2: trace (application/zip) ─────────────────────────────────────────────────────────
+    artifacts\sprint3a-full-results\analysis-AC-10-offline-sav-4512e-nesty-do-not-block-analysis\trace.zip
+    Usage:
+
+        npx playwright show-trace artifacts\sprint3a-full-results\analysis-AC-10-offline-sav-4512e-nesty-do-not-block-analysis\trace.zip
+
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+  11) tests\e2e\app.spec.ts:4:1 › entry, EN/VI and source drawer are functional ────────────────────
+
+    Error: expect(locator).toBeVisible() failed
+
+    Locator: getByRole('heading', { name: 'Explore your land. Understand your options.' })
+    Expected: visible
+    Timeout: 5000ms
+    Error: element(s) not found
+
+    Call log:
+      - Expect "toBeVisible" getByRole('heading', { name: 'Explore your land. Understand your options.' }) with timeout 5000ms
+      - waiting for getByRole('heading', { name: 'Explore your land. Understand your options.' })
+
+
+       8 |       name: "Explore your land. Understand your options.",
+       9 |     }),
+    > 10 |   ).toBeVisible();
+         |     ^
+      11 |   await expect(
+      12 |     page.getByRole("heading", { name: "Second study area" }),
+      13 |   ).toBeVisible();
+        at C:\Users\ghcoo\.codex\project-memory\agrotwin-v5\remote-reproduction\nasasac26-neurax\frontend\tests\e2e\app.spec.ts:10:5
+
+    Error Context: artifacts\sprint3a-full-results\app-entry-EN-VI-and-source-drawer-are-functional\error-context.md
+
+    attachment #2: trace (application/zip) ─────────────────────────────────────────────────────────
+    artifacts\sprint3a-full-results\app-entry-EN-VI-and-source-drawer-are-functional\trace.zip
+    Usage:
+
+        npx playwright show-trace artifacts\sprint3a-full-results\app-entry-EN-VI-and-source-drawer-are-functional\trace.zip
+
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+  12) tests\e2e\app.spec.ts:23:1 › terrain, research/sandbox parity, mode switch and drafts ────────
+
+    Error: expect(locator).toBeVisible() failed
+
+    Locator: getByText('Regional research data').first()
+    Expected: visible
+    Timeout: 5000ms
+    Error: element(s) not found
+
+    Call log:
+      - Expect "toBeVisible" getByText('Regional research data').first() with timeout 5000ms
+      - waiting for getByText('Regional research data').first()
+
+
+      25 | }) => {
+      26 |   await page.goto("/w/my-thanh/farmer");
+    > 27 |   await expect(page.getByText("Regional research data").first()).toBeVisible();
+         |                                                                  ^
+      28 |   await expect(
+      29 |     page.getByRole("button", { name: "3D terrain", exact: true }),
+      30 |   ).toBeEnabled({ timeout: 30000 });
+        at C:\Users\ghcoo\.codex\project-memory\agrotwin-v5\remote-reproduction\nasasac26-neurax\frontend\tests\e2e\app.spec.ts:27:66
+
+    Error Context: artifacts\sprint3a-full-results\app-terrain-research-sandbox-parity-mode-switch-and-drafts\error-context.md
+
+    attachment #2: trace (application/zip) ─────────────────────────────────────────────────────────
+    artifacts\sprint3a-full-results\app-terrain-research-sandbox-parity-mode-switch-and-drafts\trace.zip
+    Usage:
+
+        npx playwright show-trace artifacts\sprint3a-full-results\app-terrain-research-sandbox-parity-mode-switch-and-drafts\trace.zip
+
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+  13) tests\e2e\app.spec.ts:58:1 › custom AOI via keyboard saves without borrowing research data ───
+
+    Test timeout of 60000ms exceeded.
+
+    Error: locator.fill: Test timeout of 60000ms exceeded.
+    Call log:
+      - waiting for getByLabel('Area name', { exact: true })
+
+
+      62 |   await page
+      63 |     .getByLabel("Area name", { exact: true })
+    > 64 |     .fill("Keyboard test area");
+         |      ^
+      65 |   await page
+      66 |     .getByLabel("Coordinates (longitude, latitude)", { exact: true })
+      67 |     .fill("106.03,10.48\n106.031,10.48\n106.031,10.481\n106.03,10.481");
+        at C:\Users\ghcoo\.codex\project-memory\agrotwin-v5\remote-reproduction\nasasac26-neurax\frontend\tests\e2e\app.spec.ts:64:6
+
+    Error Context: artifacts\sprint3a-full-results\app-custom-AOI-via-keyboar-10598-out-borrowing-research-data\error-context.md
+
+    attachment #2: trace (application/zip) ─────────────────────────────────────────────────────────
+    artifacts\sprint3a-full-results\app-custom-AOI-via-keyboar-10598-out-borrowing-research-data\trace.zip
+    Usage:
+
+        npx playwright show-trace artifacts\sprint3a-full-results\app-custom-AOI-via-keyboar-10598-out-borrowing-research-data\trace.zip
+
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+  14) tests\e2e\app.spec.ts:81:1 › malformed snapshot is not silently replaced with sandbox ────────
+
+    Error: expect(locator).toBeVisible() failed
+
+    Locator: getByText('Unable to load the dataset')
+    Expected: visible
+    Timeout: 5000ms
+    Error: element(s) not found
+
+    Call log:
+      - Expect "toBeVisible" getByText('Unable to load the dataset') with timeout 5000ms
+      - waiting for getByText('Unable to load the dataset')
+
+
+      86 |   );
+      87 |   await page.goto("/w/my-thanh/farmer");
+    > 88 |   await expect(page.getByText("Unable to load the dataset")).toBeVisible();
+         |                                                              ^
+      89 |   await expect(
+      90 |     page.getByText("Research has not been replaced with sandbox data."),
+      91 |   ).toBeVisible();
+        at C:\Users\ghcoo\.codex\project-memory\agrotwin-v5\remote-reproduction\nasasac26-neurax\frontend\tests\e2e\app.spec.ts:88:62
+
+    Error Context: artifacts\sprint3a-full-results\app-malformed-snapshot-is-not-silently-replaced-with-sandbox\error-context.md
+
+    attachment #2: trace (application/zip) ─────────────────────────────────────────────────────────
+    artifacts\sprint3a-full-results\app-malformed-snapshot-is-not-silently-replaced-with-sandbox\trace.zip
+    Usage:
+
+        npx playwright show-trace artifacts\sprint3a-full-results\app-malformed-snapshot-is-not-silently-replaced-with-sandbox\trace.zip
+
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+  15) tests\e2e\app.spec.ts:93:1 › entry has no serious accessibility findings and no mobile overflow 
+
+    Error: expect(locator).toBeVisible() failed
+
+    Locator: getByRole('heading', { name: 'Check your rotation prerequisites' })
+    Expected: visible
+    Timeout: 5000ms
+    Error: element(s) not found
+
+    Call log:
+      - Expect "toBeVisible" getByRole('heading', { name: 'Check your rotation prerequisites' }) with timeout 5000ms
+      - waiting for getByRole('heading', { name: 'Check your rotation prerequisites' })
+
+
+      105 |   await expect(
+      106 |     page.getByRole("heading", { name: "Check your rotation prerequisites" }),
+    > 107 |   ).toBeVisible();
+          |     ^
+      108 |   expect(
+      109 |     await page.evaluate(
+      110 |       () => document.documentElement.scrollWidth <= innerWidth,
+        at C:\Users\ghcoo\.codex\project-memory\agrotwin-v5\remote-reproduction\nasasac26-neurax\frontend\tests\e2e\app.spec.ts:107:5
+
+    Error Context: artifacts\sprint3a-full-results\app-entry-has-no-serious-a-a3e31-ings-and-no-mobile-overflow\error-context.md
+
+    attachment #2: trace (application/zip) ─────────────────────────────────────────────────────────
+    artifacts\sprint3a-full-results\app-entry-has-no-serious-a-a3e31-ings-and-no-mobile-overflow\trace.zip
+    Usage:
+
+        npx playwright show-trace artifacts\sprint3a-full-results\app-entry-has-no-serious-a-a3e31-ings-and-no-mobile-overflow\trace.zip
+
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+  16) tests\e2e\app.spec.ts:118:1 › WebGL unavailable keeps outline and analysis available ─────────
+
+    Error: expect(locator).toBeVisible() failed
+
+    Locator: getByRole('heading', { name: 'Map unavailable' })
+    Expected: visible
+    Timeout: 5000ms
+    Error: element(s) not found
+
+    Call log:
+      - Expect "toBeVisible" getByRole('heading', { name: 'Map unavailable' }) with timeout 5000ms
+      - waiting for getByRole('heading', { name: 'Map unavailable' })
+
+
+      132 |   await expect(
+      133 |     page.getByRole("heading", { name: "Map unavailable" }),
+    > 134 |   ).toBeVisible();
+          |     ^
+      135 |   await expect(
+      136 |     page.getByRole("heading", { name: "Check your rotation prerequisites" }),
+      137 |   ).toBeVisible();
+        at C:\Users\ghcoo\.codex\project-memory\agrotwin-v5\remote-reproduction\nasasac26-neurax\frontend\tests\e2e\app.spec.ts:134:5
+
+    Error Context: artifacts\sprint3a-full-results\app-WebGL-unavailable-keeps-outline-and-analysis-available\error-context.md
+
+    attachment #2: trace (application/zip) ─────────────────────────────────────────────────────────
+    artifacts\sprint3a-full-results\app-WebGL-unavailable-keeps-outline-and-analysis-available\trace.zip
+    Usage:
+
+        npx playwright show-trace artifacts\sprint3a-full-results\app-WebGL-unavailable-keeps-outline-and-analysis-available\trace.zip
+
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+  17) tests\e2e\app.spec.ts:139:1 › DEM failure preserves 2D and decisions ─────────────────────────
+
+    Error: expect(locator).toBeVisible() failed
+
+    Locator: getByText('Terrain unavailable. 2D remains usable.')
+    Expected: visible
+    Timeout: 20000ms
+    Error: element(s) not found
+
+    Call log:
+      - Expect "toBeVisible" getByText('Terrain unavailable. 2D remains usable.') with timeout 20000ms
+      - waiting for getByText('Terrain unavailable. 2D remains usable.')
+
+
+      142 |   await expect(
+      143 |     page.getByText("Terrain unavailable. 2D remains usable."),
+    > 144 |   ).toBeVisible({ timeout: 20000 });
+          |     ^
+      145 |   await expect(
+      146 |     page.getByRole("button", { name: "2D", exact: true }),
+      147 |   ).toHaveAttribute("aria-pressed", "true");
+        at C:\Users\ghcoo\.codex\project-memory\agrotwin-v5\remote-reproduction\nasasac26-neurax\frontend\tests\e2e\app.spec.ts:144:5
+
+    Error Context: artifacts\sprint3a-full-results\app-DEM-failure-preserves-2D-and-decisions\error-context.md
+
+    attachment #2: trace (application/zip) ─────────────────────────────────────────────────────────
+    artifacts\sprint3a-full-results\app-DEM-failure-preserves-2D-and-decisions\trace.zip
+    Usage:
+
+        npx playwright show-trace artifacts\sprint3a-full-results\app-DEM-failure-preserves-2D-and-decisions\trace.zip
+
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+  18) tests\e2e\app.spec.ts:152:1 › drawing creates a polygon and saved areas can be edited ────────
+
+    Error: expect(locator).toBeEnabled() failed
+
+    Locator: getByRole('button', { name: 'Draw boundary', exact: true })
+    Expected: enabled
+    Timeout: 5000ms
+    Error: element(s) not found
+
+    Call log:
+      - Expect "toBeEnabled" getByRole('button', { name: 'Draw boundary', exact: true }) with timeout 5000ms
+      - waiting for getByRole('button', { name: 'Draw boundary', exact: true })
+
+
+      155 |   await page.goto("/setup");
+      156 |   const draw = page.getByRole("button", { name: "Draw boundary", exact: true });
+    > 157 |   await expect(draw).toBeEnabled();
+          |                      ^
+      158 |   await draw.click();
+      159 |   const canvas = page.locator(".maplibregl-canvas");
+      160 |   const box = await canvas.boundingBox();
+        at C:\Users\ghcoo\.codex\project-memory\agrotwin-v5\remote-reproduction\nasasac26-neurax\frontend\tests\e2e\app.spec.ts:157:22
+
+    Error Context: artifacts\sprint3a-full-results\app-drawing-creates-a-polygon-and-saved-areas-can-be-edited\error-context.md
+
+    attachment #2: trace (application/zip) ─────────────────────────────────────────────────────────
+    artifacts\sprint3a-full-results\app-drawing-creates-a-polygon-and-saved-areas-can-be-edited\trace.zip
+    Usage:
+
+        npx playwright show-trace artifacts\sprint3a-full-results\app-drawing-creates-a-polygon-and-saved-areas-can-be-edited\trace.zip
+
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+  19) tests\e2e\app.spec.ts:181:1 › reduced motion and language preserve camera; context loss keeps analysis 
+
+    Error: expect(locator).toBeEnabled() failed
+
+    Locator: getByRole('button', { name: '3D terrain', exact: true })
+    Expected: enabled
+    Timeout: 5000ms
+    Error: element(s) not found
+
+    Call log:
+      - Expect "toBeEnabled" getByRole('button', { name: '3D terrain', exact: true }) with timeout 5000ms
+      - waiting for getByRole('button', { name: '3D terrain', exact: true })
+
+
+      186 |   await expect(
+      187 |     page.getByRole("button", { name: "3D terrain", exact: true }),
+    > 188 |   ).toBeEnabled();
+          |     ^
+      189 |   await page.getByRole("button", { name: "2D", exact: true }).click();
+      190 |   await page.getByRole("button", { name: "English / Tiếng Việt" }).click();
+      191 |   await expect(
+        at C:\Users\ghcoo\.codex\project-memory\agrotwin-v5\remote-reproduction\nasasac26-neurax\frontend\tests\e2e\app.spec.ts:188:5
+
+    Error Context: artifacts\sprint3a-full-results\app-reduced-motion-and-lan-9d130-context-loss-keeps-analysis\error-context.md
+
+    attachment #2: trace (application/zip) ─────────────────────────────────────────────────────────
+    artifacts\sprint3a-full-results\app-reduced-motion-and-lan-9d130-context-loss-keeps-analysis\trace.zip
+    Usage:
+
+        npx playwright show-trace artifacts\sprint3a-full-results\app-reduced-motion-and-lan-9d130-context-loss-keeps-analysis\trace.zip
+
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+  20) tests\e2e\hardware.spec.ts:4:1 › hardware synthetic recording, persistent session, replay and map placement 
+
+    Test timeout of 60000ms exceeded.
+
+    Error: locator.click: Test timeout of 60000ms exceeded.
+    Call log:
+      - waiting for getByRole('button', { name: 'Start synthetic stream' })
+
+
+       6 | }) => {
+       7 |   await page.goto("/hardware");
+    >  8 |   await page.getByRole("button", { name: "Start synthetic stream" }).click();
+         |                                                                      ^
+       9 |   await expect(page.getByText("DEMO-NODE-01").first()).toBeVisible();
+      10 |   await page
+      11 |     .getByRole("button", { name: "Record session", exact: true })
+        at C:\Users\ghcoo\.codex\project-memory\agrotwin-v5\remote-reproduction\nasasac26-neurax\frontend\tests\e2e\hardware.spec.ts:8:70
+
+    Error Context: artifacts\sprint3a-full-results\hardware-hardware-syntheti-bb577-on-replay-and-map-placement\error-context.md
+
+    attachment #2: trace (application/zip) ─────────────────────────────────────────────────────────
+    artifacts\sprint3a-full-results\hardware-hardware-syntheti-bb577-on-replay-and-map-placement\trace.zip
+    Usage:
+
+        npx playwright show-trace artifacts\sprint3a-full-results\hardware-hardware-syntheti-bb577-on-replay-and-map-placement\trace.zip
+
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+  21) tests\e2e\hardware.spec.ts:37:1 › USB transport decodes split frames, rejects bad input and disconnects 
+
+    Test timeout of 60000ms exceeded.
+
+    Error: locator.click: Test timeout of 60000ms exceeded.
+    Call log:
+      - waiting for getByRole('button', { name: 'Connect USB / serial' })
+
+
+      71 |   });
+      72 |   await page.goto("/hardware");
+    > 73 |   await page.getByRole("button", { name: "Connect USB / serial" }).click();
+         |                                                                    ^
+      74 |   await expect(page.locator(".connection-status")).toHaveText("● Connected");
+      75 |   await expect(page.locator(".sensor-value")).toContainText("0");
+      76 |   await expect(page.getByText("Rejected: 1")).toBeVisible();
+        at C:\Users\ghcoo\.codex\project-memory\agrotwin-v5\remote-reproduction\nasasac26-neurax\frontend\tests\e2e\hardware.spec.ts:73:68
+
+    Error Context: artifacts\sprint3a-full-results\hardware-USB-transport-dec-ca5d7-s-bad-input-and-disconnects\error-context.md
+
+    attachment #2: trace (application/zip) ─────────────────────────────────────────────────────────
+    artifacts\sprint3a-full-results\hardware-USB-transport-dec-ca5d7-s-bad-input-and-disconnects\trace.zip
+    Usage:
+
+        npx playwright show-trace artifacts\sprint3a-full-results\hardware-USB-transport-dec-ca5d7-s-bad-input-and-disconnects\trace.zip
+
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+  22) tests\e2e\hardware.spec.ts:82:1 › monthly inspector and grounded assistant follow context ────
+
+    Test timeout of 60000ms exceeded.
+
+    Error: locator.click: Test timeout of 60000ms exceeded.
+    Call log:
+      - waiting for getByRole('button', { name: 'Rainfall 6: Needs inspection' })
+
+
+      86 |   await page
+      87 |     .getByRole("button", { name: "Rainfall 6: Needs inspection" })
+    > 88 |     .click();
+         |      ^
+      89 |   await expect(page.getByRole("dialog")).toContainText("2020");
+      90 |   await expect(page.getByRole("dialog")).toContainText(
+      91 |     "curated-D1-2026-11-14",
+        at C:\Users\ghcoo\.codex\project-memory\agrotwin-v5\remote-reproduction\nasasac26-neurax\frontend\tests\e2e\hardware.spec.ts:88:6
+
+    Error Context: artifacts\sprint3a-full-results\hardware-monthly-inspector-1891b-ed-assistant-follow-context\error-context.md
+
+    attachment #2: trace (application/zip) ─────────────────────────────────────────────────────────
+    artifacts\sprint3a-full-results\hardware-monthly-inspector-1891b-ed-assistant-follow-context\trace.zip
+    Usage:
+
+        npx playwright show-trace artifacts\sprint3a-full-results\hardware-monthly-inspector-1891b-ed-assistant-follow-context\trace.zip
+
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+  23) tests\e2e\hardware.spec.ts:101:1 › hardware language, accessibility and mobile layout ────────
+
+    Error: expect(locator).toBeVisible() failed
+
+    Locator: getByRole('heading', { name: 'Kết nối thiết bị. Kiểm từng số đo.' })
+    Expected: visible
+    Timeout: 5000ms
+    Error: element(s) not found
+
+    Call log:
+      - Expect "toBeVisible" getByRole('heading', { name: 'Kết nối thiết bị. Kiểm từng số đo.' }) with timeout 5000ms
+      - waiting for getByRole('heading', { name: 'Kết nối thiết bị. Kiểm từng số đo.' })
+
+
+      110 |   await expect(
+      111 |     page.getByRole("heading", { name: "Kết nối thiết bị. Kiểm từng số đo." }),
+    > 112 |   ).toBeVisible();
+          |     ^
+      113 |   await page.setViewportSize({ width: 390, height: 844 });
+      114 |   expect(
+      115 |     await page.evaluate(
+        at C:\Users\ghcoo\.codex\project-memory\agrotwin-v5\remote-reproduction\nasasac26-neurax\frontend\tests\e2e\hardware.spec.ts:112:5
+
+    Error Context: artifacts\sprint3a-full-results\hardware-hardware-language-accessibility-and-mobile-layout\error-context.md
+
+    attachment #2: trace (application/zip) ─────────────────────────────────────────────────────────
+    artifacts\sprint3a-full-results\hardware-hardware-language-accessibility-and-mobile-layout\trace.zip
+    Usage:
+
+        npx playwright show-trace artifacts\sprint3a-full-results\hardware-hardware-language-accessibility-and-mobile-layout\trace.zip
+
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+  24) tests\e2e\hardware.spec.ts:125:1 › field groups persist and comparison keeps scores unavailable 
+
+    Test timeout of 60000ms exceeded.
+
+    Error: locator.fill: Test timeout of 60000ms exceeded.
+    Call log:
+      - waiting for getByLabel('Farm / field group', { exact: true })
+
+
+      129 |   await page
+      130 |     .getByLabel("Farm / field group", { exact: true })
+    > 131 |     .fill("Family farm");
+          |      ^
+      132 |   await page.getByLabel("Area name", { exact: true }).fill("North plot");
+      133 |   await page
+      134 |     .getByLabel("Coordinates (longitude, latitude)", { exact: true })
+        at C:\Users\ghcoo\.codex\project-memory\agrotwin-v5\remote-reproduction\nasasac26-neurax\frontend\tests\e2e\hardware.spec.ts:131:6
+
+    Error Context: artifacts\sprint3a-full-results\hardware-field-groups-pers-87634-on-keeps-scores-unavailable\error-context.md
+
+    attachment #2: trace (application/zip) ─────────────────────────────────────────────────────────
+    artifacts\sprint3a-full-results\hardware-field-groups-pers-87634-on-keeps-scores-unavailable\trace.zip
+    Usage:
+
+        npx playwright show-trace artifacts\sprint3a-full-results\hardware-field-groups-pers-87634-on-keeps-scores-unavailable\trace.zip
+
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+  25) tests\e2e\model-program.spec.ts:4:1 › actual API report reaches Power while forecast and crop promotion stay closed 
+
+    Test timeout of 60000ms exceeded.
+
+    Error: locator.click: Test timeout of 60000ms exceeded.
+    Call log:
+      - waiting for getByTestId('model-program-evidence').locator('summary')
+
+
+       8 |  await page.goto('/w/my-thanh/power');
+       9 |  const panel=page.getByTestId('model-program-evidence');
+    > 10 |  await panel.locator('summary').click();
+         |                                 ^
+      11 |  await expect(panel).toContainText('Recorded evaluation results, not request-time inference');
+      12 |  await expect(panel).toContainText('540 regional climate months');
+      13 |  await expect(panel).toContainText(report.report_sha256);
+        at C:\Users\ghcoo\.codex\project-memory\agrotwin-v5\remote-reproduction\nasasac26-neurax\frontend\tests\e2e\model-program.spec.ts:10:33
+
+    Error Context: artifacts\sprint3a-full-results\model-program-actual-API-r-0a726--crop-promotion-stay-closed\error-context.md
+
+    attachment #2: trace (application/zip) ─────────────────────────────────────────────────────────
+    artifacts\sprint3a-full-results\model-program-actual-API-r-0a726--crop-promotion-stay-closed\trace.zip
+    Usage:
+
+        npx playwright show-trace artifacts\sprint3a-full-results\model-program-actual-API-r-0a726--crop-promotion-stay-closed\trace.zip
+
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+  26) tests\e2e\model-program.spec.ts:19:1 › research API unavailable cannot masquerade as a prediction 
+
+    Test timeout of 60000ms exceeded.
+
+    Error: locator.click: Test timeout of 60000ms exceeded.
+    Call log:
+      - waiting for getByTestId('model-program-evidence').locator('summary')
+
+
+      20 |  await page.route('**/api/v1/research/model-program?*',r=>r.fulfill({status:503,body:'unavailable'}));
+      21 |  await page.goto('/w/my-thanh/power');
+    > 22 |  const panel=page.getByTestId('model-program-evidence');await panel.locator('summary').click();
+         |                                                                                        ^
+      23 |  await expect(panel.getByRole('status')).toContainText('no substitute prediction generated');
+      24 |  await expect(panel.locator('table')).toHaveCount(0);
+      25 | });
+        at C:\Users\ghcoo\.codex\project-memory\agrotwin-v5\remote-reproduction\nasasac26-neurax\frontend\tests\e2e\model-program.spec.ts:22:88
+
+    Error Context: artifacts\sprint3a-full-results\model-program-research-API-90acf--masquerade-as-a-prediction\error-context.md
+
+    attachment #2: trace (application/zip) ─────────────────────────────────────────────────────────
+    artifacts\sprint3a-full-results\model-program-research-API-90acf--masquerade-as-a-prediction\trace.zip
+    Usage:
+
+        npx playwright show-trace artifacts\sprint3a-full-results\model-program-research-API-90acf--masquerade-as-a-prediction\trace.zip
+
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+  27) tests\e2e\model-program.spec.ts:26:1 › mobile Power can inspect report and retain honest scientific state 
+
+    Test timeout of 60000ms exceeded.
+
+    Error: locator.click: Test timeout of 60000ms exceeded.
+    Call log:
+      - waiting for getByTestId('model-program-evidence').locator('summary')
+
+
+      26 | test('mobile Power can inspect report and retain honest scientific state', async({page})=>{
+      27 |  await page.setViewportSize({width:390,height:844});await page.goto('/w/my-thanh/power');
+    > 28 |  const panel=page.getByTestId('model-program-evidence');await panel.locator('summary').click();
+         |                                                                                        ^
+      29 |  await expect(panel).toContainText('RESEARCH_ONLY');
+      30 |  await expect(panel.locator('table')).toBeVisible();
+      31 |  expect(await page.evaluate(()=>document.documentElement.scrollWidth<=window.innerWidth+1)).toBe(true);
+        at C:\Users\ghcoo\.codex\project-memory\agrotwin-v5\remote-reproduction\nasasac26-neurax\frontend\tests\e2e\model-program.spec.ts:28:88
+
+    Error Context: artifacts\sprint3a-full-results\model-program-mobile-Power-e37ac-ain-honest-scientific-state\error-context.md
+
+    attachment #2: trace (application/zip) ─────────────────────────────────────────────────────────
+    artifacts\sprint3a-full-results\model-program-mobile-Power-e37ac-ain-honest-scientific-state\trace.zip
+    Usage:
+
+        npx playwright show-trace artifacts\sprint3a-full-results\model-program-mobile-Power-e37ac-ain-honest-scientific-state\trace.zip
+
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+  28) tests\e2e\planner.spec.ts:7:1 › planner real API -> choose -> save -> reload -> readable export retains the same run 
+
+    Error: expect(locator).toBeEnabled() failed
+
+    Locator: getByRole('button', { name: 'Explore options', exact: true })
+    Expected: enabled
+    Timeout: 5000ms
+    Error: element(s) not found
+
+    Call log:
+      - Expect "toBeEnabled" getByRole('button', { name: 'Explore options', exact: true }) with timeout 5000ms
+      - waiting for getByRole('button', { name: 'Explore options', exact: true })
+
+
+      3 | import {readFile} from 'node:fs/promises';
+      4 | test.beforeEach(async({page})=>{await page.addInitScript(()=>localStorage.setItem('agrotwin-language','en'));await page.route('**/tile.openstreetmap.org/**',r=>r.abort());});
+    > 5 | async function open(page:any){await page.goto('/plan/my-thanh');await expect(page.getByRole('button',{name:'Explore options',exact:true})).toBeEnabled();}
+        |                                                                                                                                            ^
+      6 | async function run(page:any){const response=page.waitForResponse((r:any)=>r.url().endsWith('/v1/analysis')&&r.request().method()==='POST');await page.getByRole('button',{name:'Explore options',exact:true}).click();const data=await(await response).json();await expect(page.locator('.plan-option')).toHaveCount(3);return data;}
+      7 | test('planner real API -> choose -> save -> reload -> readable export retains the same run',async({page})=>{
+      8 |  await open(page);await page.getByRole('combobox',{name:'Current crop',exact:true}).selectOption('rice');await page.getByRole('combobox',{name:'Your priority',exact:true}).selectOption('water');const data=await run(page);
+        at open (C:\Users\ghcoo\.codex\project-memory\agrotwin-v5\remote-reproduction\nasasac26-neurax\frontend\tests\e2e\planner.spec.ts:5:140)
+        at C:\Users\ghcoo\.codex\project-memory\agrotwin-v5\remote-reproduction\nasasac26-neurax\frontend\tests\e2e\planner.spec.ts:8:2
+
+    Error Context: artifacts\sprint3a-full-results\planner-planner-real-API---3fb09-export-retains-the-same-run\error-context.md
+
+    attachment #2: trace (application/zip) ─────────────────────────────────────────────────────────
+    artifacts\sprint3a-full-results\planner-planner-real-API---3fb09-export-retains-the-same-run\trace.zip
+    Usage:
+
+        npx playwright show-trace artifacts\sprint3a-full-results\planner-planner-real-API---3fb09-export-retains-the-same-run\trace.zip
+
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+  29) tests\e2e\planner.spec.ts:15:1 › model actually predicts for supported geometry and never promotes crop advice 
+
+    Error: expect(locator).toBeEnabled() failed
+
+    Locator: getByRole('button', { name: 'Explore options', exact: true })
+    Expected: enabled
+    Timeout: 5000ms
+    Error: element(s) not found
+
+    Call log:
+      - Expect "toBeEnabled" getByRole('button', { name: 'Explore options', exact: true }) with timeout 5000ms
+      - waiting for getByRole('button', { name: 'Explore options', exact: true })
+
+
+      3 | import {readFile} from 'node:fs/promises';
+      4 | test.beforeEach(async({page})=>{await page.addInitScript(()=>localStorage.setItem('agrotwin-language','en'));await page.route('**/tile.openstreetmap.org/**',r=>r.abort());});
+    > 5 | async function open(page:any){await page.goto('/plan/my-thanh');await expect(page.getByRole('button',{name:'Explore options',exact:true})).toBeEnabled();}
+        |                                                                                                                                            ^
+      6 | async function run(page:any){const response=page.waitForResponse((r:any)=>r.url().endsWith('/v1/analysis')&&r.request().method()==='POST');await page.getByRole('button',{name:'Explore options',exact:true}).click();const data=await(await response).json();await expect(page.locator('.plan-option')).toHaveCount(3);return data;}
+      7 | test('planner real API -> choose -> save -> reload -> readable export retains the same run',async({page})=>{
+      8 |  await open(page);await page.getByRole('combobox',{name:'Current crop',exact:true}).selectOption('rice');await page.getByRole('combobox',{name:'Your priority',exact:true}).selectOption('water');const data=await run(page);
+        at open (C:\Users\ghcoo\.codex\project-memory\agrotwin-v5\remote-reproduction\nasasac26-neurax\frontend\tests\e2e\planner.spec.ts:5:140)
+        at C:\Users\ghcoo\.codex\project-memory\agrotwin-v5\remote-reproduction\nasasac26-neurax\frontend\tests\e2e\planner.spec.ts:15:102
+
+    Error Context: artifacts\sprint3a-full-results\planner-model-actually-pre-3261d--never-promotes-crop-advice\error-context.md
+
+    attachment #2: trace (application/zip) ─────────────────────────────────────────────────────────
+    artifacts\sprint3a-full-results\planner-model-actually-pre-3261d--never-promotes-crop-advice\trace.zip
+    Usage:
+
+        npx playwright show-trace artifacts\sprint3a-full-results\planner-model-actually-pre-3261d--never-promotes-crop-advice\trace.zip
+
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+  30) tests\e2e\planner.spec.ts:16:1 › changing fields uses actual custom geometry and never borrows the sample catalog 
+
+    Test timeout of 60000ms exceeded.
+
+    Error: locator.fill: Test timeout of 60000ms exceeded.
+    Call log:
+      - waiting for getByRole('textbox', { name: 'Field name', exact: true })
+
+
+      15 | test('model actually predicts for supported geometry and never promotes crop advice',async({page})=>{await open(page);await run(page);const response=page.waitForResponse(r=>r.url().endsWith('/v1/research/inference')&&r.request().method()==='POST');await page.getByRole('button',{name:'Run climate simulation',exact:true}).click();const out=await(await response).json();expect(out.execution).toContain('model.predict executed');expect(out.agronomic_integration_eligible).toBe(false);await expect(page.getByTestId('plan-model-result')).toContainText(out.prediction.toFixed(2));});
+      16 | test('changing fields uses actual custom geometry and never borrows the sample catalog',async({page})=>{
+    > 17 |  await page.goto('/plan/new');await page.getByRole('textbox',{name:'Field name',exact:true}).fill('QA custom field');await page.locator('.plan-create form summary').click();await page.getByRole('textbox',{name:'Longitude, latitude — one corner per line',exact:true}).fill('106.04,10.48\n106.041,10.48\n106.041,10.481\n106.04,10.481');await page.getByRole('button',{name:'Use this field',exact:true}).click();
+         |                                                                                              ^
+      18 |  const data=await run(page);console.log('CUSTOM_AOI_RECEIPT',JSON.stringify({run:data.a1.run_id,source:!!data.source,point:data.source?.query_point_lon_lat,usable_months:data.climate.filter((m:any)=>m.rain!==null||m.temp!==null).length,catalog:data.sidecar.catalog_supported}));expect(data.inputs.aoi_id).not.toBe('MT-BLOCK-01');expect(data.sidecar.catalog_supported).toBe(false);expect(data.a1.results).toEqual([]);expect(data.inputs.geometry.features[0].geometry.coordinates[0][0]).toEqual([106.04,10.48]);
+      19 |  // A failed public-source fetch must stay empty. A successful fetch must be the custom location.
+      20 |  if(data.source){expect(data.source.query_point_lon_lat[0]).toBeGreaterThan(106.039);expect(data.source.url).toContain('longitude=106.040');expect(data.climate.some((m:any)=>m.rain!==null)).toBe(true);}else{expect(data.climate.every((m:any)=>m.rain===null&&m.temp===null)).toBe(true);await expect(page.getByRole('status')).toContainText('No usable climate');}
+        at C:\Users\ghcoo\.codex\project-memory\agrotwin-v5\remote-reproduction\nasasac26-neurax\frontend\tests\e2e\planner.spec.ts:17:94
+
+    Error Context: artifacts\sprint3a-full-results\planner-changing-fields-us-1e24c--borrows-the-sample-catalog\error-context.md
+
+    attachment #2: trace (application/zip) ─────────────────────────────────────────────────────────
+    artifacts\sprint3a-full-results\planner-changing-fields-us-1e24c--borrows-the-sample-catalog\trace.zip
+    Usage:
+
+        npx playwright show-trace artifacts\sprint3a-full-results\planner-changing-fields-us-1e24c--borrows-the-sample-catalog\trace.zip
+
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+  31) tests\e2e\planner.spec.ts:23:1 › API outage, malformed scope and model failure do not generate fallback output 
+
+    Error: expect(locator).toBeEnabled() failed
+
+    Locator: getByRole('button', { name: 'Explore options', exact: true })
+    Expected: enabled
+    Timeout: 5000ms
+    Error: element(s) not found
+
+    Call log:
+      - Expect "toBeEnabled" getByRole('button', { name: 'Explore options', exact: true }) with timeout 5000ms
+      - waiting for getByRole('button', { name: 'Explore options', exact: true })
+
+
+      3 | import {readFile} from 'node:fs/promises';
+      4 | test.beforeEach(async({page})=>{await page.addInitScript(()=>localStorage.setItem('agrotwin-language','en'));await page.route('**/tile.openstreetmap.org/**',r=>r.abort());});
+    > 5 | async function open(page:any){await page.goto('/plan/my-thanh');await expect(page.getByRole('button',{name:'Explore options',exact:true})).toBeEnabled();}
+        |                                                                                                                                            ^
+      6 | async function run(page:any){const response=page.waitForResponse((r:any)=>r.url().endsWith('/v1/analysis')&&r.request().method()==='POST');await page.getByRole('button',{name:'Explore options',exact:true}).click();const data=await(await response).json();await expect(page.locator('.plan-option')).toHaveCount(3);return data;}
+      7 | test('planner real API -> choose -> save -> reload -> readable export retains the same run',async({page})=>{
+      8 |  await open(page);await page.getByRole('combobox',{name:'Current crop',exact:true}).selectOption('rice');await page.getByRole('combobox',{name:'Your priority',exact:true}).selectOption('water');const data=await run(page);
+        at open (C:\Users\ghcoo\.codex\project-memory\agrotwin-v5\remote-reproduction\nasasac26-neurax\frontend\tests\e2e\planner.spec.ts:5:140)
+        at C:\Users\ghcoo\.codex\project-memory\agrotwin-v5\remote-reproduction\nasasac26-neurax\frontend\tests\e2e\planner.spec.ts:23:102
+
+    Error Context: artifacts\sprint3a-full-results\planner-API-outage-malform-1f34b-ot-generate-fallback-output\error-context.md
+
+    attachment #2: trace (application/zip) ─────────────────────────────────────────────────────────
+    artifacts\sprint3a-full-results\planner-API-outage-malform-1f34b-ot-generate-fallback-output\trace.zip
+    Usage:
+
+        npx playwright show-trace artifacts\sprint3a-full-results\planner-API-outage-malform-1f34b-ot-generate-fallback-output\trace.zip
+
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+  32) tests\e2e\planner.spec.ts:24:1 › mobile Vietnamese task, keyboard and serious accessibility checks 
+
+    Error: expect(locator).toBeEnabled() failed
+
+    Locator: getByRole('button', { name: 'Explore options', exact: true })
+    Expected: enabled
+    Timeout: 5000ms
+    Error: element(s) not found
+
+    Call log:
+      - Expect "toBeEnabled" getByRole('button', { name: 'Explore options', exact: true }) with timeout 5000ms
+      - waiting for getByRole('button', { name: 'Explore options', exact: true })
+
+
+      3 | import {readFile} from 'node:fs/promises';
+      4 | test.beforeEach(async({page})=>{await page.addInitScript(()=>localStorage.setItem('agrotwin-language','en'));await page.route('**/tile.openstreetmap.org/**',r=>r.abort());});
+    > 5 | async function open(page:any){await page.goto('/plan/my-thanh');await expect(page.getByRole('button',{name:'Explore options',exact:true})).toBeEnabled();}
+        |                                                                                                                                            ^
+      6 | async function run(page:any){const response=page.waitForResponse((r:any)=>r.url().endsWith('/v1/analysis')&&r.request().method()==='POST');await page.getByRole('button',{name:'Explore options',exact:true}).click();const data=await(await response).json();await expect(page.locator('.plan-option')).toHaveCount(3);return data;}
+      7 | test('planner real API -> choose -> save -> reload -> readable export retains the same run',async({page})=>{
+      8 |  await open(page);await page.getByRole('combobox',{name:'Current crop',exact:true}).selectOption('rice');await page.getByRole('combobox',{name:'Your priority',exact:true}).selectOption('water');const data=await run(page);
+        at open (C:\Users\ghcoo\.codex\project-memory\agrotwin-v5\remote-reproduction\nasasac26-neurax\frontend\tests\e2e\planner.spec.ts:5:140)
+        at C:\Users\ghcoo\.codex\project-memory\agrotwin-v5\remote-reproduction\nasasac26-neurax\frontend\tests\e2e\planner.spec.ts:24:141
+
+    Error Context: artifacts\sprint3a-full-results\planner-mobile-Vietnamese--52db8-erious-accessibility-checks\error-context.md
+
+    attachment #2: trace (application/zip) ─────────────────────────────────────────────────────────
+    artifacts\sprint3a-full-results\planner-mobile-Vietnamese--52db8-erious-accessibility-checks\trace.zip
+    Usage:
+
+        npx playwright show-trace artifacts\sprint3a-full-results\planner-mobile-Vietnamese--52db8-erious-accessibility-checks\trace.zip
+
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+  33) tests\e2e\research-inference.spec.ts:4:1 › real model requests reach Power with distinct runs and unchanged A1 
+
+    Error: expect(locator).toBeEnabled() failed
+
+    Locator: getByTestId('research-inference').getByRole('button', { name: 'Run research inference' })
+    Expected: enabled
+    Timeout: 5000ms
+    Error: element(s) not found
+
+    Call log:
+      - Expect "toBeEnabled" getByTestId('research-inference').getByRole('button', { name: 'Run research inference' }) with timeout 5000ms
+      - waiting for getByTestId('research-inference').getByRole('button', { name: 'Run research inference' })
+
+
+      4 | test('real model requests reach Power with distinct runs and unchanged A1',async({page})=>{
+      5 |  await page.goto('/w/my-thanh/power');const panel=page.getByTestId('research-inference');
+    > 6 |  await expect(panel.getByRole('button',{name:'Run research inference'})).toBeEnabled();
+        |                                                                          ^
+      7 |  const a1=await page.getByTestId('run-id').textContent();
+      8 |  const one=page.waitForResponse(r=>r.url().endsWith('/v1/research/inference')&&r.request().method()==='POST');
+      9 |  await panel.getByRole('button',{name:'Run research inference'}).click();const r1=await(await one).json();
+        at C:\Users\ghcoo\.codex\project-memory\agrotwin-v5\remote-reproduction\nasasac26-neurax\frontend\tests\e2e\research-inference.spec.ts:6:74
+
+    Error Context: artifacts\sprint3a-full-results\research-inference-real-mo-7bcea-tinct-runs-and-unchanged-A1\error-context.md
+
+    attachment #2: trace (application/zip) ─────────────────────────────────────────────────────────
+    artifacts\sprint3a-full-results\research-inference-real-mo-7bcea-tinct-runs-and-unchanged-A1\trace.zip
+    Usage:
+
+        npx playwright show-trace artifacts\sprint3a-full-results\research-inference-real-mo-7bcea-tinct-runs-and-unchanged-A1\trace.zip
+
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+  34) tests\e2e\research-inference.spec.ts:21:1 › failed inference does not show stale or invented output 
+
+    Test timeout of 60000ms exceeded.
+
+    Error: locator.click: Test timeout of 60000ms exceeded.
+    Call log:
+      - waiting for getByTestId('research-inference').getByRole('button', { name: 'Run research inference' })
+
+
+      22 |  await page.route('**/api/v1/research/inference',r=>r.fulfill({status:503,body:'unavailable'}));
+      23 |  await page.goto('/w/my-thanh/power');const panel=page.getByTestId('research-inference');
+    > 24 |  await panel.getByRole('button',{name:'Run research inference'}).click();
+         |                                                                  ^
+      25 |  await expect(panel.getByRole('alert')).toContainText('No prediction shown');
+      26 |  await expect(panel.getByTestId('research-inference-result')).toHaveCount(0);
+      27 | });
+        at C:\Users\ghcoo\.codex\project-memory\agrotwin-v5\remote-reproduction\nasasac26-neurax\frontend\tests\e2e\research-inference.spec.ts:24:66
+
+    Error Context: artifacts\sprint3a-full-results\research-inference-failed--55957-ow-stale-or-invented-output\error-context.md
+
+    attachment #2: trace (application/zip) ─────────────────────────────────────────────────────────
+    artifacts\sprint3a-full-results\research-inference-failed--55957-ow-stale-or-invented-output\trace.zip
+    Usage:
+
+        npx playwright show-trace artifacts\sprint3a-full-results\research-inference-failed--55957-ow-stale-or-invented-output\trace.zip
+
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+  35) tests\e2e\research-inference.spec.ts:28:1 › mobile can execute research model without page overflow 
+
+    Test timeout of 60000ms exceeded.
+
+    Error: locator.click: Test timeout of 60000ms exceeded.
+    Call log:
+      - waiting for getByTestId('research-inference').getByRole('button', { name: 'Run research inference' })
+
+
+      28 | test('mobile can execute research model without page overflow',async({page})=>{
+      29 |  await page.setViewportSize({width:390,height:844});await page.goto('/w/my-thanh/power');
+    > 30 |  const panel=page.getByTestId('research-inference');await panel.getByRole('button',{name:'Run research inference'}).click();
+         |                                                                                                                     ^
+      31 |  await expect(panel.getByTestId('research-inference-result')).toBeVisible();
+      32 |  await panel.getByText('Model, source and limitations',{exact:true}).click();
+      33 |  expect(await page.evaluate(()=>document.documentElement.scrollWidth<=innerWidth+1)).toBe(true);
+        at C:\Users\ghcoo\.codex\project-memory\agrotwin-v5\remote-reproduction\nasasac26-neurax\frontend\tests\e2e\research-inference.spec.ts:30:117
+
+    Error Context: artifacts\sprint3a-full-results\research-inference-mobile--d2742-model-without-page-overflow\error-context.md
+
+    attachment #2: trace (application/zip) ─────────────────────────────────────────────────────────
+    artifacts\sprint3a-full-results\research-inference-mobile--d2742-model-without-page-overflow\trace.zip
+    Usage:
+
+        npx playwright show-trace artifacts\sprint3a-full-results\research-inference-mobile--d2742-model-without-page-overflow\trace.zip
+
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+  36) tests\e2e\v41.spec.ts:3:1 › Power shows actual research-only E1 without crop promotion ───────
+
+    Test timeout of 60000ms exceeded.
+
+    Error: locator.click: Test timeout of 60000ms exceeded.
+    Call log:
+      - waiting for getByText('EDA / ML experiment — separate from crop advice', { exact: true })
+
+
+      2 | test.beforeEach(async({page})=>{await page.route('**/tile.openstreetmap.org/**',r=>r.abort());});
+      3 | test('Power shows actual research-only E1 without crop promotion',async({page})=>{
+    > 4 |  await page.goto('/w/my-thanh/power');await page.getByText('EDA / ML experiment — separate from crop advice',{exact:true}).click();
+        |                                                                                                                            ^
+      5 |  await expect(page.getByText('RESEARCH_ONLY',{exact:false}).first()).toBeVisible();
+      6 |  await expect(page.getByText('MAE: HGB',{exact:false})).toContainText('0.493');
+      7 |  await expect(page.locator('.computed-rotation').first()).toContainText('Needs review');
+        at C:\Users\ghcoo\.codex\project-memory\agrotwin-v5\remote-reproduction\nasasac26-neurax\frontend\tests\e2e\v41.spec.ts:4:124
+
+    Error Context: artifacts\sprint3a-full-results\v41-Power-shows-actual-res-aa712-y-E1-without-crop-promotion\error-context.md
+
+    attachment #2: trace (application/zip) ─────────────────────────────────────────────────────────
+    artifacts\sprint3a-full-results\v41-Power-shows-actual-res-aa712-y-E1-without-crop-promotion\trace.zip
+    Usage:
+
+        npx playwright show-trace artifacts\sprint3a-full-results\v41-Power-shows-actual-res-aa712-y-E1-without-crop-promotion\trace.zip
+
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+  37) tests\e2e\v41.spec.ts:9:1 › synthetic H1 reaches server history and features but stays excluded 
+
+    Test timeout of 60000ms exceeded.
+
+    Error: locator.click: Test timeout of 60000ms exceeded.
+    Call log:
+      - waiting for getByRole('button', { name: 'Start synthetic stream' })
+
+
+       8 | });
+       9 | test('synthetic H1 reaches server history and features but stays excluded',async({page})=>{
+    > 10 |  await page.goto('/hardware');await page.getByRole('button',{name:'Start synthetic stream'}).click();
+         |                                                                                              ^
+      11 |  await page.getByRole('button',{name:'Sync events to pipeline',exact:true}).click();
+      12 |  await expect(page.getByTestId('h1-pipeline-result')).toContainText('A1: excluded');
+      13 |  await expect(page.getByTestId('h1-pipeline-result')).toContainText('field_relevance_unverified');
+        at C:\Users\ghcoo\.codex\project-memory\agrotwin-v5\remote-reproduction\nasasac26-neurax\frontend\tests\e2e\v41.spec.ts:10:94
+
+    Error Context: artifacts\sprint3a-full-results\v41-synthetic-H1-reaches-s-69a29-features-but-stays-excluded\error-context.md
+
+    attachment #2: trace (application/zip) ─────────────────────────────────────────────────────────
+    artifacts\sprint3a-full-results\v41-synthetic-H1-reaches-s-69a29-features-but-stays-excluded\trace.zip
+    Usage:
+
+        npx playwright show-trace artifacts\sprint3a-full-results\v41-synthetic-H1-reaches-s-69a29-features-but-stays-excluded\trace.zip
+
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+  37 failed
+    tests\e2e\analysis.spec.ts:16:1 › AC-1 saved preload does not issue a scientific computation ───
+    tests\e2e\analysis.spec.ts:23:1 › AC-2 meaningful input runs API, marks stale and records new trace 
+    tests\e2e\analysis.spec.ts:35:1 › AC-3 a second AOI never borrows the My Thanh cache/catalog ───
+    tests\e2e\analysis.spec.ts:46:1 › AC-4 delayed B response cannot overwrite A; cancel/retry remains usable 
+    tests\e2e\analysis.spec.ts:66:1 › AC-5 unknown form inputs remain null and measured zero survives validation 
+    tests\e2e\analysis.spec.ts:75:1 › AC-6 SYNTHETIC numeric QA failure never renders as green pass 
+    tests\e2e\analysis.spec.ts:84:1 › AC-7 unknown K1 remains needs_review with no score and source trace 
+    tests\e2e\analysis.spec.ts:94:1 › AC-8 repeated identical inputs reuse scientific payload and cosmetic edits do not compute 
+    tests\e2e\analysis.spec.ts:106:1 › AC-9 Farmer and Power share run, trace, comparison and export 
+    tests\e2e\analysis.spec.ts:121:1 › AC-10 offline saved fallback and bench/synthetic honesty do not block analysis 
+    tests\e2e\app.spec.ts:4:1 › entry, EN/VI and source drawer are functional ──────────────────────
+    tests\e2e\app.spec.ts:23:1 › terrain, research/sandbox parity, mode switch and drafts ──────────
+    tests\e2e\app.spec.ts:58:1 › custom AOI via keyboard saves without borrowing research data ─────
+    tests\e2e\app.spec.ts:81:1 › malformed snapshot is not silently replaced with sandbox ──────────
+    tests\e2e\app.spec.ts:93:1 › entry has no serious accessibility findings and no mobile overflow 
+    tests\e2e\app.spec.ts:118:1 › WebGL unavailable keeps outline and analysis available ───────────
+    tests\e2e\app.spec.ts:139:1 › DEM failure preserves 2D and decisions ───────────────────────────
+    tests\e2e\app.spec.ts:152:1 › drawing creates a polygon and saved areas can be edited ──────────
+    tests\e2e\app.spec.ts:181:1 › reduced motion and language preserve camera; context loss keeps analysis 
+    tests\e2e\hardware.spec.ts:4:1 › hardware synthetic recording, persistent session, replay and map placement 
+    tests\e2e\hardware.spec.ts:37:1 › USB transport decodes split frames, rejects bad input and disconnects 
+    tests\e2e\hardware.spec.ts:82:1 › monthly inspector and grounded assistant follow context ──────
+    tests\e2e\hardware.spec.ts:101:1 › hardware language, accessibility and mobile layout ──────────
+    tests\e2e\hardware.spec.ts:125:1 › field groups persist and comparison keeps scores unavailable 
+    tests\e2e\model-program.spec.ts:4:1 › actual API report reaches Power while forecast and crop promotion stay closed 
+    tests\e2e\model-program.spec.ts:19:1 › research API unavailable cannot masquerade as a prediction 
+    tests\e2e\model-program.spec.ts:26:1 › mobile Power can inspect report and retain honest scientific state 
+    tests\e2e\planner.spec.ts:7:1 › planner real API -> choose -> save -> reload -> readable export retains the same run 
+    tests\e2e\planner.spec.ts:15:1 › model actually predicts for supported geometry and never promotes crop advice 
+    tests\e2e\planner.spec.ts:16:1 › changing fields uses actual custom geometry and never borrows the sample catalog 
+    tests\e2e\planner.spec.ts:23:1 › API outage, malformed scope and model failure do not generate fallback output 
+    tests\e2e\planner.spec.ts:24:1 › mobile Vietnamese task, keyboard and serious accessibility checks 
+    tests\e2e\research-inference.spec.ts:4:1 › real model requests reach Power with distinct runs and unchanged A1 
+    tests\e2e\research-inference.spec.ts:21:1 › failed inference does not show stale or invented output 
+    tests\e2e\research-inference.spec.ts:28:1 › mobile can execute research model without page overflow 
+    tests\e2e\v41.spec.ts:3:1 › Power shows actual research-only E1 without crop promotion ─────────
+    tests\e2e\v41.spec.ts:9:1 › synthetic H1 reaches server history and features but stays excluded 
+  33 passed (22.0m)

@@ -26,6 +26,7 @@ import {
   type Plan,
 } from "./model";
 import "./dashboard.css";
+import "./desktop.css";
 import { useV2 } from "./v2";
 
 const storageKey = (id: string) => `agrotwin-draft-2:${id}`;
@@ -62,6 +63,9 @@ export function Dashboard({ id }: { id: string }) {
   const v2Current = !!v2.record && v2.record.key === key && !stale;
   const [selectedSensor, setSelectedSensor] = useState("");
   const [mobileMapOpen, setMobileMapOpen] = useState(false);
+  const [desktopMode, setDesktopMode] = useState<
+    "explore" | "conditions" | "decision"
+  >("explore");
   const [researchResult, setResearchResult] = useState<z.infer<
     typeof ResearchInferenceSchema
   > | null>(null);
@@ -85,6 +89,29 @@ export function Dashboard({ id }: { id: string }) {
     ? m("Ruộng của tôi · Mỹ Thành", "My field · Mỹ Thành")
     : area?.name || id;
   const busy = state.running === id || v2.busy;
+  const chosenStatus = v2Current
+    ? v2.record?.response.decision.options.find((o) => o.id === choice)?.status
+    : undefined;
+  const savedSelection =
+    !!savedPlan &&
+    savedPlan.key === key &&
+    savedPlan.chosen === choice &&
+    savedPlan.run.a1.run_id === run?.a1.run_id;
+  function changeMode(mode: "explore" | "conditions" | "decision") {
+    setDesktopMode(mode);
+    if (form.current) form.current.open = mode === "conditions";
+    requestAnimationFrame(() => {
+      if (mode === "conditions") {
+        form.current?.scrollIntoView({ block: "center" });
+        form.current
+          ?.querySelector<HTMLInputElement>("input")
+          ?.focus({ preventScroll: true });
+      } else if (mode === "decision") {
+        comparison.current?.scrollIntoView({ block: "start" });
+        comparison.current?.focus({ preventScroll: true });
+      }
+    });
+  }
   useEffect(() => {
     const ctrl = new AbortController();
     if (sample)
@@ -142,6 +169,7 @@ export function Dashboard({ id }: { id: string }) {
     }
     if (ok && revision === analysisRevision.current) {
       if (form.current) form.current.open = false;
+      setDesktopMode("decision");
       comparison.current?.focus();
     }
   }
@@ -258,7 +286,33 @@ export function Dashboard({ id }: { id: string }) {
   return (
     <>
       <Header />
-      <main id="main" className="farm-dashboard">
+      <main id="main" className={`farm-dashboard desktop-${desktopMode}`}>
+        <nav
+          className="dashboard-modes"
+          aria-label={m("Chế độ làm việc", "Workspace mode")}
+        >
+          <span className="neurax-signature">
+            AgroTwin <small>by NeuraX</small>
+          </span>
+          <button
+            aria-pressed={desktopMode === "explore"}
+            onClick={() => changeMode("explore")}
+          >
+            {m("Quan sát", "Explore")}
+          </button>
+          <button
+            aria-pressed={desktopMode === "conditions"}
+            onClick={() => changeMode("conditions")}
+          >
+            {m("Điều kiện", "Conditions")}
+          </button>
+          <button
+            aria-pressed={desktopMode === "decision"}
+            onClick={() => changeMode("decision")}
+          >
+            {m("So luân canh", "Decision")}
+          </button>
+        </nav>
         <section className="field-context" aria-labelledby="field-title">
           <div>
             <h1 id="field-title">
@@ -280,6 +334,10 @@ export function Dashboard({ id }: { id: string }) {
           <div className="context-actions">
             <button
               onClick={() => {
+                if (window.matchMedia("(min-width: 1100px)").matches) {
+                  changeMode("conditions");
+                  return;
+                }
                 if (form.current) {
                   form.current.open = !form.current.open;
                   if (form.current.open)
@@ -321,6 +379,68 @@ export function Dashboard({ id }: { id: string }) {
             }
           </span>
         </div>
+        <section
+          className="farmer-journey"
+          aria-label={m("Bước tiếp theo", "Next step")}
+        >
+          <div>
+            <strong>
+              {desktopMode === "explore"
+                ? m(
+                    "Quan sát trước khi chọn vụ",
+                    "Observe before choosing a season",
+                  )
+                : desktopMode === "conditions"
+                  ? m(
+                      "Bạn biết gì về nước và vụ tới?",
+                      "What do you know about water and the next season?",
+                    )
+                  : m(
+                      "Giữ lịch hiện tại, hay đổi một vụ?",
+                      "Keep the current sequence, or change a season?",
+                    )}
+            </strong>
+            <p>
+              {desktopMode === "explore"
+                ? m(
+                    "NASA POWER: lịch sử khí hậu vùng · ESP32-S3: số đo tại điểm · FieldShift V2: ước tính nghiên cứu. Chúng chưa tự xác định cây phù hợp.",
+                    "Regional climate, point measurements and research estimates are separate sources. They do not determine crop suitability.",
+                  )
+                : desktopMode === "conditions"
+                  ? m(
+                      "Chọn khoảng vụ, nguồn tưới và thoát nước. Chưa biết có thể để chưa rõ; đây là thông tin bạn khai báo.",
+                      "Choose a season, irrigation supply and drainage. Unknown is allowed; these are your declarations.",
+                    )
+                  : m(
+                      "So cùng thứ tự vụ; xem điều kiện còn vướng trước khi chọn một bản dự kiến để trao đổi.",
+                      "Compare the same season order; inspect outstanding conditions before keeping a draft for discussion.",
+                    )}
+            </p>
+          </div>
+          <button
+            className="primary-action"
+            disabled={desktopMode === "conditions" && busy}
+            onClick={() =>
+              desktopMode === "explore"
+                ? changeMode("conditions")
+                : desktopMode === "conditions"
+                  ? form.current
+                      ?.querySelector<HTMLButtonElement>(
+                        'button[type="submit"]',
+                      )
+                      ?.click()
+                  : document
+                      .querySelector<HTMLElement>(".next-action")
+                      ?.scrollIntoView({ block: "center" })
+            }
+          >
+            {desktopMode === "explore"
+              ? m("Xác nhận điều kiện →", "Confirm conditions →")
+              : desktopMode === "conditions"
+                ? m("Đối chiếu và so lịch →", "Check and compare →")
+                : m("Xem bản dự kiến để lưu ↓", "Review draft to save ↓")}
+          </button>
+        </section>
         <details className="edit-conditions" ref={form}>
           <summary>
             {m(
@@ -336,14 +456,29 @@ export function Dashboard({ id }: { id: string }) {
             vi={vi}
           />
         </details>
-        <SensorStrip
-          id={id}
-          geometry={geometry || emptyGeometry}
-          selected={selectedSensor}
-          onSelect={setSelectedSensor}
-          vi={vi}
-        />
         <div className="field-support">
+          <div className="compare-context-heading">
+            <strong>{m("Ngữ cảnh thửa", "Field context")}</strong>
+            <button
+              onClick={() => {
+                changeMode("explore");
+                requestAnimationFrame(() =>
+                  document
+                    .querySelector(".field-support")
+                    ?.scrollIntoView({ block: "start" }),
+                );
+              }}
+            >
+              {m("Mở map, khí hậu & số đo", "Open map, climate & readings")}
+            </button>
+          </div>
+          <SensorStrip
+            id={id}
+            geometry={geometry || emptyGeometry}
+            selected={selectedSensor}
+            onSelect={setSelectedSensor}
+            vi={vi}
+          />
           <section
             className={`field-map ${mobileMapOpen ? "is-mobile-open" : ""}`}
             aria-label={m("Bản đồ thửa", "Field map")}
@@ -406,6 +541,7 @@ export function Dashboard({ id }: { id: string }) {
             </small>
           </section>
           <ClimateContext
+            workspaceMode={desktopMode}
             run={run}
             snapshot={sample ? snapshot : null}
             snapshotError={snapshotError}
@@ -433,7 +569,7 @@ export function Dashboard({ id }: { id: string }) {
                   )
                 : openedSaved
                   ? m("Bản dự kiến đã lưu", "Saved draft")
-                  : run?.sidecar.execution_mode === "computed"
+                  : v2Current || run?.sidecar.execution_mode === "computed"
                     ? m("Đã đối chiếu điều kiện", "Conditions checked")
                     : run
                       ? m("Bản phân tích đã lưu", "Saved analysis")
@@ -453,6 +589,7 @@ export function Dashboard({ id }: { id: string }) {
           </div>
           <button
             className={stale || !run ? "primary-action" : ""}
+            hidden={desktopMode === "decision" && current && v2Current && !busy}
             disabled={!geometry || busy}
             onClick={() => {
               if (form.current && !draft.farm.season) {
@@ -477,6 +614,26 @@ export function Dashboard({ id }: { id: string }) {
             <button onClick={retryBoundary}>{m("Thử lại", "Retry")}</button>
           </p>
         )}
+        {(state.error || localError) && (
+          <p className="inline-error" role="alert">
+            {localError ||
+              m(
+                "Chưa cập nhật được kết quả đúng phạm vi. Giữ nguyên đầu vào và thử lại. Chi tiết: ",
+                "Could not update a matching result. Inputs are kept; retry. Details: ",
+              ) + state.error}
+          </p>
+        )}
+        <RotationComparison
+          v2={v2Current ? v2.record : null}
+          run={run}
+          stale={stale}
+          choice={choice}
+          choose={(value) => {
+            state.choose(id, value);
+            setNotice("");
+          }}
+          vi={vi}
+        />
         {sample && (
           <section className="v2-live-status" aria-label="FieldShift v2">
             <p role="status">
@@ -561,28 +718,25 @@ export function Dashboard({ id }: { id: string }) {
             )}
           </section>
         )}
-        {(state.error || localError) && (
-          <p className="inline-error" role="alert">
-            {localError ||
-              m(
-                "Chưa cập nhật được kết quả đúng phạm vi. Giữ nguyên đầu vào và thử lại. Chi tiết: ",
-                "Could not update a matching result. Inputs are kept; retry. Details: ",
-              ) + state.error}
-          </p>
-        )}
-        <RotationComparison
-          v2={v2Current ? v2.record : null}
-          run={run}
-          stale={stale}
-          choice={choice}
-          choose={(value) => {
-            state.choose(id, value);
-            setNotice("");
-          }}
-          vi={vi}
-        />
         <section className="next-action" aria-labelledby="next-title">
           <div>
+            {choice && (
+              <p className="draft-selection-state" role="status">
+                {m("Nháp đang cân nhắc", "Draft under consideration")}: {choice}{" "}
+                ·{" "}
+                {savedSelection
+                  ? m("Đã có bản lưu khớp", "Matching saved draft")
+                  : m("Chưa lưu lựa chọn này", "This selection is not saved")}
+              </p>
+            )}
+            {chosenStatus === "blocked" && (
+              <p className="blocked-draft-warning">
+                {m(
+                  "Phương án đang vướng điều kiện. Bạn chỉ lưu một bản dự kiến để trao đổi, không phải phương án được khuyến nghị gieo trồng.",
+                  "This option is blocked by conditions. Saving keeps a draft for discussion, not a planting recommendation.",
+                )}
+              </p>
+            )}
             <h2 id="next-title">
               {choice
                 ? m("Bản dự kiến để trao đổi", "Your draft for discussion")

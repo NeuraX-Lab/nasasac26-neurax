@@ -9,6 +9,7 @@ import {
 } from "../analysis/ResearchInference";
 import type { z } from "zod";
 import type { V2Result } from "./v2";
+import { ForecastPlot } from "./ForecastPlot";
 
 export function ClimateContext({
   run,
@@ -21,7 +22,9 @@ export function ClimateContext({
   onResearchResult,
   liveV2,
   restoredV2,
+  workspaceMode,
 }: {
+  workspaceMode: "explore" | "conditions" | "decision";
   run: AnalysisRun | null;
   liveV2: V2Result | null;
   restoredV2: boolean;
@@ -35,7 +38,14 @@ export function ClimateContext({
     result: z.infer<typeof ResearchInferenceSchema> | null,
   ) => void;
 }) {
-  const [view, setView] = useState<"history" | "model">("history");
+  const [viewChoice, setViewChoice] = useState<
+    Partial<Record<typeof workspaceMode, "history" | "model">>
+  >({});
+  const view = viewChoice[workspaceMode]
+    ? viewChoice[workspaceMode]
+    : workspaceMode === "explore"
+      ? "history"
+      : "model";
   const [provider, setProvider] = useState<"v2-saved" | "research">("v2-saved");
   const m = (vn: string, en: string) => (vi ? vn : en);
   const months = seasonMonths(season),
@@ -57,13 +67,27 @@ export function ClimateContext({
     ) || [];
   const targets = [...new Set(forecasts.map((f) => f.target_month))];
   return (
-    <section className="climate-context" aria-labelledby="climate-title">
+    <section
+      className="climate-context"
+      aria-labelledby="climate-title"
+      tabIndex={0}
+    >
       <div className="section-heading">
         <h2 id="climate-title">
-          {m(
-            "Điều kiện cho vụ đang cân nhắc",
-            "Conditions for your next season",
-          )}
+          {view === "history"
+            ? m(
+                "NASA POWER · Lịch sử khí hậu vùng",
+                "NASA POWER · Regional climate history",
+              )
+            : provider === "v2-saved"
+              ? m(
+                  "FieldShift V2 · Ước tính khí hậu",
+                  "FieldShift V2 · Climate estimates",
+                )
+              : m(
+                  "Điều kiện cho vụ đang cân nhắc",
+                  "Conditions for your next season",
+                )}
         </h2>
         <div
           className="segmented"
@@ -73,7 +97,9 @@ export function ClimateContext({
             <button
               key={v}
               aria-pressed={view === v}
-              onClick={() => setView(v)}
+              onClick={() =>
+                setViewChoice((old) => ({ ...old, [workspaceMode]: v }))
+              }
             >
               {v === "history"
                 ? m("Lịch sử", "History")
@@ -131,6 +157,7 @@ export function ClimateContext({
               )}
             >
               <Climate
+                calendarComparison={months.length > 0}
                 months={historical.map((r) => ({
                   ...r,
                   rain: r.qa === "fail" ? null : r.rain,
@@ -196,23 +223,42 @@ export function ClimateContext({
             </>
           ) : snapshot || liveV2 ? (
             <>
-              <p className="snapshot-label">
-                {liveV2 && restoredV2
-                  ? m("Bản đã lưu từ API v2", "Saved v2 API result")
-                  : liveV2
-                    ? m(
-                        "API v2 · forecast tính sẵn",
-                        "V2 API · precomputed forecasts",
-                      )
-                    : m("Bản kết quả đã lưu", "Saved result")}{" "}
-                · {m("dữ liệu đến", "data through")}{" "}
-                {(
-                  liveV2?.response.forecasts[0].data_through ||
-                  snapshot?.data_through ||
-                  "—"
-                ).slice(0, 7)}{" "}
-                · {m("Mỹ Thành, khí hậu vùng", "Mỹ Thành regional climate")}
+              <p className="forecast-scope" role="status">
+                {!season
+                  ? m(
+                      "Chưa chọn khoảng vụ. Đây là ước tính có sẵn cho tháng 12/2026 và 02/2027 tại Mỹ Thành, chưa phải kết quả riêng cho vụ của bạn.",
+                      "No season selected. These are existing estimates for Dec 2026 and Feb 2027 in Mỹ Thành, not a result tailored to your season.",
+                    )
+                  : m(
+                      "Ước tính nghiên cứu theo từng tháng đích trong khoảng bạn chọn; không xác định ngày gieo hoặc nhu cầu tưới.",
+                      "Research estimates for individual target months within your window, not sowing dates or irrigation needs.",
+                    )}
               </p>
+              <details className="climate-provenance">
+                <summary>
+                  {m(
+                    "Nguồn, thời điểm & chế độ kết quả",
+                    "Source, timing & result mode",
+                  )}
+                </summary>
+                <p className="snapshot-label">
+                  {liveV2 && restoredV2
+                    ? m("Bản đã lưu từ API v2", "Saved v2 API result")
+                    : liveV2
+                      ? m(
+                          "API v2 · forecast tính sẵn",
+                          "V2 API · precomputed forecasts",
+                        )
+                      : m("Bản kết quả đã lưu", "Saved result")}{" "}
+                  · {m("dữ liệu đến", "data through")}{" "}
+                  {(
+                    liveV2?.response.forecasts[0].data_through ||
+                    snapshot?.data_through ||
+                    "—"
+                  ).slice(0, 7)}{" "}
+                  · {m("Mỹ Thành, khí hậu vùng", "Mỹ Thành regional climate")}
+                </p>
+              </details>
               {stale && (
                 <p className="inline-warning">
                   {m(
@@ -223,6 +269,53 @@ export function ClimateContext({
               )}
               {targets.length ? (
                 <div className="forecast-table-wrap">
+                  <ForecastPlot forecasts={forecasts} vi={vi} />
+                  <div className="desktop-forecast-months">
+                    {targets.map((date) => (
+                      <article key={date}>
+                        <h3>
+                          {date.slice(5, 7)}/{date.slice(0, 4)}
+                        </h3>
+                        <dl>
+                          {(["rain", "temp", "rh"] as const).map((target) => {
+                            const value = forecasts.find(
+                              (f) =>
+                                f.target_month === date &&
+                                f.target ===
+                                  (
+                                    {
+                                      rain: "precip_sum_mm",
+                                      temp: "air_temp_mean_c",
+                                      rh: "air_rh_mean_pct",
+                                    } as const
+                                  )[target],
+                            );
+                            return (
+                              <div key={target}>
+                                <dt>
+                                  {target === "rain"
+                                    ? m("Mưa", "Rain")
+                                    : target === "temp"
+                                      ? m("Nhiệt độ", "Temperature")
+                                      : "RH"}
+                                </dt>
+                                <dd>
+                                  {value ? number(value.value) : "—"}{" "}
+                                  <small>
+                                    {target === "rain"
+                                      ? m("mm/tháng", "mm/month")
+                                      : target === "temp"
+                                        ? "°C"
+                                        : "%"}
+                                  </small>
+                                </dd>
+                              </div>
+                            );
+                          })}
+                        </dl>
+                      </article>
+                    ))}
+                  </div>
                   <table className="forecast-table">
                     <caption>
                       {m(

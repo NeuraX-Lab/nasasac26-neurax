@@ -1,0 +1,1720 @@
+.dashboard-modes,
+.telemetry-heading,
+.strategy-code,
+.desktop-forecast-months {
+  display: none;
+}
+@media (min-width: 1100px) {
+  body:has(.farm-dashboard) {
+    background: #0b342a;
+    background-image:
+      radial-gradient(ellipse at 20% 85%, #86a083 0, transparent 65%),
+      linear-gradient(160deg, #062e25, #244e3d);
+    background-attachment: fixed;
+  }
+  body:has(.farm-dashboard) .app-header {
+    background: #072f27;
+    color: #f5f4df;
+    border-color: #416454;
+    padding: 12px 30px;
+    min-height: 64px;
+  }
+  body:has(.farm-dashboard) .app-header :is(a, button) {
+    color: #f3f5df;
+  }
+  body:has(.farm-dashboard) .brand-symbol {
+    color: #d5f77c;
+    border: 0;
+  }
+  body:has(.farm-dashboard) .brand {
+    color: #dcf49f;
+  }
+  .farm-dashboard {
+    max-width: 1920px;
+    padding: 0 24px 28px;
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+    --surface: #faf8ee;
+    font-size: 14px;
+  }
+  .dashboard-modes {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 12px 0 0;
+    color: #f8f5e6;
+    order: -5;
+  }
+  .neurax-signature {
+    font-size: 25px;
+    font-weight: 700;
+    letter-spacing: -0.04em;
+    margin-right: auto;
+  }
+  .neurax-signature small {
+    font-size: 16px;
+    font-weight: 400;
+    letter-spacing: 0;
+    color: #d9e6cd;
+  }
+  .dashboard-modes button {
+    min-width: 150px;
+    background: #174436;
+    color: #f5f4e3;
+    border: 1px solid #426451;
+    border-radius: 14px;
+    font-size: 16px;
+    font-weight: 650;
+    padding: 10px 24px;
+  }
+  .dashboard-modes button[aria-pressed="true"] {
+    background: #ddf787;
+    border-color: #ddf787;
+    color: #112f23;
+    box-shadow: 0 3px 14px #001d1933;
+  }
+  .field-context {
+    order: -4;
+    color: #f8f8e9;
+    padding: 0;
+    min-height: 62px;
+  }
+  .field-context h1 {
+    font-size: 21px;
+    margin: 0;
+  }
+  .field-context p {
+    color: #cedcc4;
+    font-size: 12px;
+    margin: 3px 0;
+  }
+  .context-actions button,
+  .context-actions .button {
+    background: #113f32;
+    color: #f6f6e5;
+    border: 1px solid #80947c;
+    border-radius: 24px;
+  }
+  .task-context {
+    order: -3;
+    color: #d5e4ca;
+    border: 0;
+    margin: 0;
+    padding: 0;
+    font-size: 12px;
+  }
+  .edit-conditions {
+    order: -2;
+    background: #faf8ee;
+    border-radius: 16px;
+    margin: 0;
+  }
+  .edit-conditions:not([open]) {
+    display: none;
+  }
+  .edit-conditions[open] {
+    padding: 20px;
+  }
+  .field-support {
+    display: grid;
+    grid-template-columns: minmax(0, 58fr) minmax(0, 16fr) minmax(0, 26fr);
+    gap: 14px;
+    margin: 0;
+    align-items: stretch;
+    transition: grid-template-columns 0.22s ease;
+  }
+  .desktop-decision .field-support {
+    grid-template-columns: minmax(0, 32fr) minmax(0, 21fr) minmax(0, 47fr);
+  }
+  .field-map {
+    grid-column: 1;
+    grid-row: 1;
+    background: #faf8ee;
+    border: 2px solid #f7f8e9;
+    border-radius: 20px;
+    padding: 0;
+    overflow: hidden;
+    position: relative;
+    min-width: 0;
+  }
+  .field-map > .map-caption {
+    position: absolute;
+    z-index: 2;
+    top: 10px;
+    left: 12px;
+    pointer-events: none;
+    color: #163c2b;
+  }
+  .field-map > .map-caption strong {
+    display: none;
+  }
+  .field-map > .map-caption a {
+    pointer-events: auto;
+    background: #fff;
+    padding: 8px;
+    border-radius: 6px;
+  }
+  .dashboard-map-frame {
+    height: 420px;
+    border-radius: 18px;
+  }
+  .field-map > small {
+    display: block;
+    padding: 7px 12px;
+    background: #faf8ee;
+    color: #3f5c4a;
+    font-size: 11px;
+  }
+  .field-support .sensor-strip {
+    grid-column: 2;
+    grid-row: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+    padding: 18px;
+    background: #faf8ee;
+    border: 1px solid #e6e5d5;
+    border-radius: 20px;
+    margin: 0;
+    min-width: 0;
+    box-shadow: 0 5px 14px #03241c20;
+  }
+  .telemetry-heading {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 8px;
+    justify-content: space-between;
+    padding-bottom: 12px;
+    border-bottom: 1px solid #dcded0;
+    font-size: 17px;
+  }
+  .telemetry-heading span {
+    font-size: 11px;
+    background: #ffe8df;
+    color: #8c2d19;
+    border-radius: 7px;
+    padding: 4px 8px;
+  }
+  .telemetry-heading [data-connected="true"] {
+    background: #e4edcc;
+    color: #28551d;
+  }
+  .sensor-strip > button {
+    border: 0;
+    border-bottom: 1px solid #dcded0;
+    background: transparent;
+    padding: 16px 0;
+    text-align: left;
+    border-radius: 0;
+    flex: 1;
+    min-height: 80px;
+  }
+  .sensor-strip > button:hover {
+    background: #eef0dd;
+  }
+  .sensor-strip > button[aria-pressed="true"] {
+    box-shadow: inset 3px 0 #74952f;
+    background: #e9efd7;
+    padding-left: 10px;
+  }
+  .sensor-strip .sensor-value {
+    font-size: 25px;
+  }
+  .sensor-connect {
+    padding: 12px 0 0;
+    gap: 6px;
+  }
+  .sensor-detail {
+    max-height: 190px;
+    overflow: auto;
+  }
+  .climate-context {
+    grid-column: 3;
+    grid-row: 1;
+    background: #faf8ee;
+    border-radius: 20px;
+    padding: 18px;
+    border: 1px solid #e6e5d5;
+    min-width: 0;
+    box-shadow: 0 5px 14px #03241c20;
+    max-height: 465px;
+    overflow: auto;
+  }
+  .climate-context .section-heading {
+    display: block;
+  }
+  .climate-context h2 {
+    font-size: 18px;
+  }
+  .climate-context .segmented {
+    margin: 10px 0;
+    display: flex;
+  }
+  .climate-context .segmented button {
+    min-height: 32px;
+    padding: 5px 8px;
+    font-size: 11px;
+  }
+  .model-provider-choice {
+    margin: 6px 0;
+  }
+  .model-provider-choice button {
+    font-size: 11px;
+    min-height: 32px;
+    padding: 5px 8px;
+  }
+  .forecast-table {
+    font-size: 13px;
+  }
+  .forecast-table th,
+  .forecast-table td {
+    padding: 10px 5px;
+  }
+  .forecast-table td:not(:first-child) {
+    font-size: 18px;
+  }
+  .forecast-table th {
+    background: #eaf0d8;
+  }
+  .snapshot-label {
+    color: #345a43;
+    font-size: 11px;
+  }
+  .climate-context .context-footnote {
+    font-size: 11px;
+    line-height: 1.5;
+  }
+  .result-status {
+    background: #faf8ee;
+    border-radius: 14px;
+    padding: 12px 20px;
+    margin: 0;
+    border: 0;
+  }
+  .result-status small {
+    font-size: 11px;
+  }
+  .result-status strong {
+    font-size: 14px;
+  }
+  .v2-live-status {
+    background: #faf8ee;
+    border-radius: 14px;
+    padding: 10px 20px;
+    font-size: 12px;
+    margin: 0;
+  }
+  .v2-live-status p {
+    margin: 0 0 6px;
+  }
+  .v2-live-status form {
+    margin: 0;
+  }
+  .v2-live-status form label {
+    font-size: 12px;
+  }
+  .rotation-comparison {
+    background: #faf8ee;
+    border: 1px solid #e2e4d3;
+    border-radius: 22px;
+    padding: 24px;
+    margin: 0;
+    box-shadow: 0 6px 20px #072b2220;
+  }
+  .rotation-comparison h2 {
+    font-size: 24px;
+  }
+  .rotation-comparison .section-heading p {
+    margin: 4px 0;
+    font-size: 12px;
+  }
+  .comparison-limit {
+    font-size: 12px;
+    margin: 6px 0 12px !important;
+  }
+  .rotation-options {
+    display: flex;
+    flex-direction: column;
+    border: 0;
+    gap: 8px;
+    overflow: visible;
+  }
+  .rotation-option {
+    display: grid;
+    grid-template-columns:
+      minmax(150px, 1.05fr) minmax(300px, 2.4fr) minmax(160px, 1.2fr)
+      minmax(145px, 1fr);
+    align-items: center;
+    gap: 12px;
+    padding: 12px 16px;
+    border: 1px solid #dfdfcf !important;
+    border-radius: 14px;
+    background: #fffef8;
+    min-width: 0;
+    scroll-margin: 24px;
+  }
+  .rotation-option.is-considered {
+    background: #f0f5d9;
+    border-color: #688534 !important;
+    box-shadow: inset 0 0 0 1px #688534;
+  }
+  .rotation-option h3 {
+    font-size: 14px;
+    margin: 0;
+    grid-column: 1;
+    grid-row: 1;
+  }
+  .strategy-code {
+    display: inline-block;
+    background: #dfe9c6;
+    padding: 4px 9px;
+    border-radius: 7px;
+    margin-right: 7px;
+    font-size: 17px;
+  }
+  .rotation-timeline {
+    grid-column: 2;
+    grid-row: 1;
+    margin: 0;
+    gap: 6px;
+  }
+  .rotation-timeline li {
+    min-height: 65px;
+    padding: 8px !important;
+    justify-content: center;
+    border: 0;
+    border-radius: 8px;
+  }
+  .rotation-timeline .middle-season {
+    background: #f5e7b6;
+  }
+  .rotation-timeline strong {
+    font-size: 14px;
+  }
+  .rotation-timeline small {
+    font-size: 10px;
+  }
+  .v2-option-status {
+    grid-column: 3;
+    grid-row: 1;
+    min-height: 0;
+    padding: 8px;
+    border-radius: 9px;
+    font-size: 11px;
+    margin: 0;
+  }
+  .v2-option-status strong {
+    font-size: 12px;
+  }
+  .v2-option-status > p {
+    font-size: 11px;
+  }
+  .rotation-option > button {
+    grid-column: 4;
+    grid-row: 1;
+    margin: 0;
+    font-size: 11px;
+    min-height: 44px;
+  }
+  .criteria-disclosure {
+    grid-column: 1/3;
+    font-size: 12px;
+  }
+  .rotation-option > details:not(.criteria-disclosure) {
+    grid-column: 3/5;
+    font-size: 12px;
+  }
+  .rotation-criteria {
+    margin-top: 10px;
+  }
+  .sequence-note {
+    margin: 10px 0 0;
+    font-size: 11px;
+  }
+  .next-action {
+    background: #faf8ee;
+    padding: 20px 24px;
+    border-radius: 18px;
+    border: 0;
+    margin: 0;
+  }
+  .next-action h2 {
+    font-size: 19px;
+  }
+  .next-action ul {
+    font-size: 12px;
+  }
+  .save-actions {
+    min-width: 260px;
+  }
+  .primary-action {
+    background: #114631 !important;
+    color: #fffde9 !important;
+    border-color: #114631 !important;
+    border-radius: 12px !important;
+  }
+  .dashboard-footer {
+    color: #eef2de;
+  }
+  .evidence-panel {
+    background: #faf8ee;
+    border-radius: 14px;
+    padding: 16px;
+  }
+  @media (min-width: 1700px) {
+    .field-support {
+      grid-template-columns: minmax(0, 56fr) minmax(0, 16fr) minmax(0, 28fr);
+    }
+    .dashboard-map-frame {
+      height: 440px;
+    }
+    .climate-context {
+      max-height: 485px;
+    }
+    .farm-dashboard {
+      padding-left: 28px;
+      padding-right: 28px;
+    }
+    .rotation-option {
+      padding: 14px 20px;
+    }
+    .climate-context h2 {
+      font-size: 21px;
+    }
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .field-support {
+    transition: none;
+  }
+}
+@media (min-width: 1100px) {
+  body:has(.farm-dashboard) .app-header {
+    min-height: 48px;
+    padding-top: 4px;
+    padding-bottom: 4px;
+  }
+  .farm-dashboard {
+    gap: 10px;
+  }
+  .field-context {
+    min-height: 48px;
+  }
+  .task-context {
+    color: #e3ebd7 !important;
+  }
+  .task-context span {
+    color: inherit;
+  }
+  .dashboard-map-frame {
+    height: 360px;
+  }
+  .field-support .climate-context {
+    max-height: 405px;
+  }
+  .sensor-strip > button {
+    min-height: 65px;
+    padding: 10px 0;
+  }
+  .field-support .sensor-strip {
+    padding: 14px;
+  }
+  .forecast-table-wrap {
+    overflow: visible;
+  }
+  .forecast-table {
+    display: none;
+  }
+  .desktop-forecast-months {
+    display: flex;
+    gap: 8px;
+  }
+  .desktop-forecast-months article {
+    flex: 1;
+    min-width: 0;
+    border: 1px solid #dedfce;
+    border-radius: 12px;
+    overflow: hidden;
+    background: #fffdf4;
+  }
+  .desktop-forecast-months h3 {
+    padding: 10px;
+    background: #edf2d6;
+    font-size: 14px;
+    margin: 0;
+  }
+  .desktop-forecast-months dl {
+    margin: 0;
+    padding: 8px;
+  }
+  .desktop-forecast-months dl > div {
+    padding: 7px 0;
+    border-bottom: 1px solid #e8e7dc;
+  }
+  .desktop-forecast-months dt {
+    font-size: 11px;
+    color: #4b6251;
+  }
+  .desktop-forecast-months dd {
+    margin: 0;
+    font-size: 18px;
+    font-weight: 600;
+  }
+  .desktop-forecast-months small {
+    font-size: 10px;
+    font-weight: 400;
+  }
+  .desktop-decision .desktop-forecast-months dl > div {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+  }
+  .desktop-decision .dashboard-map-frame {
+    height: 330px;
+  }
+  .rotation-option > details {
+    color: #35563f;
+  }
+  .rotation-option h3 {
+    line-height: 1.5;
+  }
+  .rotation-comparison {
+    padding: 18px 22px;
+  }
+  .rotation-comparison .section-heading {
+    margin-bottom: 6px;
+  }
+  .rotation-comparison .section-heading p {
+    display: none;
+  }
+  .v2-live-status form {
+    margin-top: 8px;
+  }
+}
+@media (min-width: 1100px) {
+  body:has(.farm-dashboard) .demo-indicator,
+  body:has(.farm-dashboard) .language-switch > span {
+    color: #dbe7cd;
+  }
+  .forecast-table-wrap {
+    max-width: 100%;
+  }
+  .desktop-decision .dashboard-map-frame {
+    height: 265px;
+  }
+  .desktop-decision .climate-context {
+    max-height: 380px;
+  }
+  .farm-dashboard:has(.desktop-forecast-months) .forecast-table-wrap {
+    min-width: 0;
+  }
+}
+@media (min-width: 1100px) {
+  .desktop-forecast-months dl {
+    display: block;
+  }
+  .desktop-forecast-months dl > div {
+    min-width: 0;
+  }
+  .desktop-forecast-months dd {
+    overflow-wrap: normal;
+  }
+  .climate-context .desktop-forecast-months {
+    min-height: 0;
+  }
+  .desktop-forecast-months article {
+    align-self: start;
+  }
+  .climate-context {
+    max-height: none !important;
+    overflow: visible;
+  }
+  .field-support {
+    align-items: start;
+  }
+  .sensor-strip {
+    align-self: stretch;
+  }
+}
+@media (min-width: 1100px) {
+  .farm-dashboard > .result-evidence {
+    background: #faf8ee;
+    border-radius: 14px;
+    padding: 14px 20px;
+    color: #173d2b;
+  }
+  .desktop-decision .field-support {
+    align-items: start;
+  }
+  .desktop-decision .sensor-strip {
+    align-self: start;
+  }
+  .desktop-decision .sensor-strip > button {
+    min-height: 50px;
+    padding: 6px 0;
+  }
+  .desktop-decision .sensor-connect {
+    padding-top: 6px;
+  }
+  .desktop-decision .sensor-connect small {
+    display: none;
+  }
+  .desktop-decision .rotation-option {
+    padding-top: 8px;
+    padding-bottom: 8px;
+  }
+  .desktop-decision .rotation-option > details {
+    font-size: 11px;
+  }
+}
+/* Sprint1.1: two-column workspace; overrides retained Sprint1 tokens. */
+.forecast-plots {
+  display: none;
+}
+@media (min-width: 1100px) {
+  body:has(.farm-dashboard) .app-header {
+    height: 44px;
+    min-height: 44px;
+    padding: 4px 24px;
+  }
+  .app-header .brand {
+    font-size: 19px;
+  }
+  .farm-dashboard {
+    gap: 10px;
+    padding-top: 8px;
+  }
+  .dashboard-modes {
+    padding: 0;
+    min-height: 44px;
+  }
+  .neurax-signature {
+    font-size: 23px;
+  }
+  .dashboard-modes button {
+    min-height: 40px;
+    padding: 6px 20px;
+  }
+  .field-context {
+    min-height: 38px;
+  }
+  .field-context h1 {
+    font-size: 19px;
+  }
+  .field-context p {
+    font-size: 11px;
+    margin: 0;
+  }
+  .task-context {
+    font-size: 11px;
+    line-height: 1.3;
+  }
+  .field-context .context-actions :is(button, .button) {
+    min-height: 36px;
+    padding: 6px 12px;
+  }
+  .farm-dashboard .field-support {
+    grid-template-columns: minmax(0, 60fr) minmax(0, 40fr);
+    grid-template-rows: auto auto;
+    gap: 10px 14px;
+    align-items: stretch;
+  }
+  .farm-dashboard .field-map {
+    grid-column: 1;
+    grid-row: 1/3;
+    align-self: stretch;
+    display: flex;
+    flex-direction: column;
+  }
+  .farm-dashboard .dashboard-map-frame {
+    height: 480px;
+    flex: 1;
+    min-height: 450px;
+  }
+  .farm-dashboard .field-map > small {
+    flex: none;
+    padding: 6px 12px;
+  }
+  .farm-dashboard .climate-context {
+    grid-column: 2;
+    grid-row: 1;
+    max-height: none !important;
+    padding: 14px 16px;
+    overflow: visible;
+    box-shadow: 0 4px 14px #092c2118;
+  }
+  .climate-context .section-heading {
+    display: flex;
+    gap: 10px;
+    align-items: start;
+  }
+  .climate-context h2 {
+    font-size: 17px;
+    max-width: 26ch;
+  }
+  .climate-context .segmented {
+    margin: 0;
+    flex: none;
+  }
+  .model-provider-choice {
+    margin: 5px 0 !important;
+  }
+  .snapshot-label {
+    margin: 4px 0 !important;
+  }
+  .climate-context .context-footnote {
+    margin: 5px 0 !important;
+    font-size: 10px;
+    line-height: 1.4;
+  }
+  .climate-context details {
+    margin-top: 5px;
+    font-size: 11px;
+  }
+  .climate-context .forecast-table,
+  .desktop-forecast-months {
+    display: none !important;
+  }
+  .forecast-plots {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 8px;
+    margin-top: 8px;
+  }
+  .forecast-plots figure {
+    margin: 0;
+    background: #f1f3e4;
+    border: 1px solid #dfe3d0;
+    border-radius: 10px;
+    padding: 8px 6px 4px;
+  }
+  .forecast-plots figcaption {
+    font-size: 13px;
+    font-weight: 600;
+    display: flex;
+    justify-content: space-between;
+    gap: 4px;
+  }
+  .forecast-plots figcaption small {
+    font-size: 9px;
+    font-weight: 400;
+  }
+  .forecast-plots svg {
+    display: block;
+    width: 100%;
+    height: auto;
+  }
+  .forecast-plots > p {
+    grid-column: 1/-1;
+    font-size: 10px;
+    line-height: 1.4;
+    margin: 0;
+    color: #4c604c;
+  }
+  .farm-dashboard .field-support .sensor-strip {
+    grid-column: 2;
+    grid-row: 2;
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 4px 12px;
+    padding: 12px 16px;
+    align-self: stretch;
+  }
+  .telemetry-heading {
+    grid-column: 1/-1;
+    padding-bottom: 8px;
+    font-size: 15px;
+  }
+  .farm-dashboard .sensor-strip > button {
+    min-height: 64px;
+    border: 0;
+    border-right: 1px solid #dedfcd;
+    padding: 5px 8px 5px 0;
+    display: block;
+  }
+  .sensor-strip > button:last-of-type {
+    border-right: 0;
+  }
+  .sensor-strip > button > span:first-child {
+    font-size: 11px;
+  }
+  .sensor-strip .sensor-value {
+    font-size: 21px;
+  }
+  .sensor-strip small {
+    font-size: 10px;
+  }
+  .sensor-connect {
+    grid-column: 1/-1;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding-top: 4px !important;
+  }
+  .sensor-connect small {
+    display: block !important;
+  }
+  .sensor-connect a {
+    font-size: 12px;
+  }
+  .sensor-detail {
+    grid-column: 1/-1;
+    max-height: none;
+  }
+  .result-status {
+    padding: 8px 16px;
+    min-height: 54px;
+  }
+  .rotation-comparison {
+    padding: 16px 20px;
+  }
+  .rotation-comparison h2 {
+    font-size: 22px;
+  }
+  .rotation-option {
+    padding: 8px 12px;
+  }
+  .rotation-option > details {
+    font-size: 11px;
+  }
+  .rotation-timeline li {
+    min-height: 52px;
+  }
+  .criteria-disclosure {
+    color: #294d38;
+  }
+  .desktop-decision .rotation-comparison {
+    box-shadow:
+      0 0 0 2px #d7ee9e,
+      0 8px 24px #03261d33;
+  }
+  .desktop-decision .dashboard-map-frame {
+    height: 480px;
+    min-height: 450px;
+  }
+}
+@media (min-width: 1700px) {
+  .farm-dashboard .dashboard-map-frame,
+  .desktop-decision .dashboard-map-frame {
+    height: 520px;
+    min-height: 500px;
+  }
+  .forecast-plots svg {
+    max-height: 115px;
+  }
+  .climate-context h2 {
+    font-size: 20px;
+  }
+  .farm-dashboard .climate-context {
+    padding: 16px 20px;
+  }
+  .farm-dashboard .field-support .sensor-strip {
+    padding: 14px 20px;
+  }
+  .sensor-strip > button > span:first-child {
+    font-size: 12px;
+  }
+}
+@media (min-width: 1100px) {
+  .sensor-strip .sensor-number {
+    display: flex;
+    align-items: baseline;
+    gap: 5px;
+    font-size: 23px;
+    line-height: 1.3;
+    margin: 5px 0;
+  }
+  .sensor-strip .sensor-number small {
+    font-size: 11px;
+  }
+  .sensor-strip .sensor-status {
+    display: block;
+    font-size: 11px;
+    line-height: 1.4;
+  }
+  .sensor-strip .sensor-connect {
+    justify-content: space-between;
+    min-height: 24px;
+  }
+  .sensor-strip .sensor-connect small {
+    font-size: 10px;
+    max-width: 27ch;
+  }
+  .forecast-plots svg text {
+    font-family: inherit;
+  }
+  .desktop-decision .sensor-connect small {
+    display: block !important;
+  }
+}
+@media (min-width: 1100px) {
+  .farm-dashboard .field-support {
+    grid-template-rows: 330px 180px;
+  }
+  .farm-dashboard .dashboard-map-frame,
+  .desktop-decision .dashboard-map-frame {
+    height: auto;
+    min-height: 450px;
+  }
+  .farm-dashboard .climate-context {
+    height: 100%;
+    overflow: auto;
+    max-height: 100% !important;
+  }
+  .farm-dashboard .field-support .sensor-strip {
+    height: 100%;
+    align-content: start;
+    gap: 4px 10px;
+  }
+  .sensor-strip .sensor-connect {
+    display: flex;
+    flex-direction: row;
+    padding-top: 4px;
+  }
+  .sensor-connect small {
+    max-width: 30ch;
+  }
+  .sensor-strip .telemetry-heading {
+    padding-bottom: 5px;
+  }
+  .farm-dashboard .field-support:has(.sensor-detail) {
+    grid-template-rows: 330px auto;
+  }
+  .field-support:has(.sensor-detail) .sensor-strip {
+    height: auto;
+  }
+}
+@media (min-width: 1700px) {
+  .farm-dashboard .field-support {
+    grid-template-rows: 350px 180px;
+  }
+  .farm-dashboard .dashboard-map-frame,
+  .desktop-decision .dashboard-map-frame {
+    height: auto;
+    min-height: 500px;
+  }
+}
+/* Sprint2: task emphasis, preserving approved map dimensions and art direction. */
+.farmer-journey {
+  display: none;
+}
+@media (min-width: 1100px) {
+  .farmer-journey {
+    display: flex;
+    justify-content: space-between;
+    gap: 20px;
+    align-items: center;
+    order: -2;
+    background: #f2f5e2;
+    border: 1px solid #d5e2b7;
+    border-radius: 14px;
+    padding: 12px 16px;
+    color: #173d2b;
+  }
+  .farmer-journey strong {
+    font-size: 18px;
+  }
+  .farmer-journey p {
+    font-size: 13px;
+    line-height: 1.5;
+    margin: 3px 0 0;
+    max-width: 80ch;
+  }
+  .farmer-journey button {
+    flex-shrink: 0;
+    font-size: 14px;
+    padding: 8px 16px;
+  }
+  .desktop-conditions .edit-conditions[open] {
+    border: 2px solid #d3ed92;
+  }
+  .desktop-conditions .edit-conditions summary {
+    font-size: 18px;
+  }
+  .desktop-conditions .conditions-form {
+    font-size: 15px;
+  }
+  .desktop-conditions .conditions-form label {
+    font-size: 14px;
+  }
+  .forecast-scope {
+    font-size: 13px;
+    line-height: 1.5;
+    padding: 8px 10px;
+    border-left: 3px solid #8fa24c;
+    background: #edf1dd;
+  }
+  .climate-context h2 {
+    font-size: 18px;
+  }
+  .climate-context .context-footnote,
+  .forecast-plots > p {
+    font-size: 12px !important;
+    line-height: 1.5 !important;
+  }
+  .climate-context .climate-summary {
+    font-size: 14px;
+  }
+  .climate-context .climate-provenance {
+    font-size: 12px;
+  }
+  .option-next-check {
+    font-size: 13px !important;
+    line-height: 1.5;
+  }
+  .rotation-option .v2-option-status {
+    font-size: 13px;
+  }
+  .rotation-option .v2-option-status strong {
+    font-size: 14px;
+  }
+  .rotation-option .v2-option-status p {
+    font-size: 13px;
+  }
+  .comparison-limit {
+    font-size: 13px;
+  }
+  .rotation-option > details {
+    font-size: 13px !important;
+  }
+  .rotation-option > button {
+    font-size: 13px;
+  }
+  .rotation-option h3 {
+    font-size: 15px;
+  }
+  .rotation-timeline strong {
+    font-size: 16px;
+  }
+  .rotation-timeline small {
+    font-size: 12px;
+  }
+  .sensor-strip .sensor-status {
+    font-size: 12px;
+  }
+  .sensor-strip .sensor-label {
+    font-size: 13px !important;
+  }
+  .result-status {
+    scroll-margin-top: 16px;
+  }
+  .desktop-decision .result-status {
+    border-left: 5px solid #b9d86e;
+  }
+  .desktop-decision .rotation-comparison {
+    border-color: #bdcf8c;
+  }
+  .desktop-explore .field-map {
+    box-shadow: 0 0 0 1px #d3e5b2;
+  }
+}
+@media (min-width: 1100px) {
+  .plot-readings > div {
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+    padding: 6px 2px;
+    border-top: 1px solid #d6ddc5;
+  }
+  .plot-readings span {
+    font-size: 12px;
+    color: #40583e;
+  }
+  .plot-readings strong {
+    font-size: 17px;
+    color: #173e2d;
+  }
+  .plot-readings small {
+    font-size: 10px;
+    font-weight: 400;
+  }
+  .climate-context .segmented button {
+    font-size: 12px;
+  }
+  .forecast-plots figcaption {
+    font-size: 14px;
+  }
+  .forecast-plots > p {
+    color: #34503b;
+  }
+  .farmer-journey button:disabled {
+    opacity: 0.55;
+  }
+  .desktop-conditions .forecast-scope {
+    border-left-color: #66862e;
+  }
+}
+@media (min-width: 1100px) {
+  .farm-dashboard .field-support .sensor-strip {
+    grid-template-rows: 26px 86px 32px;
+    gap: 2px 10px;
+    padding: 10px 16px;
+  }
+  .sensor-strip .sensor-label {
+    min-height: 28px;
+    font-size: 12px !important;
+    line-height: 1.2;
+    gap: 4px;
+  }
+  .sensor-strip .sensor-label svg {
+    flex-shrink: 0;
+    width: 15px;
+  }
+  .sensor-strip .sensor-status {
+    font-size: 11px;
+    line-height: 1.2;
+  }
+  .sensor-strip .sensor-number {
+    margin: 2px 0;
+    font-size: 22px;
+  }
+  .sensor-strip .sensor-connect {
+    padding-left: 0;
+    min-height: 32px;
+    align-items: center;
+  }
+  .sensor-strip .sensor-connect a {
+    min-height: 32px;
+  }
+  .sensor-strip .sensor-connect small {
+    font-size: 10px;
+    line-height: 1.3;
+    max-width: 27ch;
+  }
+  .farm-dashboard .sensor-strip > button {
+    min-height: 0;
+    padding: 3px 6px 3px 0;
+  }
+  .shared-checks {
+    padding: 10px 14px;
+    background: #eef2dd;
+    border-radius: 9px;
+    font-size: 13px;
+    margin: 10px 0;
+  }
+  .shared-checks p {
+    margin: 3px 0;
+  }
+  .shared-checks ul {
+    margin: 4px 0;
+    padding-left: 20px;
+  }
+}
+/* Sprint2.1: compare-first, with the original map retained as context. */
+.compare-context-heading {
+  display: none;
+}
+.basemap-loading {
+  position: absolute;
+  z-index: 3;
+  top: 64px;
+  left: 12px;
+  right: 64px;
+  padding: 8px 12px;
+  background: #fffdebef;
+  border: 1px solid #c7d2ae;
+  border-radius: 8px;
+  color: #244935;
+  font-size: 12px;
+  pointer-events: none;
+}
+.basemap-source {
+  position: absolute;
+  z-index: 2;
+  bottom: 30px;
+  left: 10px;
+  padding: 3px 7px;
+  border-radius: 5px;
+  background: #fffdebee;
+  color: #244734;
+  font-size: 10px;
+  pointer-events: none;
+}
+@media (min-width: 1100px) {
+  .desktop-decision .field-support {
+    order: 3;
+    grid-template-columns: 260px minmax(0, 1fr) !important;
+    grid-template-rows: 160px !important;
+    align-items: stretch;
+  }
+  .desktop-decision .field-map {
+    grid-column: 1;
+    grid-row: 1;
+    min-height: 0;
+  }
+  .desktop-decision .dashboard-map-frame {
+    height: 130px !important;
+    min-height: 130px !important;
+    flex: none;
+  }
+  .desktop-decision .field-map > small {
+    font-size: 10px;
+    padding: 3px 7px;
+  }
+  .desktop-decision .field-support > .climate-context,
+  .desktop-decision .field-support > .sensor-strip {
+    display: none !important;
+  }
+  .desktop-decision .compare-context-heading {
+    display: flex;
+    grid-column: 2;
+    grid-row: 1;
+    gap: 12px;
+    align-items: center;
+    background: #faf8ee;
+    border-radius: 14px;
+    padding: 14px 20px;
+    color: #244b35;
+  }
+  .compare-context-heading strong {
+    font-size: 17px;
+  }
+  .compare-context-heading button {
+    min-height: 44px;
+    padding: 8px 14px;
+    background: #e8efcf;
+    border: 1px solid #8a9f63;
+    border-radius: 9px;
+  }
+  .desktop-decision .result-status {
+    order: -1;
+  }
+  .desktop-decision .rotation-comparison {
+    order: -1;
+  }
+  .desktop-decision .next-action {
+    order: 0;
+  }
+  .desktop-decision .v2-live-status {
+    order: 2;
+  }
+  .desktop-decision .result-evidence {
+    order: 4;
+  }
+  .desktop-decision .dashboard-footer {
+    order: 5;
+  }
+  .desktop-decision .farmer-journey {
+    display: none;
+  }
+  .desktop-decision .task-context {
+    display: none;
+  }
+  .desktop-decision .dashboard-modes {
+    position: sticky;
+    top: 0;
+    z-index: 8;
+    background: #0b342a;
+    padding: 6px 0;
+  }
+  .desktop-decision .rotation-options {
+    gap: 7px;
+  }
+  .desktop-decision .rotation-option {
+    grid-template-columns:
+      minmax(170px, 1fr) minmax(320px, 2fr) minmax(210px, 1.35fr)
+      minmax(160px, 1fr);
+    padding: 8px 12px;
+    gap: 6px 12px;
+  }
+  .desktop-decision .rotation-option h3 {
+    font-size: 14px;
+  }
+  .desktop-decision .rotation-timeline li {
+    min-height: 48px !important;
+    padding: 5px 8px !important;
+  }
+  .desktop-decision .rotation-option > details {
+    grid-row: 2;
+    align-self: start;
+  }
+  .desktop-decision .rotation-option .v2-option-status {
+    padding: 6px 8px;
+  }
+  .desktop-decision .v2-option-status > p:not(.option-brief) {
+    display: none;
+  }
+  .desktop-decision .v2-option-status strong {
+    font-size: 13px;
+  }
+  .desktop-decision .option-brief {
+    font-size: 12px !important;
+    line-height: 1.4;
+    margin: 3px 0 !important;
+  }
+  .desktop-decision .v2-option-status details {
+    margin-top: 4px;
+    font-size: 12px;
+  }
+  .desktop-decision .rotation-option details[open] {
+    grid-column: 1/-1;
+    grid-row: auto;
+    background: #f3f5e8;
+    padding: 10px;
+    border-radius: 8px;
+  }
+  .desktop-decision .v2-option-status:has(details[open]) {
+    grid-column: 3/5;
+    grid-row: auto;
+  }
+  .desktop-decision .shared-checks {
+    margin: 6px 0;
+    padding: 7px 12px;
+  }
+  .desktop-decision .comparison-limit {
+    margin: 4px 0 8px !important;
+  }
+  .desktop-decision .rotation-comparison h2 {
+    font-size: 21px;
+  }
+  .desktop-decision .sequence-note {
+    margin-top: 6px;
+    font-size: 11px;
+  }
+  .draft-selection-state {
+    font-size: 14px;
+    font-weight: 650;
+    color: #254c34;
+  }
+  .blocked-draft-warning {
+    padding: 9px 12px;
+    background: #fff0cf;
+    border: 1px solid #e5cc8d;
+    border-radius: 8px;
+    font-size: 14px;
+    max-width: 80ch;
+  }
+  .desktop-decision .next-action {
+    padding: 14px 20px;
+  }
+  .desktop-decision .next-action ul {
+    font-size: 12px;
+  }
+  .desktop-decision .result-status small {
+    font-size: 12px;
+  }
+  .desktop-decision .v2-live-status {
+    font-size: 12px;
+  }
+}
+.result-status button[hidden] {
+  display: none !important;
+}
+.month-preview {
+  display: block;
+  color: #36513d;
+  margin-top: 3px;
+  font-size: 12px;
+}
+@media (min-width: 1100px) {
+  .desktop-decision .dashboard-map-frame .basemap-loading {
+    top: 8px;
+    left: 8px;
+    right: 8px;
+    font-size: 10px;
+    padding: 4px;
+    max-width: 180px;
+  }
+  .desktop-decision .dashboard-map-frame .map-tools {
+    transform: scale(0.75);
+    transform-origin: top right;
+  }
+  .desktop-decision .dashboard-map-frame .basemap-source {
+    font-size: 9px;
+    max-width: 145px;
+    bottom: 30px;
+  }
+  .desktop-decision .field-support .field-map .map-caption {
+    display: none;
+  }
+  .desktop-decision .next-action .save-actions {
+    min-width: 260px;
+  }
+  .desktop-decision .draft-selection-state {
+    margin: 0 0 5px;
+  }
+  .desktop-decision .result-status {
+    min-height: 45px;
+  }
+  .desktop-decision .v2-option-status details[open] {
+    max-width: none;
+  }
+}
+.basemap-source {
+  top: 62px;
+  bottom: auto;
+  max-width: calc(100% - 85px);
+}
+@media (min-width: 1100px) {
+  .desktop-decision .rotation-option {
+    min-height: 0 !important;
+    grid-template-rows: minmax(58px, max-content) max-content;
+    grid-auto-rows: max-content;
+    align-content: start;
+  }
+  .desktop-decision .rotation-option .v2-option-status {
+    min-height: 0 !important;
+    margin: 0 !important;
+  }
+  .desktop-decision .rotation-option h3 {
+    min-height: 0 !important;
+    margin: 0 !important;
+  }
+  .desktop-decision .rotation-option > details {
+    margin: 0 !important;
+  }
+  .desktop-decision .rotation-option .rotation-timeline {
+    margin: 0 !important;
+  }
+  .desktop-decision .rotation-option .rotation-timeline li {
+    height: 58px !important;
+    min-height: 58px !important;
+  }
+  .desktop-decision .dashboard-map-frame .basemap-source {
+    top: 60px;
+    bottom: auto;
+  }
+  .desktop-decision .rotation-options {
+    margin-top: 8px;
+  }
+  .desktop-decision .imagery-warning {
+    font-size: 10px;
+    padding: 5px;
+    bottom: 3px;
+  }
+  .desktop-decision .imagery-warning button {
+    min-height: 28px;
+    font-size: 10px;
+  }
+}
+@media (min-width: 1100px) {
+  .desktop-decision .result-status {
+    scroll-margin-top: 64px;
+  }
+  .desktop-decision .rotation-comparison {
+    scroll-margin-top: 68px;
+  }
+}
+@media (min-width: 1100px) {
+  .desktop-decision .dashboard-map-frame .map-tools {
+    transform: none;
+  }
+  .desktop-decision
+    .dashboard-map-frame
+    .spatial-map:not(.expanded)
+    .map-tools
+    > button:not(:last-child) {
+    display: none;
+  }
+  .desktop-decision
+    .dashboard-map-frame
+    .spatial-map.expanded
+    .map-tools
+    > button {
+    display: flex;
+  }
+}
+@media (min-width: 1100px) {
+  .desktop-decision .field-support {
+    grid-template-rows: 190px !important;
+  }
+  .desktop-decision .dashboard-map-frame {
+    height: 160px !important;
+    min-height: 160px !important;
+  }
+  .desktop-decision .spatial-map:not(.expanded) .probe-marker {
+    width: 24px;
+    height: 24px;
+    min-width: 24px;
+    min-height: 24px;
+    padding: 0;
+    font-size: 12px;
+    border-width: 1px;
+  }
+  .desktop-decision .spatial-map:not(.expanded) .basemap-source {
+    display: none;
+  }
+  .desktop-decision .compare-context-heading {
+    flex-wrap: wrap;
+    align-content: center;
+  }
+  .desktop-decision .compare-context-heading::after {
+    content: "MapLibre · Esri World Imagery / OpenStreetMap";
+    font-size: 12px;
+    flex-basis: 100%;
+    color: #40583d;
+  }
+}
+@media (min-width: 1100px) {
+  .desktop-conditions .farmer-journey > button {
+    display: none;
+  }
+}
+/* Final desktop hardening: compact context, unchanged compare priority. */
+@media (min-width: 1100px) {
+  .desktop-decision .field-support {
+    display: flex;
+    width: fit-content;
+    max-width: 100%;
+    gap: 10px;
+    align-items: center;
+  }
+  .desktop-decision .field-map {
+    order: 0;
+    flex: 0 0 260px;
+    width: 260px;
+  }
+  .desktop-decision .compare-context-heading {
+    order: 1;
+    flex: 0 1 340px;
+    max-width: 360px;
+    padding: 12px 16px;
+    align-self: center;
+    gap: 8px;
+  }
+  .desktop-decision .compare-context-heading strong {
+    font-size: 15px;
+  }
+  .desktop-decision .compare-context-heading button {
+    font-size: 13px;
+  }
+  .desktop-decision .compare-context-heading::after {
+    font-size: 11px;
+  }
+  .fallback-probes {
+    display: flex;
+    gap: 8px;
+    justify-content: center;
+  }
+  .fallback-probes button {
+    min-height: 44px;
+    padding: 5px 10px;
+  }
+  .map-fallback .fallback-probes {
+    margin: 4px 0;
+  }
+  .desktop-decision .map-fallback h2 {
+    font-size: 13px;
+  }
+  .desktop-decision .map-fallback p {
+    font-size: 11px;
+  }
+  .desktop-decision .map-fallback svg[role="img"] {
+    max-height: 70px;
+  }
+}
+/* Sprint 3A: transport controls and per-channel evidence. */
+@media (min-width: 1100px) {
+  .sensor-strip .usb-connect {
+    position: relative;
+  }
+  .sensor-strip .usb-connect[open] {
+    min-width: 280px;
+    padding: 12px;
+    background: #faf8ed;
+    border: 1px solid #8c9d7c;
+    border-radius: 10px;
+    z-index: 3;
+    box-shadow: 0 8px 28px #082e2926;
+  }
+  .sensor-strip .usb-connect p {
+    font-size: 13px;
+    line-height: 1.55;
+  }
+  .sensor-strip .usb-connect label {
+    display: grid;
+    gap: 6px;
+    font-size: 13px;
+  }
+  .sensor-strip .usb-connect button {
+    margin-top: 8px;
+  }
+  .farm-dashboard .field-support:has(.usb-connect[open]) {
+    grid-template-rows: 330px auto;
+  }
+  .farm-dashboard .sensor-strip:has(.usb-connect[open]) {
+    height: auto;
+    grid-template-rows: 26px 86px auto;
+  }
+  .sensor-strip > .inline-warning,
+  .sensor-strip > [role="alert"] {
+    grid-column: 1/-1;
+    font-size: 13px;
+  }
+  .sensor-detail {
+    display: grid;
+    gap: 10px;
+    font-size: 14px;
+    line-height: 1.5;
+  }
+  .sensor-detail > span {
+    color: #40594a;
+  }
+  .probe-channel {
+    padding: 10px 12px;
+    border: 1px solid #d8dfce;
+    border-radius: 8px;
+    overflow-wrap: anywhere;
+  }
+  .probe-channel p {
+    margin: 5px 0;
+    font-size: 13px;
+  }
+  .sensor-strip button:focus-visible,
+  .sensor-strip summary:focus-visible {
+    outline: 3px solid #a97516;
+    outline-offset: 3px;
+  }
+}
+@media (prefers-reduced-motion: no-preference) {
+  .sensor-reading {
+    transition: background-color 120ms ease;
+  }
+}
+@media (min-width: 1100px) {
+  .sensor-strip .usb-diagnostics {
+    grid-column: 1/-1;
+    font-size: 13px;
+    overflow-wrap: anywhere;
+  }
+  .sensor-strip:has(.usb-diagnostics),
+  .sensor-strip:has([role="alert"]),
+  .sensor-strip:has(.inline-warning) {
+    grid-template-rows: 26px 86px auto !important;
+    height: auto !important;
+  }
+}
+/* Probe evidence floats within the existing right column; selection does not enlarge the map. */
+@media (min-width: 1100px) {
+  .sensor-strip {
+    position: relative;
+  }
+  .sensor-strip .sensor-detail {
+    position: absolute;
+    z-index: 5;
+    bottom: 0;
+    right: 0;
+    width: 100%;
+    max-height: min(440px, 70vh);
+    overflow-y: auto;
+    padding: 16px;
+    border: 1px solid #91a779;
+    border-radius: 14px;
+    background: #f6f7e9;
+    box-shadow: 0 8px 28px #082e2940;
+  }
+  .sensor-detail > strong {
+    padding-right: 44px;
+  }
+  .sensor-detail .probe-close {
+    position: absolute;
+    right: 8px;
+    top: 8px;
+    min-width: 36px;
+    min-height: 36px;
+    padding: 0;
+    font-size: 23px;
+  }
+}

@@ -84,6 +84,11 @@ export function Hardware() {
           </span>
         </div>
         <section className="connection-bar" aria-label={t("connect")}>
+          <p>
+            {i18n.language.startsWith("vi")
+              ? "Baud là cấu hình người dùng chọn, chưa xác minh firmware đang nạp. Serial 8N1, không flow control. Mở USB-UART có thể khởi động lại board. Giờ máy nhận không thay giờ đo thiết bị."
+              : "Baud is user-selected; installed firmware is unverified. Serial 8N1, no flow control. Opening USB-UART may restart the board. Host receipt time does not replace device measurement time."}
+          </p>
           <label>
             {t("baud")}
             <select
@@ -134,6 +139,18 @@ export function Hardware() {
           </p>
         )}
         <HardwarePipeline events={h.events} />
+        {!!h.diagnostics.length && (
+          <details className="notice">
+            <summary>
+              {i18n.language.startsWith("vi")
+                ? "Thông báo từ board · không phải số đo"
+                : "Board diagnostics · not measurements"}
+            </summary>
+            {h.diagnostics.map((line, i) => (
+              <p key={i}>{line}</p>
+            ))}
+          </details>
+        )}
         <div className="hardware-grid">
           <aside className="device-list" aria-label={t("devices")}>
             <h2>{t("devices")}</h2>
@@ -266,8 +283,12 @@ export function Hardware() {
                   longitude: Number(data.get("lon")),
                   latitude: Number(data.get("lat")),
                   context: data.get("context"),
-                  physical_location: String(data.get("physical") || "Unverified physical location"),
-                  placement_depth_cm: data.get("depth") ? Number(data.get("depth")) : null,
+                  physical_location: String(
+                    data.get("physical") || "Unverified physical location",
+                  ),
+                  placement_depth_cm: data.get("depth")
+                    ? Number(data.get("depth"))
+                    : null,
                 });
                 if (!active || !parsed.success) {
                   setFormError(t("placementInvalid"));
@@ -324,8 +345,25 @@ export function Hardware() {
                   <option value="field">{t("field")}</option>
                 </select>
               </label>
-              <label>{t("declaredPhysicalLocation")}<input name="physical" maxLength={200} defaultValue={placement?.physical_location || ""} /></label>
-              <label>{t("depthCm")}<input name="depth" type="number" min="0" max="300" step="any" defaultValue={placement?.placement_depth_cm ?? ""} /></label>
+              <label>
+                {t("declaredPhysicalLocation")}
+                <input
+                  name="physical"
+                  maxLength={200}
+                  defaultValue={placement?.physical_location || ""}
+                />
+              </label>
+              <label>
+                {t("depthCm")}
+                <input
+                  name="depth"
+                  type="number"
+                  min="0"
+                  max="300"
+                  step="any"
+                  defaultValue={placement?.placement_depth_cm ?? ""}
+                />
+              </label>
               <button disabled={!active}>
                 <MapPin size={16} />
                 {t("savePlacement")}

@@ -177,6 +177,7 @@ test("B: a distinct polygon sends its geometry and never borrows pilot catalog o
       name: "Chưa có catalog luân canh cho thửa này",
     }),
   ).toBeVisible();
+  await page.getByRole("button", { name: "Quan sát", exact: true }).click();
   await page
     .getByRole("button", { name: "Kết quả model", exact: true })
     .click();

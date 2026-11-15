@@ -1,5 +1,5 @@
 import { test,expect } from '@playwright/test';
-test.beforeEach(async({page})=>{await page.route('**/tile.openstreetmap.org/**',r=>r.abort());});
+test.beforeEach(async({page})=>{await page.addInitScript(()=>localStorage.setItem('agrotwin-language','en'));await page.route('**/tile.openstreetmap.org/**',r=>r.abort());});
 test('Power shows actual research-only E1 without crop promotion',async({page})=>{
  await page.goto('/w/my-thanh/power');await page.getByText('EDA / ML experiment — separate from crop advice',{exact:true}).click();
  await expect(page.getByText('RESEARCH_ONLY',{exact:false}).first()).toBeVisible();

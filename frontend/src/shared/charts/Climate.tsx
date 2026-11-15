@@ -9,6 +9,7 @@ import {
   Tooltip,
   Bar,
   Line,
+  Scatter,
 } from "recharts";
 import { ChartNoAxesCombined, Table2 } from "lucide-react";
 import type { Month } from "../../core/contracts";
@@ -16,10 +17,12 @@ export default function Climate({
   months,
   average = false,
   synthetic = false,
+  calendarComparison = false,
 }: {
   months: Month[];
   average?: boolean;
   synthetic?: boolean;
+  calendarComparison?: boolean;
 }) {
   const { t, i18n } = useTranslation();
   const [table, setTable] = useState(false);
@@ -30,6 +33,7 @@ export default function Climate({
     ...x,
     label: new Intl.DateTimeFormat(i18n.language, {
       month: "short",
+      year: calendarComparison ? "numeric" : undefined,
       timeZone: "UTC",
     }).format(new Date(x.date + "T00:00:00Z")),
   }));
@@ -38,7 +42,13 @@ export default function Climate({
       <div className="section-heading">
         <div>
           <span className="eyebrow">{t("climate")}</span>
-          <h2>{t(average ? "climatology" : "monthly")}</h2>
+          <h2>
+            {calendarComparison
+              ? i18n.language.startsWith("vi")
+                ? "So tháng lịch sử · không phải timeline vụ"
+                : "Historical month comparison · not a season timeline"
+              : t(average ? "climatology" : "monthly")}
+          </h2>
         </div>
         <button
           className="icon-button"
@@ -113,20 +123,31 @@ export default function Climate({
                 ]}
               />
               <Bar
+                isAnimationActive={false}
                 dataKey="rain"
                 yAxisId="rain"
                 fill="#73a68c"
                 radius={[3, 3, 0, 0]}
                 maxBarSize={30}
               />
-              <Line
-                dataKey="temp"
-                yAxisId="temp"
-                stroke="#b68b42"
-                strokeWidth={2}
-                dot={{ r: 2 }}
-                connectNulls={false}
-              />
+              {calendarComparison ? (
+                <Scatter
+                  isAnimationActive={false}
+                  dataKey="temp"
+                  yAxisId="temp"
+                  fill="#986b21"
+                />
+              ) : (
+                <Line
+                  isAnimationActive={false}
+                  dataKey="temp"
+                  yAxisId="temp"
+                  stroke="#b68b42"
+                  strokeWidth={2}
+                  dot={{ r: 2 }}
+                  connectNulls={false}
+                />
+              )}
             </ComposedChart>
           </ResponsiveContainer>
         </div>

@@ -1,6 +1,10 @@
 import { test, expect } from "@playwright/test";
 import AxeBuilder from "@axe-core/playwright";
-test.beforeEach(async ({page}) => { await page.route("**/tile.openstreetmap.org/**", r => r.abort()); });
+test.beforeEach(async ({page}) => {
+  // These legacy Hardware cases explicitly exercise EN then switch to VI.
+  await page.addInitScript(() => localStorage.setItem("agrotwin-language", "en"));
+  await page.route("**/tile.openstreetmap.org/**", r => r.abort());
+});
 test("hardware synthetic recording, persistent session, replay and map placement", async ({
   page,
 }) => {

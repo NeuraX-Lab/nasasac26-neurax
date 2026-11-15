@@ -50,7 +50,7 @@ export default function SpatialMap({
   imageExtent,
   sensorNavigation,
 }: Props) {
-  const { t } = useTranslation();
+  const { t, i18n } = useTranslation();
   const { placements, events } = useHardware();
   const { areas } = useApp();
   const navigate = useNavigate();
@@ -65,7 +65,11 @@ export default function SpatialMap({
   latest.current = { geometry, onDraw };
   const sensorNav = useRef(sensorNavigation);
   sensorNav.current = sensorNavigation;
+  const retryTiles = useRef<(() => void) | null>(null);
   const [imageryFailed, setImageryFailed] = useState(false);
+  const [basemapState, setBasemapState] = useState<
+    "loading" | "ready" | "error"
+  >("loading");
   const [failed, setFailed] = useState(false),
     [attempt, setAttempt] = useState(0),
     [loaded, setLoaded] = useState(false),
@@ -87,8 +91,11 @@ export default function SpatialMap({
     let disposed = false;
     setFailed(false);
     setLoaded(false);
+    setImageryFailed(false);
+    setBasemapState("loading");
     setTerrainState("loading");
     let m: GLMap;
+    let satelliteError = false;
     try {
       m = new maplibregl.Map({
         container: canvas.current,
@@ -124,15 +131,19 @@ export default function SpatialMap({
       if (import.meta.env.DEV) (window as any).__agrotwinMap = m;
     } catch {
       setFailed(true);
+      setBasemapState("error");
       return;
     }
 
     m.on("webglcontextlost", () => {
       setFailed(true);
+      setBasemapState("error");
       setTerrain(false);
     });
     m.on("error", (e) => {
       if ("sourceId" in e && e.sourceId === "satellite") {
+        satelliteError = true;
+        setBasemapState("error");
         setImageryFailed(true);
         if (m.getLayer("satellite"))
           m.setLayoutProperty("satellite", "visibility", "none");
@@ -149,6 +160,74 @@ export default function SpatialMap({
         }
       }
     });
+
+    let loadStarted = Date.now();
+    const tilesTimeout = window.setInterval(() => {
+      if (
+        !disposed &&
+        !imageExtent &&
+        !satelliteError &&
+        Date.now() - loadStarted > 12000 &&
+        m.getSource("satellite") &&
+        !m.isSourceLoaded("satellite")
+      ) {
+        satelliteError = true;
+        setBasemapState("error");
+        setImageryFailed(true);
+        if (m.getLayer("satellite"))
+          m.setLayoutProperty("satellite", "visibility", "none");
+      }
+    }, 1000);
+    m.on("sourcedataloading", (e) => {
+      if (!disposed && !satelliteError && e.sourceId === "satellite") {
+        loadStarted = Date.now();
+        setBasemapState("loading");
+      }
+    });
+    m.on("idle", () => {
+      if (
+        !disposed &&
+        !satelliteError &&
+        navigator.onLine &&
+        (imageExtent ||
+          (m.getSource("satellite") && m.isSourceLoaded("satellite")))
+      )
+        setBasemapState("ready");
+    });
+    m.on("sourcedata", (e) => {
+      if (
+        !disposed &&
+        !satelliteError &&
+        navigator.onLine &&
+        e.sourceId === "satellite" &&
+        e.isSourceLoaded
+      )
+        requestAnimationFrame(() => {
+          if (!disposed && !satelliteError && navigator.onLine)
+            setBasemapState("ready");
+        });
+    });
+    retryTiles.current = () => {
+      if (disposed || !m.getSource("satellite")) return;
+      if (!navigator.onLine) {
+        setImageryFailed(true);
+        setBasemapState("error");
+        return;
+      }
+      satelliteError = false;
+      loadStarted = Date.now();
+      setImageryFailed(false);
+      setBasemapState("loading");
+      setImage(true);
+      m.setLayoutProperty("satellite", "visibility", "visible");
+      for (const id of ["osm", "satellite"]) {
+        const source = m.getSource(id) as
+          maplibregl.RasterTileSource | undefined;
+        const tiles = source?.serialize().tiles;
+        if (source && tiles) source.setTiles([...tiles]);
+      }
+      m.triggerRepaint();
+    };
 
     m.once("load", async () => {
       if (disposed) return;
@@ -297,10 +376,20 @@ export default function SpatialMap({
       }
     });
 
-    const resize = new ResizeObserver(() => m.resize());
+    const resize = new ResizeObserver(() => {
+      m.resize();
+      const ring = latest.current.geometry.features[0]?.geometry.coordinates[0];
+      if (ring?.length) {
+        const bounds = new maplibregl.LngLatBounds();
+        ring.forEach((p) => bounds.extend(p as [number, number]));
+        m.fitBounds(bounds, { padding: 48, maxZoom: 17.2, duration: 0 });
+      }
+    });
     resize.observe(canvas.current);
     return () => {
       disposed = true;
+      retryTiles.current = null;
+      window.clearInterval(tilesTimeout);
       resize.disconnect();
       draw.current?.stop();
       draw.current = null;
@@ -308,6 +397,22 @@ export default function SpatialMap({
       map.current = null;
     };
   }, [attempt, drawing]);
+
+  useEffect(() => {
+    const offline = () => {
+      setImageryFailed(true);
+      setBasemapState("error");
+    };
+    const online = () => {
+      if (!failed) retryTiles.current?.();
+    };
+    window.addEventListener("offline", offline);
+    window.addEventListener("online", online);
+    return () => {
+      window.removeEventListener("offline", offline);
+      window.removeEventListener("online", online);
+    };
+  }, [failed]);
 
   useEffect(() => {
     const m = map.current;
@@ -463,7 +568,7 @@ export default function SpatialMap({
   }, [placements, areaId, loaded, t, mapParams, geometry]);
   useEffect(() => {
     const m = map.current;
-    if (!loaded || !m || !sensorNavigation) return;
+    if (!loaded || !m || !sensorNav.current) return;
     const ring = geometry.features[0]?.geometry.coordinates[0] || [];
     if (!ring.length) return;
     const xs = ring.map((p) => p[0]),
@@ -487,9 +592,13 @@ export default function SpatialMap({
       );
       el.setAttribute(
         "aria-pressed",
-        String(sensorNavigation.selected === head),
+        String(sensorNav.current?.selected === head),
       );
-      el.onclick = () => sensorNav.current?.onSelect(head);
+      el.dataset.probe = head;
+      el.onclick = (e) => {
+        e.stopPropagation();
+        sensorNav.current?.onSelect(head);
+      };
       return [
         new maplibregl.Marker({ element: el })
           .setLngLat(point as [number, number])
@@ -497,7 +606,17 @@ export default function SpatialMap({
       ];
     });
     return () => markers.forEach((marker) => marker.remove());
-  }, [loaded, geometry, sensorNavigation?.selected, t]);
+  }, [loaded, geometry, t]);
+  useEffect(() => {
+    canvas.current
+      ?.querySelectorAll<HTMLButtonElement>(".probe-marker")
+      .forEach((el) =>
+        el.setAttribute(
+          "aria-pressed",
+          String(el.dataset.probe === sensorNavigation?.selected),
+        ),
+      );
+  }, [loaded, sensorNavigation?.selected]);
   useEffect(() => {
     const m = map.current;
     if (!loaded || !m || drawing) return;
@@ -559,6 +678,17 @@ export default function SpatialMap({
         `${20 + ((p[0] - bounds[0]) / (bounds[2] - bounds[0] || 1)) * 260},${230 - ((p[1] - bounds[1]) / (bounds[3] - bounds[1] || 1)) * 210}`,
     )
     .join(" ");
+  const fallbackHeads = sensorNavigation
+    ? ["A", "B"].filter((_, i) =>
+        pointInside(
+          [
+            bounds[0] + (bounds[2] - bounds[0]) * (i === 0 ? 0.28 : 0.72),
+            (bounds[1] + bounds[3]) / 2,
+          ],
+          geometry,
+        ),
+      )
+    : [];
 
   return (
     <section
@@ -568,15 +698,34 @@ export default function SpatialMap({
       aria-modal={expanded ? true : undefined}
       aria-label={t("earth")}
       data-terrain-state={terrainState}
+      data-basemap-state={failed ? "error" : basemapState}
     >
       <div ref={canvas} className="map-canvas" />
-      {imageryFailed && (
+      {!failed && !imageExtent && basemapState === "loading" && (
+        <div className="basemap-loading" role="status">
+          {i18n.language.startsWith("vi")
+            ? "Đang tải nền địa lý · ranh hồ sơ được giữ"
+            : "Loading geographic tiles · saved boundary retained"}
+        </div>
+      )}
+      <span className="basemap-source">
+        {imageryFailed
+          ? "OSM · "
+          : image
+            ? "Esri World Imagery · "
+            : "OpenStreetMap · "}
+        {i18n.language.startsWith("vi")
+          ? "nguồn bản đồ, không phải NASA"
+          : "map source, not NASA"}
+      </span>
+      {imageryFailed && !failed && loaded && (
         <div className="imagery-warning" role="status">
-          {t("satelliteFailed")}{" "}
+          {i18n.language.startsWith("vi")
+            ? "Chưa tải đủ ảnh vệ tinh. Giữ ranh hồ sơ; nền OSM dự phòng có thể chưa tải được."
+            : "Satellite imagery unavailable. Saved boundary retained; fallback OSM tiles may also be unavailable."}{" "}
           <button
             onClick={() => {
-              setImageryFailed(false);
-              setAttempt((n) => n + 1);
+              retryTiles.current?.();
             }}
           >
             {t("retry")}
@@ -645,11 +794,23 @@ export default function SpatialMap({
           </Link>
         </div>
       )}
-      {failed && (
+      {(failed || !loaded) && (
         <div className="map-fallback" role="status">
           <Mountain size={30} />
-          <h2>{t("mapFailed")}</h2>
-          <p>{t("mapFallback")}</p>
+          <h2>
+            {failed
+              ? t("mapFailed")
+              : i18n.language.startsWith("vi")
+                ? "Đang khởi tạo bản đồ"
+                : "Initializing map"}
+          </h2>
+          <p>
+            {failed
+              ? t("mapFallback")
+              : i18n.language.startsWith("vi")
+                ? "Sơ đồ ranh đã lưu, chưa phải ảnh vệ tinh."
+                : "Saved boundary outline, not satellite imagery."}
+          </p>
           <svg viewBox="0 0 300 260" role="img" aria-label={t("boundary")}>
             <polygon
               points={points}
@@ -657,7 +818,47 @@ export default function SpatialMap({
               stroke="#806824"
               strokeWidth="2"
             />
+            {fallbackHeads.map((head) => (
+              <g key={head}>
+                <circle
+                  cx={head === "A" ? 93 : 207}
+                  cy="125"
+                  r="15"
+                  fill="#fffef1"
+                  stroke="#31533b"
+                />
+                <text
+                  x={head === "A" ? 93 : 207}
+                  y="130"
+                  textAnchor="middle"
+                  fill="#254833"
+                  fontSize="15"
+                >
+                  {head}
+                </text>
+              </g>
+            ))}
           </svg>
+          {fallbackHeads.length > 0 && (
+            <div className="fallback-probes">
+              {fallbackHeads.map((head) => (
+                <button
+                  key={head}
+                  aria-label={head === "A" ? t("probeSoil") : t("probeAir")}
+                  onClick={() => sensorNav.current?.onSelect(head)}
+                >
+                  {head} ·{" "}
+                  {head === "A"
+                    ? i18n.language.startsWith("vi")
+                      ? "đất"
+                      : "soil"
+                    : i18n.language.startsWith("vi")
+                      ? "không khí"
+                      : "air"}
+                </button>
+              ))}
+            </div>
+          )}
           <code>
             {center(geometry)
               .map((x) => x.toFixed(6))

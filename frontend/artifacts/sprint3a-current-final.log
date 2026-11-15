@@ -1,0 +1,250 @@
+
+Running 34 tests using 1 worker
+
+(node:66688) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ok  1 tests\e2e\dashboard-model.spec.ts:2:1 › current dashboard actually executes the installed research model and saves its separate provenance (15.3s)
+  ok  2 tests\e2e\dashboard-model.spec.ts:61:1 › mobile model execution, stale/error clearing and schema scope validation do not substitute v2 snapshots (5.4s)
+  ok  3 tests\e2e\dashboard.spec.ts:39:1 › prepared profile has sourced natural imagery, no fabricated sensors and no automatic inference (7.0s)
+  ok  4 tests\e2e\dashboard.spec.ts:86:1 › A + D: real input → API → select → persist → reload → reopen; edits become stale (14.2s)
+  ok  5 tests\e2e\dashboard.spec.ts:150:1 › B: a distinct polygon sends its geometry and never borrows pilot catalog or model (9.5s)
+  ok  6 tests\e2e\dashboard.spec.ts:195:1 › API errors and wrong-scope responses keep edited inputs stale; delayed results cannot overwrite edits (8.1s)
+  ok  7 tests\e2e\dashboard.spec.ts:244:1 › v2 malformed payload and unsupported target months do not become a fresh forecast (8.5s)
+  ok  8 tests\e2e\dashboard.spec.ts:269:1 › C: serial harness supplies three correctly labelled readings; disconnect preserves stale values and A/B links (7.8s)
+  ok  9 tests\e2e\dashboard.spec.ts:358:1 › mobile keyboard, real API, save and serious accessibility regression (4.9s)
+  ok 10 tests\e2e\dashboard.spec.ts:411:1 › map imagery failure retains a truthful fallback, and legacy planner routes use the dashboard (5.6s)
+  ok 11 tests\e2e\dashboard.spec.ts:423:1 › storage failure never reports a saved draft (4.7s)
+  ok 12 tests\e2e\dashboard.spec.ts:447:1 › draw, undo, confirm, edit and cancel keep the existing boundary workflow (5.5s)
+  ok 13 tests\e2e\dashboard.spec.ts:484:1 › map expansion traps keyboard focus and Escape restores the trigger; desktop has no serious axe issues (6.5s)
+  ok 14 tests\e2e\dashboard.spec.ts:514:1 › unavailable saved A1 still permits a real analysis; no WebGL leaves the outline and decisions usable (3.8s)
+  ok 15 tests\e2e\desktop-hardening.spec.ts:17:1 › live tiles: browser offline → explicit retry offline → online recovery preserves map/AOI/probes (6.6s)
+  ok 16 tests\e2e\desktop-hardening.spec.ts:72:1 › pending tile timeout keeps geometry and explicit retry streams real tiles successfully (18.6s)
+  ok 17 tests\e2e\desktop-hardening.spec.ts:128:3 › demo regression 1440: NASA → V2 → compare → save/reopen → compact map (19.9s)
+  ok 18 tests\e2e\desktop-hardening.spec.ts:128:3 › demo regression 1920: NASA → V2 → compare → save/reopen → compact map (30.9s)
+  ok 19 tests\e2e\desktop-sprint1.spec.ts:6:3 › desktop workspace 1440: modes preserve map and probes (10.0s)
+  ok 20 tests\e2e\desktop-sprint1.spec.ts:6:3 › desktop workspace 1920: modes preserve map and probes (14.8s)
+  ok 21 tests\e2e\farmer-sprint2.spec.ts:6:3 › farmer journey 1440 retains inputs and saved plan across modes (18.9s)
+  ok 22 tests\e2e\farmer-sprint2.spec.ts:6:3 › farmer journey 1920 retains inputs and saved plan across modes (22.9s)
+  ok 23 tests\e2e\farmer-sprint21.spec.ts:2:1 › pending satellite tiles are labelled loading even after AOI and probes mount (4.8s)
+  ok 24 tests\e2e\farmer-sprint21.spec.ts:42:3 › compare-first 1440: blocked draft, save state and mini-map (13.7s)
+  ok 25 tests\e2e\farmer-sprint21.spec.ts:42:3 › compare-first 1920: blocked draft, save state and mini-map (23.8s)
+  ok 26 tests\e2e\farmer-sprint21.spec.ts:130:1 › tile failure retains AOI, probes and source instead of an unlabelled blank map (4.1s)
+  ok 27 tests\e2e\live-v2.spec.ts:28:1 › actual v2 request → changed decisions → RAG → save → reload/reopen preserves both versioned providers (12.5s)
+  ok 28 tests\e2e\live-v2.spec.ts:84:1 › v2 outage or wrong echoed farm cannot be saved as fresh; income is not sent (7.3s)
+  ok 29 tests\e2e\live-v2.spec.ts:139:1 › mobile v2 decisions, focus and accessibility (2.8s)
+  ok 30 tests\e2e\live-v2.spec.ts:159:1 › editing inputs while v2 is pending discards the old response (4.5s)
+  x  31 tests\e2e\sprint3a.spec.ts:4:1 › SIMULATED_ONLY: dashboard USB wait, text channels, QA, stale, loss and reconnect (1.0m)
+(node:70840) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ok 32 tests\e2e\sprint3a.spec.ts:77:3 › actual UI 1440: real map, empty probe provenance, historical comparison (13.8s)
+  ok 33 tests\e2e\sprint3a.spec.ts:77:3 › actual UI 1920: real map, empty probe provenance, historical comparison (21.4s)
+  ok 34 tests\e2e\sprint3a.spec.ts:144:1 › SIMULATED_ONLY: port-open failure and reload require an explicit new chooser (11.0s)
+
+
+  1) tests\e2e\sprint3a.spec.ts:4:1 › SIMULATED_ONLY: dashboard USB wait, text channels, QA, stale, loss and reconnect 
+
+    Test timeout of 60000ms exceeded.
+
+    Error: locator.click: Test timeout of 60000ms exceeded.
+    Browser logs:
+
+    [pid=60964][err] [1115/104404.524:INFO:CONSOLE:1043] "[vite] connected.", source: http://127.0.0.1:5174/@vite/client (1043)
+    [pid=60964][err] [1115/104404.594:INFO:CONSOLE:15803] "%cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold", source: http://127.0.0.1:5174/node_modules/.vite/deps/react-dom_client.js?v=32e24ed7 (15803)
+    [pid=60964][err] [1115/104408.636:INFO:CONSOLE:934] "[vite] connecting...", source: http://127.0.0.1:5174/@vite/client (934)
+    [pid=60964][err] [1115/104408.700:INFO:CONSOLE:1043] "[vite] connected.", source: http://127.0.0.1:5174/@vite/client (1043)
+    [pid=60964][err] [1115/104408.866:INFO:CONSOLE:934] "[vite] connecting...", source: http://127.0.0.1:5174/@vite/client (934)
+    [pid=60964][err] [1115/104408.920:INFO:CONSOLE:1043] "[vite] connected.", source: http://127.0.0.1:5174/@vite/client (1043)
+    [pid=60964][err] [1115/104414.582:INFO:CONSOLE:934] "[vite] connecting...", source: http://127.0.0.1:5174/@vite/client (934)
+    [pid=60964][err] [1115/104414.644:INFO:CONSOLE:1043] "[vite] connected.", source: http://127.0.0.1:5174/@vite/client (1043)
+    [pid=60964][err] [1115/104414.897:INFO:CONSOLE:15803] "%cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold", source: http://127.0.0.1:5174/node_modules/.vite/deps/react-dom_client.js?v=32e24ed7 (15803)
+    [pid=60964][err] [1115/104422.600:INFO:CONSOLE:934] "[vite] connecting...", source: http://127.0.0.1:5174/@vite/client (934)
+    [pid=60964][err] [1115/104422.744:INFO:CONSOLE:1043] "[vite] connected.", source: http://127.0.0.1:5174/@vite/client (1043)
+    [pid=60964][err] [1115/104422.893:INFO:CONSOLE:934] "[vite] connecting...", source: http://127.0.0.1:5174/@vite/client (934)
+    [pid=60964][err] [1115/104422.907:INFO:CONSOLE:1043] "[vite] connected.", source: http://127.0.0.1:5174/@vite/client (1043)
+    [pid=60964][err] [1115/104429.233:INFO:CONSOLE:934] "[vite] connecting...", source: http://127.0.0.1:5174/@vite/client (934)
+    [pid=60964][err] [1115/104429.353:INFO:CONSOLE:1043] "[vite] connected.", source: http://127.0.0.1:5174/@vite/client (1043)
+    [pid=60964][err] [1115/104429.602:INFO:CONSOLE:15803] "%cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold", source: http://127.0.0.1:5174/node_modules/.vite/deps/react-dom_client.js?v=32e24ed7 (15803)
+    [pid=60964][err] [1115/104433.304:INFO:CONSOLE:934] "[vite] connecting...", source: http://127.0.0.1:5174/@vite/client (934)
+    [pid=60964][err] [1115/104433.511:INFO:CONSOLE:934] "[vite] connecting...", source: http://127.0.0.1:5174/@vite/client (934)
+    [pid=60964][err] [1115/104433.585:INFO:CONSOLE:1043] "[vite] connected.", source: http://127.0.0.1:5174/@vite/client (1043)
+    [pid=60964][err] [1115/104433.663:INFO:CONSOLE:1043] "[vite] connected.", source: http://127.0.0.1:5174/@vite/client (1043)
+    [pid=60964][err] [1115/104445.161:INFO:CONSOLE:934] "[vite] connecting...", source: http://127.0.0.1:5174/@vite/client (934)
+    [pid=60964][err] [1115/104445.177:INFO:CONSOLE:1043] "[vite] connected.", source: http://127.0.0.1:5174/@vite/client (1043)
+    [pid=60964][err] [1115/104445.360:INFO:CONSOLE:15803] "%cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold", source: http://127.0.0.1:5174/node_modules/.vite/deps/react-dom_client.js?v=32e24ed7 (15803)
+    [pid=60964][err] [1115/104448.373:INFO:CONSOLE:934] "[vite] connecting...", source: http://127.0.0.1:5174/@vite/client (934)
+    [pid=60964][err] [1115/104448.505:INFO:CONSOLE:1043] "[vite] connected.", source: http://127.0.0.1:5174/@vite/client (1043)
+    [pid=60964][err] [1115/104448.714:INFO:CONSOLE:15803] "%cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold", source: http://127.0.0.1:5174/node_modules/.vite/deps/react-dom_client.js?v=32e24ed7 (15803)
+    [pid=60964][err] [1115/104452.427:INFO:CONSOLE:934] "[vite] connecting...", source: http://127.0.0.1:5174/@vite/client (934)
+    [pid=60964][err] [1115/104452.427:INFO:CONSOLE:934] "[vite] connecting...", source: http://127.0.0.1:5174/@vite/client (934)
+    [pid=60964][err] [1115/104452.475:INFO:CONSOLE:1043] "[vite] connected.", source: http://127.0.0.1:5174/@vite/client (1043)
+    [pid=60964][err] [1115/104452.476:INFO:CONSOLE:1043] "[vite] connected.", source: http://127.0.0.1:5174/@vite/client (1043)
+    [pid=60964][err] [1115/104505.870:INFO:CONSOLE:934] "[vite] connecting...", source: http://127.0.0.1:5174/@vite/client (934)
+    [pid=60964][err] [1115/104505.891:INFO:CONSOLE:1043] "[vite] connected.", source: http://127.0.0.1:5174/@vite/client (1043)
+    [pid=60964][err] [1115/104506.038:INFO:CONSOLE:15803] "%cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold", source: http://127.0.0.1:5174/node_modules/.vite/deps/react-dom_client.js?v=32e24ed7 (15803)
+    [pid=60964][err] [1115/104510.541:INFO:CONSOLE:934] "[vite] connecting...", source: http://127.0.0.1:5174/@vite/client (934)
+    [pid=60964][err] [1115/104510.541:INFO:CONSOLE:934] "[vite] connecting...", source: http://127.0.0.1:5174/@vite/client (934)
+    [pid=60964][err] [1115/104510.549:INFO:CONSOLE:1043] "[vite] connected.", source: http://127.0.0.1:5174/@vite/client (1043)
+    [pid=60964][err] [1115/104510.569:INFO:CONSOLE:1043] "[vite] connected.", source: http://127.0.0.1:5174/@vite/client (1043)
+    [pid=60964][err] [1115/104511.855:ERROR:gpu\command_buffer\service\shared_image\shared_image_manager.cc:260] SharedImageManager::ProduceSkia: Trying to Produce a Skia representation from a non-existent mailbox.
+    [pid=60964][err] [1115/104511.855:ERROR:gpu\command_buffer\service\shared_image\shared_image_manager.cc:260] SharedImageManager::ProduceSkia: Trying to Produce a Skia representation from a non-existent mailbox.
+    [pid=60964][err] [1115/104512.114:INFO:CONSOLE:934] "[vite] connecting...", source: http://127.0.0.1:5174/@vite/client (934)
+    [pid=60964][err] [1115/104512.252:INFO:CONSOLE:1043] "[vite] connected.", source: http://127.0.0.1:5174/@vite/client (1043)
+    [pid=60964][err] [1115/104512.521:INFO:CONSOLE:15803] "%cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold", source: http://127.0.0.1:5174/node_modules/.vite/deps/react-dom_client.js?v=32e24ed7 (15803)
+    [pid=60964][err] [1115/104515.297:INFO:CONSOLE:934] "[vite] connecting...", source: http://127.0.0.1:5174/@vite/client (934)
+    [pid=60964][err] [1115/104515.297:INFO:CONSOLE:934] "[vite] connecting...", source: http://127.0.0.1:5174/@vite/client (934)
+    [pid=60964][err] [1115/104515.310:INFO:CONSOLE:1043] "[vite] connected.", source: http://127.0.0.1:5174/@vite/client (1043)
+    [pid=60964][err] [1115/104515.323:INFO:CONSOLE:1043] "[vite] connected.", source: http://127.0.0.1:5174/@vite/client (1043)
+    [pid=60964][err] [1115/104516.030:INFO:CONSOLE:934] "[vite] connecting...", source: http://127.0.0.1:5174/@vite/client (934)
+    [pid=60964][err] [1115/104516.166:INFO:CONSOLE:1043] "[vite] connected.", source: http://127.0.0.1:5174/@vite/client (1043)
+    [pid=60964][err] [1115/104516.344:INFO:CONSOLE:15803] "%cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold", source: http://127.0.0.1:5174/node_modules/.vite/deps/react-dom_client.js?v=32e24ed7 (15803)
+    [pid=60964][err] [1115/104519.345:INFO:CONSOLE:934] "[vite] connecting...", source: http://127.0.0.1:5174/@vite/client (934)
+    [pid=60964][err] [1115/104519.345:INFO:CONSOLE:934] "[vite] connecting...", source: http://127.0.0.1:5174/@vite/client (934)
+    [pid=60964][err] [1115/104519.386:INFO:CONSOLE:1043] "[vite] connected.", source: http://127.0.0.1:5174/@vite/client (1043)
+    [pid=60964][err] [1115/104519.386:INFO:CONSOLE:1043] "[vite] connected.", source: http://127.0.0.1:5174/@vite/client (1043)
+    [pid=60964][err] [1115/104529.475:ERROR:gpu\command_buffer\service\shared_image\shared_image_manager.cc:260] SharedImageManager::ProduceSkia: Trying to Produce a Skia representation from a non-existent mailbox.
+    [pid=60964][err] [1115/104529.765:INFO:CONSOLE:934] "[vite] connecting...", source: http://127.0.0.1:5174/@vite/client (934)
+    [pid=60964][err] [1115/104529.879:INFO:CONSOLE:1043] "[vite] connected.", source: http://127.0.0.1:5174/@vite/client (1043)
+    [pid=60964][err] [1115/104530.083:INFO:CONSOLE:15803] "%cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold", source: http://127.0.0.1:5174/node_modules/.vite/deps/react-dom_client.js?v=32e24ed7 (15803)
+    [pid=60964][err] [1115/104534.255:INFO:CONSOLE:934] "[vite] connecting...", source: http://127.0.0.1:5174/@vite/client (934)
+    [pid=60964][err] [1115/104534.367:INFO:CONSOLE:934] "[vite] connecting...", source: http://127.0.0.1:5174/@vite/client (934)
+    [pid=60964][err] [1115/104534.388:INFO:CONSOLE:1043] "[vite] connected.", source: http://127.0.0.1:5174/@vite/client (1043)
+    [pid=60964][err] [1115/104534.453:INFO:CONSOLE:1043] "[vite] connected.", source: http://127.0.0.1:5174/@vite/client (1043)
+    [pid=60964][err] [1115/104553.586:INFO:CONSOLE:934] "[vite] connecting...", source: http://127.0.0.1:5174/@vite/client (934)
+    [pid=60964][err] [1115/104553.725:INFO:CONSOLE:1043] "[vite] connected.", source: http://127.0.0.1:5174/@vite/client (1043)
+    [pid=60964][err] [1115/104554.003:INFO:CONSOLE:15803] "%cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold", source: http://127.0.0.1:5174/node_modules/.vite/deps/react-dom_client.js?v=32e24ed7 (15803)
+    [pid=60964][err] [1115/104557.032:INFO:CONSOLE:934] "[vite] connecting...", source: http://127.0.0.1:5174/@vite/client (934)
+    [pid=60964][err] [1115/104557.032:INFO:CONSOLE:934] "[vite] connecting...", source: http://127.0.0.1:5174/@vite/client (934)
+    [pid=60964][err] [1115/104557.041:INFO:CONSOLE:1043] "[vite] connected.", source: http://127.0.0.1:5174/@vite/client (1043)
+    [pid=60964][err] [1115/104557.057:INFO:CONSOLE:1043] "[vite] connected.", source: http://127.0.0.1:5174/@vite/client (1043)
+    [pid=60964][err] [1115/104557.618:INFO:CONSOLE:934] "[vite] connecting...", source: http://127.0.0.1:5174/@vite/client (934)
+    [pid=60964][err] [1115/104557.722:INFO:CONSOLE:1043] "[vite] connected.", source: http://127.0.0.1:5174/@vite/client (1043)
+    [pid=60964][err] [1115/104557.914:INFO:CONSOLE:15803] "%cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold", source: http://127.0.0.1:5174/node_modules/.vite/deps/react-dom_client.js?v=32e24ed7 (15803)
+    [pid=60964][err] [1115/104600.573:INFO:CONSOLE:934] "[vite] connecting...", source: http://127.0.0.1:5174/@vite/client (934)
+    [pid=60964][err] [1115/104600.573:INFO:CONSOLE:934] "[vite] connecting...", source: http://127.0.0.1:5174/@vite/client (934)
+    [pid=60964][err] [1115/104600.579:INFO:CONSOLE:1043] "[vite] connected.", source: http://127.0.0.1:5174/@vite/client (1043)
+    [pid=60964][err] [1115/104600.593:INFO:CONSOLE:1043] "[vite] connected.", source: http://127.0.0.1:5174/@vite/client (1043)
+    [pid=60964][err] [1115/104604.542:INFO:CONSOLE:934] "[vite] connecting...", source: http://127.0.0.1:5174/@vite/client (934)
+    [pid=60964][err] [1115/104604.560:INFO:CONSOLE:1043] "[vite] connected.", source: http://127.0.0.1:5174/@vite/client (1043)
+    [pid=60964][err] [1115/104604.741:INFO:CONSOLE:15803] "%cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold", source: http://127.0.0.1:5174/node_modules/.vite/deps/react-dom_client.js?v=32e24ed7 (15803)
+    [pid=60964][err] [1115/104606.526:INFO:CONSOLE:934] "[vite] connecting...", source: http://127.0.0.1:5174/@vite/client (934)
+    [pid=60964][err] [1115/104606.526:INFO:CONSOLE:934] "[vite] connecting...", source: http://127.0.0.1:5174/@vite/client (934)
+    [pid=60964][err] [1115/104606.548:INFO:CONSOLE:1043] "[vite] connected.", source: http://127.0.0.1:5174/@vite/client (1043)
+    [pid=60964][err] [1115/104606.555:INFO:CONSOLE:1043] "[vite] connected.", source: http://127.0.0.1:5174/@vite/client (1043)
+    [pid=60964][err] [1115/104607.437:INFO:CONSOLE:364] "The width(0) and height(0) of chart should be greater than 0,
+    [pid=60964][err]        please check the style of container, or the props width(100%) and height(100%),
+    [pid=60964][err]        or add a minWidth(0) or minHeight(undefined) or use aspect(undefined) to control the
+    [pid=60964][err]        height and width.", source: http://127.0.0.1:5174/@vite/client (364)
+    [pid=60964][err] [1115/104607.437:INFO:CONSOLE:364] "The width(0) and height(0) of chart should be greater than 0,
+    [pid=60964][err]        please check the style of container, or the props width(100%) and height(100%),
+    [pid=60964][err]        or add a minWidth(0) or minHeight(undefined) or use aspect(undefined) to control the
+    [pid=60964][err]        height and width.", source: http://127.0.0.1:5174/@vite/client (364)
+    [pid=60964][err] [1115/104610.060:ERROR:gpu\command_buffer\service\shared_image\shared_image_manager.cc:260] SharedImageManager::ProduceSkia: Trying to Produce a Skia representation from a non-existent mailbox.
+    [pid=60964][err] [1115/104610.060:ERROR:gpu\command_buffer\service\shared_image\shared_image_manager.cc:260] SharedImageManager::ProduceSkia: Trying to Produce a Skia representation from a non-existent mailbox.
+    [pid=60964][err] [1115/104610.060:ERROR:gpu\command_buffer\service\shared_image\shared_image_manager.cc:260] SharedImageManager::ProduceSkia: Trying to Produce a Skia representation from a non-existent mailbox.
+    [pid=60964][err] [1115/104610.060:ERROR:gpu\command_buffer\service\shared_image\shared_image_manager.cc:260] SharedImageManager::ProduceSkia: Trying to Produce a Skia representation from a non-existent mailbox.
+    [pid=60964][err] [1115/104610.060:ERROR:gpu\command_buffer\service\shared_image\shared_image_manager.cc:260] SharedImageManager::ProduceSkia: Trying to Produce a Skia representation from a non-existent mailbox.
+    [pid=60964][err] [1115/104610.060:ERROR:gpu\command_buffer\service\shared_image\shared_image_manager.cc:260] SharedImageManager::ProduceSkia: Trying to Produce a Skia representation from a non-existent mailbox.
+    [pid=60964][err] [1115/104610.220:INFO:CONSOLE:934] "[vite] connecting...", source: http://127.0.0.1:5174/@vite/client (934)
+    [pid=60964][err] [1115/104610.312:INFO:CONSOLE:1043] "[vite] connected.", source: http://127.0.0.1:5174/@vite/client (1043)
+    [pid=60964][err] [1115/104610.428:INFO:CONSOLE:15803] "%cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold", source: http://127.0.0.1:5174/node_modules/.vite/deps/react-dom_client.js?v=32e24ed7 (15803)
+    [pid=60964][err] [1115/104612.503:INFO:CONSOLE:934] "[vite] connecting...", source: http://127.0.0.1:5174/@vite/client (934)
+    [pid=60964][err] [1115/104612.578:INFO:CONSOLE:934] "[vite] connecting...", source: http://127.0.0.1:5174/@vite/client (934)
+    [pid=60964][err] [1115/104613.055:INFO:CONSOLE:1043] "[vite] connected.", source: http://127.0.0.1:5174/@vite/client (1043)
+    [pid=60964][err] [1115/104613.056:INFO:CONSOLE:1043] "[vite] connected.", source: http://127.0.0.1:5174/@vite/client (1043)
+    [pid=60964][err] [1115/104617.448:INFO:CONSOLE:934] "[vite] connecting...", source: http://127.0.0.1:5174/@vite/client (934)
+    [pid=60964][err] [1115/104617.547:INFO:CONSOLE:1043] "[vite] connected.", source: http://127.0.0.1:5174/@vite/client (1043)
+    [pid=60964][err] [1115/104617.711:INFO:CONSOLE:15803] "%cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold", source: http://127.0.0.1:5174/node_modules/.vite/deps/react-dom_client.js?v=32e24ed7 (15803)
+    [pid=60964][err] [1115/104618.384:INFO:CONSOLE:364] "The width(0) and height(0) of chart should be greater than 0,
+    [pid=60964][err]        please check the style of container, or the props width(100%) and height(100%),
+    [pid=60964][err]        or add a minWidth(0) or minHeight(undefined) or use aspect(undefined) to control the
+    [pid=60964][err]        height and width.", source: http://127.0.0.1:5174/@vite/client (364)
+    [pid=60964][err] [1115/104618.384:INFO:CONSOLE:364] "The width(0) and height(0) of chart should be greater than 0,
+    [pid=60964][err]        please check the style of container, or the props width(100%) and height(100%),
+    [pid=60964][err]        or add a minWidth(0) or minHeight(undefined) or use aspect(undefined) to control the
+    [pid=60964][err]        height and width.", source: http://127.0.0.1:5174/@vite/client (364)
+    [pid=60964][err] [1115/104618.679:INFO:CONSOLE:934] "[vite] connecting...", source: http://127.0.0.1:5174/@vite/client (934)
+    [pid=60964][err] [1115/104618.679:INFO:CONSOLE:934] "[vite] connecting...", source: http://127.0.0.1:5174/@vite/client (934)
+    [pid=60964][err] [1115/104618.685:INFO:CONSOLE:1043] "[vite] connected.", source: http://127.0.0.1:5174/@vite/client (1043)
+    [pid=60964][err] [1115/104618.706:INFO:CONSOLE:1043] "[vite] connected.", source: http://127.0.0.1:5174/@vite/client (1043)
+    [pid=60964][err] [1115/104618.893:INFO:CONSOLE:364] "The width(0) and height(0) of chart should be greater than 0,
+    [pid=60964][err]        please check the style of container, or the props width(100%) and height(100%),
+    [pid=60964][err]        or add a minWidth(0) or minHeight(undefined) or use aspect(undefined) to control the
+    [pid=60964][err]        height and width.", source: http://127.0.0.1:5174/@vite/client (364)
+    [pid=60964][err] [1115/104618.894:INFO:CONSOLE:364] "The width(0) and height(0) of chart should be greater than 0,
+    [pid=60964][err]        please check the style of container, or the props width(100%) and height(100%),
+    [pid=60964][err]        or add a minWidth(0) or minHeight(undefined) or use aspect(undefined) to control the
+    [pid=60964][err]        height and width.", source: http://127.0.0.1:5174/@vite/client (364)
+    [pid=60964][err] [1115/104618.901:INFO:CONSOLE:364] "The width(0) and height(0) of chart should be greater than 0,
+    [pid=60964][err]        please check the style of container, or the props width(100%) and height(100%),
+    [pid=60964][err]        or add a minWidth(0) or minHeight(undefined) or use aspect(undefined) to control the
+    [pid=60964][err]        height and width.", source: http://127.0.0.1:5174/@vite/client (364)
+    [pid=60964][err] [1115/104618.901:INFO:CONSOLE:364] "The width(0) and height(0) of chart should be greater than 0,
+    [pid=60964][err]        please check the style of container, or the props width(100%) and height(100%),
+    [pid=60964][err]        or add a minWidth(0) or minHeight(undefined) or use aspect(undefined) to control the
+    [pid=60964][err]        height and width.", source: http://127.0.0.1:5174/@vite/client (364)
+    [pid=60964][err] [1115/104620.143:INFO:CONSOLE:934] "[vite] connecting...", source: http://127.0.0.1:5174/@vite/client (934)
+    [pid=60964][err] [1115/104620.237:INFO:CONSOLE:1043] "[vite] connected.", source: http://127.0.0.1:5174/@vite/client (1043)
+    [pid=60964][err] [1115/104620.395:INFO:CONSOLE:15803] "%cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold", source: http://127.0.0.1:5174/node_modules/.vite/deps/react-dom_client.js?v=32e24ed7 (15803)
+    [pid=60964][err] [1115/104622.978:INFO:CONSOLE:934] "[vite] connecting...", source: http://127.0.0.1:5174/@vite/client (934)
+    [pid=60964][err] [1115/104622.979:INFO:CONSOLE:934] "[vite] connecting...", source: http://127.0.0.1:5174/@vite/client (934)
+    [pid=60964][err] [1115/104622.990:INFO:CONSOLE:1043] "[vite] connected.", source: http://127.0.0.1:5174/@vite/client (1043)
+    [pid=60964][err] [1115/104623.009:INFO:CONSOLE:1043] "[vite] connected.", source: http://127.0.0.1:5174/@vite/client (1043)
+    [pid=60964][err] [1115/104624.754:ERROR:gpu\command_buffer\service\shared_image\shared_image_manager.cc:260] SharedImageManager::ProduceSkia: Trying to Produce a Skia representation from a non-existent mailbox.
+    [pid=60964][err] [1115/104624.937:INFO:CONSOLE:934] "[vite] connecting...", source: http://127.0.0.1:5174/@vite/client (934)
+    [pid=60964][err] [1115/104625.037:INFO:CONSOLE:1043] "[vite] connected.", source: http://127.0.0.1:5174/@vite/client (1043)
+    [pid=60964][err] [1115/104625.215:INFO:CONSOLE:15803] "%cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold", source: http://127.0.0.1:5174/node_modules/.vite/deps/react-dom_client.js?v=32e24ed7 (15803)
+    [pid=60964][err] [1115/104628.177:INFO:CONSOLE:934] "[vite] connecting...", source: http://127.0.0.1:5174/@vite/client (934)
+    [pid=60964][err] [1115/104628.270:INFO:CONSOLE:934] "[vite] connecting...", source: http://127.0.0.1:5174/@vite/client (934)
+    [pid=60964][err] [1115/104628.291:INFO:CONSOLE:1043] "[vite] connected.", source: http://127.0.0.1:5174/@vite/client (1043)
+    [pid=60964][err] [1115/104628.348:INFO:CONSOLE:1043] "[vite] connected.", source: http://127.0.0.1:5174/@vite/client (1043)
+    [pid=60964] <gracefully close start>
+    Call log:
+      - waiting for locator('.usb-connect summary')
+        - locator resolved to <summary>Kết nối ESP32-S3</summary>
+      - attempting click action
+        2 × waiting for element to be visible, enabled and stable
+          - element is visible, enabled and stable
+          - scrolling into view if needed
+          - done scrolling
+          - <div class="probe-channel">…</div> from <div role="region" class="sensor-detail" aria-label="Chi tiết đầu đo A">…</div> subtree intercepts pointer events
+        - retrying click action
+        - waiting 20ms
+        2 × waiting for element to be visible, enabled and stable
+          - element is visible, enabled and stable
+          - scrolling into view if needed
+          - done scrolling
+          - <div class="probe-channel">…</div> from <div role="region" class="sensor-detail" aria-label="Chi tiết đầu đo A">…</div> subtree intercepts pointer events
+        - retrying click action
+          - waiting 100ms
+        102 × waiting for element to be visible, enabled and stable
+            - element is visible, enabled and stable
+            - scrolling into view if needed
+            - done scrolling
+            - <div class="probe-channel">…</div> from <div role="region" class="sensor-detail" aria-label="Chi tiết đầu đo A">…</div> subtree intercepts pointer events
+          - retrying click action
+            - waiting 500ms
+        - waiting for element to be visible, enabled and stable
+
+
+      66 |   await expect(page.locator(".telemetry-heading")).toContainText("Mất kết nối");
+      67 |   await expect(page.locator(".sensor-number").nth(2)).toContainText("3.086");
+    > 68 |   await page.locator(".usb-connect summary").click();
+         |                                              ^
+      69 |   await page
+      70 |     .getByRole("button", { name: "Chọn cổng USB", exact: true })
+      71 |     .click();
+        at C:\Users\ghcoo\.codex\project-memory\agrotwin-v5\remote-reproduction\nasasac26-neurax\frontend\tests\e2e\sprint3a.spec.ts:68:46
+
+    Error Context: artifacts\sprint3a-current-final-results\sprint3a-SIMULATED-ONLY-da-ffbf5-QA-stale-loss-and-reconnect\error-context.md
+
+    attachment #2: trace (application/zip) ─────────────────────────────────────────────────────────
+    artifacts\sprint3a-current-final-results\sprint3a-SIMULATED-ONLY-da-ffbf5-QA-stale-loss-and-reconnect\trace.zip
+    Usage:
+
+        npx playwright show-trace artifacts\sprint3a-current-final-results\sprint3a-SIMULATED-ONLY-da-ffbf5-QA-stale-loss-and-reconnect\trace.zip
+
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+  1 failed
+    tests\e2e\sprint3a.spec.ts:4:1 › SIMULATED_ONLY: dashboard USB wait, text channels, QA, stale, loss and reconnect 
+  33 passed (7.2m)

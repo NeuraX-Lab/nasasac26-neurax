@@ -25,6 +25,11 @@ export function RotationComparison({
       mung_bean: m("Đậu xanh", "Mung bean"),
     })[id] || id;
   const supported = run?.sidecar.catalog_supported;
+  const options = v2?.response.decision.options || [];
+  const sharedMissing =
+    options[0]?.missing_inputs.filter((item) =>
+      options.every((option) => option.missing_inputs.includes(item)),
+    ) || [];
   const cards = useRef<Array<HTMLElement | null>>([]);
   return (
     <section className="rotation-comparison" aria-labelledby="rotation-title">
@@ -105,6 +110,28 @@ export function RotationComparison({
               </button>
             ))}
           </div>
+          {sharedMissing.length > 0 && (
+            <details className="shared-checks">
+              <summary>
+                {m(
+                  "Cần xác nhận cho mọi phương án",
+                  "Checks shared by all options",
+                )}{" "}
+                ({sharedMissing.length})
+              </summary>
+              <ul>
+                {sharedMissing.map((item) => (
+                  <li key={item}>{item}</li>
+                ))}
+              </ul>
+              <p>
+                {m(
+                  "Bổ sung điều bạn biết trong Điều kiện; mục chưa có trường khai báo cần trao đổi với cán bộ địa phương trước khi chốt.",
+                  "Add known information under Conditions; discuss unsupported fields with a local adviser before deciding.",
+                )}
+              </p>
+            </details>
+          )}
           <div className={`rotation-options ${stale ? "is-stale" : ""}`}>
             {run.a1.results.map((result, index) => {
               const live = v2?.response.decision.options.find(
@@ -131,6 +158,7 @@ export function RotationComparison({
                   }}
                 >
                   <h3>
+                    <span className="strategy-code">{result.strategy_id}</span>
                     {index === 0
                       ? m("Giữ chuỗi lúa", "Keep the rice sequence")
                       : index === 1
@@ -167,6 +195,38 @@ export function RotationComparison({
                         }
                       </strong>
                       {live.status === "blocked" && (
+                        <p className="option-brief">
+                          {v2?.request.farm.drainage === "poor"
+                            ? m(
+                                "Thoát nước kém theo khai báo; cần kiểm biện pháp khắc phục.",
+                                "Reported poor drainage; check mitigation locally.",
+                              )
+                            : m(
+                                "Còn điều kiện chưa đáp ứng; mở lý do trước khi cân nhắc.",
+                                "Unmet conditions; inspect reasons before considering.",
+                              )}
+                        </p>
+                      )}
+                      {live.missing_inputs.filter(
+                        (item) => !sharedMissing.includes(item),
+                      ).length > 0 && (
+                        <p className="option-next-check">
+                          <b>{m("Cần làm rõ: ", "Clarify: ")}</b>
+                          {live.missing_inputs
+                            .filter((item) => !sharedMissing.includes(item))
+                            .slice(0, 2)
+                            .join(" · ")}
+                          {live.missing_inputs.filter(
+                            (item) => !sharedMissing.includes(item),
+                          ).length > 2
+                            ? m(
+                                ". Xem các mục còn lại bên dưới.",
+                                ". See remaining items below.",
+                              )
+                            : ""}
+                        </p>
+                      )}
+                      {live.status === "blocked" && (
                         <p>
                           {vi
                             ? live.reasons.join(" ")
@@ -178,10 +238,11 @@ export function RotationComparison({
                       <details>
                         <summary>
                           {m(
-                            "Đối chiếu v2 theo khai báo",
-                            "V2 checks for your inputs",
+                            "Vì sao, cần kiểm gì & nguồn",
+                            "Reasons, next checks & sources",
                           )}
                         </summary>
+                        <p>{live.reasons.join(" ")}</p>
                         <ul>
                           {live.missing_inputs.map((s) => (
                             <li key={s}>{s}</li>
@@ -222,46 +283,51 @@ export function RotationComparison({
                       </li>
                     ))}
                   </ol>
-                  <dl className="rotation-criteria">
-                    <div>
-                      <dt>{m("Tưới–tiêu", "Water & drainage")}</dt>
-                      <dd>
-                        {drainage
-                          ? m(
-                              "Cần đối chiếu thoát nước và lịch sử ngập khi đưa cây cạn vào ruộng lúa.",
-                              "Check drainage and waterlogging before introducing an upland crop.",
-                            )
-                          : water
+                  <details className="criteria-disclosure">
+                    <summary>
+                      {m("Điều kiện & lịch vụ", "Conditions & timing")}
+                    </summary>
+                    <dl className="rotation-criteria">
+                      <div>
+                        <dt>{m("Tưới–tiêu", "Water & drainage")}</dt>
+                        <dd>
+                          {drainage
                             ? m(
-                                "Mưa chưa xác nhận nguồn tưới; cần kiểm nguồn và nhu cầu từng giai đoạn.",
-                                "Rain does not establish irrigation supply; check supply and crop-stage needs.",
+                                "Cần đối chiếu thoát nước và lịch sử ngập khi đưa cây cạn vào ruộng lúa.",
+                                "Check drainage and waterlogging before introducing an upland crop.",
                               )
-                            : m(
-                                "Chưa có tiêu chí đủ căn cứ.",
-                                "No supported criterion is available.",
-                              )}
-                      </dd>
-                    </div>
-                    <div>
-                      <dt>{m("Khớp lịch vụ", "Timing")}</dt>
-                      <dd>
-                        {timing?.criterion_id === "K1-DRAFT-MUNG-TIMING"
-                          ? m(
-                              "Nguồn DX208 từ Hà Tĩnh chưa xác nhận giống hoặc thời lượng ở Mỹ Thành.",
-                              "DX208 evidence from Hà Tĩnh does not establish the local cultivar or duration.",
-                            )
-                          : timing
+                            : water
+                              ? m(
+                                  "Mưa chưa xác nhận nguồn tưới; cần kiểm nguồn và nhu cầu từng giai đoạn.",
+                                  "Rain does not establish irrigation supply; check supply and crop-stage needs.",
+                                )
+                              : m(
+                                  "Chưa có tiêu chí đủ căn cứ.",
+                                  "No supported criterion is available.",
+                                )}
+                        </dd>
+                      </div>
+                      <div>
+                        <dt>{m("Khớp lịch vụ", "Timing")}</dt>
+                        <dd>
+                          {timing?.criterion_id === "K1-DRAFT-MUNG-TIMING"
                             ? m(
-                                "Hướng dẫn bắp non chưa được chuyển thành lịch giống ở thửa này.",
-                                "Baby-corn guidance has not been adopted as a local cultivar calendar.",
+                                "Nguồn DX208 từ Hà Tĩnh chưa xác nhận giống hoặc thời lượng ở Mỹ Thành.",
+                                "DX208 evidence from Hà Tĩnh does not establish the local cultivar or duration.",
                               )
-                            : m(
-                                "Chưa xác nhận giống và lịch gieo/thu của chuỗi hiện tại.",
-                                "The current cultivar and sowing/harvest calendar are unconfirmed.",
-                              )}
-                      </dd>
-                    </div>
-                  </dl>
+                            : timing
+                              ? m(
+                                  "Hướng dẫn bắp non chưa được chuyển thành lịch giống ở thửa này.",
+                                  "Baby-corn guidance has not been adopted as a local cultivar calendar.",
+                                )
+                              : m(
+                                  "Chưa xác nhận giống và lịch gieo/thu của chuỗi hiện tại.",
+                                  "The current cultivar and sowing/harvest calendar are unconfirmed.",
+                                )}
+                        </dd>
+                      </div>
+                    </dl>
+                  </details>
                   <details>
                     <summary>
                       {m(
