@@ -1,5 +1,9 @@
 # AgroTwin — local readiness decision tool
 
+Current dashboard and v2 integration: [15 November handoff](../docs/product-integration/UI_REMAKE_HANDOFF.md). Open `http://127.0.0.1:5174/w/my-thanh/farmer`. From this directory, `./Start-AgroTwin.ps1 -NoBrowser` reuses compatible UI/A1 services and starts/reuses the isolated FieldShift v2 API at8182. V2 runtime lives in sibling `fieldshift-v2-runtime-cc674716`, with its own Python3.12.14 environment and pinned dependencies; use `-X utf8`. `./Stop-FieldShiftV2.ps1 -WhatIf` previews stopping only launcher-owned v2 processes.
+
+V2 analyzes rules/RAG for supported pilot inputs and serves precomputed model forecasts. It does not rerun climate prediction per farm edit or provide approved crop rankings. Drafts persist in this browser's localStorage. Current checks (native Windows, Node24.22.1, existing package-lock): `node node_modules/typescript/bin/tsc -b`, `node node_modules/eslint/bin/eslint.js .`, `node node_modules/vitest/vitest.mjs run`, `node node_modules/vite/bin/vite.js build`, and `node node_modules/@playwright/test/cli.js test tests/e2e/dashboard.spec.ts tests/e2e/dashboard-model.spec.ts tests/e2e/live-v2.spec.ts`.
+
 One shared real A1 run powers Farmer and Power views. The current production catalog is unapproved historical evidence: results honestly return needs_review and null scores. It is not a validated crop recommendation.
 
 Start with [the V4 runbook](../docs/execution/AGROTWIN_DEMO_RUNBOOK.md), [execution plan](../docs/execution/AGROTWIN_BUILD_PLAN.md), [test evidence](../docs/execution/AGROTWIN_BUILD_EVIDENCE.md) and [science limits](../docs/execution/AGROTWIN_SCIENCE_LIMITATIONS.md).

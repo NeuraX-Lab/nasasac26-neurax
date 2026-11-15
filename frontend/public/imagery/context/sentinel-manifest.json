@@ -1,0 +1,93 @@
+{
+  "scene_id": "S2B_MSIL2A_20250104T032039_R118_T48PXS_20250104T132148",
+  "date": "2025-01-04",
+  "coordinates": [
+    [
+      106.02059400926002,
+      10.480047845031963
+    ],
+    [
+      106.02260409007603,
+      10.480041392213721
+    ],
+    [
+      106.0225978611049,
+      10.478142391800237
+    ],
+    [
+      106.02058779252768,
+      10.478148843423758
+    ]
+  ],
+  "resolution_m": 10,
+  "qa_resolution_m": 20,
+  "attribution": "Contains modified Copernicus Sentinel data (2025), processed by NeuraX",
+  "license_url": "https://dataspace.copernicus.eu/terms-and-conditions",
+  "bands": [
+    "B08",
+    "B04",
+    "B03"
+  ],
+  "display": "False colour NIR/red/green; reflectance offset -1000, scale 10000, fixed display clip 0–0.5; not natural colour or crop classification",
+  "qa": {
+    "scene_cloud_pct": 78.689849,
+    "indices": {
+      "ndvi": {
+        "valid_fraction": 1.0,
+        "valid_centers": 233,
+        "mean": 0.940083982673165,
+        "p10": 0.9253242232127857,
+        "median": 0.9452643531635452,
+        "p90": 0.9582223270176783
+      },
+      "ndwi_green_nir": {
+        "valid_fraction": 1.0,
+        "valid_centers": 233,
+        "mean": -0.826726163244391,
+        "p10": -0.8439425988578824,
+        "median": -0.8293515358361776,
+        "p90": -0.8138509896593651
+      },
+      "ndvi_land_only": {
+        "valid_fraction": 1.0,
+        "valid_centers": 233,
+        "mean": 0.940083982673165,
+        "p10": 0.9253242232127857,
+        "median": 0.9452643531635452,
+        "p90": 0.9582223270176783
+      }
+    },
+    "clear_including_water_fraction": 1.0,
+    "water_fraction": 0.0,
+    "land_fraction": 1.0,
+    "crs": "EPSG:32648",
+    "quality_native_m": 20.0,
+    "quantification": 10000.0,
+    "offsets": {
+      "2": -1000.0,
+      "3": -1000.0,
+      "7": -1000.0
+    },
+    "aoi_area_approx_m2": 19873.0,
+    "reflectance_m": 10.0,
+    "status": "features_computed_research_only"
+  },
+  "sources": [
+    {
+      "band": "B08",
+      "sha256": "5e8855e906221cc803e2f1d290d63abc5b3a587ea68aa1859eaff641a55921bc",
+      "public_source_locator": "https://sentinel2l2a01.blob.core.windows.net/sentinel2-l2/48/P/XS/2025/01/04/S2B_MSIL2A_20250104T032039_N0511_R118_T48PXS_20250104T132148.SAFE/GRANULE/L2A_T48PXS_A040899_20250104T032739/IMG_DATA/R10m/T48PXS_20250104T032039_B08_10m.tif"
+    },
+    {
+      "band": "B04",
+      "sha256": "f66093a661315c8a8300cce2c1a5889c5a8cc78aeb58647c1440349354101bc8",
+      "public_source_locator": "https://sentinel2l2a01.blob.core.windows.net/sentinel2-l2/48/P/XS/2025/01/04/S2B_MSIL2A_20250104T032039_N0511_R118_T48PXS_20250104T132148.SAFE/GRANULE/L2A_T48PXS_A040899_20250104T032739/IMG_DATA/R10m/T48PXS_20250104T032039_B04_10m.tif"
+    },
+    {
+      "band": "B03",
+      "sha256": "4cb04d4faa3c7a2ab3a74434b4e3c41af1d2be4ad39b83fa894028a0a936abcd",
+      "public_source_locator": "https://sentinel2l2a01.blob.core.windows.net/sentinel2-l2/48/P/XS/2025/01/04/S2B_MSIL2A_20250104T032039_N0511_R118_T48PXS_20250104T132148.SAFE/GRANULE/L2A_T48PXS_A040899_20250104T032739/IMG_DATA/R10m/T48PXS_20250104T032039_B03_10m.tif"
+    }
+  ],
+  "limitation": "Historical 220×210 m crop; mixed pixels; not current conditions, soil test, or proof of crop identity"
+}

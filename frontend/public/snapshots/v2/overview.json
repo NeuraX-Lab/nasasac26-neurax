@@ -1,0 +1,1712 @@
+{
+  "schema_version": "fieldshift-2",
+  "run_id": "v2-fda23ae4041a",
+  "region_id": "MT-BLOCK-01",
+  "label": "Mỹ Thành, Đồng Tháp",
+  "coordinate": [
+    106.021621,
+    10.479098
+  ],
+  "coordinate_scope": "research-pack anchor; place-name supplied by user",
+  "data_through": "2026-10-01",
+  "forecasts": [
+    {
+      "target": "air_rh_mean_pct",
+      "unit": "percent",
+      "horizon_months": 1,
+      "target_month": "2026-12-01",
+      "value": 81.94209722196585,
+      "lower": 77.62411216234459,
+      "upper": 86.26008228158712,
+      "nominal_coverage": 0.8,
+      "backtest_coverage": 0.7222222222222222,
+      "method": "blend-0.75",
+      "issued_at_utc": "2026-11-14T16:06:19.861430+00:00",
+      "data_through": "2026-10-01",
+      "kind": "monthly_research_hindcast_method",
+      "historical_vintage_verified": false,
+      "warning": "Not daily weather, field measurement, seasonal dynamical forecast or exact irrigation demand",
+      "training_inference_calendar_verified": true,
+      "feature_data_cutoff": "2026-10-01"
+    },
+    {
+      "target": "air_rh_mean_pct",
+      "unit": "percent",
+      "horizon_months": 3,
+      "target_month": "2027-02-01",
+      "value": 63.01726862735961,
+      "lower": 58.542603248027845,
+      "upper": 67.49193400669138,
+      "nominal_coverage": 0.8,
+      "backtest_coverage": 0.6944444444444444,
+      "method": "blend-0.5",
+      "issued_at_utc": "2026-11-14T16:06:35.409124+00:00",
+      "data_through": "2026-10-01",
+      "kind": "monthly_research_hindcast_method",
+      "historical_vintage_verified": false,
+      "warning": "Not daily weather, field measurement, seasonal dynamical forecast or exact irrigation demand",
+      "training_inference_calendar_verified": true,
+      "feature_data_cutoff": "2026-10-01"
+    },
+    {
+      "target": "air_temp_mean_c",
+      "unit": "degC",
+      "horizon_months": 1,
+      "target_month": "2026-12-01",
+      "value": 26.296026766581058,
+      "lower": 25.649863448340536,
+      "upper": 26.94219008482158,
+      "nominal_coverage": 0.8,
+      "backtest_coverage": 0.7222222222222222,
+      "method": "blend-0.75",
+      "issued_at_utc": "2026-11-14T16:05:51.861717+00:00",
+      "data_through": "2026-10-01",
+      "kind": "monthly_research_hindcast_method",
+      "historical_vintage_verified": false,
+      "warning": "Not daily weather, field measurement, seasonal dynamical forecast or exact irrigation demand",
+      "training_inference_calendar_verified": true,
+      "feature_data_cutoff": "2026-10-01"
+    },
+    {
+      "target": "air_temp_mean_c",
+      "unit": "degC",
+      "horizon_months": 3,
+      "target_month": "2027-02-01",
+      "value": 28.377870631011028,
+      "lower": 27.671148408788802,
+      "upper": 29.084592853233254,
+      "nominal_coverage": 0.8,
+      "backtest_coverage": 0.6388888888888888,
+      "method": "clim_mean",
+      "issued_at_utc": "2026-11-14T16:06:04.985944+00:00",
+      "data_through": "2026-10-01",
+      "kind": "monthly_research_hindcast_method",
+      "historical_vintage_verified": false,
+      "warning": "Not daily weather, field measurement, seasonal dynamical forecast or exact irrigation demand",
+      "training_inference_calendar_verified": true,
+      "feature_data_cutoff": "2026-10-01"
+    },
+    {
+      "target": "precip_sum_mm",
+      "unit": "mm/month",
+      "horizon_months": 1,
+      "target_month": "2026-12-01",
+      "value": 24.95,
+      "lower": 0,
+      "upper": 72.60000000000001,
+      "nominal_coverage": 0.8,
+      "backtest_coverage": 0.6388888888888888,
+      "method": "clim_median",
+      "issued_at_utc": "2026-11-14T16:05:21.577122+00:00",
+      "data_through": "2026-10-01",
+      "kind": "monthly_research_hindcast_method",
+      "historical_vintage_verified": false,
+      "warning": "Not daily weather, field measurement, seasonal dynamical forecast or exact irrigation demand",
+      "training_inference_calendar_verified": true,
+      "feature_data_cutoff": "2026-10-01"
+    },
+    {
+      "target": "precip_sum_mm",
+      "unit": "mm/month",
+      "horizon_months": 3,
+      "target_month": "2027-02-01",
+      "value": 20.642518713127487,
+      "lower": 0,
+      "upper": 76.41401182564925,
+      "nominal_coverage": 0.8,
+      "backtest_coverage": 0.7222222222222222,
+      "method": "ridge-1",
+      "issued_at_utc": "2026-11-14T16:05:36.826470+00:00",
+      "data_through": "2026-10-01",
+      "kind": "monthly_research_hindcast_method",
+      "historical_vintage_verified": false,
+      "warning": "Not daily weather, field measurement, seasonal dynamical forecast or exact irrigation demand",
+      "training_inference_calendar_verified": true,
+      "feature_data_cutoff": "2026-10-01"
+    }
+  ],
+  "months": [
+    {
+      "date": "2024-11-01",
+      "rain": 125.89,
+      "temp": 27.133333333333333,
+      "rh": 86.18533333333333,
+      "coverage": 1,
+      "qa": "pass"
+    },
+    {
+      "date": "2024-12-01",
+      "rain": 100.37,
+      "temp": 25.706129032258065,
+      "rh": 85.67290322580645,
+      "coverage": 1,
+      "qa": "pass"
+    },
+    {
+      "date": "2025-01-01",
+      "rain": 2.7,
+      "temp": 25.73258064516129,
+      "rh": 74.09258064516129,
+      "coverage": 1,
+      "qa": "pass"
+    },
+    {
+      "date": "2025-02-01",
+      "rain": 6.5,
+      "temp": 28.762857142857143,
+      "rh": 63.56464285714286,
+      "coverage": 1,
+      "qa": "pass"
+    },
+    {
+      "date": "2025-03-01",
+      "rain": 23.27,
+      "temp": 30.27806451612903,
+      "rh": 60.7641935483871,
+      "coverage": 1,
+      "qa": "pass"
+    },
+    {
+      "date": "2025-04-01",
+      "rain": 36.97,
+      "temp": 30.29133333333333,
+      "rh": 66.862,
+      "coverage": 1,
+      "qa": "pass"
+    },
+    {
+      "date": "2025-05-01",
+      "rain": 166.71,
+      "temp": 29.59967741935484,
+      "rh": 75.38193548387098,
+      "coverage": 1,
+      "qa": "pass"
+    },
+    {
+      "date": "2025-06-01",
+      "rain": 240.58,
+      "temp": 27.586333333333336,
+      "rh": 86.96933333333332,
+      "coverage": 1,
+      "qa": "pass"
+    },
+    {
+      "date": "2025-07-01",
+      "rain": 119.09,
+      "temp": 27.54032258064516,
+      "rh": 87.08032258064516,
+      "coverage": 1,
+      "qa": "pass"
+    },
+    {
+      "date": "2025-08-01",
+      "rain": 167.74,
+      "temp": 27.19709677419355,
+      "rh": 86.05741935483871,
+      "coverage": 1,
+      "qa": "pass"
+    },
+    {
+      "date": "2025-09-01",
+      "rain": 194.97,
+      "temp": 26.927,
+      "rh": 88.42366666666666,
+      "coverage": 1,
+      "qa": "pass"
+    },
+    {
+      "date": "2025-10-01",
+      "rain": 367.58,
+      "temp": 26.984516129032254,
+      "rh": 88.27161290322582,
+      "coverage": 1,
+      "qa": "pass"
+    },
+    {
+      "date": "2025-11-01",
+      "rain": 150.99,
+      "temp": 25.905666666666665,
+      "rh": 88.00166666666668,
+      "coverage": 1,
+      "qa": "pass"
+    },
+    {
+      "date": "2025-12-01",
+      "rain": 47.35,
+      "temp": 26.086129032258064,
+      "rh": 82.9158064516129,
+      "coverage": 1,
+      "qa": "pass"
+    },
+    {
+      "date": "2026-01-01",
+      "rain": 0.97,
+      "temp": 25.29225806451613,
+      "rh": 72.97774193548386,
+      "coverage": 1,
+      "qa": "pass"
+    },
+    {
+      "date": "2026-02-01",
+      "rain": 22.78,
+      "temp": 28.691785714285714,
+      "rh": 64.37678571428572,
+      "coverage": 1,
+      "qa": "pass"
+    },
+    {
+      "date": "2026-03-01",
+      "rain": 3.93,
+      "temp": 29.92806451612903,
+      "rh": 60.14548387096775,
+      "coverage": 1,
+      "qa": "pass"
+    },
+    {
+      "date": "2026-04-01",
+      "rain": 5.9,
+      "temp": 31.927666666666664,
+      "rh": 54.50033333333333,
+      "coverage": 1,
+      "qa": "pass"
+    },
+    {
+      "date": "2026-05-01",
+      "rain": 185.94,
+      "temp": 30.036774193548386,
+      "rh": 74.42258064516129,
+      "coverage": 1,
+      "qa": "pass"
+    },
+    {
+      "date": "2026-06-01",
+      "rain": 124.45,
+      "temp": 28.068,
+      "rh": 85.49066666666667,
+      "coverage": 1,
+      "qa": "pass"
+    },
+    {
+      "date": "2026-07-01",
+      "rain": 250.77,
+      "temp": 27.51451612903226,
+      "rh": 86.79709677419355,
+      "coverage": 1,
+      "qa": "pass"
+    },
+    {
+      "date": "2026-08-01",
+      "rain": 163.65,
+      "temp": 27.565483870967743,
+      "rh": 87.46806451612902,
+      "coverage": 1,
+      "qa": "pass"
+    },
+    {
+      "date": "2026-09-01",
+      "rain": 346.38,
+      "temp": 27.501666666666665,
+      "rh": 87.60933333333334,
+      "coverage": 1,
+      "qa": "pass"
+    },
+    {
+      "date": "2026-10-01",
+      "rain": 237.53,
+      "temp": 27.63064516129032,
+      "rh": 87.44387096774194,
+      "coverage": 1,
+      "qa": "pass"
+    }
+  ],
+  "context": {
+    "weather": {
+      "period": "2026-10-01",
+      "air_temp_mean_c": 27.63064516129032,
+      "air_rh_mean_pct": 87.44387096774194,
+      "rain_mm": 237.53,
+      "support": "POWER grid, not farm station"
+    },
+    "moisture": {
+      "period": "2025-12-01",
+      "SFMC_m3_m3": 0.4329007029032258,
+      "RZMC_m3_m3": 0.4551568787096774,
+      "support": "SMAP L4 regional model, historical"
+    },
+    "soil_model": [
+      {
+        "property": "cec",
+        "depth_cm": "0-5cm",
+        "statistic": "mean",
+        "raw_value": 253,
+        "raw_unit": "mmol(c)/kg",
+        "conversion_divisor": 10,
+        "value": 25.3,
+        "unit": "cmol(c)/kg",
+        "mass_percent": null,
+        "longitude": 106.021621,
+        "latitude": 10.479098,
+        "source_kind": "ISRIC_model_estimate",
+        "source_id": "LOCAL_SG",
+        "field_measured": false
+      },
+      {
+        "property": "cec",
+        "depth_cm": "5-15cm",
+        "statistic": "mean",
+        "raw_value": 225,
+        "raw_unit": "mmol(c)/kg",
+        "conversion_divisor": 10,
+        "value": 22.5,
+        "unit": "cmol(c)/kg",
+        "mass_percent": null,
+        "longitude": 106.021621,
+        "latitude": 10.479098,
+        "source_kind": "ISRIC_model_estimate",
+        "source_id": "LOCAL_SG",
+        "field_measured": false
+      },
+      {
+        "property": "cec",
+        "depth_cm": "15-30cm",
+        "statistic": "mean",
+        "raw_value": 218,
+        "raw_unit": "mmol(c)/kg",
+        "conversion_divisor": 10,
+        "value": 21.8,
+        "unit": "cmol(c)/kg",
+        "mass_percent": null,
+        "longitude": 106.021621,
+        "latitude": 10.479098,
+        "source_kind": "ISRIC_model_estimate",
+        "source_id": "LOCAL_SG",
+        "field_measured": false
+      },
+      {
+        "property": "nitrogen",
+        "depth_cm": "0-5cm",
+        "statistic": "mean",
+        "raw_value": 281,
+        "raw_unit": "cg/kg",
+        "conversion_divisor": 100,
+        "value": 2.81,
+        "unit": "g/kg",
+        "mass_percent": 0.281,
+        "longitude": 106.021621,
+        "latitude": 10.479098,
+        "source_kind": "ISRIC_model_estimate",
+        "source_id": "LOCAL_SG",
+        "field_measured": false
+      },
+      {
+        "property": "nitrogen",
+        "depth_cm": "5-15cm",
+        "statistic": "mean",
+        "raw_value": 234,
+        "raw_unit": "cg/kg",
+        "conversion_divisor": 100,
+        "value": 2.34,
+        "unit": "g/kg",
+        "mass_percent": 0.2339999999999999,
+        "longitude": 106.021621,
+        "latitude": 10.479098,
+        "source_kind": "ISRIC_model_estimate",
+        "source_id": "LOCAL_SG",
+        "field_measured": false
+      },
+      {
+        "property": "nitrogen",
+        "depth_cm": "15-30cm",
+        "statistic": "mean",
+        "raw_value": 165,
+        "raw_unit": "cg/kg",
+        "conversion_divisor": 100,
+        "value": 1.65,
+        "unit": "g/kg",
+        "mass_percent": 0.1649999999999999,
+        "longitude": 106.021621,
+        "latitude": 10.479098,
+        "source_kind": "ISRIC_model_estimate",
+        "source_id": "LOCAL_SG",
+        "field_measured": false
+      },
+      {
+        "property": "soc",
+        "depth_cm": "0-5cm",
+        "statistic": "mean",
+        "raw_value": 367,
+        "raw_unit": "dg/kg",
+        "conversion_divisor": 10,
+        "value": 36.7,
+        "unit": "g/kg",
+        "mass_percent": 3.67,
+        "longitude": 106.021621,
+        "latitude": 10.479098,
+        "source_kind": "ISRIC_model_estimate",
+        "source_id": "LOCAL_SG",
+        "field_measured": false
+      },
+      {
+        "property": "soc",
+        "depth_cm": "5-15cm",
+        "statistic": "mean",
+        "raw_value": 324,
+        "raw_unit": "dg/kg",
+        "conversion_divisor": 10,
+        "value": 32.4,
+        "unit": "g/kg",
+        "mass_percent": 3.24,
+        "longitude": 106.021621,
+        "latitude": 10.479098,
+        "source_kind": "ISRIC_model_estimate",
+        "source_id": "LOCAL_SG",
+        "field_measured": false
+      },
+      {
+        "property": "soc",
+        "depth_cm": "15-30cm",
+        "statistic": "mean",
+        "raw_value": 193,
+        "raw_unit": "dg/kg",
+        "conversion_divisor": 10,
+        "value": 19.3,
+        "unit": "g/kg",
+        "mass_percent": 1.93,
+        "longitude": 106.021621,
+        "latitude": 10.479098,
+        "source_kind": "ISRIC_model_estimate",
+        "source_id": "LOCAL_SG",
+        "field_measured": false
+      }
+    ],
+    "sentinel": {
+      "scenes": 8,
+      "qualified_scenes": 4,
+      "latest_scene": "2025-12-20",
+      "current_crop_classified": false
+    },
+    "interpretation": "Context quantities have different dates/support; no unreviewed threshold converts them to crop suitability"
+  },
+  "evaluation": {
+    "results": [
+      {
+        "target": "precip_sum_mm",
+        "unit": "mm/month",
+        "horizon_months": 1,
+        "selected": {
+          "id": "clim_median",
+          "kind": "clim_median",
+          "group": "v1",
+          "complexity": 0
+        },
+        "development_MAE": 32.08641666666667,
+        "baseline": {
+          "id": "clim_median",
+          "kind": "clim_median",
+          "group": "v1",
+          "complexity": 0
+        },
+        "baseline_development_MAE": 32.08641666666667,
+        "test": {
+          "MAE": 36.433055555555555,
+          "RMSE": 50.5672479366723,
+          "bias": 10.014722222222222,
+          "n": 36
+        },
+        "baseline_test": {
+          "MAE": 36.433055555555555,
+          "RMSE": 50.5672479366723,
+          "bias": 10.014722222222222,
+          "n": 36
+        },
+        "MAE_improvement_pct": 0.0,
+        "paired_improvement_mm_or_target_unit_CI95_block12": [
+          0.0,
+          0.0
+        ],
+        "folds": [
+          {
+            "year": 2004,
+            "MAE": 37.054583333333326,
+            "RMSE": 59.1560468344812,
+            "bias": -0.40375000000000255,
+            "n": 12
+          },
+          {
+            "year": 2006,
+            "MAE": 26.654166666666665,
+            "RMSE": 31.76258189022633,
+            "bias": 4.739166666666667,
+            "n": 12
+          },
+          {
+            "year": 2008,
+            "MAE": 29.679583333333337,
+            "RMSE": 39.94902243797713,
+            "bias": -8.094583333333333,
+            "n": 12
+          },
+          {
+            "year": 2010,
+            "MAE": 41.93041666666667,
+            "RMSE": 61.74675647689251,
+            "bias": -8.300416666666662,
+            "n": 12
+          },
+          {
+            "year": 2011,
+            "MAE": 25.11333333333334,
+            "RMSE": 37.722360300843675,
+            "bias": -5.061666666666662,
+            "n": 12
+          }
+        ],
+        "seed_stability": [],
+        "interval": {
+          "nominal": 0.8,
+          "radius": 47.650000000000006,
+          "coverage": 0.6388888888888888,
+          "mean_width": 80.74916666666668,
+          "method": "empirical rolling-development absolute errors; dependent-time coverage not guaranteed"
+        },
+        "groups": [
+          {
+            "season": "dry",
+            "MAE": 20.152666666666665,
+            "RMSE": 30.737895937533956,
+            "bias": -14.028666666666663,
+            "n": 15,
+            "baseline_MAE": 20.152666666666665
+          },
+          {
+            "season": "wet",
+            "MAE": 48.061904761904756,
+            "RMSE": 60.89858963102199,
+            "bias": 27.188571428571425,
+            "n": 21,
+            "baseline_MAE": 48.061904761904756
+          }
+        ],
+        "test_years": [
+          2012,
+          2013,
+          2014
+        ],
+        "test_revealed_at_utc": "2026-11-14T16:05:21.559132+00:00",
+        "selection_changed_after_test": false,
+        "independent_field_validation": false
+      },
+      {
+        "target": "precip_sum_mm",
+        "unit": "mm/month",
+        "horizon_months": 3,
+        "selected": {
+          "id": "ridge-1",
+          "kind": "ridge",
+          "group": "expanded",
+          "alpha": 1,
+          "complexity": 4
+        },
+        "development_MAE": 31.39588120482439,
+        "baseline": {
+          "id": "clim_median",
+          "kind": "clim_median",
+          "group": "v1",
+          "complexity": 0
+        },
+        "baseline_development_MAE": 32.05616666666667,
+        "test": {
+          "MAE": 32.98771309864801,
+          "RMSE": 45.98359854530059,
+          "bias": 15.079897747667312,
+          "n": 36
+        },
+        "baseline_test": {
+          "MAE": 36.691388888888895,
+          "RMSE": 50.86021176005639,
+          "bias": 10.57138888888889,
+          "n": 36
+        },
+        "MAE_improvement_pct": 10.094128083994269,
+        "paired_improvement_mm_or_target_unit_CI95_block12": [
+          -1.7728581107102805,
+          10.203268220312982
+        ],
+        "folds": [
+          {
+            "year": 2004,
+            "MAE": 39.96024334033372,
+            "RMSE": 62.19770543822177,
+            "bias": -1.0942861189693758,
+            "n": 12
+          },
+          {
+            "year": 2006,
+            "MAE": 24.306219040117423,
+            "RMSE": 30.69737337821866,
+            "bias": -8.824486201425891,
+            "n": 12
+          },
+          {
+            "year": 2008,
+            "MAE": 27.892176092841094,
+            "RMSE": 40.495621309026674,
+            "bias": 7.254554862466378,
+            "n": 12
+          },
+          {
+            "year": 2010,
+            "MAE": 43.00784811176832,
+            "RMSE": 64.30683332893169,
+            "bias": -8.65750467939379,
+            "n": 12
+          },
+          {
+            "year": 2011,
+            "MAE": 21.812919439061393,
+            "RMSE": 30.9017714525224,
+            "bias": 3.1066855897770416,
+            "n": 12
+          }
+        ],
+        "seed_stability": [],
+        "interval": {
+          "nominal": 0.8,
+          "radius": 55.771493112521775,
+          "coverage": 0.7222222222222222,
+          "mean_width": 98.47943490689921,
+          "method": "empirical rolling-development absolute errors; dependent-time coverage not guaranteed"
+        },
+        "groups": [
+          {
+            "season": "dry",
+            "MAE": 17.948865901414763,
+            "RMSE": 23.54135002404477,
+            "bias": -2.3376967176913137,
+            "n": 15,
+            "baseline_MAE": 20.152666666666665
+          },
+          {
+            "season": "wet",
+            "MAE": 43.729746810957465,
+            "RMSE": 56.82419029318347,
+            "bias": 27.521036651494903,
+            "n": 21,
+            "baseline_MAE": 48.5047619047619
+          }
+        ],
+        "test_years": [
+          2012,
+          2013,
+          2014
+        ],
+        "test_revealed_at_utc": "2026-11-14T16:05:36.699462+00:00",
+        "selection_changed_after_test": false,
+        "independent_field_validation": false
+      },
+      {
+        "target": "air_temp_mean_c",
+        "unit": "degC",
+        "horizon_months": 1,
+        "selected": {
+          "id": "blend-0.75",
+          "kind": "blend",
+          "base": {
+            "id": "clim_mean",
+            "kind": "clim_mean",
+            "group": "v1",
+            "complexity": 1
+          },
+          "candidate": {
+            "id": "hgb-v1-7-0.08-12",
+            "kind": "hgb",
+            "group": "v1",
+            "leaves": 7,
+            "rate": 0.08,
+            "leaf": 12,
+            "complexity": 6
+          },
+          "weight": 0.75,
+          "group": "expanded",
+          "complexity": 9
+        },
+        "development_MAE": 0.4358733460415993,
+        "baseline": {
+          "id": "clim_mean",
+          "kind": "clim_mean",
+          "group": "v1",
+          "complexity": 1
+        },
+        "baseline_development_MAE": 0.48428633594539666,
+        "test": {
+          "MAE": 0.5067280608333603,
+          "RMSE": 0.6079880779433127,
+          "bias": -0.14507598681510508,
+          "n": 36
+        },
+        "baseline_test": {
+          "MAE": 0.5919361720349957,
+          "RMSE": 0.7560701671427785,
+          "bias": -0.18900257930408731,
+          "n": 36
+        },
+        "MAE_improvement_pct": 14.394814040287752,
+        "paired_improvement_mm_or_target_unit_CI95_block12": [
+          -0.05711094662982457,
+          0.2430862219521531
+        ],
+        "folds": [
+          {
+            "year": 2004,
+            "MAE": 0.294906384735713,
+            "RMSE": 0.34715646587429505,
+            "bias": -0.02672427461070163,
+            "n": 12
+          },
+          {
+            "year": 2006,
+            "MAE": 0.3704788063916273,
+            "RMSE": 0.5314093756800115,
+            "bias": -0.11433777873978308,
+            "n": 12
+          },
+          {
+            "year": 2008,
+            "MAE": 0.4489382344022805,
+            "RMSE": 0.591903981348746,
+            "bias": 0.2287790604190952,
+            "n": 12
+          },
+          {
+            "year": 2010,
+            "MAE": 0.7104195738645362,
+            "RMSE": 1.0920980920088845,
+            "bias": -0.4131483582013278,
+            "n": 12
+          },
+          {
+            "year": 2011,
+            "MAE": 0.3546237308138395,
+            "RMSE": 0.4509577928363495,
+            "bias": 0.2689095107084822,
+            "n": 12
+          }
+        ],
+        "seed_stability": [
+          {
+            "seed": 17,
+            "MAE": 0.45346653039303264,
+            "RMSE": 0.6862901328850857,
+            "bias": -0.030950952821059197,
+            "n": 60
+          },
+          {
+            "seed": 91,
+            "MAE": 0.45346653039303264,
+            "RMSE": 0.6862901328850857,
+            "bias": -0.030950952821059197,
+            "n": 60
+          }
+        ],
+        "interval": {
+          "nominal": 0.8,
+          "radius": 0.6461633182405215,
+          "coverage": 0.7222222222222222,
+          "mean_width": 1.292326636481043,
+          "method": "empirical rolling-development absolute errors; dependent-time coverage not guaranteed"
+        },
+        "groups": [
+          {
+            "season": "dry",
+            "MAE": 0.6847475802444701,
+            "RMSE": 0.738394531059446,
+            "bias": -0.11560589548928277,
+            "n": 15,
+            "baseline_MAE": 0.674070548447511
+          },
+          {
+            "season": "wet",
+            "MAE": 0.3795712612539962,
+            "RMSE": 0.49420377774499163,
+            "bias": -0.1661260520478353,
+            "n": 21,
+            "baseline_MAE": 0.5332687603117705
+          }
+        ],
+        "test_years": [
+          2012,
+          2013,
+          2014
+        ],
+        "test_revealed_at_utc": "2026-11-14T16:05:51.665714+00:00",
+        "selection_changed_after_test": false,
+        "independent_field_validation": false
+      },
+      {
+        "target": "air_temp_mean_c",
+        "unit": "degC",
+        "horizon_months": 3,
+        "selected": {
+          "id": "clim_mean",
+          "kind": "clim_mean",
+          "group": "v1",
+          "complexity": 1
+        },
+        "development_MAE": 0.48505709074765896,
+        "baseline": {
+          "id": "clim_mean",
+          "kind": "clim_mean",
+          "group": "v1",
+          "complexity": 1
+        },
+        "baseline_development_MAE": 0.48505709074765896,
+        "test": {
+          "MAE": 0.592951734330128,
+          "RMSE": 0.7569946813187999,
+          "bias": -0.1900181415992196,
+          "n": 36
+        },
+        "baseline_test": {
+          "MAE": 0.592951734330128,
+          "RMSE": 0.7569946813187999,
+          "bias": -0.1900181415992196,
+          "n": 36
+        },
+        "MAE_improvement_pct": 0.0,
+        "paired_improvement_mm_or_target_unit_CI95_block12": [
+          0.0,
+          0.0
+        ],
+        "folds": [
+          {
+            "year": 2004,
+            "MAE": 0.3011553174200478,
+            "RMSE": 0.38718944119317183,
+            "bias": -0.1788840305017274,
+            "n": 12
+          },
+          {
+            "year": 2006,
+            "MAE": 0.4268521348151169,
+            "RMSE": 0.5567666700961738,
+            "bias": 0.03220709030862364,
+            "n": 12
+          },
+          {
+            "year": 2008,
+            "MAE": 0.44331375641078985,
+            "RMSE": 0.6311340070030768,
+            "bias": 0.37367299394744674,
+            "n": 12
+          },
+          {
+            "year": 2010,
+            "MAE": 0.6910800169647647,
+            "RMSE": 0.9558081226479944,
+            "bias": -0.4526310623650038,
+            "n": 12
+          },
+          {
+            "year": 2011,
+            "MAE": 0.5628842281275755,
+            "RMSE": 0.791339577049119,
+            "bias": 0.4654801807054634,
+            "n": 12
+          }
+        ],
+        "seed_stability": [],
+        "interval": {
+          "nominal": 0.8,
+          "radius": 0.7067222222222256,
+          "coverage": 0.6388888888888888,
+          "mean_width": 1.4134444444444512,
+          "method": "empirical rolling-development absolute errors; dependent-time coverage not guaranteed"
+        },
+        "groups": [
+          {
+            "season": "dry",
+            "MAE": 0.674070548447511,
+            "RMSE": 0.8475633851520891,
+            "bias": -0.022633908370430333,
+            "n": 15,
+            "baseline_MAE": 0.674070548447511
+          },
+          {
+            "season": "wet",
+            "MAE": 0.535009724246283,
+            "RMSE": 0.685010209651451,
+            "bias": -0.30957830819121196,
+            "n": 21,
+            "baseline_MAE": 0.535009724246283
+          }
+        ],
+        "test_years": [
+          2012,
+          2013,
+          2014
+        ],
+        "test_revealed_at_utc": "2026-11-14T16:06:04.962653+00:00",
+        "selection_changed_after_test": false,
+        "independent_field_validation": false
+      },
+      {
+        "target": "air_rh_mean_pct",
+        "unit": "percent",
+        "horizon_months": 1,
+        "selected": {
+          "id": "blend-0.75",
+          "kind": "blend",
+          "base": {
+            "id": "clim_mean",
+            "kind": "clim_mean",
+            "group": "v1",
+            "complexity": 1
+          },
+          "candidate": {
+            "id": "hgb-expanded-3-0.03-12",
+            "kind": "hgb",
+            "group": "expanded",
+            "leaves": 3,
+            "rate": 0.03,
+            "leaf": 12,
+            "complexity": 6
+          },
+          "weight": 0.75,
+          "group": "expanded",
+          "complexity": 9
+        },
+        "development_MAE": 2.590462864829016,
+        "baseline": {
+          "id": "clim_mean",
+          "kind": "clim_mean",
+          "group": "v1",
+          "complexity": 1
+        },
+        "baseline_development_MAE": 2.8566233751179455,
+        "test": {
+          "MAE": 3.8596978645651387,
+          "RMSE": 4.985747752871842,
+          "bias": 1.200931458091575,
+          "n": 36
+        },
+        "baseline_test": {
+          "MAE": 3.6294578677384837,
+          "RMSE": 4.5079059320454355,
+          "bias": 0.16276732061259658,
+          "n": 36
+        },
+        "MAE_improvement_pct": -6.343647046387058,
+        "paired_improvement_mm_or_target_unit_CI95_block12": [
+          -0.954344937657781,
+          0.47195132435495113
+        ],
+        "folds": [
+          {
+            "year": 2004,
+            "MAE": 2.0305632373985065,
+            "RMSE": 3.1082592322317844,
+            "bias": 0.9774474945072212,
+            "n": 12
+          },
+          {
+            "year": 2006,
+            "MAE": 3.2006720691477244,
+            "RMSE": 4.189651008558982,
+            "bias": -1.621407320135497,
+            "n": 12
+          },
+          {
+            "year": 2008,
+            "MAE": 1.8186128193789173,
+            "RMSE": 2.3415265486551053,
+            "bias": -1.0463720755452517,
+            "n": 12
+          },
+          {
+            "year": 2010,
+            "MAE": 4.074599508768479,
+            "RMSE": 5.990531462421383,
+            "bias": 1.0920885196310692,
+            "n": 12
+          },
+          {
+            "year": 2011,
+            "MAE": 1.8278666894514526,
+            "RMSE": 2.1913725972611586,
+            "bias": -1.0142090872745992,
+            "n": 12
+          }
+        ],
+        "seed_stability": [
+          {
+            "seed": 17,
+            "MAE": 2.6750051310082736,
+            "RMSE": 4.039720819444347,
+            "bias": -0.01543126318626212,
+            "n": 60
+          },
+          {
+            "seed": 91,
+            "MAE": 2.6750051310082736,
+            "RMSE": 4.039720819444347,
+            "bias": -0.01543126318626212,
+            "n": 60
+          }
+        ],
+        "interval": {
+          "nominal": 0.8,
+          "radius": 4.3179850596212646,
+          "coverage": 0.7222222222222222,
+          "mean_width": 8.635970119242529,
+          "method": "empirical rolling-development absolute errors; dependent-time coverage not guaranteed"
+        },
+        "groups": [
+          {
+            "season": "dry",
+            "MAE": 5.164173152013039,
+            "RMSE": 6.150431286949656,
+            "bias": 1.3530003738182197,
+            "n": 15,
+            "baseline_MAE": 4.400953203560014
+          },
+          {
+            "season": "wet",
+            "MAE": 2.9279298021023523,
+            "RMSE": 3.948836045248081,
+            "bias": 1.0923108040011145,
+            "n": 21,
+            "baseline_MAE": 3.078389770723105
+          }
+        ],
+        "test_years": [
+          2012,
+          2013,
+          2014
+        ],
+        "test_revealed_at_utc": "2026-11-14T16:06:19.633462+00:00",
+        "selection_changed_after_test": false,
+        "independent_field_validation": false
+      },
+      {
+        "target": "air_rh_mean_pct",
+        "unit": "percent",
+        "horizon_months": 3,
+        "selected": {
+          "id": "blend-0.5",
+          "kind": "blend",
+          "base": {
+            "id": "clim_mean",
+            "kind": "clim_mean",
+            "group": "v1",
+            "complexity": 1
+          },
+          "candidate": {
+            "id": "hgb-expanded-3-0.03-30",
+            "kind": "hgb",
+            "group": "expanded",
+            "leaves": 3,
+            "rate": 0.03,
+            "leaf": 30,
+            "complexity": 6
+          },
+          "weight": 0.5,
+          "group": "expanded",
+          "complexity": 9
+        },
+        "development_MAE": 2.7305013874743356,
+        "baseline": {
+          "id": "clim_mean",
+          "kind": "clim_mean",
+          "group": "v1",
+          "complexity": 1
+        },
+        "baseline_development_MAE": 2.867557045959659,
+        "test": {
+          "MAE": 3.8363500277652522,
+          "RMSE": 4.9362587844620744,
+          "bias": 0.9136797365453982,
+          "n": 36
+        },
+        "baseline_test": {
+          "MAE": 3.6247486460064127,
+          "RMSE": 4.507035039027588,
+          "bias": 0.1530901501625769,
+          "n": 36
+        },
+        "MAE_improvement_pct": -5.837684276176569,
+        "paired_improvement_mm_or_target_unit_CI95_block12": [
+          -0.7362284892586962,
+          0.23267711446151237
+        ],
+        "folds": [
+          {
+            "year": 2004,
+            "MAE": 1.9380664839656419,
+            "RMSE": 2.718945831212327,
+            "bias": 1.0701583405923263,
+            "n": 12
+          },
+          {
+            "year": 2006,
+            "MAE": 3.0179710459513736,
+            "RMSE": 4.170987718030141,
+            "bias": -2.140210209356706,
+            "n": 12
+          },
+          {
+            "year": 2008,
+            "MAE": 2.5158935766407606,
+            "RMSE": 3.2444538419907833,
+            "bias": -1.8158463141940253,
+            "n": 12
+          },
+          {
+            "year": 2010,
+            "MAE": 4.115855852495124,
+            "RMSE": 5.587305684685885,
+            "bias": 0.8175247261451689,
+            "n": 12
+          },
+          {
+            "year": 2011,
+            "MAE": 2.064719978318776,
+            "RMSE": 2.8862197039196555,
+            "bias": -1.574629318737987,
+            "n": 12
+          }
+        ],
+        "seed_stability": [
+          {
+            "seed": 17,
+            "MAE": 2.827508098637845,
+            "RMSE": 4.122496658869744,
+            "bias": -0.20118582140786026,
+            "n": 60
+          },
+          {
+            "seed": 91,
+            "MAE": 2.827508098637845,
+            "RMSE": 4.122496658869744,
+            "bias": -0.20118582140786026,
+            "n": 60
+          }
+        ],
+        "interval": {
+          "nominal": 0.8,
+          "radius": 4.474665379331768,
+          "coverage": 0.6944444444444444,
+          "mean_width": 8.949330758663539,
+          "method": "empirical rolling-development absolute errors; dependent-time coverage not guaranteed"
+        },
+        "groups": [
+          {
+            "season": "dry",
+            "MAE": 4.982595153898477,
+            "RMSE": 6.075453840947647,
+            "bias": 0.4176889023063348,
+            "n": 15,
+            "baseline_MAE": 4.400953203560014
+          },
+          {
+            "season": "wet",
+            "MAE": 3.0176035090986653,
+            "RMSE": 3.9250862152263686,
+            "bias": 1.2679589038590149,
+            "n": 21,
+            "baseline_MAE": 3.0703168191824126
+          }
+        ],
+        "test_years": [
+          2012,
+          2013,
+          2014
+        ],
+        "test_revealed_at_utc": "2026-11-14T16:06:35.138631+00:00",
+        "selection_changed_after_test": false,
+        "independent_field_validation": false
+      }
+    ],
+    "runtime": [
+      {
+        "task": "precip_sum_mm-h1",
+        "seconds": 13.987126300002274,
+        "artifact_bytes": 1539,
+        "save_load_consistent": true
+      },
+      {
+        "task": "precip_sum_mm-h3",
+        "seconds": 15.070562199998676,
+        "artifact_bytes": 5331,
+        "save_load_consistent": true
+      },
+      {
+        "task": "air_temp_mean_c-h1",
+        "seconds": 14.874059599998873,
+        "artifact_bytes": 129744,
+        "save_load_consistent": true
+      },
+      {
+        "task": "air_temp_mean_c-h3",
+        "seconds": 12.954867399999785,
+        "artifact_bytes": 1539,
+        "save_load_consistent": true
+      },
+      {
+        "task": "air_rh_mean_pct-h1",
+        "seconds": 14.65641940000205,
+        "artifact_bytes": 120819,
+        "save_load_consistent": true
+      },
+      {
+        "task": "air_rh_mean_pct-h3",
+        "seconds": 15.379358700000012,
+        "artifact_bytes": 120819,
+        "save_load_consistent": true
+      }
+    ],
+    "fits": 688,
+    "seconds": 94.14408399999957,
+    "sklearn": "1.5.1",
+    "python": "3.12.7",
+    "budget": {
+      "max_candidate_fits": 1600,
+      "cpu_threads": 1,
+      "max_training_minutes": 30,
+      "paid_services": false,
+      "seeds": [
+        17,
+        42,
+        91
+      ]
+    },
+    "stop_reason": "Preregistered bounded families complete; no tuning using final test",
+    "created_at_utc": "2026-11-14T16:06:35.593652+00:00"
+  },
+  "qa": {
+    "created_at_utc": "2026-11-14T16:02:26.200042+00:00",
+    "checks": [
+      {
+        "check": "source_hash_power-1984-1993",
+        "passed": true,
+        "severity": "critical",
+        "detail": "data\\raw\\v2\\power-1984-1993.json"
+      },
+      {
+        "check": "time_standard_power-1984-1993",
+        "passed": true,
+        "severity": "critical",
+        "detail": "UTC daily boundary; local Vietnam day differs"
+      },
+      {
+        "check": "location_power-1984-1993",
+        "passed": true,
+        "severity": "critical",
+        "detail": "Retained pack coordinate, name not independent geocoding"
+      },
+      {
+        "check": "units_power-1984-1993",
+        "passed": true,
+        "severity": "critical",
+        "detail": {
+          "PRECTOTCORR": "mm/day",
+          "T2M": "C",
+          "T2M_MIN": "C",
+          "T2M_MAX": "C",
+          "RH2M": "%"
+        }
+      },
+      {
+        "check": "duplicates_power-1984-1993",
+        "passed": true,
+        "severity": "critical",
+        "detail": 3653
+      },
+      {
+        "check": "physical_power-1984-1993",
+        "passed": true,
+        "severity": "critical",
+        "detail": "No plausible extremes removed"
+      },
+      {
+        "check": "temperature_order_power-1984-1993",
+        "passed": true,
+        "severity": "critical",
+        "detail": "Tmin <= Tmean <= Tmax"
+      },
+      {
+        "check": "source_hash_power-1994-2003",
+        "passed": true,
+        "severity": "critical",
+        "detail": "data\\raw\\v2\\power-1994-2003.json"
+      },
+      {
+        "check": "time_standard_power-1994-2003",
+        "passed": true,
+        "severity": "critical",
+        "detail": "UTC daily boundary; local Vietnam day differs"
+      },
+      {
+        "check": "location_power-1994-2003",
+        "passed": true,
+        "severity": "critical",
+        "detail": "Retained pack coordinate, name not independent geocoding"
+      },
+      {
+        "check": "units_power-1994-2003",
+        "passed": true,
+        "severity": "critical",
+        "detail": {
+          "PRECTOTCORR": "mm/day",
+          "T2M": "C",
+          "T2M_MIN": "C",
+          "T2M_MAX": "C",
+          "RH2M": "%"
+        }
+      },
+      {
+        "check": "duplicates_power-1994-2003",
+        "passed": true,
+        "severity": "critical",
+        "detail": 3652
+      },
+      {
+        "check": "physical_power-1994-2003",
+        "passed": true,
+        "severity": "critical",
+        "detail": "No plausible extremes removed"
+      },
+      {
+        "check": "temperature_order_power-1994-2003",
+        "passed": true,
+        "severity": "critical",
+        "detail": "Tmin <= Tmean <= Tmax"
+      },
+      {
+        "check": "source_hash_power-2004-2014",
+        "passed": true,
+        "severity": "critical",
+        "detail": "data\\raw\\v2\\power-2004-2014.json"
+      },
+      {
+        "check": "time_standard_power-2004-2014",
+        "passed": true,
+        "severity": "critical",
+        "detail": "UTC daily boundary; local Vietnam day differs"
+      },
+      {
+        "check": "location_power-2004-2014",
+        "passed": true,
+        "severity": "critical",
+        "detail": "Retained pack coordinate, name not independent geocoding"
+      },
+      {
+        "check": "units_power-2004-2014",
+        "passed": true,
+        "severity": "critical",
+        "detail": {
+          "PRECTOTCORR": "mm/day",
+          "T2M": "C",
+          "T2M_MIN": "C",
+          "T2M_MAX": "C",
+          "RH2M": "%"
+        }
+      },
+      {
+        "check": "duplicates_power-2004-2014",
+        "passed": true,
+        "severity": "critical",
+        "detail": 4018
+      },
+      {
+        "check": "physical_power-2004-2014",
+        "passed": true,
+        "severity": "critical",
+        "detail": "No plausible extremes removed"
+      },
+      {
+        "check": "temperature_order_power-2004-2014",
+        "passed": true,
+        "severity": "critical",
+        "detail": "Tmin <= Tmean <= Tmax"
+      },
+      {
+        "check": "source_hash_daily",
+        "passed": true,
+        "severity": "critical",
+        "detail": "data\\raw\\resource-eda\\power-dashboard-20261114\\daily.json"
+      },
+      {
+        "check": "time_standard_daily",
+        "passed": true,
+        "severity": "critical",
+        "detail": "UTC daily boundary; local Vietnam day differs"
+      },
+      {
+        "check": "location_daily",
+        "passed": true,
+        "severity": "critical",
+        "detail": "Retained pack coordinate, name not independent geocoding"
+      },
+      {
+        "check": "units_daily",
+        "passed": true,
+        "severity": "critical",
+        "detail": {
+          "PRECTOTCORR": "mm/day",
+          "T2M": "C",
+          "T2M_MIN": "C",
+          "T2M_MAX": "C",
+          "RH2M": "%"
+        }
+      },
+      {
+        "check": "duplicates_daily",
+        "passed": true,
+        "severity": "critical",
+        "detail": 4322
+      },
+      {
+        "check": "physical_daily",
+        "passed": true,
+        "severity": "critical",
+        "detail": "No plausible extremes removed"
+      },
+      {
+        "check": "temperature_order_daily",
+        "passed": true,
+        "severity": "critical",
+        "detail": "Tmin <= Tmean <= Tmax"
+      },
+      {
+        "check": "cross_source_unique",
+        "passed": true,
+        "severity": "critical",
+        "detail": "No overlapping daily keys or many-to-many join"
+      },
+      {
+        "check": "daily_calendar",
+        "passed": true,
+        "severity": "critical",
+        "detail": {
+          "rows": 15645,
+          "expected": 15645
+        }
+      },
+      {
+        "check": "monthly_full_coverage",
+        "passed": true,
+        "severity": "critical",
+        "detail": {
+          "rows": 514,
+          "missing_cells": 0
+        }
+      },
+      {
+        "check": "v1_overlap_identity",
+        "passed": true,
+        "severity": "critical",
+        "detail": "2015-2026 overlap exactly reproduced from raw"
+      },
+      {
+        "check": "future_mutation_h1",
+        "passed": true,
+        "severity": "critical",
+        "detail": "Features at/before cutoff invariant to target/future changes"
+      },
+      {
+        "check": "future_mutation_h3",
+        "passed": true,
+        "severity": "critical",
+        "detail": "Features at/before cutoff invariant to target/future changes"
+      }
+    ],
+    "transforms": [
+      {
+        "source": "power-1984-1993.json",
+        "operation": "fill_to_null",
+        "cells": 0,
+        "reason": "documented fill value; zero retained"
+      },
+      {
+        "source": "power-1994-2003.json",
+        "operation": "fill_to_null",
+        "cells": 0,
+        "reason": "documented fill value; zero retained"
+      },
+      {
+        "source": "power-2004-2014.json",
+        "operation": "fill_to_null",
+        "cells": 0,
+        "reason": "documented fill value; zero retained"
+      },
+      {
+        "source": "daily.json",
+        "operation": "fill_to_null",
+        "cells": 0,
+        "reason": "documented fill value; zero retained"
+      },
+      {
+        "operation": "daily_to_monthly",
+        "input_rows": 15645,
+        "output_rows": 514,
+        "reason": "rain sum; temperature/RH mean; full calendar denominator"
+      },
+      {
+        "operation": "SMAP_left_join",
+        "input_rows": 514,
+        "output_rows": 514,
+        "reason": "one_to_one monthly, absent early years retained null; no historical SMAP fabricated"
+      }
+    ],
+    "daily_rows": 15645,
+    "monthly_rows": 514,
+    "missing": {
+      "precip_sum_mm": 0,
+      "air_temp_mean_c": 0,
+      "T2M_MIN": 0,
+      "T2M_MAX": 0,
+      "air_rh_mean_pct": 0,
+      "SFMC": 386,
+      "RZMC": 386
+    },
+    "duplicates": 0,
+    "critical_pass": true,
+    "label_kind": "retrospective gridded estimates, not independently measured field labels",
+    "geographic_generalization": false,
+    "limitations": [
+      "single retained coordinate; user place-name not independently verified",
+      "SMAP L4 is assimilated model and upstream version incompletely pinned",
+      "historical release/vintage unavailable",
+      "local station records incomplete and at other sites; isolated from weather target",
+      "digitised field boundary not surveyed"
+    ],
+    "warnings": [
+      {
+        "date": "2020-06-14",
+        "variable": "PRECTOTCORR",
+        "value": 488.17,
+        "unit": "mm/day",
+        "affected_daily_rows": 1,
+        "action": "retained and flagged; no clipping or correction without independent evidence",
+        "recheck": "data/raw/v2/power-extreme-recheck.json if present; same NASA product is not ground truth"
+      }
+    ]
+  },
+  "rag_metrics": {
+    "n": 24,
+    "answerable": 16,
+    "recall_at3": 1.0,
+    "top1_evidence_agreement": 1.0,
+    "abstention_decisions": 1.0,
+    "citation_provenance_valid": true,
+    "human_faithfulness_evaluated": false,
+    "scope": "Authored bilingual evaluation, split by questions not independent agronomic gold review. Do not tune after final results.",
+    "selected": {
+      "alpha": 0.65,
+      "rerank": false,
+      "recall_at3": 1.0,
+      "top1": 1.0
+    }
+  },
+  "rules": {
+    "options": [
+      {
+        "id": "R0",
+        "crop": "rice",
+        "label": "Lúa → lúa → lúa",
+        "status": "needs_information",
+        "rank": null,
+        "score": null,
+        "probability_of_success": null,
+        "reasons": [
+          "Chuỗi có trong tài liệu tham khảo; chưa xác nhận hiệu quả hoặc suitability tại ruộng"
+        ],
+        "missing_inputs": [
+          "Xác nhận cây/vụ trước là lúa để áp dụng chuỗi tham khảo",
+          "Khoảng ngày có thể trồng và lịch giống",
+          "Nguồn tưới",
+          "Khả năng thoát nước",
+          "Số đo pH cùng phương pháp, độ sâu và ngày đo"
+        ],
+        "evidence_ids": [
+          "rice-awd-2024",
+          "rotation-historic"
+        ],
+        "calendar": "Cần đối chiếu cửa sổ mùa vụ và thời gian thu cuối; không tự phát hành lịch gieo cụ thể",
+        "tradeoff": "Cây cạn đòi hỏi tưới–tiêu khác lúa; chưa có ước lượng lợi nhuận/năng suất được kiểm chứng",
+        "domain_approved": false
+      },
+      {
+        "id": "R1",
+        "crop": "baby_corn",
+        "label": "Lúa → bắp non → lúa",
+        "status": "needs_information",
+        "rank": null,
+        "score": null,
+        "probability_of_success": null,
+        "reasons": [
+          "Chuỗi có trong tài liệu tham khảo; chưa xác nhận hiệu quả hoặc suitability tại ruộng"
+        ],
+        "missing_inputs": [
+          "Xác nhận cây/vụ trước là lúa để áp dụng chuỗi tham khảo",
+          "Khoảng ngày có thể trồng và lịch giống",
+          "Nguồn tưới",
+          "Khả năng thoát nước",
+          "Số đo pH cùng phương pháp, độ sâu và ngày đo"
+        ],
+        "evidence_ids": [
+          "babycorn-water",
+          "babycorn-duration",
+          "rotation-historic"
+        ],
+        "calendar": "Cần đối chiếu cửa sổ mùa vụ và thời gian thu cuối; không tự phát hành lịch gieo cụ thể",
+        "tradeoff": "Cây cạn đòi hỏi tưới–tiêu khác lúa; chưa có ước lượng lợi nhuận/năng suất được kiểm chứng",
+        "domain_approved": false
+      },
+      {
+        "id": "R2",
+        "crop": "mungbean",
+        "label": "Lúa → đậu xanh → lúa",
+        "status": "needs_information",
+        "rank": null,
+        "score": null,
+        "probability_of_success": null,
+        "reasons": [
+          "Chuỗi có trong tài liệu tham khảo; chưa xác nhận hiệu quả hoặc suitability tại ruộng"
+        ],
+        "missing_inputs": [
+          "Xác nhận cây/vụ trước là lúa để áp dụng chuỗi tham khảo",
+          "Khoảng ngày có thể trồng và lịch giống",
+          "Nguồn tưới",
+          "Khả năng thoát nước",
+          "Kiểm đất/nước mặn và phèn; không suy từ ảnh NDVI",
+          "Số đo pH cùng phương pháp, độ sâu và ngày đo"
+        ],
+        "evidence_ids": [
+          "mungbean-water",
+          "mungbean-calendar",
+          "rotation-historic"
+        ],
+        "calendar": "Cần đối chiếu cửa sổ mùa vụ và thời gian thu cuối; không tự phát hành lịch gieo cụ thể",
+        "tradeoff": "Cây cạn đòi hỏi tưới–tiêu khác lúa; chưa có ước lượng lợi nhuận/năng suất được kiểm chứng",
+        "domain_approved": false
+      }
+    ],
+    "input_origin": "unknown",
+    "farm": {},
+    "conflicts": [],
+    "climate_context": {
+      "target_month": "2026-12-01",
+      "rain_mm": 24.95,
+      "range_mm": [
+        0,
+        72.60000000000001
+      ],
+      "interpretation": "Dải ước tính mưa vùng cho một tháng, chưa biết ngày mưa và khả năng tiêu nước; dùng để chuẩn bị kiểm tra tưới–tiêu, không tự xác nhận cây phù hợp"
+    },
+    "ranking_basis": "explicit crop interests then reference order; no agronomic benefit ranking",
+    "goal": "explore",
+    "goal_next_action": "Bổ sung cây hiện tại, lịch vụ và nước trước khi áp dụng"
+  },
+  "source_mode": "real NASA gridded estimates and local references; no simulated weather or crop labels"
+}

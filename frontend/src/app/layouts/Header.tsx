@@ -5,7 +5,7 @@ export function Header() {
   const { t, i18n } = useTranslation();
   return (
     <header className="app-header">
-      <Link to="/" className="brand">
+      <Link to="/w/my-thanh/farmer" className="brand">
         <span className="brand-symbol">
           <Sprout size={24} />
         </span>
@@ -13,6 +13,7 @@ export function Header() {
       </Link>
       <span className="header-divider" />
       <nav className="product-nav" aria-label="AgroTwin">
+        <Link to="/w/my-thanh/farmer">{i18n.language.startsWith("vi") ? "So lịch luân canh" : "Compare rotations"}</Link>
         <Link to="/">{t("fields")}</Link>
         <Link to="/hardware">{t("hardware")}</Link>
       </nav>

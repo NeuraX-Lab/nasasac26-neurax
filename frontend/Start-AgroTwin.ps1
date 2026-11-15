@@ -37,6 +37,7 @@ if (Get-NetTCPConnection -State Listen -LocalPort 8000 -ErrorAction SilentlyCont
     $started += @{pid=$service.Id; role='api'; root=$labRoot; createdUtc=$service.StartTime.ToUniversalTime().ToString('o')}
     Wait-LocalService 'http://127.0.0.1:8000/v1/analysis/sources' | Out-Null
 }
+& (Join-Path $PSScriptRoot 'Start-FieldShiftV2.ps1')
 if (Get-NetTCPConnection -State Listen -LocalPort 5174 -ErrorAction SilentlyContinue) {
     $site = Invoke-WebRequest 'http://127.0.0.1:5174' -TimeoutSec 3 -UseBasicParsing
     if ($site.Content -notmatch 'AgroTwin') { throw 'Port 5174 is occupied by another app.' }

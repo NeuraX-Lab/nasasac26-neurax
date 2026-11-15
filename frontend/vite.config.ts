@@ -6,16 +6,60 @@ import { resolve } from "node:path";
 export default defineConfig(({ command }) => ({
   // Preserve the original local photograph, but never distribute unlicensed imagery.
   publicDir: command === "build" ? false : "public",
-  plugins: [react(), tailwind(), {
-    name: "curated-public-assets", apply: "build", async closeBundle() {
-      for (const asset of ["favicon.svg", "analysis", "research", "snapshots", "terrain", "imagery/my-thanh-research.svg"]) {
-        const destination = resolve("dist",asset);
-        await mkdir(resolve(destination,".."),{recursive:true});
-        await cp(resolve("public",asset),destination,{recursive:true});
-      }
+  plugins: [
+    react(),
+    tailwind(),
+    {
+      name: "curated-public-assets",
+      apply: "build",
+      async closeBundle() {
+        for (const asset of [
+          "favicon.svg",
+          "analysis",
+          "research",
+          "snapshots",
+          "terrain",
+          "imagery/my-thanh-research.svg",
+          "imagery/context",
+        ]) {
+          const destination = resolve("dist", asset);
+          await mkdir(resolve(destination, ".."), { recursive: true });
+          await cp(resolve("public", asset), destination, { recursive: true });
+        }
+      },
     },
-  }],
-  server: { host: "127.0.0.1", watch: { ignored: ["**/artifacts/**", "**/test-results/**", "**/playwright-report/**"] }, proxy: { "/api": { target: "http://127.0.0.1:8000", rewrite: (path: string) => path.replace(/^\/api/, "") } } },
-  preview: { proxy: { "/api": { target: "http://127.0.0.1:8000", rewrite: (path: string) => path.replace(/^\/api/, "") } } },
+  ],
+  server: {
+    host: "127.0.0.1",
+    watch: {
+      ignored: [
+        "**/artifacts/**",
+        "**/test-results/**",
+        "**/playwright-report/**",
+      ],
+    },
+    proxy: {
+      "/api/v2": {
+        target: "http://127.0.0.1:8182",
+        headers: { origin: "http://127.0.0.1:8182" },
+      },
+      "/api": {
+        target: "http://127.0.0.1:8000",
+        rewrite: (path: string) => path.replace(/^\/api/, ""),
+      },
+    },
+  },
+  preview: {
+    proxy: {
+      "/api/v2": {
+        target: "http://127.0.0.1:8182",
+        headers: { origin: "http://127.0.0.1:8182" },
+      },
+      "/api": {
+        target: "http://127.0.0.1:8000",
+        rewrite: (path: string) => path.replace(/^\/api/, ""),
+      },
+    },
+  },
   build: { chunkSizeWarningLimit: 1600 },
 }));

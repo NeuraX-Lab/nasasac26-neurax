@@ -10,6 +10,8 @@ import { SpatialMap } from "../../shared/map";
 import { OptionalVisual } from "../../shared/OptionalVisual";
 export function Setup() {
   const { t } = useTranslation();
+  const [boundaryHistory, setBoundaryHistory] = useState<Geometry[]>([]),
+    [mapRevision, setMapRevision] = useState(0);
   const { saveArea, areas } = useApp();
   const { id: editingId } = useParams();
   const existing = areas.find((a) => a.id === editingId);
@@ -28,6 +30,7 @@ export function Setup() {
     [error, setError] = useState("");
 
   function onDraw(g: Geometry) {
+    setBoundaryHistory((old) => [...old, geometry].slice(-20));
     setGeometry(g);
     setCoords(
       g.features[0]?.geometry.coordinates[0]
@@ -49,12 +52,15 @@ export function Setup() {
           <p>{t("drawingHelp")}</p>
         </div>
         <div className="setup-grid">
-          <OptionalVisual fallback={t("loading")}><SpatialMap
-            geometry={geometry}
-            drawing
-            onDraw={onDraw}
-            imageExtent={undefined}
-          /></OptionalVisual>
+          <OptionalVisual fallback={t("loading")}>
+            <SpatialMap
+              key={mapRevision}
+              geometry={geometry}
+              drawing
+              onDraw={onDraw}
+              imageExtent={undefined}
+            />
+          </OptionalVisual>
           <form
             onSubmit={(e) => {
               e.preventDefault();
@@ -118,7 +124,9 @@ export function Setup() {
                 onChange={(e) => {
                   setCoords(e.target.value);
                   try {
-                    setGeometry(parseCoordinates(e.target.value));
+                    const next = parseCoordinates(e.target.value);
+                    setBoundaryHistory((old) => [...old, geometry].slice(-20));
+                    setGeometry(next);
                   } catch {
                     /* keep last valid boundary */
                   }
@@ -126,6 +134,33 @@ export function Setup() {
               />
             </label>
             <p id="coordinate-help">{t("coordinateHelp")}</p>
+            <div className="boundary-actions">
+              <button
+                type="button"
+                disabled={!boundaryHistory.length}
+                onClick={() => {
+                  const previous = boundaryHistory.at(-1);
+                  if (!previous) return;
+                  setBoundaryHistory((old) => old.slice(0, -1));
+                  setGeometry(previous);
+                  setCoords(
+                    previous.features[0]?.geometry.coordinates[0]
+                      .slice(0, -1)
+                      .map((p) => p.join(", "))
+                      .join("\n") || "",
+                  );
+                  setMapRevision((n) => n + 1);
+                }}
+              >
+                {t("undoBoundary")}
+              </button>
+              <Link
+                className="button secondary"
+                to={existing ? `/w/${existing.id}/farmer` : "/"}
+              >
+                {t("cancelBoundary")}
+              </Link>
+            </div>
             {error && (
               <p id="area-error" className="form-error" role="alert">
                 {error}

@@ -4,13 +4,22 @@ const Hardware = lazy(() =>
   })),
 );
 import { useEffect, Suspense, lazy } from "react";
-import { Link, Routes, Route } from "react-router-dom";
+import { Link, Routes, Route, Navigate, useParams } from "react-router-dom";
 import { useTranslation } from "react-i18next";
 import { useApp } from "../core/state";
 import { Header } from "./layouts/Header";
 import { Entry } from "../features/sample-selection/Entry";
 import { Setup } from "../features/area-setup/Setup";
 import { Workspace } from "./layouts/Workspace";
+function LegacyPlanner() {
+  const { id } = useParams();
+  return (
+    <Navigate
+      replace
+      to={id === "new" ? "/setup" : `/w/${id || "my-thanh"}/farmer`}
+    />
+  );
+}
 export default function App() {
   const { t, i18n } = useTranslation();
   const { storageError } = useApp();
@@ -36,6 +45,8 @@ export default function App() {
       >
         <Routes>
           <Route path="/" element={<Entry />} />
+          <Route path="/plan" element={<LegacyPlanner />} />
+          <Route path="/plan/:id" element={<LegacyPlanner />} />
           <Route path="/hardware" element={<Hardware />} />
           <Route path="/setup" element={<Setup />} />
           <Route path="/setup/:id" element={<Setup />} />

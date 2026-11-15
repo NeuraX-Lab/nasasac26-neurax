@@ -285,6 +285,12 @@ phrases.simulatedPlacement = ["SIMULATED PLACEMENT / unverified field link. Devi
 phrases.noA1Text = ["A readiness A1 producer is available; crop ranking remains unavailable pending reviewed rules. Reference schedules are not recommendations.", "Đã có producer A1 kiểm điều kiện; chưa có xếp hạng cây khi quy tắc chưa được duyệt. Lịch tham chiếu không là khuyến nghị."];
 phrases.declaredPhysicalLocation = ["Physical location (unverified declaration)", "Vị trí vật lý (khai báo chưa xác minh)"];
 phrases.depthCm = ["Placement depth, cm (optional)", "Độ sâu đặt, cm (tùy chọn)"];
+phrases.probeSoil = ['A · soil probe · illustrative location','A · đầu dò đất · vị trí minh họa'];
+phrases.undoBoundary = ['Undo boundary change','Hoàn tác ranh'];
+phrases.naturalSatellite = ['Natural-color satellite · Esri World Imagery','Vệ tinh màu tự nhiên · Esri World Imagery'];
+phrases.cancelBoundary = ['Cancel boundary edit','Hủy sửa ranh'];
+phrases.probeAir = ['B · air probe · illustrative location','B · đầu đo không khí · vị trí minh họa'];
+phrases.satelliteFailed = ['Satellite unavailable; showing the OSM boundary map.','Chưa tải được vệ tinh; đang dùng bản đồ ranh OSM.'];
 export const resources = {
   en: {
     translation: Object.fromEntries(
@@ -297,9 +303,9 @@ export const resources = {
     ),
   },
 };
-let language = "en";
+let language = "vi";
 try {
-  language = localStorage.getItem("agrotwin-language") === "vi" ? "vi" : "en";
+  language = localStorage.getItem("agrotwin-language") === "en" ? "en" : "vi";
 } catch {
   /* session only */
 }

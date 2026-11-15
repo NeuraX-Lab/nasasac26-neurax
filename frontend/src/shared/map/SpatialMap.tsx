@@ -26,6 +26,7 @@ import {
 } from "lucide-react";
 import type { Geometry } from "../../core/contracts";
 import { center } from "../../core/selectors";
+import { pointInside } from "../../features/dashboard/model";
 
 import workerUrl from "maplibre-gl/dist/maplibre-gl-worker.mjs?worker&url";
 
@@ -38,6 +39,7 @@ type Props = {
   drawing?: boolean;
   onDraw?: (g: Geometry) => void;
   imageExtent?: { xmin: number; ymin: number; xmax: number; ymax: number };
+  sensorNavigation?: { selected: string; onSelect: (head: string) => void };
 };
 
 export default function SpatialMap({
@@ -46,6 +48,7 @@ export default function SpatialMap({
   drawing = false,
   onDraw,
   imageExtent,
+  sensorNavigation,
 }: Props) {
   const { t } = useTranslation();
   const { placements, events } = useHardware();
@@ -60,6 +63,9 @@ export default function SpatialMap({
     draw = useRef<TerraDraw | null>(null);
   const latest = useRef({ geometry, onDraw });
   latest.current = { geometry, onDraw };
+  const sensorNav = useRef(sensorNavigation);
+  sensorNav.current = sensorNavigation;
+  const [imageryFailed, setImageryFailed] = useState(false);
   const [failed, setFailed] = useState(false),
     [attempt, setAttempt] = useState(0),
     [loaded, setLoaded] = useState(false),
@@ -88,8 +94,8 @@ export default function SpatialMap({
         container: canvas.current,
         center: center(latest.current.geometry),
         zoom: 17.2,
-        pitch: !drawing && innerWidth >= 768 ? 45 : 0,
-        bearing: 160,
+        pitch: 0,
+        bearing: 0,
         style: {
           version: 8,
           sources: {},
@@ -115,7 +121,6 @@ export default function SpatialMap({
       });
       map.current = m;
       m.setPixelRatio(Math.min(devicePixelRatio, 1));
-      if (!drawing) m.setPadding({ top: 0, left: 0, right: 0, bottom: 160 });
       if (import.meta.env.DEV) (window as any).__agrotwinMap = m;
     } catch {
       setFailed(true);
@@ -127,6 +132,11 @@ export default function SpatialMap({
       setTerrain(false);
     });
     m.on("error", (e) => {
+      if ("sourceId" in e && e.sourceId === "satellite") {
+        setImageryFailed(true);
+        if (m.getLayer("satellite"))
+          m.setLayoutProperty("satellite", "visibility", "none");
+      }
       if (e.error?.message?.includes("WebGL")) setFailed(true);
       if ("sourceId" in e && e.sourceId === "terrain") {
         setTerrainState("error");
@@ -150,13 +160,24 @@ export default function SpatialMap({
           attribution: "© OpenStreetMap contributors",
         });
         m.addLayer({ id: "basemap", type: "raster", source: "osm" });
+        m.addSource("satellite", {
+          type: "raster",
+          tiles: [
+            "https://services.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/{z}/{y}/{x}",
+          ],
+          tileSize: 256,
+          maxzoom: 19,
+          attribution:
+            '<a href="https://www.arcgis.com/home/item.html?id=10df2279f9684e4a9f6a7f08febac2a9" target="_blank" rel="noreferrer">Esri, Vantor, Earthstar Geographics, GIS User Community</a>',
+        });
+        m.addLayer({ id: "satellite", type: "raster", source: "satellite" });
       }
       m.addSource("aoi", { type: "geojson", data: latest.current.geometry });
       m.addLayer({
         id: "aoi-fill",
         type: "fill",
         source: "aoi",
-        paint: { "fill-color": "#eed367", "fill-opacity": 0.16 },
+        paint: { "fill-color": "#eed367", "fill-opacity": 0.04 },
       });
       m.addLayer({
         id: "aoi-line",
@@ -231,7 +252,14 @@ export default function SpatialMap({
             ((1 - Math.asinh(Math.tan((lat * Math.PI) / 180)) / Math.PI) / 2) *
               2 ** z,
           );
-        const useLocalTerrain = latest.current.geometry.features[0]?.geometry.coordinates[0].every(p => p[0] >= meta.bounds[0] && p[0] <= meta.bounds[2] && p[1] >= meta.bounds[1] && p[1] <= meta.bounds[3]);
+        const useLocalTerrain =
+          latest.current.geometry.features[0]?.geometry.coordinates[0].every(
+            (p) =>
+              p[0] >= meta.bounds[0] &&
+              p[0] <= meta.bounds[2] &&
+              p[1] >= meta.bounds[1] &&
+              p[1] <= meta.bounds[3],
+          );
         const probe = await fetch(
           useLocalTerrain
             ? `/terrain/${z}/${x}/${y}.png`
@@ -256,12 +284,11 @@ export default function SpatialMap({
           attribution: "Mapzen terrain · USGS / NOAA",
         });
         setTerrainState("ready");
-        if (!drawing && innerWidth >= 768) {
-          m.setTerrain({ source: "terrain", exaggeration: 1 });
-          setTerrain(true);
-        }
       } catch (error) {
-        console.warn("Terrain unavailable; retaining the 2D analysis view.", error);
+        console.warn(
+          "Terrain unavailable; retaining the 2D analysis view.",
+          error,
+        );
         if (!disposed) {
           setTerrainState("error");
           setTerrain(false);
@@ -286,11 +313,12 @@ export default function SpatialMap({
     const m = map.current;
     if (!loaded || !m) return;
     (m.getSource("aoi") as maplibregl.GeoJSONSource)?.setData(geometry);
-    m.flyTo({
-      center: center(geometry),
-      duration: reduced() ? 0 : 900,
-      essential: false,
-    });
+    const ring = geometry.features[0]?.geometry.coordinates[0];
+    if (ring?.length) {
+      const bounds = new maplibregl.LngLatBounds();
+      ring.forEach((p) => bounds.extend(p as [number, number]));
+      m.fitBounds(bounds, { padding: 48, maxZoom: 17.2, duration: 0 });
+    }
   }, [geometry, loaded]);
 
   useEffect(() => {
@@ -327,10 +355,16 @@ export default function SpatialMap({
     if (!loaded || !m) return;
     if (m.getLayer("imagery"))
       m.setLayoutProperty("imagery", "visibility", image ? "visible" : "none");
+    if (m.getLayer("satellite"))
+      m.setLayoutProperty(
+        "satellite",
+        "visibility",
+        image && !imageryFailed ? "visible" : "none",
+      );
     for (const id of ["aoi-fill", "aoi-line"])
       if (m.getLayer(id))
         m.setLayoutProperty(id, "visibility", boundary ? "visible" : "none");
-  }, [loaded, image, boundary, imageExtent]);
+  }, [loaded, image, boundary, imageExtent, imageryFailed]);
 
   useEffect(() => {
     const m = map.current;
@@ -345,11 +379,33 @@ export default function SpatialMap({
 
   useEffect(() => {
     map.current?.resize();
+    const previous = document.activeElement as HTMLElement | null;
+    if (expanded)
+      host.current?.querySelector<HTMLButtonElement>("button")?.focus();
     const listener = (e: KeyboardEvent) => {
       if (e.key === "Escape") setExpanded(false);
+      if (expanded && e.key === "Tab") {
+        const elements = [
+          ...host.current!.querySelectorAll<HTMLElement>(
+            'button:not(:disabled),a[href],canvas[tabindex="0"],select,input',
+          ),
+        ].filter((el) => el.getClientRects().length);
+        const first = elements[0],
+          last = elements.at(-1);
+        if (e.shiftKey && document.activeElement === first) {
+          e.preventDefault();
+          last?.focus();
+        } else if (!e.shiftKey && document.activeElement === last) {
+          e.preventDefault();
+          first?.focus();
+        }
+      }
     };
     window.addEventListener("keydown", listener);
-    return () => window.removeEventListener("keydown", listener);
+    return () => {
+      window.removeEventListener("keydown", listener);
+      if (expanded) previous?.focus();
+    };
   }, [expanded]);
 
   function set3D(value: boolean) {
@@ -365,7 +421,11 @@ export default function SpatialMap({
     const m = map.current;
     if (!loaded || !m) return;
     const markers = placements
-      .filter((p) => p.areaId === areaId)
+      .filter(
+        (p) =>
+          p.areaId === areaId &&
+          pointInside([p.longitude, p.latitude], geometry),
+      )
       .map((p) => {
         const el = document.createElement("button");
         el.className = "sensor-marker";
@@ -381,7 +441,10 @@ export default function SpatialMap({
       });
     const requested = mapParams.get("device");
     const target = placements.find(
-      (p) => p.areaId === areaId && p.deviceId === requested,
+      (p) =>
+        p.areaId === areaId &&
+        p.deviceId === requested &&
+        pointInside([p.longitude, p.latitude], geometry),
     );
     if (target) {
       m.flyTo({
@@ -397,7 +460,44 @@ export default function SpatialMap({
       markers.forEach((marker) => marker.remove());
       m.off("click", "aoi-fill", onClick);
     };
-  }, [placements, areaId, loaded, t, mapParams]);
+  }, [placements, areaId, loaded, t, mapParams, geometry]);
+  useEffect(() => {
+    const m = map.current;
+    if (!loaded || !m || !sensorNavigation) return;
+    const ring = geometry.features[0]?.geometry.coordinates[0] || [];
+    if (!ring.length) return;
+    const xs = ring.map((p) => p[0]),
+      ys = ring.map((p) => p[1]);
+    const minX = Math.min(...xs),
+      maxX = Math.max(...xs),
+      minY = Math.min(...ys),
+      maxY = Math.max(...ys);
+    const markers = ["A", "B"].flatMap((head, i) => {
+      const point = [
+        minX + (maxX - minX) * (i === 0 ? 0.28 : 0.72),
+        minY + (maxY - minY) * 0.5,
+      ];
+      if (!pointInside(point, geometry)) return [];
+      const el = document.createElement("button");
+      el.className = "probe-marker";
+      el.textContent = head;
+      el.setAttribute(
+        "aria-label",
+        head === "A" ? t("probeSoil") : t("probeAir"),
+      );
+      el.setAttribute(
+        "aria-pressed",
+        String(sensorNavigation.selected === head),
+      );
+      el.onclick = () => sensorNav.current?.onSelect(head);
+      return [
+        new maplibregl.Marker({ element: el })
+          .setLngLat(point as [number, number])
+          .addTo(m),
+      ];
+    });
+    return () => markers.forEach((marker) => marker.remove());
+  }, [loaded, geometry, sensorNavigation?.selected, t]);
   useEffect(() => {
     const m = map.current;
     if (!loaded || !m || drawing) return;
@@ -464,10 +564,25 @@ export default function SpatialMap({
     <section
       ref={host}
       className={`spatial-map ${expanded ? "expanded" : ""}`}
+      role={expanded ? "dialog" : undefined}
+      aria-modal={expanded ? true : undefined}
       aria-label={t("earth")}
       data-terrain-state={terrainState}
     >
       <div ref={canvas} className="map-canvas" />
+      {imageryFailed && (
+        <div className="imagery-warning" role="status">
+          {t("satelliteFailed")}{" "}
+          <button
+            onClick={() => {
+              setImageryFailed(false);
+              setAttempt((n) => n + 1);
+            }}
+          >
+            {t("retry")}
+          </button>
+        </div>
+      )}
       {areaId && (
         <label className="map-field-select">
           <span className="sr-only">{t("changeArea")}</span>
@@ -523,7 +638,8 @@ export default function SpatialMap({
             {events.filter((e) => e.device_id === device).at(-1)?.data_mode ||
               t("unknown")}
           </p>
-          <p>{t("pointLimit")}</p><p>{t("simulatedPlacement")}</p>
+          <p>{t("pointLimit")}</p>
+          <p>{t("simulatedPlacement")}</p>
           <Link to={`/hardware?device=${encodeURIComponent(device)}`}>
             {t("hardware")} →
           </Link>
@@ -552,19 +668,21 @@ export default function SpatialMap({
       )}
 
       <div className="map-top">
-        <div className="segmented map-segment">
-          <button aria-pressed={!terrain} onClick={() => set3D(false)}>
-            {t("flat")}
-          </button>
-          <button
-            aria-pressed={terrain}
-            disabled={terrainState !== "ready"}
-            onClick={() => set3D(true)}
-          >
-            <Mountain size={15} />
-            {t("terrain")}
-          </button>
-        </div>
+        {layers && (
+          <div className="segmented map-segment">
+            <button aria-pressed={!terrain} onClick={() => set3D(false)}>
+              {t("flat")}
+            </button>
+            <button
+              aria-pressed={terrain}
+              disabled={terrainState !== "ready"}
+              onClick={() => set3D(true)}
+            >
+              <Mountain size={15} />
+              {t("terrain")}
+            </button>
+          </div>
+        )}
         <button
           className="map-layer"
           onClick={() => setLayers(!layers)}
@@ -581,10 +699,9 @@ export default function SpatialMap({
             <input
               type="checkbox"
               checked={image}
-              disabled={!imageExtent}
               onChange={(e) => setImage(e.target.checked)}
             />
-            {t("imagery")}
+            {t(imageExtent ? "imagery" : "naturalSatellite")}
           </label>
           <label>
             <input
